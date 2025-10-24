@@ -1,0 +1,105 @@
+body{
+    font-family: sans-serif;
+    background: #ecf0f5;
+}
+
+.auth_header{
+    background: blue;
+    height: 60px;
+    width: 1512px;
+}
+.content{
+    background: #ecf0f5;
+    height: 100%;
+    width: 1170px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.login_form{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 70px;
+}
+.login_frame{
+    background: white;
+    width: 450px;
+    height: 500px;
+    border-radius: 15px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    margin: auto;
+    padding: 40px;
+    box-sizing: border-box;
+
+}
+
+.login_header{
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.login_form_acc label{
+    font-size: 16px;
+    display: block;
+    padding-top: 10px;
+}
+.login_form_psw label{
+    font-size: 16px;
+    display: block;
+    padding-top: 10px;
+}
+.login_input{
+    font-size: 16px;
+    padding: 20px;
+    width: calc(100% - 40px);
+    border-radius: 5px;
+}
+.login_form_more{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.btn{
+    text-align: center;
+
+}
+.btn .login_btn{
+    background: orange;
+    display: inline-block;
+    width: calc(100% - 30px);
+    border-radius: 5px;
+    border: none;
+    padding: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+.btn .login_btn:hover{
+    background-color: darkorange;
+}
+.line_or{
+    position: relative;
+    height: 20px;
+    border-top: 1px solid gray;
+    margin: 20px 0;
+}
+.or{
+    text-align: center;
+    font-size: 16px;
+    color: gray;
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0 15px;
+    background: white;
+}
+
+
+
+
