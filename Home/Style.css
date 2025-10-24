@@ -1,0 +1,220 @@
+/* Reset cơ bản */
+body{
+
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+background-color: blueviolet;
+}
+p{
+
+}
+a{
+
+}
+.container{
+    max-width: 1400px;
+    width: 80%;
+    margin: 0 auto;
+    height: 75px;
+
+
+
+}
+
+
+.header-box{
+    display: flex;                 /* bật flex cho 3 phần tử con */
+    justify-content: space-between; /* logo trái, menu giữa, right phải */
+    align-items: center;
+    height: 75px;
+}
+
+#header .header-content .header-wrapper {
+    background-color: hsl(208, 100%, 22%);
+    overflow: visible;
+
+}
+
+
+
+
+
+.header-logo img {
+    height: 60px;
+    width: 60px;
+    padding-left: 16px;
+}
+/*centre*/
+nav .menu{
+    display: flex;
+    align-items: center;
+    height: 75px;
+
+
+}
+nav .menu .item{
+    color: hsl(200, 100%, 99%);
+    font-size: 20px;
+  font-weight: 500;;
+    font-family: sans-serif;
+    float: left;
+    padding: 25px;
+    width: fit-content;
+
+
+
+}
+
+nav .menu .item:hover{
+    color: hsl(188, 79%, 47%);
+}
+nav .menu .item .sub {
+    display: flex;
+    align-items: center;
+    gap:4px;
+}
+nav .menu .item .sub span {
+    width: 7px;
+    height: 7px;
+    background: hsl(0, 0%, 100%);    border-radius: 50%;
+
+}
+nav .menu .item:hover .sub span {
+    background: hsl(188, 79%, 47%);
+}
+nav .menu .item .sub-item {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    background-color: hsl(208, 100%, 22%);
+    border-radius: 6px;
+    padding: 20px;
+
+}
+nav .menu .item {
+    position: relative;
+}
+
+nav .menu .item:hover .sub-item {
+    display: block;
+}
+nav .menu .item .sub-item a {
+    display: block;
+    color: hsl(200, 100%, 99%);
+    font-size: 20px;
+    font-weight: 500;
+    font-family: sans-serif;
+    padding: 8px 12px;
+    text-decoration: none;
+    line-height: 1.8;
+    white-space: nowrap; /*  Không cho xuống dòng */
+}
+
+nav .menu .item .sub-item a:hover {
+    color: hsl(188, 79%, 47%);
+}
+/*heder cuối*/
+.header-right{
+    display: flex;
+    align-items: center;
+    gap:30px;
+    margin-left:100px;
+}
+
+.header-right .account {
+    position: relative;
+    display: flex;
+    align-items: center;
+height: 75px;
+    cursor: pointer;
+
+}
+.header-right .account img{
+    height:32px;
+    width: 32px;
+    background-color: hsl(208, 100%, 22%);
+
+
+    }
+
+
+
+
+.header-right .account span{
+    font-size: 25px;
+    color: hsl(192, 100%, 99%);
+}
+.account:hover .dropdown,
+.account .dropdown:hover {
+    display: block;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.account .dropdown {
+    display: none;
+    position: absolute;
+    top: 75px;       /* hạ xuống gần icon hơn */
+    left: 0;         /* canh thẳng với account */
+
+    background: hsl(0, 0%, 100%);
+    color: black;
+    width: 300px;
+    height: 130px;
+    border-radius: 6px;
+    padding: 15px;
+    text-align: center;
+}
+
+
+.header-right .register-btn {
+    width: 270px;
+    height: 45px;
+    color: hsl(0, 0%, 100%);
+    background-color:hsl(188, 79%, 47%) ;
+  font-size: 15px;
+    font-weight: bold;
+    border-radius: 4px;
+    font-family: sans-serif;
+    padding: 15px 90px;
+    cursor: pointer;
+
+}
+.header-right .account .dropdown p {
+    text-align: left;
+    margin-left: 15px;
+    margin-top:15px ;
+    margin-bottom: 15px;
+    line-height: 1.8;
+    font-size: 15px;
+     color: hsl(230, 25%, 39%)
+
+
+}
+.header-right .account .dropdown a{
+
+   color:hsl(188, 79%, 47%) ;
+}
+.header-right  .phone_number{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+}
+.header-right  .phone_number img{
+    width: 25px;
+    height: 30px;
+    filter: brightness(0) saturate(100%) invert(53%) sepia(96%) saturate(3157%) hue-rotate(7deg) brightness(102%) contrast(102%);
+}
+.header-right  .phone_number span{
+    color: hsl(33, 100%, 50%);
+    font-family: sans-serif;
+    font-size:25px ;
+    font-weight: bolder;
+
+}
+.header-right  .phone_number:hover{
+color: hsl(43, 100%, 54%)
+}
