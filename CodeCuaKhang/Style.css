@@ -1,0 +1,245 @@
+
+body {
+    background-color: hsl(220, 9%, 91%);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Roboto, Arial, sans-serif;
+}
+
+.container {
+    width: 1536px;
+    height: 3000px
+}
+
+.header {
+    width: 100%;
+    height: 64px;
+}
+
+.home {
+    width: 100%;
+    height: 2905px;
+}
+
+.banner {
+    position: relative;
+    width: 100%;
+    height: 498px;
+}
+
+.banner img {
+    width: 100%;
+    height: 498px;
+    object-fit: cover;
+    filter: brightness(70%);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: hsl(220, 9%, 91%);
+    padding: 56px;
+}
+
+.overlay_container {
+    width: 1172px;
+    height: 262px;
+    text-align: center;
+    padding: 0 16px;
+}
+
+.overlay_box {
+    width: 760px;
+}
+
+.text_wrapper {
+    height: 75px;
+    row-gap: 4px;
+}
+
+.overlay_box h1 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.text_wrapper span {
+    font-size: 20px;
+    opacity: 0.9;
+}
+
+/* ====== SEARCH BOX ====== */
+.search_box {
+    height: 172px;
+    background-color: hsl(0, 0%, 0%, 0.2);
+    border-radius: 10px;
+    padding: 16px;
+    margin-top: 25px;
+    display: inline-block;
+    float: left;
+}
+
+.search_box_wrapper {
+    width: 686px;
+    height: 140px;
+    display: grid;
+    align-items: center;
+    justify-items: stretch;
+    gap: 12px;
+}
+
+/* Phần nhập địa điểm */
+.section1 {
+    height: 64px;
+    position: relative;
+    display: block;
+}
+
+.section1 input {
+    padding: 0 16px 0 50px;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    margin: 0;
+    font-size: 16px;
+}
+
+.section1 i {
+    left: 12px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+}
+
+/* Phần chọn ngày */
+.section2_home_search-container {
+    height: 64px;
+    position: relative;
+}
+
+.ds_button {
+    position: relative;
+    background-color: hsl(0, 0%, 100%);
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.section2 button {
+    padding-left: 16px;
+}
+
+.col-span-5 .ds_btn-item {
+    gap: 0 8px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.section2 i {
+    font-size: 24px;
+}
+
+.section2 input[type="date"] {
+    row-gap: 6px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.section2 input[value="2025-10-29"] {
+    font-weight: 500;
+    color: hsl(0, 3%, 24%);
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.col-span-2 {
+    color: hsl(0, 0%, 35%);
+    display: flex;
+    justify-content: center;
+    height: 100%;
+
+}
+
+.ds_divider-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: hsl(0, 0%, 100%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 21px;
+}
+
+/* Phần chọn phòng */
+.section3 {
+    flex: 1;
+}
+
+.rs_room-btn {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px 15px;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.rs_room-btn i {
+    color: #666;
+}
+
+/* Nút tìm kiếm */
+.section4 {
+    flex: 0.5;
+}
+
+.btn-bs_default {
+    background: #ff8800;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-bs_default:hover {
+    background: #ff6600;
+    transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .overlay_box h1 {
+        font-size: 28px;
+    }
+
+    .search_box_wrapper {
+        flex-direction: column;
+    }
+
+    .section1, .section2, .section3, .section4 {
+        width: 100%;
+    }
+}
