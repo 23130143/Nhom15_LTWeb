@@ -37,7 +37,7 @@ p {
 .header-logo img {
     height: 60px;
     width: 60px;
-    padding-left: 16px;
+    padding-left: 10px;
 }
 
 /* ----- Menu ----- */
@@ -52,7 +52,7 @@ nav .menu .item {
     font-size: 20px;
     font-weight: 500;
     font-family: sans-serif;
-    padding: 25px;
+    padding: 20px;
     position: relative;
     cursor: pointer;
 }
@@ -110,6 +110,7 @@ nav .menu .item .sub-item a:hover {
     display: flex;
     align-items: center;
     gap: 30px;
+
 }
 
 /* Account Dropdown */
@@ -118,6 +119,7 @@ nav .menu .item .sub-item a:hover {
     display: flex;
     align-items: center;
     cursor: pointer;
+    height: 75px;
 }
 
 .header-right .account i {
