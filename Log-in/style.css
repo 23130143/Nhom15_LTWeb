@@ -1,12 +1,13 @@
 body{
     font-family: sans-serif;
     background: #ecf0f5;
+    margin: 0;
 }
 
 .auth_header{
     background: blue;
     height: 60px;
-    width: 1512px;
+    width: 100%;
 }
 .content{
     background: #ecf0f5;
@@ -98,6 +99,20 @@ body{
     transform: translateX(-50%);
     padding: 0 15px;
     background: white;
+}
+.social_login{
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    margin-top: 10px;
+    width: 100%;
+}
+.social_login .facebook_login, .google_login{
+    background: white;
+    width: calc(50% - 15px);
+    height: 45px;
+    border-radius: 5px;
+    border: 1px solid gray;
 }
 
 
