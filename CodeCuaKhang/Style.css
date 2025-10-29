@@ -1,38 +1,26 @@
-
-body {
-    background-color: hsl(220, 9%, 91%);
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Roboto, Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
 }
 
-.container {
-    width: 1536px;
-    height: 3000px
-}
-
-.header {
-    width: 100%;
-    height: 64px;
-}
-
-.home {
-    width: 100%;
-    height: 2905px;
+body {
+    background-color: #fff;
+    overflow-x: hidden;
 }
 
 .banner {
     position: relative;
     width: 100%;
-    height: 498px;
+    height: 100vh;
+    overflow: hidden;
 }
 
 .banner img {
     width: 100%;
-    height: 498px;
+    height: 100%;
     object-fit: cover;
-    filter: brightness(70%);
 }
 
 .overlay {
@@ -40,206 +28,171 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 320px;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4));
     display: flex;
-    align-items: center;
     justify-content: center;
-    color: hsl(220, 9%, 91%);
-    padding: 56px;
+    align-items: center;
 }
 
 .overlay_container {
-    width: 1172px;
-    height: 262px;
-    text-align: center;
-    padding: 0 16px;
-}
-
-.overlay_box {
-    width: 760px;
+    color: white;
+    width: 80%;
+    max-width: 1200px;
 }
 
 .text_wrapper {
-    height: 75px;
-    row-gap: 4px;
+    margin-bottom: 25px;
 }
 
-.overlay_box h1 {
-    font-size: 36px;
+.text_wrapper h1 {
+    font-size: 38px;
     font-weight: 700;
-    margin-bottom: 10px;
+    color: #fff;
+    margin-bottom: 8px;
 }
 
 .text_wrapper span {
-    font-size: 20px;
-    opacity: 0.9;
+    font-size: 18px;
+    color: #f5f5f5;
 }
 
-/* ====== SEARCH BOX ====== */
 .search_box {
-    height: 172px;
-    background-color: hsl(0, 0%, 0%, 0.2);
+    background-color: #fff;
     border-radius: 10px;
-    padding: 16px;
-    margin-top: 25px;
-    display: inline-block;
-    float: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    flex-wrap: wrap;
 }
 
-.search_box_wrapper {
-    width: 686px;
-    height: 140px;
-    display: grid;
+.section1, .section2, .section3 {
+    flex: 1;
+    min-width: 220px;
+    border-right: 1px solid #e5e7eb;
+    display: flex;
     align-items: center;
-    justify-items: stretch;
-    gap: 12px;
+    padding: 5px 15px;
 }
 
-/* Phần nhập địa điểm */
-.section1 {
-    height: 64px;
+.section4 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 15px;
+}
+
+.section1_home__search-container {
     position: relative;
-    display: block;
+    width: 100%;
 }
 
-.section1 input {
-    padding: 0 16px 0 50px;
+.section1_home__search-container input {
     width: 100%;
-    height: 100%;
-    border-radius: 10px;
     border: none;
     outline: none;
-    margin: 0;
     font-size: 16px;
 }
 
-.section1 i {
-    left: 12px;
+.section1_home__search-container .fa-magnifying-glass {
     position: absolute;
+    right: 10px;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 24px;
+    color: #9ca3af;
 }
 
-/* Phần chọn ngày */
-.section2_home_search-container {
-    height: 64px;
-    position: relative;
-}
-
-.ds_button {
-    position: relative;
-    background-color: hsl(0, 0%, 100%);
+.section2_home__search-container {
     width: 100%;
-    height: 100%;
-    border-radius: 10px;
 }
 
-.section2 button {
-    padding-left: 16px;
-}
-
-.col-span-5 .ds_btn-item {
-    gap: 0 8px;
+.section2_home__search-container button {
+    border: none;
+    background: transparent;
     display: flex;
     align-items: center;
-    height: 100%;
+    gap: 8px;
+    font-size: 15px;
+    color: #374151;
+    cursor: pointer;
 }
 
-.section2 i {
-    font-size: 24px;
+.section2_home__search-container input[type="date"] {
+    border: none;
+    background: transparent;
+    color: #374151;
+    font-size: 15px;
 }
 
-.section2 input[type="date"] {
-    row-gap: 6px;
-    height: 100%;
+.section3_home__search-container {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-}
-
-.section2 input[value="2025-10-29"] {
-    font-weight: 500;
-    color: hsl(0, 3%, 24%);
-    font-size: 16px;
-    line-height: 1.4;
-}
-
-.col-span-2 {
-    color: hsl(0, 0%, 35%);
-    display: flex;
-    justify-content: center;
-    height: 100%;
-
-}
-
-.ds_divider-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: hsl(0, 0%, 100%);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 21px;
-}
-
-/* Phần chọn phòng */
-.section3 {
-    flex: 1;
 }
 
 .rs_room-btn {
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 10px 15px;
-    width: 100%;
-    text-align: left;
+    border: none;
+    background: transparent;
     display: flex;
-    align-items: center;
-    gap: 10px;
+    flex-direction: column;
+    align-items: flex-start;
     cursor: pointer;
+    color: #374151;
+    font-size: 15px;
 }
 
 .rs_room-btn i {
-    color: #666;
-}
-
-/* Nút tìm kiếm */
-.section4 {
-    flex: 0.5;
+    margin-bottom: 5px;
+    color: #374151;
 }
 
 .btn-bs_default {
-    background: #ff8800;
+    background-color: #ff7b00;
     color: #fff;
     border: none;
-    border-radius: 10px;
-    padding: 12px 30px;
-    font-size: 16px;
-    font-weight: 600;
+    border-radius: 8px;
+    padding: 15px 35px;
+    font-size: 18px;
+    font-weight: bold;
     cursor: pointer;
-    transition: 0.3s;
+    transition: background 0.3s;
 }
 
 .btn-bs_default:hover {
-    background: #ff6600;
-    transform: scale(1.05);
+    background-color: #e56b00;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-    .overlay_box h1 {
-        font-size: 28px;
-    }
+.rs_dd-container {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    position: absolute;
+    margin-top: 10px;
+    padding: 15px;
+    color: #111;
+    display: none;
+}
 
-    .search_box_wrapper {
+.section1:hover,
+.section2:hover,
+.section3:hover {
+    background-color: #f9fafb;
+    border-radius: 8px;
+    transition: background 0.3s;
+}
+
+@media (max-width: 768px) {
+    .search_box {
         flex-direction: column;
+        align-items: stretch;
     }
-
     .section1, .section2, .section3, .section4 {
+        border-right: none;
+        border-bottom: 1px solid #e5e7eb;
+    }
+    .btn-bs_default {
         width: 100%;
     }
 }
