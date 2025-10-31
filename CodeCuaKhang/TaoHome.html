@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+          integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+<div class="container">
+    <div class="header"></div>
+
+    <div class="home">
+        <div class="banner">
+            <div class="wrapper">
+                <img src="https://cdn1.ivivu.com/images/2025/10/06/10/angsana_hue-t_ljqs77_.webp"
+                     alt="Ảnh khách sạn, du lịch">
+                <div class="overlay">
+                    <div class="overlay_container">
+                        <div class="grid grid-cols-12">
+                            <div class="col-span-12 xl:col-span-8 cursor-auto">
+                                <div class="overlay_box">
+                                    <div class="text_wrapper">
+                                        <h1>Trải nghiệm kỳ nghỉ tuyệt vời</h1>
+                                        <span>Combo khách sạn - vé máy bay - đưa đón sân bay giá tốt nhất</span>
+                                    </div>
+                                    <div class="search_box">
+                                        <div class="search_box_wrapper">
+
+                                            <div class="section1">
+                                                <div class="section1_home__search-container">
+                                                    <label for="001"></label>
+                                                    <input id="001" type="text" placeholder="Bạn muốn đi đâu?">
+                                                    <div class="search-bar">
+                                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="section2">
+                                                <div class="section2_home__search-container">
+                                                    <div class="ds_button">
+                                                        <div class="ds__caret"
+                                                             style="opacity: 0; transform: translateY(-20px); visibility: hidden"></div>
+                                                        <div class="grid grid-cols-12">
+                                                            <button type="button" class="col-span-5">
+                                                                <i class="fa-solid fa-calendar"></i>
+                                                                <label for="002"></label>
+                                                                <input id="002" type="date" value="2025-10-29">
+                                                            </button>
+                                                            <div class="col-span-2">
+                                                                <div class="ds_divider-container">
+                                                                    <div class="ds_divider">
+                                                                        <div class="ds_divider-item">
+                                                                            <span class="ds__divider-item-text">1</span>
+                                                                            <i class="fa-solid fa-moon"></i>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <button type="button" class="col-span-5 ds_btn-right">
+                                                                <i class="fa-solid fa-calendar"></i>
+                                                                <label for="003"></label>
+                                                                <input id="003" type="date" value="2025-10-30">
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="ds-dd__container" id="dateContainer">
+                                                        <div class="date-select__litepicker-custom">
+                                                            <label for="dateInput"></label>
+                                                            <input type="date" id="dateInput">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="section3">
+                                                <div class="section3_home__search-container">
+                                                    <button class="rs_room-btn apply-for-home">
+                                                        <i class="fa-solid fa-users"></i>
+                                                        <span class="rs__room-total">1 phòng</span>
+                                                        <span class="rs__room-guest">2 người lớn, 0 trẻ em</span>
+                                                    </button>
+                                                    <div class="rs_dd-container">
+                                                        <div class="ds_dd-box">
+                                                            <div class="ds_dd-wrapper">
+                                                                <div class="rs-dd_fields1">
+                                                                    <div class="rs-dd_field-label1">
+                                                                        <span class="rs-dd__label-main1">Phòng</span>
+                                                                    </div>
+                                                                    <div class="rs-dd_field-control1">
+                                                                        <button class="rs-dd_field-btn flex-center left">
+                                                                            <i class="fa-solid fa-circle-minus"></i>
+                                                                        </button>
+                                                                        <span class="rs-dd__field-result1">1</span>
+                                                                        <button class="rs-dd_field-btn flex-center right">
+                                                                            <i class="fa-solid fa-circle-plus"></i>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="rs-dd_divider1"></div>
+
+                                                                <div class="rs-dd_fields2">
+                                                                    <div class="rs-dd_field-label2">
+                                                                        <span class="rs-dd__label-main2">Người lớn</span>
+                                                                        <span class="rs-dd__label-desc">Từ 17 tuổi</span>
+                                                                    </div>
+                                                                    <div class="rs-dd__field-control2">
+                                                                        <button class="rs-dd_field-btn flex-center left">
+                                                                            <i class="fa-solid fa-circle-minus"></i>
+                                                                        </button>
+                                                                        <span class="rs-dd__field-result2">2</span>
+                                                                        <button class="rs-dd_field-btn flex-center right">
+                                                                            <i class="fa-solid fa-circle-plus"></i>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="rs-dd_divider2"></div>
+
+                                                                <div class="rs-dd_fields3">
+                                                                    <div class="rs-dd_field-label3">
+                                                                        <span class="rs-dd__label-main3">Trẻ em</span>
+                                                                        <span class="rs-dd__label-desc">Từ 0 - 16 tuổi</span>
+                                                                    </div>
+                                                                    <div class="rs-dd__field-control3">
+                                                                        <button class="rs-dd_field-btn flex-center left">
+                                                                            <i class="fa-solid fa-circle-minus"></i>
+                                                                        </button>
+                                                                        <span class="rs-dd__field-result3">0</span>
+                                                                        <button class="rs-dd_field-btn flex-center right">
+                                                                            <i class="fa-solid fa-circle-plus"></i>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="section4">
+                                            <div class="home_search-container">
+                                                <button class="btn-bs_default flex-center">
+                                                    <span>Tìm</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

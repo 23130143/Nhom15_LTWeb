@@ -189,7 +189,6 @@ nav .menu .item .sub-item a:hover {
 .header-right .phone_number:hover span {
     color: hsl(43, 100%, 54%);
 }
-
 .content{
     background: #ecf0f5;
     height: 100%;
@@ -199,15 +198,15 @@ nav .menu .item .sub-item a:hover {
     margin-left: auto;
     margin-right: auto;
 }
-.login_form{
+.fpsw_form{
     margin-left: auto;
     margin-right: auto;
     margin-top: 70px;
 }
-.login_frame{
+.fpsw_frame{
     background: white;
     width: 450px;
-    height: 500px;
+    height: 400px;
     border-radius: 15px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
     margin: auto;
@@ -216,46 +215,60 @@ nav .menu .item .sub-item a:hover {
 
 }
 
-.login_header{
-    font-size: 24px;
+.fPSW_header{
+    position: relative;
+    display: flex;
     font-weight: bold;
-    text-align: center;
+    align-items: center;
     padding-bottom: 10px;
+    justify-content: center;
+}
+.fPSW_header .back{
+    position: absolute;
+    left: 0;
+    text-decoration: none;
+    color: gray;
+    font-size: 20px;
+}
+.back:hover{
+    color: darkgray;
+}
+.header_text{
+    text-align: center;
+    font-size: 24px;
+}
+.label{
+    font-size: 16px;
+    display: block;
+    padding-top: 10px;
+}
+.email label{
+    font-size: 16px;
+    display: block;
+    padding-top: 10px;
 }
 
-.login_form_acc label{
+.email{
     font-size: 16px;
-    display: block;
-    padding-top: 10px;
-}
-.login_form_psw label{
-    font-size: 16px;
-    display: block;
-    padding-top: 10px;
-}
-.login_input{
-    font-size: 16px;
-    padding: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     width: calc(100% - 40px);
     border-radius: 5px;
 }
-.login_form_more{
-    display: flex;
-    justify-content: space-between;
-    padding-top: 10px;
-    padding-bottom: 10px;
+
+.fpsw_input{
+    font-size: 16px;
+    padding: 20px;
+    width:100%;
+    border-radius: 5px;
 }
-.login_form_more .forgotPsw{
-    text-decoration: none;
-}
-.sign_in{
-    text-decoration: none;
-}
+
 .btn{
     text-align: center;
-
+    padding-top: 20px;
 }
-.btn .login_btn{
+
+.btn .fpsw_btn{
     background: orange;
     display: inline-block;
     width: calc(100% - 30px);
@@ -266,42 +279,8 @@ nav .menu .item .sub-item a:hover {
     font-weight: bold;
     color: white;
     text-decoration: none;
+
 }
-.btn .login_btn:hover{
+.btn .fpsw_btn:hover{
     background-color: darkorange;
 }
-.line_or{
-    position: relative;
-    height: 20px;
-    border-top: 1px solid gray;
-    margin: 20px 0;
-}
-.or{
-    text-align: center;
-    font-size: 16px;
-    color: gray;
-    position: absolute;
-    top: -8px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 0 15px;
-    background: white;
-}
-.social_login{
-    display: flex;
-    text-align: center;
-    justify-content: space-between;
-    margin-top: 10px;
-    width: 100%;
-}
-.social_login .facebook_login, .google_login{
-    background: white;
-    width: calc(50% - 15px);
-    height: 45px;
-    border-radius: 5px;
-    border: 1px solid gray;
-}
-
-
-
-
