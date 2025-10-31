@@ -304,6 +304,8 @@ html, body {
     margin: 0;
     padding: 10px 0;
 }
+/* Section tour */
+
 .tour-section{
     background: hsl(0, 0%, 100%);
 }
@@ -314,17 +316,21 @@ html, body {
 }
 .tour-section .tour-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* ✅ chỉnh thành 3 cột cố định */
-    gap: 35px;
+    grid-template-columns: repeat(3, 360px); /*  chỉnh thành 3 cột cố định */
+
+    row-gap: 10px; /* chỉ cách hàng, không lệch ngang */
+    column-gap: 15px; /* khoảng cách đều giữa các cột */
     justify-content: center;
+
 }
 .tour-section h2{
-    font-size: 40px;
+    font-size: 36px;
     font-weight: bold;
     color: hsl(0, 3%, 24%);
     margin-top: 40px;
     margin-bottom: 10px;
 }
+
 .tour-section .title-group{
     display: block;
     font-size: 18px;
@@ -339,8 +345,10 @@ html, body {
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
     width: 100%;
-    max-width: 380px;
+    max-width: 320px;
+
     border: 3px solid hsl(228, 8%, 88%);
+
 
 }
 .tour-card:hover {
@@ -362,12 +370,19 @@ html, body {
     background-color: hsl(0, 78%, 60%); /* đỏ giảm giá */
 }
 .tour-section .tour-img {
-    width: 400px;
-    height: 280px;
+    width: 100%;
+    height: 200px;
     object-fit: cover; /* phủ đầy mà không vỡ ảnh */
 }
+.tour-section .tour-detail {
+    padding:  10px 0;
+    text-align: left;
+    background-color: #fff;
+}
+
 .tour-section .tour-content{
-    padding: 0 25px;
+
+
     text-align: left;
     margin-left: 15px;
 }
@@ -377,55 +392,74 @@ html, body {
     color: hsl(206, 74%, 32%);
 }
 .tour-section .tour-time {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 0 15px;
+
+
     color:hsl(300, 1%, 57%);
     font-size: 15px;
     margin-left: 15px;
 }
-.tour-section .tour-info{
-    text-align: left;
-    margin-left: 15px;
-    margin-top: 30px;
-}
 
-.tour-list ul {
-    padding-left: 0; margin-left: 15px;
-
-
+.tour-section .tour-info {
+    margin: 0 0 5px;
+    padding: 0 15px;
 }
 
 
-.tour-list li{
+.tour-section .tour-info .tour-list {
+    padding: 0;
+    margin: 0;
+
+}
+
+/* Các mục trong danh sách */
+.tour-section .tour-info .tour-list li {
     font-size: 16px;
     color: hsl(188, 79%, 40%);
+    line-height: 1.6;
+    list-style: none; /* xóa dấu chấm mặc định */
+    position: relative;
+    margin-left: 20px; /* đẩy chữ sang phải cho có chỗ cho dấu chấm */
 }
 
-.tour-list ul li::before {
-    color: hsl(188, 79%, 40%);
+/* Thêm dấu chấm thủ công trước mỗi mục */
+.tour-section .tour-info .tour-list li::before {
+    content: "•";              /* dấu chấm tròn */
+    color: hsl(188, 79%, 40%); /* cùng màu chữ */
+    position: absolute;
+    left: -15px;               /* đặt chấm ra ngoài bên trái */
+    top: 0;
+    font-size: 18px;
 }
 /* ==== Giá ==== */
-.price{
+.tour-section .price {
     display: flex;
-    justify-content: flex-end;
+    position: relative;
+    justify-content: flex-end; /* giá nằm bên phải */
     align-items: baseline;
-    gap: 8px;
+    gap: 10px; /* khoảng cách giữa giá cũ và giá mới */
+    margin-top: auto;
     padding: 10px 20px 20px 0;
+    float: right;
 }
 
-.price .old {
+.tour-section .price .old {
     text-decoration: line-through;
     color: #999;
-    font-size: 20px;
+    font-size: 16px;
 }
 
-.price .new {
-    color: hsl(34, 100%, 52%);
+.tour-section .price .new {
+    color: hsl(34, 100%, 52%); /* màu cam nổi bật */
     font-size: 20px;
     font-weight: bold;
 }
+
+.tour-section .price .textCurrency {
+    font-size: 0.8em; /* nhỏ hơn một chút để gọn */
+    font-weight: bold;
+    margin-left: 2px; /* cách nhẹ số tiền */
+}
+
 .see-more{
     display: flex;
     justify-content: center;
