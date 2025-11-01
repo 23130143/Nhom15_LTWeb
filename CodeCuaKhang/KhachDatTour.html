@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thông tin khách đặt Tour</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="Style2.css">
+</head>
+<body>
+<header></header>
+
+<main class="container">
+    <section class="info-card">
+        <h2>Thông tin khách đặt Tour</h2>
+        <form>
+            <div class="gender">
+                <label> Giới tính <span>*</span> </label>
+                <div class="gender-options">
+                    <label> <input type="radio" name="gender" required> Quý ông </label>
+                    <label> <input type="radio" name="gender" required> Quý bà </label>
+                </div>
+            </div>
+
+            <div class="name">
+                <label for="001"> Họ và Tên <span>*</span> </label>
+                <input id="001" type="text" placeholder="VD: Nguyễn Văn A" required>
+            </div>
+
+            <div class="phoneNumber">
+                <label for="002"> Số điện thoại <span>*</span> </label>
+                <input id="002" type="text" placeholder="Nhận số điện thoại liên lạc" required>
+            </div>
+
+            <div class="email">
+                <label for="003"> Email <span>*</span> </label>
+                <input id="003" type="text" placeholder="Nhập Email nhận thông tin" required>
+            </div>
+
+            <div class="note">
+                <label for="note"> Ghi chú đặc biệt(Nếu có) </label>
+                <textarea id="note" name="text" rows="3"
+                          placeholder="VD: Cần hỗ trợ làm Visa, ăn chay, cần xe nôi cho bé ..."></textarea>
+            </div>
+
+            <div class="buttons">
+                <button type="submit" class="btn-primary">Thanh toán ngay</button>
+            </div>
+        </form>
+    </section>
+
+    <div class="summary-section">
+        <h3>Tour Đài Loan 5N4Đ: Đài Trung - Cao Hùng - Đài Bắc - Bảo Tàng Kỳ Mỹ</h3>
+        <img src="IMAGE/bao-tang-quoc-gia-ivv-930x520.gif" alt="ảnh du lịch"/>
+
+        <div class="dates">
+            <div class="tour-detail"><span><i class="fa-solid fa-calendar"></i> 26-11-2025</span> <span>Thứ 4</span>
+            </div>
+            <div class="tour-detail"><span><i class="fa-solid fa-calendar"></i> 30-11-2025</span> <span>Chủ nhật</span>
+            </div>
+            <div class="tour-detail"><span><i class="fa-solid fa-tag"></i> Mã tour</span> <span>TO3078</span></div>
+        </div>
+
+        <div class="main-price">
+            <p>Người lớn <span>2 x 13.390.000</span></p>
+            <p class="total">Tổng tiền <span class="price">26.780.000 <small class="textCurrency">đ</small></span></p>
+        </div>
+
+    </div>
+</main>
+</body>
+</html>
