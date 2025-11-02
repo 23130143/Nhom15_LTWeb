@@ -414,6 +414,20 @@ html, body {
     overflow: hidden;/* Ẩn phần nd khi vượt ra ngoài khung */
     background-color: hsl(43, 96%, 89%);
     margin-bottom: 20px;
+
+
+
+}
+.main-card.no-header .main-header {
+    display: none;
+}
+.main-card.no-header {
+    background-color: hsl(0, 0%, 100%); /* màu trắng */
+
+}
+.main-card:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* đổ bóng mạnh hơn */
+    border-color: hsl(197, 100%, 70%); /* viền xanh nhạt giống ảnh */
 }
 
 .main-header {
