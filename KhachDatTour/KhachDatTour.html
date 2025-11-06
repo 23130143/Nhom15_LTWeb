@@ -7,65 +7,123 @@
     <link rel="stylesheet" href="KhachDatTour.css">
 </head>
 <body>
-<header></header>
+<div class="container">
+    <section id="header">
+        <div class="header-content">
+            <header class="header-wrapper">
+                <div class="container">
+                    <div class="header-box">
+                        <div class="logo">
+                            <div class="header-logo">
+                                <a href="https://www.ivivu.com/" aria-label="IVIVU" class="IVIVU-logo">
+                                    <img src="IMAGE/ivivu-com-logo.png" height="300" width="300"/></a>
+                            </div>
 
-<main class="container">
-    <section class="info-card">
-        <h2>Thông tin khách đặt Tour</h2>
-        <form>
-            <div class="gender">
-                <label> Giới tính <span>*</span> </label>
-                <div class="gender-options">
-                    <label> <input type="radio" name="gender" required> Quý ông </label>
-                    <label> <input type="radio" name="gender" required> Quý bà </label>
+
+                        </div>
+                        <div class="header-center">
+                            <nav>
+                                <div class=" menu">
+                                    <div class="item">Tour trong nước</div>
+                                    <div class="item">Tour nước ngoài</div>
+                                    <div class="item">Khuyến mãi</div>
+                                    <div class="item">Giới thiệu</div>
+
+                                    <div class="item ">
+                                        <div class="sub">
+                                            <span></span><span></span><span></span>
+                                        </div>
+                                        <div class="sub-item">
+                                            <a href="#">Tin Tức</a>
+                                            <a href="#">Câu hỏi thường gặp</a>
+                                            <a href="#">Nhật ký khách hàng</a>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </nav>
+                        </div>
+                        <div class="header-right">
+                            <div class="account">
+                                <i class="fa-solid fa-circle-user"></i>
+                                <span>Tài khoản ▾</span>
+                                <div class="dropdown">
+                                    <button class="register-btn">Đăng ký</button>
+                                    <p>Quý khách đã có tài khoản?<br>
+                                        <a href="#">Đăng nhập ngay</a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="phone_number">
+                                <i class="fa-solid fa-phone"></i>
+                                <span class="phonenum">1900 2490</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-
-            <div class="name">
-                <label for="001"> Họ và Tên <span>*</span> </label>
-                <input id="001" type="text" placeholder="VD: Nguyễn Văn A" required>
-            </div>
-
-            <div class="phoneNumber">
-                <label for="002"> Số điện thoại <span>*</span> </label>
-                <input id="002" type="text" placeholder="Nhận số điện thoại liên lạc" required>
-            </div>
-
-            <div class="email">
-                <label for="003"> Email <span>*</span> </label>
-                <input id="003" type="text" placeholder="Nhập Email nhận thông tin" required>
-            </div>
-
-            <div class="note">
-                <label for="note"> Ghi chú đặc biệt(Nếu có) </label>
-                <textarea id="note" name="text" rows="3"
-                          placeholder="VD: Cần hỗ trợ làm Visa, ăn chay, cần xe nôi cho bé ..."></textarea>
-            </div>
-
-            <div class="buttons">
-                <button type="submit" class="btn-primary">Thanh toán ngay</button>
-            </div>
-        </form>
+            </header>
+        </div>
     </section>
 
-    <div class="summary-section">
-        <h3>Tour Đài Loan 5N4Đ: Đài Trung - Cao Hùng - Đài Bắc - Bảo Tàng Kỳ Mỹ</h3>
-        <img src="IMAGE/bao-tang-quoc-gia-ivv-930x520.gif" alt="ảnh du lịch"/>
 
-        <div class="dates">
-            <div class="tour-detail"><span><i class="fa-solid fa-calendar"></i> 26-11-2025</span> <span>Thứ 4</span>
-            </div>
-            <div class="tour-detail"><span><i class="fa-solid fa-calendar"></i> 30-11-2025</span> <span>Chủ nhật</span>
-            </div>
-            <div class="tour-detail"><span><i class="fa-solid fa-tag"></i> Mã tour</span> <span>TO3078</span></div>
+    <section class="main">
+        <div class="info-card">
+            <h2>Thông tin khách đặt Tour</h2>
+            <form>
+                <div class="gender">
+                    <label> Giới tính <span>*</span> </label>
+                    <div class="gender-options">
+                        <label> <input type="radio" name="gender" required> Quý ông </label>
+                        <label> <input type="radio" name="gender" required> Quý bà </label>
+                    </div>
+                </div>
+
+                <div class="name">
+                    <label for="001"> Họ và Tên <span>*</span> </label>
+                    <input id="001" type="text" placeholder="VD: Nguyễn Văn A" required>
+                </div>
+
+                <div class="phoneNumber">
+                    <label for="002"> Số điện thoại <span>*</span> </label>
+                    <input id="002" type="text" placeholder="Nhận số điện thoại liên lạc" required>
+                </div>
+
+                <div class="email">
+                    <label for="003"> Email <span>*</span> </label>
+                    <input id="003" type="text" placeholder="Nhập Email nhận thông tin" required>
+                </div>
+
+                <div class="note">
+                    <label for="note"> Ghi chú đặc biệt(Nếu có) </label>
+                    <textarea id="note" name="text" rows="3"
+                              placeholder="VD: Cần hỗ trợ làm Visa, ăn chay, cần xe nôi cho bé ..."></textarea>
+                </div>
+
+                <div class="buttons">
+                    <button type="submit" class="btn-primary">Thanh toán ngay</button>
+                </div>
+            </form>
         </div>
+        <div class="summary-section">
+            <h3>Tour Đài Loan 5N4Đ: Đài Trung - Cao Hùng - Đài Bắc - Bảo Tàng Kỳ Mỹ</h3>
+            <img src="IMAGE/bao-tang-quoc-gia-ivv-930x520.gif" alt="ảnh du lịch"/>
 
-        <div class="main-price">
-            <p>Người lớn <span>2 x 13.390.000</span></p>
-            <p class="total">Tổng tiền <span class="price">26.780.000 <small class="textCurrency">đ</small></span></p>
+            <div class="dates">
+                <div class="tour-detail"><span><i class="fa-solid fa-calendar"></i> 26-11-2025</span> <span>Thứ 4</span>
+                </div>
+                <div class="tour-detail"><span><i class="fa-solid fa-calendar"></i> 30-11-2025</span> <span>Chủ nhật</span>
+                </div>
+                <div class="tour-detail"><span><i class="fa-solid fa-tag"></i> Mã tour</span> <span>TO3078</span></div>
+            </div>
+
+            <div class="main-price">
+                <p>Người lớn <span>2 x 13.390.000</span></p>
+                <p class="total">Tổng tiền <span class="price">26.780.000 <small class="textCurrency">đ</small></span></p>
+            </div>
         </div>
+    </section>
 
-    </div>
-</main>
+</div>
 </body>
 </html>
