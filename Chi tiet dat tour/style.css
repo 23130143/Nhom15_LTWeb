@@ -192,7 +192,7 @@ nav .menu .item .sub-item a:hover {
 }
 .content{
     background: #ecf0f5;
-    height: 100%;
+    min-height: 100%;
     width: 1170px;
     padding-left: 15px;
     padding-right: 15px;
@@ -224,9 +224,12 @@ nav .menu .item .sub-item a:hover {
     opacity: 1;
 }
 .tour-img img.fade-out {
-    opacity: 0; /* Làm mờ khi chuyển ảnh */
+    opacity: 0;
 }
-
+.thumb-list{
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
 .tour-img i {
     position: absolute;
     top: 50%;
@@ -253,6 +256,8 @@ nav .menu .item .sub-item a:hover {
     margin: 0;
     padding: 20px;
     box-sizing: border-box;
+    position: sticky;
+    top: 50px;
 }
 .tour-info h2{
     text-align: center;
@@ -316,4 +321,157 @@ nav .menu .item .sub-item a:hover {
 }
 .tour-btn:hover {
     background-color: #ff6600;
+}
+.tourDetails,.experience-section{
+    background: white;
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.tourDetails h4{
+    margin-top: 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+.tourDetails i{
+    font-size: 15px;
+    color: #1877F2;
+}
+.departure{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+.details-row {
+    display: grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap: 10px 20px;
+    margin-top: 10px;
+}
+.d-item{
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    gap: 5px;
+}
+.experience-section h2{
+    margin-top: 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+.experience-row{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 12px;
+}
+.experience-row span{
+    display: block;
+    font-size: 16px;
+}
+/*Footer*/
+footer {
+    background-color: #f9fafb;
+    margin-top: 50px;
+}
+
+footer .footer-top {
+    padding: 50px 0 30px 0;
+}
+
+.ft_container {
+    width: 80%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.ft_col {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.list_col {
+    flex: 1;
+    min-width: 200px;
+}
+
+.list_col h4 {
+    margin-bottom: 15px;
+    color: hsl(10, 5%, 24%);
+    font-size: 22px;
+}
+
+.list_col p {
+    margin-bottom: 12px;
+    font-size: 16px;
+    color: hsl(40, 1%, 51%);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.list_col p:hover {
+    color: hsl(188, 79%, 47%);
+}
+
+/* Icon mạng xã hội */
+.icon_social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.icon_social i {
+    font-size: 24px;
+    background-color: hsl(188, 79%, 47%);
+    color: white;
+    border-radius: 50%;
+    padding: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.icon_social i:hover {
+    background-color: hsl(188, 79%, 40%);
+    transform: scale(1.1);
+}
+
+/* Footer bottom */
+.footer-bottom {
+    border-top: 1px solid #ccc;
+    padding: 15px 0;
+    text-align: center;
+    background-color: #eef1f3;
+}
+
+.footer-bottom span {
+    color: #555;
+    font-size: 14px;
+}
+/* Đảm bảo footer sát mép dưới */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Nếu vẫn có khoảng trắng do layout flex */
+.footer {
+    margin: 0;
+    padding: 0;
+}
+
+/* Loại bỏ khoảng trống do các phần tử block mặc định */
+.footer-bottom {
+    margin: 0;
+    padding: 10px 0;
 }
