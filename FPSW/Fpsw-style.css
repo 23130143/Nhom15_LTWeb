@@ -3,8 +3,9 @@ body{
     background: #ecf0f5;
     margin: 0;
 }
-.header-box{
-    width: 1170px;
+.header-box {
+    max-width: 1400px;
+    width: 80%;
     margin: 0 auto;
 }
 #header .header-wrapper {
@@ -189,6 +190,7 @@ nav .menu .item .sub-item a:hover {
 .header-right .phone_number:hover span {
     color: hsl(43, 100%, 54%);
 }
+
 .content{
     background: #ecf0f5;
     height: 100%;
