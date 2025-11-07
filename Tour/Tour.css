@@ -307,9 +307,10 @@ html, body {
 
 /* Section tour */
 
-.tour-section{
+.tour-section {
     background: hsl(0, 0%, 100%);
 }
+
 .tour-section .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -324,6 +325,8 @@ html, body {
     justify-content: center;
 
 }
+
+
 .tour-section h2{
     font-size: 36px;
     font-weight: bold;
