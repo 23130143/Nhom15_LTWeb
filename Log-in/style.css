@@ -3,8 +3,9 @@ body{
     background: #ecf0f5;
     margin: 0;
 }
-.header-box{
-    width: 1170px;
+.header-box {
+    max-width: 1400px;
+    width: 80%;
     margin: 0 auto;
 }
 #header .header-wrapper {

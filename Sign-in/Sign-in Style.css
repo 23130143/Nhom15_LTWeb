@@ -12,6 +12,15 @@ body{
 }
 
 .header-box {
+    max-width: 1400px;
+    width: 80%;
+    margin: 0 auto;
+}
+#header .header-wrapper {
+    background-color: hsl(208, 100%, 22%);
+}
+
+.header-box {
     display: flex;
     justify-content: space-between;
     align-items: center;
