@@ -4,6 +4,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 a {
@@ -148,7 +149,7 @@ nav .menu .item .sub-item a:hover {
     width: 280px;
     border-radius: 6px;
     padding: 15px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .account:hover .dropdown {
@@ -204,6 +205,7 @@ nav .menu .item .sub-item a:hover {
 .header-right .phone_number:hover span {
     color: hsl(43, 100%, 54%);
 }
+
 
 /* ================= FOOTER ================= */
 footer {
@@ -286,6 +288,7 @@ footer .footer-top {
     color: #555;
     font-size: 14px;
 }
+
 /* Đảm bảo footer sát mép dưới */
 html, body {
     height: 100%;
@@ -307,14 +310,16 @@ html, body {
 
 /* Section tour */
 
-.tour-section{
+.tour-section {
     background: hsl(0, 0%, 100%);
 }
+
 .tour-section .container {
     max-width: 1200px;
     margin: 0 auto;
 
 }
+
 .tour-section .tour-grid {
     display: grid;
     grid-template-columns: repeat(3, 360px); /*  chỉnh thành 3 cột cố định */
@@ -324,7 +329,9 @@ html, body {
     justify-content: center;
 
 }
-.tour-section h2{
+
+
+.tour-section h2 {
     font-size: 36px;
     font-weight: bold;
     color: hsl(0, 3%, 24%);
@@ -332,18 +339,19 @@ html, body {
     margin-bottom: 10px;
 }
 
-.tour-section .title-group{
+.tour-section .title-group {
     display: block;
     font-size: 18px;
-    color :hsl(207, 23%, 63%);
+    color: hsl(207, 23%, 63%);
     margin-bottom: 20px;
 }
+
 .tour-card {
     position: relative;
     background: #fff;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
     width: 100%;
     max-width: 320px;
@@ -352,9 +360,11 @@ html, body {
 
 
 }
+
 .tour-card:hover {
     transform: translateY(-5px);
 }
+
 /* ====== LABEL ====== */
 .label {
     position: absolute;
@@ -370,32 +380,36 @@ html, body {
 .label.red {
     background-color: hsl(0, 78%, 60%); /* đỏ giảm giá */
 }
+
 .tour-section .tour-img {
     width: 100%;
     height: 200px;
     object-fit: cover; /* phủ đầy mà không vỡ ảnh */
 }
+
 .tour-section .tour-detail {
-    padding:  10px 0;
+    padding: 10px 0;
     text-align: left;
     background-color: #fff;
 }
 
-.tour-section .tour-content{
+.tour-section .tour-content {
 
 
     text-align: left;
     margin-left: 15px;
 }
-.tour-section .tour-content h3{
+
+.tour-section .tour-content h3 {
     font-size: 20px;
     font-weight: bold;
     color: hsl(206, 74%, 32%);
 }
+
 .tour-section .tour-time {
 
 
-    color:hsl(300, 1%, 57%);
+    color: hsl(300, 1%, 57%);
     font-size: 15px;
     margin-left: 15px;
 }
@@ -424,13 +438,14 @@ html, body {
 
 /* Thêm dấu chấm thủ công trước mỗi mục */
 .tour-section .tour-info .tour-list li::before {
-    content: "•";              /* dấu chấm tròn */
+    content: "•"; /* dấu chấm tròn */
     color: hsl(188, 79%, 40%); /* cùng màu chữ */
     position: absolute;
-    left: -15px;               /* đặt chấm ra ngoài bên trái */
+    left: -15px; /* đặt chấm ra ngoài bên trái */
     top: 0;
     font-size: 18px;
 }
+
 /* ==== Giá ==== */
 .tour-section .price {
     display: flex;
@@ -461,16 +476,17 @@ html, body {
     margin-left: 2px; /* cách nhẹ số tiền */
 }
 
-.see-more{
+.see-more {
     display: flex;
     justify-content: center;
     margin: 35px 0;
 }
-.btn-see-more{
+
+.btn-see-more {
     background: hsl(0, 0%, 100%);
     width: 210px;
     height: 60px;
-   border-radius: 5px;
+    border-radius: 5px;
     border: 2px solid hsl(188, 79%, 40%);
     display: flex;
     justify-content: center; /* canh giữa theo chiều ngang */
@@ -480,10 +496,128 @@ html, body {
     color: hsl(188, 79%, 40%);
 
 }
+
 .btn-see-more:hover {
     background: hsl(188, 79%, 40%);
     color: #fff;
 }
 
+/* thanh search */
+.section-search {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+}
 
+.section-search img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(70%);
+    position: absolute;
+    z-index: -1;
+
+}
+
+.search-container {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: hsl(200, 33%, 98%);
+    padding-top: 70px;
+}
+
+.home-title h1 {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.home-info h2 {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 40px;
+}
+
+.home-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.search-item1,
+.search-item2 {
+    display: flex;
+    align-items: center;
+    background: white;
+    color: hsl(220, 13%, 20%);
+    padding: 12px 20px;
+    border-radius: 15px;
+    width: 300px;
+    height: 67px;
+    box-shadow: 0 4px 10px hsl(0 0% 0% / 20%);
+}
+
+.search-item1 i,
+.search-item2 i {
+    font-size: 20px;
+    margin-right: 20px;
+    color: hsl(200, 90%, 45%);
+}
+
+.search-content {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.search-content label {
+    font-size: 13px;
+    font-weight: 600;
+    color: hsl(220, 10%, 40%);
+    margin-bottom: 3px;
+}
+
+.search-content input {
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background: transparent; /* nền trong suốt */
+    color: hsl(220, 13%, 20%);
+}
+
+.search-content select {
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background: transparent;
+    color: hsl(220, 13%, 20%);
+    width: 100%;
+    appearance: none; /* Ẩn mũi tên select */
+    overflow-y: auto;
+    margin-right: 25px;
+}
+
+.search-button {
+    background-color: hsl(28, 100%, 50%);
+    border: none;
+    color: white;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 15px 35px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    box-shadow: 0 4px 10px hsl(0 0% 0% / 25%);
+    height: 90px;
+    width: 110px;
+}
+
+.search-button:hover {
+    background-color: hsl(28, 100%, 45%);
+}
 
