@@ -34,6 +34,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
 })
 document.addEventListener("DOMContentLoaded", () => {
+    const numberC=document.getElementById('number-c');
+    const priceChild = document.getElementById('child-price');
+    if (numberC.value == 0) {
+        priceChild.style.display = 'none';
+    }
+    numberC.addEventListener('input', function () {
+        if (numberC.value > 0) {
+            priceChild.style.display = 'inline';
+        } else {
+            priceChild.style.display = 'none';
+        }
+    });
+})
+document.addEventListener("DOMContentLoaded", () => {
     const priceAdult = 9400000;
     const priceChild=8500000;
 
