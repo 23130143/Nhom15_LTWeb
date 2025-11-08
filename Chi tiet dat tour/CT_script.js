@@ -17,12 +17,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const thumbs = document.querySelectorAll('.thumb-list img');
     let index = 0;
     function changeImage(newIndex) {
-        mainImg.classList.add("fade-out"); // Bắt đầu làm mờ
-        setTimeout(() => {
-            index = (newIndex + thumbs.length) % thumbs.length; // Vòng lại nếu vượt giới hạn
-            mainImg.src = thumbs[index].src; // Đổi ảnh
-            mainImg.classList.remove("fade-out"); // Hiện lại
-        }, 250); // Thời gian khớp với transition 0.5s
+        mainImg.classList.add("fade-out");
+        index = (newIndex + thumbs.length) % thumbs.length;
+        mainImg.src = thumbs[index].src;
+        mainImg.classList.remove("fade-out");
     }
 
     rightImg.addEventListener("click", () => changeImage(index + 1));
@@ -36,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
     const numberC=document.getElementById('number-c');
     const priceChild = document.getElementById('child-price');
-    if (numberC.value == 0) {
+    if (numberC.value === 0) {
         priceChild.style.display = 'none';
     }
     numberC.addEventListener('input', function () {

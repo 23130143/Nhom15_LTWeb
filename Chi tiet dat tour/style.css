@@ -199,7 +199,7 @@ nav .menu .item .sub-item a:hover {
     margin-left: auto;
     margin-right: auto;
 }
-.content .hearder-page {
+hearder-page {
     font-size: 15px;
     font-weight: bold;
     color: #1877F2;
@@ -269,7 +269,7 @@ nav .menu .item .sub-item a:hover {
 }
 .tour-info input {
     padding: 10px 10px 10px 15px;
-    border: 1.5px solid #d0e3f0;
+    border: 1px solid #d0e3f0;
     border-radius: 8px;
     font-size: 14px;
     color: #333;
@@ -277,16 +277,16 @@ nav .menu .item .sub-item a:hover {
 }
 .tour-pricing .price {
     position: absolute;
-    top: calc(49% - 2px);
+    top: 38%;
     font-size: 17px;
-    right: 15%;
+    right: 20%;
     color: red;
 }
 .tour-pricing .child-price {
     position: absolute;
-    top: calc(57% - 6px);
+    top: 51%;
     font-size: 17px;
-    right: 15%;
+    right: 20%;
     color: red;
 }
 .total{
