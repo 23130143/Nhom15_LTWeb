@@ -26,6 +26,13 @@ p {
 #header .header-wrapper {
     background-color: hsl(208, 100%, 22%);
 }
+#header {
+    position: sticky; /* hoặc fixed nếu muốn luôn hiển thị */
+    top: 0;
+    z-index: 1000; /* đảm bảo cao hơn các section bên dưới */
+    background-color: white; /* tránh trong suốt */
+}
+
 
 .header-box {
     display: flex;
@@ -87,6 +94,7 @@ nav .menu .item .sub-item {
     background-color: hsl(208, 100%, 22%);
     border-radius: 6px;
     padding: 15px 20px;
+    z-index: 2000; /* quan trọng */
 }
 
 nav .menu .item:hover .sub-item {
@@ -312,6 +320,8 @@ html, body {
 
 .tour-section {
     background: hsl(0, 0%, 100%);
+    position: relative;
+    z-index: 1; /* thấp hơn header */
 }
 
 .tour-section .container {
