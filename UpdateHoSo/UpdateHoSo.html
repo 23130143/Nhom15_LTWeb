@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="HoSoStyle.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="updateHoSoStyle.css">
 </head>
 <body>
 <header id="header">
@@ -72,39 +71,40 @@
     <section class="profile">
         <h1 class="profile-header">Thông tin cá nhân</h1>
         <div class="profile-item">
-            <span class="label">Họ tên</span>
-            <span class="value">Huỳnh Thị Thu Diễm</span>
-        </div>
-
-        <div class="profile-item">
-            <span class="label">Địa chỉ email</span>
-            <span class="value">abcxyz@gmail.com</span>
+            <label for="name" class="label">Họ tên</label>
+            <input id="name" class="input" type="text" placeholder="Huỳnh Thị Thu Diễm">
         </div>
         <div class="profile-item">
-            <span class="label">Số điện thoại</span>
-            <span class="value">Thêm số điện thoại của bạn</span>
+            <label for="email" class="label">Địa chỉ email</label>
+            <input id="email" class="input" type="email" placeholder="abcxyz@gmail.com">
         </div>
         <div class="profile-item">
-            <span class="label">Ngày sinh</span>
-            <span class="value">Nhập ngày sinh của bạn</span>
+            <label for="phone" class="label">Số điện thoại</label>
+            <input id="phone" class="input" type="tel" placeholder="Thêm số điện thoại của bạn">
         </div>
         <div class="profile-item">
-            <span class="label">Giới tính</span>
-            <span class="value">Chọn giới tính của bạn</span>
+            <label for="dob" class="label">Ngày sinh</label>
+            <input id="dob" class="input" type="date" placeholder="Nhập ngày sinh của bạn">
         </div>
         <div class="profile-item">
-            <span class="label">Địa chỉ</span>
-            <span class="value">Nhập địa chỉ</span>
+            <label for="gender" class="label">Giới tính</label>
+            <select id="gender" class="input">
+                <option value="">Chọn giới tính</option>
+                <option value="Nam">Nam</option>
+                <option value="Nữ">Nữ</option>
+                <option value="Khác">Khác</option>
+            </select>
+        </div>
+        <div class="profile-item">
+            <label for="address" class="label">Địa chỉ</label>
+            <input id="address" class="input" type="text" placeholder="Nhập địa chỉ">
         </div>
     </section>
     <section class="profile-btn">
-        <div class="edit">
-            <a href="http://localhost:63342/Nhom15_LTWeb/UpdateHoSo/UpdateHoSo.html?_ijt=ll9dljge0dfvo11phhrnl7rd25&_ij_reload=RELOAD_ON_SAVE" class="edit-btn">
-                Chỉnh sửa thông tin
+        <div class="update">
+            <a href="http://localhost:63342/Nhom15_LTWeb/HoSo/HoSo.html?_ijt=gh1komk8o5kmcop5f8b1eootns&_ij_reload=RELOAD_ON_SAVE" class="update-btn">
+                Chỉnh sửa hồ sơ
             </a>
-        </div>
-        <div class="change-password">
-            <button class="change-btn">Đổi mật khẩu</button>
         </div>
     </section>
 </main>
