@@ -1,0 +1,585 @@
+/* Reset cơ bản */
+/* ================= RESET CƠ BẢN ================= */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1400px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* ================= HEADER ================= */
+#header .header-wrapper {
+    background-color: hsl(208, 100%, 22%);
+}
+
+#header {
+    position: sticky; /* hoặc fixed nếu muốn luôn hiển thị */
+    top: 0;
+    z-index: 1000; /* đảm bảo cao hơn các section bên dưới */
+    background-color: white; /* tránh trong suốt */
+}
+
+
+.header-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 75px;
+}
+
+/* ----- Logo ----- */
+.header-logo img {
+    height: 60px;
+    width: 60px;
+    padding-left: 10px;
+}
+
+/* ----- Menu ----- */
+nav .menu {
+    display: flex;
+    align-items: center;
+    height: 75px;
+}
+
+nav .menu .item {
+    color: hsl(200, 100%, 99%);
+    font-size: 20px;
+    font-weight: 500;
+    font-family: sans-serif;
+    padding: 20px;
+    position: relative;
+    cursor: pointer;
+}
+
+nav .menu .item:hover {
+    color: hsl(188, 79%, 47%);
+}
+
+nav .menu .item .sub {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+nav .menu .item .sub span {
+    width: 7px;
+    height: 7px;
+    background: hsl(0, 0%, 100%);
+    border-radius: 50%;
+}
+
+nav .menu .item:hover .sub span {
+    background: hsl(188, 79%, 47%);
+}
+
+nav .menu .item .sub-item {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: hsl(208, 100%, 22%);
+    border-radius: 6px;
+    padding: 15px 20px;
+    z-index: 2000; /* quan trọng */
+}
+
+nav .menu .item:hover .sub-item {
+    display: block;
+}
+
+nav .menu .item .sub-item a {
+    display: block;
+    color: hsl(200, 100%, 99%);
+    font-size: 18px;
+    padding: 8px 12px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+nav .menu .item .sub-item a:hover {
+    color: hsl(188, 79%, 47%);
+}
+
+/* ----- Header Right ----- */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+}
+
+/* Account Dropdown */
+.header-right .account {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    height: 75px;
+}
+
+.header-right .account i {
+    font-size: 26px;
+    color: hsl(200, 100%, 99%);
+    transition: color 0.3s ease;
+    margin-right: 5px;
+}
+
+.header-right .account span {
+    font-size: 20px;
+    color: hsl(200, 100%, 99%);
+}
+
+.header-right .account:hover i,
+.header-right .account:hover span {
+    color: hsl(188, 79%, 47%);
+}
+
+.account .dropdown {
+    display: none;
+    position: absolute;
+    top: 75px;
+    left: 0;
+    background: hsl(0, 0%, 100%);
+    width: 280px;
+    border-radius: 6px;
+    padding: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.account:hover .dropdown {
+    display: block;
+}
+
+.account .dropdown p {
+    font-size: 15px;
+    color: hsl(230, 25%, 39%);
+    margin-bottom: 10px;
+}
+
+.account .dropdown a {
+    color: hsl(188, 79%, 47%);
+}
+
+/* Nút đăng ký */
+.header-right .register-btn {
+    color: white;
+    background-color: hsl(188, 79%, 47%);
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 4px;
+    padding: 12px 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.header-right .register-btn:hover {
+    background-color: hsl(188, 79%, 40%);
+}
+
+/* Số điện thoại */
+.header-right .phone_number {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.header-right .phone_number i {
+    font-size: 22px;
+    color: hsl(33, 100%, 50%);
+    transition: color 0.3s ease;
+}
+
+.header-right .phone_number span {
+    color: hsl(33, 100%, 50%);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.header-right .phone_number:hover i,
+.header-right .phone_number:hover span {
+    color: hsl(43, 100%, 54%);
+}
+
+
+/* ================= FOOTER ================= */
+footer {
+    background-color: #f9fafb;
+    margin-top: 50px;
+}
+
+footer .footer-top {
+    padding: 50px 0 30px 0;
+}
+
+.ft_container {
+    width: 85%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.ft_col {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.list_col {
+    flex: 1;
+    min-width: 200px;
+}
+
+.list_col h4 {
+    margin-bottom: 15px;
+    color: hsl(10, 5%, 24%);
+    font-size: 22px;
+}
+
+.list_col p {
+    margin-bottom: 12px;
+    font-size: 16px;
+    color: hsl(40, 1%, 51%);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.list_col p:hover {
+    color: hsl(188, 79%, 47%);
+}
+
+/* Icon mạng xã hội */
+.icon_social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.icon_social i {
+    font-size: 24px;
+    background-color: hsl(188, 79%, 47%);
+    color: white;
+    border-radius: 50%;
+    padding: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.icon_social i:hover {
+    background-color: hsl(188, 79%, 40%);
+    transform: scale(1.1);
+}
+
+/* Footer bottom */
+.footer-bottom {
+    border-top: 1px solid #ccc;
+    padding: 15px 0;
+    text-align: center;
+    background-color: #eef1f3;
+}
+
+.footer-bottom span {
+    color: #555;
+    font-size: 14px;
+}
+
+/* Đảm bảo footer sát mép dưới */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Nếu vẫn có khoảng trắng do layout flex */
+.footer {
+    margin: 0;
+    padding: 0;
+}
+
+/* Loại bỏ khoảng trống do các phần tử block mặc định */
+.footer-bottom {
+    margin: 0;
+    padding: 10px 0;
+}
+
+/* PHƯƠNG THỨC THANH TOÁN */
+.main-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 24px;
+    max-width: 1150px;
+    margin: 100px auto auto;
+
+}
+
+.payment-section {
+    flex: 0 0 68%;
+    background: hsl(0, 0%, 100%);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 8px hsl(0, 0%, 0%, 0.05);
+}
+
+.payment-section > i {
+    color: hsl(200, 70%, 45%);
+    margin-right: 6px;
+}
+
+.payment-section h3 {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.payment-option {
+    display: flex;
+    align-items: center;
+    border: 1px solid #e6e6e6;
+    border-radius: 8px;
+    padding: 30px 15px;
+    margin-bottom: 15px;
+    gap: 16px;
+    transition: 0.25s;
+    cursor: pointer;
+}
+
+.payment-option:hover {
+    border-color: hsl(200, 80%, 45%);
+}
+
+.payment-option.active {
+    border: 2px solid hsl(200, 80%, 45%);
+    background: hsl(200, 70%, 98%);
+}
+
+.payment-option input[type="radio"] {
+    accent-color: hsl(200, 80%, 45%);
+    transform: scale(1.2);
+}
+
+.payment-option .icon img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+}
+
+.info .title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.info .desc {
+    font-size: 14px;
+    color: hsl(220, 10%, 45%);
+}
+
+.note {
+    font-size: 14px;
+    color: hsl(220, 10%, 45%);
+    margin: 25px 0;
+}
+
+.note a {
+    color: hsl(200, 70%, 45%);
+    text-decoration: none;
+}
+
+.confirm-btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background: hsl(33, 100%, 50%);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s;
+    font-size: 18px;
+}
+
+.confirm-btn:hover {
+    background: hsl(33, 100%, 45%);
+}
+
+/* THÔNG TIN TOUR VÀ GIÁ */
+.summary-section {
+    flex: 0 0 32%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.tour-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    padding: 23px;
+}
+
+.tour-header, .tour-payment-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    color: hsl(200, 70%, 45%);
+}
+
+.tour-name h3 {
+    font-size: 18px;
+    margin-bottom: 7px;
+    color: hsl(220, 15%, 20%);
+}
+
+.tour-meta {
+    font-size: 13px;
+    color: hsl(220, 10%, 45%);
+    margin-bottom: 12px;
+}
+
+.tour-dates {
+    background: hsl(200, 40%, 97%);
+    border-radius: 8px;
+    padding: 14px 10px;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.tour-dates span {
+    font-size: 13px;
+    color: hsl(220, 10%, 45%);
+}
+
+.tour-dates h3 {
+    font-size: 15px;
+}
+
+.tour-summary {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid hsl(0, 0%, 88%);
+    margin-top: 10px;
+    padding-top: 10px;
+    font-size: 14px;
+    color: hsl(220, 10%, 40%);
+}
+
+.tour-section-title h4 {
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+.tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tag {
+    background: hsl(200, 70%, 95%);
+    color: hsl(200, 60%, 30%);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+}
+
+/* CHI TIẾT GIÁ */
+.tour-payment {
+    background: hsl(0, 0%, 100%);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px hsl(0, 0%, 0%, 0.05);
+    padding: 24px;
+    margin-bottom: 60px;
+}
+
+.tour-payment-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    color: hsl(200, 70%, 45%);
+}
+
+.tour-payment-header i {
+    font-size: 16px;
+    color: hsl(200, 70%, 45%);
+}
+
+.tour-payment-header h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: hsl(220, 15%, 20%);
+}
+
+.tour-payment-price {
+    border-top: 1px solid hsl(0, 0%, 88%);
+    margin-top: 12px;
+    padding-top: 12px;
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 8px 0;
+    font-size: 15px;
+    color: hsl(220, 10%, 30%);
+}
+
+.price-row .label {
+    flex: 1;
+    text-align: left;
+}
+
+.price-row .price {
+    flex-shrink: 0;
+    text-align: right;
+    font-weight: 600;
+    min-width: 150px;
+}
+
+.total-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+.total-line .label {
+    flex: 1;
+    text-align: left;
+}
+
+.total-line .total-price {
+    flex-shrink: 0;
+    text-align: right;
+    color: hsl(33, 100%, 45%);
+    min-width: 150px;
+    font-size: 25px;
+}
+
+.textCurrency {
+    font-size: 13px;
+}
