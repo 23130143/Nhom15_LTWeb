@@ -3,16 +3,14 @@ body{
     background: #ecf0f5;
     margin: 0;
 }
-.header-box {
-    max-width: 1400px;
-    width: 80%;
-    margin: 0 auto;
-}
 #header .header-wrapper {
     background-color: hsl(208, 100%, 22%);
 }
 
 .header-box {
+    max-width: 1400px;
+    width: 1170px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -229,6 +227,9 @@ nav .menu .item .sub-item a:hover {
     display: block;
     padding-top: 10px;
 }
+.login_form_psw{
+    position: relative;
+}
 .login_form_psw label{
     font-size: 16px;
     display: block;
@@ -239,6 +240,14 @@ nav .menu .item .sub-item a:hover {
     padding: 20px;
     width: calc(100% - 40px);
     border-radius: 5px;
+}
+.toggle-eye{
+    position: absolute;
+    right: 15px;
+    top:57%;
+    cursor: pointer;
+    font-size: 15px;
+    color:gray;
 }
 .login_form_more{
     display: flex;
