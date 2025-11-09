@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="ThanhToanTaiVP.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="ThongTinChuyenKhoan.css">
+
 </head>
 <body>
 <section id="header">
@@ -68,68 +69,41 @@
 
 <section class="main-container">
     <div class="main-header">
-        <h3>Thông tin chuyển khoản</h3>
-        <p>Quý khách sẽ nhận xác nhận đặt tour qua Email/SMS sau khi thanh toán</p>
+        <h3>Thanh toán tại văn phòng</h3>
+        <p>Quý khách vui lòng ghé một trong các văn phòng để thanh toán</p>
     </div>
 
     <div class="main-content">
-        <div class="QR">
-            <p> Quét mã QR để thanh toán nhanh </p>
-            <img src="../IMAGE/asset/images/QR-Bank.png" alt="QR-Bank"/>
-        </div>
+        <div class="office">
+            <div class="office-wrapper">
+                <label class="office-item-label" for="officeHCM">
+                    <input type="radio" name="office" value="HCM" class="office-radio" id="officeHCM">
+                </label>
 
-
-        <div class="main-info">
-            <div class="bank">
-                <p> Ngân hàng </p>
-                <div class="nd1"> MB Bank - Ngân hàng TMCP Quân đội</div>
-            </div>
-
-            <div class="account-number">
-                <p>Số tài khoản</p>
-                <div class="info-row">
-                    <h4>098 1420 151</h4>
-                    <span class="copy">Sao chép</span>
+                <div class="office-details">
+                    <span class="office-name">Văn phòng TP.HCM</span>
+                    <p>Tầng 2 thư viện, Tòa nhà Rạng Đông, khu phố 33, Phường Linh Xuân, TP.Hồ Chí Minh</p>
                 </div>
             </div>
 
-
-            <div class="beneficiary">
-                <p> Người thụ hưởng </p>
-                <div class="nd2"> Công ty Cổ Phần IVIVU.COM</div>
+            <div class="working-hours">
+                <h3>Thời gian làm việc:</h3>
+                <p> - 07:00 đến 17:00 (Thứ 2 đến Thứ 6) </p>
+                <p> - Chủ nhật nghỉ </p>
             </div>
-
-            <div class="money">
-                <p>Số tiền</p>
-                <div class="info-row">
-                    <span class="price">9.490.000 đ</span>
-                    <span class="copy">Sao chép</span>
-                </div>
-            </div>
-
-            <div class="import">
-                <p>Nội dung</p>
-                <div class="info-row">
-                    <h4>DL0086313</h4>
-                    <span class="copy">Sao chép</span>
-                </div>
-            </div>
-
-            <div class="note">* Giao dịch sẽ tự động xác nhận nếu bạn chuyển đúng số tiền và nội dung. *</div>
-
         </div>
     </div>
 
     <div class="success">
-        <button class="btn-confirm">Tôi đã chuyển khoản</button>
+        <button class="btn-confirm">Gửi địa chỉ qua điện thoại</button>
         <div class="link-change">
             <i class="fa-solid fa-repeat"></i>
             <a href="#"> Đổi hình thức thanh toán khác</a>
         </div>
     </div>
-
 </section>
 
+<!-- Footer -->
 <footer class="footer">
     <div class="footer-top">
         <div class="ft_container">
@@ -181,6 +155,6 @@
     </div>
 </footer>
 
-<script src="TrangThai.js"></script>
+<script src="button.js"></script>
 </body>
 </html>
