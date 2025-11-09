@@ -14,4 +14,3 @@ paymentOptions.forEach(option => {
         if (radio) radio.checked = true;
     });
 });
-
