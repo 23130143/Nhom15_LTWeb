@@ -391,6 +391,10 @@ footer .footer-top {
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
+.icon_social .fa-facebook-f {
+    padding: 10px 13px;
+}
+
 .icon_social i:hover {
     background-color: hsl(188, 79%, 40%);
     transform: scale(1.1);
