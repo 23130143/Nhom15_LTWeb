@@ -1,16 +1,38 @@
-body{
-    font-family: sans-serif;
-    background: #ecf0f5;
+body {
+    font-family: Arial, Helvetica, sans-serif;
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+a {
+    text-decoration: none;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1400px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* ================= HEADER ================= */
 #header .header-wrapper {
     background-color: hsl(208, 100%, 22%);
 }
+#header {
+    position: sticky; /* hoặc fixed nếu muốn luôn hiển thị */
+    top: 0;
+    z-index: 1000; /* đảm bảo cao hơn các section bên dưới */
+    background-color: white; /* tránh trong suốt */
+}
+
 
 .header-box {
-    max-width: 1400px;
-    width: 1170px;
-    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -70,6 +92,7 @@ nav .menu .item .sub-item {
     background-color: hsl(208, 100%, 22%);
     border-radius: 6px;
     padding: 15px 20px;
+    z-index: 2000; /* quan trọng */
 }
 
 nav .menu .item:hover .sub-item {
@@ -132,7 +155,7 @@ nav .menu .item .sub-item a:hover {
     width: 280px;
     border-radius: 6px;
     padding: 15px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .account:hover .dropdown {
@@ -188,72 +211,78 @@ nav .menu .item .sub-item a:hover {
 .header-right .phone_number:hover span {
     color: hsl(43, 100%, 54%);
 }
-/* Main */
+
 main {
     background: white;
-    width: 650px;
+    width: 900px;
     height: auto;
     border-radius: 15px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
     margin: 40px auto;
-    padding: 25px;
+    padding: 25px 0 0 0;
     box-sizing: border-box;
 }
-.change-psw-header{
+.hitory-header{
     display: flex;
     font-size: 30px;
     align-items: center;
     justify-content: center;
     color: #1877F2;
 }
-.psw-item{
+.hitory-content {
     display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid #eee;
-    padding: 15px 0;
-    position: relative;
-    box-sizing: border-box;
-    gap: 20px;
-}
-.label{
-    font-weight: bold;
-    width: 450px;
-}
-.input{
-    font-size: 15px;
-    width: 55%;
-    padding: 8px 35px 8px 12px;
-    border: 2px solid gray;
-    border-radius: 5px;
-    outline: none;
-}
-.toggle-eye {
-    position: absolute;
-    right: 15px;
-    bottom: 25px;
-    font-size: 15px;
-    color: gray;
-    cursor: pointer;
-    transition: color 0.3s;
-}
-.change {
-    display: flex;
-    flex-direction: row;
     justify-content: center;
-    margin-top: 20px;
 }
-.change .change-btn {
-    background: #4285F4;
+
+.table {
+    width: 100%;
+    max-width: 1000px;
+    background: #fff;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    overflow: hidden;
+}
+
+/* ====== DÒNG TIÊU ĐỀ ====== */
+.hitory-item {
+    display: grid;
+    grid-template-columns: 140px 1.5fr 150px 150px 140px;
+    background: #007bff;
+    color: #fff;
+    font-weight: 600;
+    text-align: center;
+    padding: 15px 10px;
+    font-size: 16px;
+}
+
+/* ====== DÒNG DỮ LIỆU ====== */
+.history-item {
+    display: grid;
+    grid-template-columns: 140px 1.5fr 150px 150px 140px;
+    align-items: center;
+    text-align: center;
+    padding: 14px 10px;
+    border-bottom: 1px solid #eee;
+    background: #fff;
+    transition: 0.3s;
+}
+
+.history-item:hover {
+    background: #f1f1f1;
+}
+
+/* ====== TRẠNG THÁI ====== */
+.status {
     display: inline-block;
-    border-radius: 5px;
-    border: none;
-    padding: 10px;
-    font-size: 15px;
-    font-weight: bold;
-    color: white;
-    text-decoration: none;
-    margin: 5px;
+    padding: 6px 10px;
+    border-radius: 20px;
+    color: #fff;
+    font-weight: 500;
+    font-size: 14px;
 }
-.change-btn:hover {
-    background-color: #1877F2;
-}
+
+.status.completed { background: #28a745; }
+.status.ongoing { background: #17a2b8; }
+.status.upcoming { background: #ffc107; color: #000; }
+.status.canceled { background: #dc3545; }
