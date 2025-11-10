@@ -1,0 +1,349 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1400px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.main-container {
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+    background-color: hsl(0, 0%, 98%);
+}
+
+.main-content {
+    background: hsl(0, 0%, 100%);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px hsla(0, 0%, 0%, 0.1);
+    width: 90%;
+    max-width: 800px;
+    padding: 32px;
+    line-height: 1.6;
+    margin-top: 50px;
+}
+
+.main-content h3 {
+    text-align: center;
+    color: hsl(0, 0%, 20%);
+    margin-bottom: 20px;
+}
+
+.main-content h4 {
+    color: hsl(188, 70%, 49%);
+    margin-top: 24px;
+    margin-bottom: 10px;
+}
+
+.main-content p {
+    margin: 6px 0;
+    color: hsl(0, 0%, 20%);
+}
+
+.main-content p::first-letter {
+    font-weight: 500;
+}
+
+/* ================= HEADER ================= */
+#header .header-wrapper {
+    background-color: hsl(208, 100%, 22%);
+}
+
+#header {
+    position: sticky; /* hoặc fixed nếu muốn luôn hiển thị */
+    top: 0;
+    z-index: 1000; /* đảm bảo cao hơn các section bên dưới */
+    background-color: white; /* tránh trong suốt */
+}
+
+
+.header-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 75px;
+}
+
+/* ----- Logo ----- */
+.header-logo img {
+    height: 60px;
+    width: 60px;
+    padding-left: 10px;
+}
+
+/* ----- Menu ----- */
+nav .menu {
+    display: flex;
+    align-items: center;
+    height: 75px;
+}
+
+nav .menu .item {
+    color: hsl(200, 100%, 99%);
+    font-size: 20px;
+    font-weight: 500;
+    font-family: sans-serif;
+    padding: 20px;
+    position: relative;
+    cursor: pointer;
+}
+
+nav .menu .item:hover {
+    color: hsl(188, 79%, 47%);
+}
+
+nav .menu .item .sub {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+nav .menu .item .sub span {
+    width: 7px;
+    height: 7px;
+    background: hsl(0, 0%, 100%);
+    border-radius: 50%;
+}
+
+nav .menu .item:hover .sub span {
+    background: hsl(188, 79%, 47%);
+}
+
+nav .menu .item .sub-item {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: hsl(208, 100%, 22%);
+    border-radius: 6px;
+    padding: 15px 20px;
+    z-index: 2000; /* quan trọng */
+}
+
+nav .menu .item:hover .sub-item {
+    display: block;
+}
+
+nav .menu .item .sub-item a {
+    display: block;
+    color: hsl(200, 100%, 99%);
+    font-size: 18px;
+    padding: 8px 12px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+nav .menu .item .sub-item a:hover {
+    color: hsl(188, 79%, 47%);
+}
+
+/* ----- Header Right ----- */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+}
+
+/* Account Dropdown */
+.header-right .account {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    height: 75px;
+}
+
+.header-right .account i {
+    font-size: 26px;
+    color: hsl(200, 100%, 99%);
+    transition: color 0.3s ease;
+    margin-right: 5px;
+}
+
+.header-right .account span {
+    font-size: 20px;
+    color: hsl(200, 100%, 99%);
+}
+
+.header-right .account:hover i,
+.header-right .account:hover span {
+    color: hsl(188, 79%, 47%);
+}
+
+.account .dropdown {
+    display: none;
+    position: absolute;
+    top: 75px;
+    left: 0;
+    background: hsl(0, 0%, 100%);
+    width: 280px;
+    border-radius: 6px;
+    padding: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.account:hover .dropdown {
+    display: block;
+}
+
+.account .dropdown p {
+    font-size: 15px;
+    color: hsl(230, 25%, 39%);
+    margin-bottom: 10px;
+}
+
+.account .dropdown a {
+    color: hsl(188, 79%, 47%);
+}
+
+/* Nút đăng ký */
+.header-right .register-btn {
+    color: white;
+    background-color: hsl(188, 79%, 47%);
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 4px;
+    padding: 12px 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.header-right .register-btn:hover {
+    background-color: hsl(188, 79%, 40%);
+}
+
+/* Số điện thoại */
+.header-right .phone_number {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.header-right .phone_number i {
+    font-size: 22px;
+    color: hsl(33, 100%, 50%);
+    transition: color 0.3s ease;
+}
+
+.header-right .phone_number span {
+    color: hsl(33, 100%, 50%);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.header-right .phone_number:hover i,
+.header-right .phone_number:hover span {
+    color: hsl(43, 100%, 54%);
+}
+
+/* ================= FOOTER ================= */
+footer {
+    background-color: #f9fafb;
+    margin-top: 50px;
+}
+
+footer .footer-top {
+    padding: 50px 0 30px 0;
+}
+
+.ft_container {
+    width: 85%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.ft_col {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.list_col {
+    flex: 1;
+    min-width: 200px;
+}
+
+.list_col h4 {
+    margin-bottom: 15px;
+    color: hsl(10, 5%, 24%);
+    font-size: 22px;
+}
+
+.list_col p {
+    margin-bottom: 12px;
+    font-size: 16px;
+    color: hsl(40, 1%, 51%);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.list_col p:hover {
+    color: hsl(188, 79%, 47%);
+}
+
+/* Icon mạng xã hội */
+.icon_social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.icon_social i {
+    font-size: 24px;
+    background-color: hsl(188, 79%, 47%);
+    color: white;
+    border-radius: 50%;
+    padding: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.icon_social .fa-facebook-f {
+    padding: 10px 13px;
+}
+
+.icon_social i:hover {
+    background-color: hsl(188, 79%, 40%);
+    transform: scale(1.1);
+}
+
+/* Footer bottom */
+.footer-bottom {
+    border-top: 1px solid #ccc;
+    padding: 15px 0;
+    text-align: center;
+    background-color: #eef1f3;
+}
+
+.footer-bottom span {
+    color: #555;
+    font-size: 14px;
+}
+
+/* Đảm bảo footer sát mép dưới */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Nếu vẫn có khoảng trắng do layout flex */
+.footer {
+    margin: 0;
+    padding: 0;
+}
+
+/* Loại bỏ khoảng trống do các phần tử block mặc định */
+.footer-bottom {
+    margin: 0;
+    padding: 10px 0;
+}
