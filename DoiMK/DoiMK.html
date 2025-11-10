@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="Sign-in Style.css">
+    <link rel="stylesheet" href="DoiMKStyle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-    <script src="../DoiMK/EyesScript.js"></script>
 </head>
 <body>
 <header id="header">
@@ -69,56 +68,33 @@
         </header>
     </div>
 </header>
-<main class="container">
-    <div class="sign_in_form">
-        <div class="sign-in_frame">
-            <header class="sign-in_header">
-                <a href="http://localhost:63342/Nhom15_LTWeb/Log-in/Log-in.html?_ijt=86jeklva5as1448m3j5874p3vn&_ij_reload=RELOAD_ON_SAVE"
-                   class="back">
-                    <i class="fa-solid fa-arrow-left"></i>
-                </a>
-                <span class="header_text">Đăng ký</span>
-            </header>
-            <div class="Full_Name">
-                <label for="FN">Họ và tên</label>
-                <input id="FN" class="sign_in_input" type="text" placeholder="">
-            </div>
-            <div class="acc">
-                <label for="email">Gmail</label>
-                <input id="email" class="sign_in_input" type="email" placeholder="">
-            </div>
-            <div class="psw">
-                <label for="psw">Mật khẩu</label>
-                <input id="psw" class="sign_in_input" type="password" placeholder="">
-                <i class="fa-solid fa-eye-slash toggle-eye"></i>
-            </div>
-            <div class="confirm psw">
-                <label for="confirm_psw">Nhập lại mật khẩu</label>
-                <input id="confirm_psw" class="sign_in_input" type="password" placeholder="">
-                <i class="fa-solid fa-eye-slash toggle-eye"></i>
-            </div>
-            <div class="btn">
-                <a href="http://localhost:63342/Nhom15_LTWeb/Log-in/Log-in.html?_ijt=86jeklva5as1448m3j5874p3vn&_ij_reload=RELOAD_ON_SAVE"
-                   class="sign-in_btn">Đăng ký</a>
-            </div>
-            <div class="login_link">
-                <div class="line_or">
-                    <div class="or">Hoặc</div>
-                </div>
-                <div class="social_login">
-                    <button class="facebook_login">
-                        <i class="fa-brands fa-facebook" style="color:#1877F2; font-size:24px;"></i>
-                        <label>Facebook</label>
-                    </button>
-                    <button class="google_login">
-                        <i class="fa-brands fa-google" style="color:#4285F4; font-size:24px;"></i>
-                        <label>Google</label>
-                    </button>
-                </div>
-            </div>
+<main id="main">
+    <section class="change-psw">
+        <h1 class="change-psw-header">Đổi mật khẩu</h1>
+        <div class="psw-item">
+            <label for="opsw" class="label">Nhập mật khẩu cũ:</label>
+            <input id="opsw" class="input" type="password">
+            <i class="fa-solid fa-eye-slash toggle-eye"></i>
         </div>
-    </div>
+        <div class="psw-item">
+            <label for="npsw" class="label">Nhập mật khẩu mới:</label>
+            <input id="npsw" class="input" type="password">
+            <i class="fa-solid fa-eye-slash toggle-eye"></i>
+        </div>
+        <div class="psw-item">
+            <label for="cnpsw" class="label">Nhập lại mật khẩu:</label>
+            <input id="cnpsw" class="input" type="password">
+            <i class="fa-solid fa-eye-slash toggle-eye"></i>
+        </div>
+    </section>
+    <section class="change-psw-btn">
+        <div class="change">
+            <a href="http://localhost:63342/Nhom15_LTWeb/HoSo/HoSo.html?_ijt=gh1komk8o5kmcop5f8b1eootns&_ij_reload=RELOAD_ON_SAVE" class="change-btn">
+                Đổi mật khẩu
+            </a>
+        </div>
+    </section>
 </main>
-
+<script src="EyesScript.js"></script>
 </body>
 </html>
