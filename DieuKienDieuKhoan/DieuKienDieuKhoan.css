@@ -15,7 +15,8 @@ body {
     display: flex;
     justify-content: center;
     padding: 40px 0;
-    background-color: hsl(0, 0%, 98%);
+    background-color: hsl(213, 32%, 94%)
+;
 }
 
 .main-content {
