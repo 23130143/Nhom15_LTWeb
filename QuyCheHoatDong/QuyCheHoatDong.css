@@ -11,6 +11,7 @@ body {
     margin: 0 auto;
 }
 
+/* ================= MAIN ================= */
 .main-container {
     display: flex;
     justify-content: center;
@@ -35,19 +36,15 @@ body {
     margin-bottom: 20px;
 }
 
-.main-content h4 {
+.rule-section h4 {
     color: hsl(188, 70%, 49%);
     margin-top: 24px;
     margin-bottom: 10px;
 }
 
-.main-content p {
+.rule-section p {
     margin: 6px 0;
     color: hsl(0, 0%, 20%);
-}
-
-.main-content p::first-letter {
-    font-weight: 500;
 }
 
 /* ================= HEADER ================= */
