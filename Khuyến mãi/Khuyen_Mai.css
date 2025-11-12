@@ -1,3 +1,12 @@
+/* Reset cơ bản */
+/* ================= RESET CƠ BẢN ================= */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 a {
     text-decoration: none;
 }
@@ -17,6 +26,13 @@ p {
 #header .header-wrapper {
     background-color: hsl(208, 100%, 22%);
 }
+#header {
+    position: sticky; /* hoặc fixed nếu muốn luôn hiển thị */
+    top: 0;
+    z-index: 1000; /* đảm bảo cao hơn các section bên dưới */
+    background-color: white; /* tránh trong suốt */
+}
+
 
 .header-box {
     display: flex;
@@ -27,8 +43,8 @@ p {
 
 /* ----- Logo ----- */
 .header-logo img {
-    height: 60px;
-    width: 60px;
+    height: 100px;
+    width: 100px;
     padding-left: 10px;
 }
 
@@ -78,6 +94,7 @@ nav .menu .item .sub-item {
     background-color: hsl(208, 100%, 22%);
     border-radius: 6px;
     padding: 15px 20px;
+    z-index: 2000; /* quan trọng */
 }
 
 nav .menu .item:hover .sub-item {
@@ -140,7 +157,7 @@ nav .menu .item .sub-item a:hover {
     width: 280px;
     border-radius: 6px;
     padding: 15px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .account:hover .dropdown {
@@ -197,6 +214,7 @@ nav .menu .item .sub-item a:hover {
     color: hsl(43, 100%, 54%);
 }
 
+
 /* ================= FOOTER ================= */
 footer {
     background-color: #f9fafb;
@@ -231,7 +249,20 @@ footer .footer-top {
     font-size: 22px;
 }
 
+.list_col a {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 16px;
+    color: hsl(40, 1%, 51%);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.list_col a:hover {
+    color: hsl(188, 79%, 47%);
+}
 .list_col p {
+    display: block;
     margin-bottom: 12px;
     font-size: 16px;
     color: hsl(40, 1%, 51%);
@@ -242,7 +273,6 @@ footer .footer-top {
 .list_col p:hover {
     color: hsl(188, 79%, 47%);
 }
-
 /* Icon mạng xã hội */
 .icon_social {
     display: flex;
@@ -278,6 +308,7 @@ footer .footer-top {
     color: #555;
     font-size: 14px;
 }
+
 /* Đảm bảo footer sát mép dưới */
 html, body {
     height: 100%;
@@ -296,12 +327,7 @@ html, body {
     margin: 0;
     padding: 10px 0;
 }
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: hsl(30, 100%, 98%); /* #fffaf5 */
-    color: hsl(0, 0%, 20%); /* #333 */
-}
+
 
 /* ===== KHỐI KHUYẾN MÃI ===== */
 .promotion {
