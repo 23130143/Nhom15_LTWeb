@@ -97,8 +97,6 @@ body{
     line-height: 1.3;
     color: #555;
 }
-/*phần css header và footer*
- */
 /* Reset cơ bản */
 /* ================= RESET CƠ BẢN ================= */
 body {
@@ -144,8 +142,8 @@ p {
 
 /* ----- Logo ----- */
 .header-logo img {
-    height: 60px;
-    width: 60px;
+    height: 100px;
+    width: 100px;
     padding-left: 10px;
 }
 
@@ -350,7 +348,20 @@ footer .footer-top {
     font-size: 22px;
 }
 
+.list_col a {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 16px;
+    color: hsl(40, 1%, 51%);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.list_col a:hover {
+    color: hsl(188, 79%, 47%);
+}
 .list_col p {
+    display: block;
     margin-bottom: 12px;
     font-size: 16px;
     color: hsl(40, 1%, 51%);
@@ -361,7 +372,6 @@ footer .footer-top {
 .list_col p:hover {
     color: hsl(188, 79%, 47%);
 }
-
 /* Icon mạng xã hội */
 .icon_social {
     display: flex;

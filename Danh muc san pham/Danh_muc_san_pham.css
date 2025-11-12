@@ -35,8 +35,8 @@ p {
 
 /* ----- Logo ----- */
 .header-logo img {
-    height: 60px;
-    width: 60px;
+    height: 100px;
+    width: 100px;
     padding-left: 10px;
 }
 
@@ -204,7 +204,6 @@ nav .menu .item .sub-item a:hover {
 .header-right .phone_number:hover span {
     color: hsl(43, 100%, 54%);
 }
-
 /* ================= FOOTER ================= */
 footer {
     background-color: #f9fafb;
@@ -239,7 +238,20 @@ footer .footer-top {
     font-size: 22px;
 }
 
+.list_col a {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 16px;
+    color: hsl(40, 1%, 51%);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.list_col a:hover {
+    color: hsl(188, 79%, 47%);
+}
 .list_col p {
+    display: block;
     margin-bottom: 12px;
     font-size: 16px;
     color: hsl(40, 1%, 51%);
@@ -250,7 +262,6 @@ footer .footer-top {
 .list_col p:hover {
     color: hsl(188, 79%, 47%);
 }
-
 /* Icon mạng xã hội */
 .icon_social {
     display: flex;
@@ -286,6 +297,7 @@ footer .footer-top {
     color: #555;
     font-size: 14px;
 }
+
 /* Đảm bảo footer sát mép dưới */
 html, body {
     height: 100%;
@@ -304,12 +316,13 @@ html, body {
     margin: 0;
     padding: 10px 0;
 }
+
 /* PHẦN MAIN */
 /* ================= PHẦN MAIN ================= */
 .main-container {
     display: flex;
     width: 90%;
-    max-width: 1200px;
+    max-width: 1050px;
     margin: 40px auto;
     gap: 24px;
     align-items: flex-start;
