@@ -2,10 +2,11 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: hsl(213, 32%, 94%);
-    color: hsl(210, 20%, 15%);
-    line-height: 1.6;
     box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
 }
 
 .container {
@@ -18,7 +19,8 @@ body {
 .main-container {
     max-width: 1200px;
     margin: 40px auto;
-    padding: 0 20px;
+    color: hsl(210, 20%, 15%);
+    line-height: 1.6;
 }
 
 .main-header {
@@ -125,8 +127,8 @@ body {
 
 /* ----- Logo ----- */
 .header-logo img {
-    height: 60px;
-    width: 60px;
+    height: 100px;
+    width: 100px;
     padding-left: 10px;
 }
 
@@ -330,7 +332,21 @@ footer .footer-top {
     font-size: 22px;
 }
 
+.list_col a {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 16px;
+    color: hsl(40, 1%, 51%);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.list_col a:hover {
+    color: hsl(188, 79%, 47%);
+}
+
 .list_col p {
+    display: block;
     margin-bottom: 12px;
     font-size: 16px;
     color: hsl(40, 1%, 51%);
