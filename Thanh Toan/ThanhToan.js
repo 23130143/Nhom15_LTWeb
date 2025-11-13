@@ -14,3 +14,17 @@ paymentOptions.forEach(option => {
         if (radio) radio.checked = true;
     });
 });
+
+// Xử lý thanh toán
+document.querySelector('.confirm-btn').addEventListener('click', function () {
+    const qr = document.getElementById('qr');
+    const direct = document.getElementById('direct');
+
+    if (qr.checked) {
+        window.location.href = "http://localhost:63342/Nhom15_LTWeb/ThongTinChuyenKhoan/ThanhToanMaQR.html?_ijt=8quqtcqf080jpcgv800cp6m333&_ij_reload=RELOAD_ON_SAVE"; // ✅ chuyển sang trang thanh toán QR
+    } else if (direct.checked) {
+        window.location.href = "http://localhost:63342/Nhom15_LTWeb/ThongTinChuyenKhoan/ThanhToanTaiVP.html?_ijt=8quqtcqf080jpcgv800cp6m333&_ij_reload=RELOAD_ON_SAVE"; // ✅ chuyển sang trang thanh toán tại văn phòng
+    } else {
+        alert("Vui lòng chọn hình thức thanh toán trước khi xác nhận!");
+    }
+});
