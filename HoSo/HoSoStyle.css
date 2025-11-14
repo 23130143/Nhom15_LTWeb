@@ -3,24 +3,38 @@ body{
     background: #ecf0f5;
     margin: 0;
 }
+.container {
+    max-width: 1400px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* ================= HEADER ================= */
 #header .header-wrapper {
     background-color: hsl(208, 100%, 22%);
 }
+#header {
+    position: sticky; /* hoặc fixed nếu muốn luôn hiển thị */
+    top: 0;
+    z-index: 1000; /* đảm bảo cao hơn các section bên dưới */
+    background-color: white; /* tránh trong suốt */
+}
+
 
 .header-box {
-    max-width: 1400px;
-    width: 1170px;
-    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 75px;
 }
+.header-box {
+    position: relative;
+}
 
 /* ----- Logo ----- */
 .header-logo img {
-    height: 60px;
-    width: 60px;
+    height: 100px;
+    width: 100px;
     padding-left: 10px;
 }
 
@@ -40,9 +54,16 @@ nav .menu .item {
     position: relative;
     cursor: pointer;
 }
+.menu .item.active {
+    color: hsl(188, 79%, 47%);
+
+}
+
+
+
 
 nav .menu .item:hover {
-    color: hsl(188, 79%, 47%);
+    color: hsl(190, 73%, 32%);
 }
 
 nav .menu .item .sub {
@@ -70,6 +91,7 @@ nav .menu .item .sub-item {
     background-color: hsl(208, 100%, 22%);
     border-radius: 6px;
     padding: 15px 20px;
+    z-index: 2000; /* quan trọng */
 }
 
 nav .menu .item:hover .sub-item {
@@ -132,7 +154,7 @@ nav .menu .item .sub-item a:hover {
     width: 280px;
     border-radius: 6px;
     padding: 15px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .account:hover .dropdown {
