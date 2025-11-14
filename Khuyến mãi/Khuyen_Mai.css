@@ -64,6 +64,10 @@ nav .menu .item {
     position: relative;
     cursor: pointer;
 }
+.menu .item.active {
+    color: hsl(188, 79%, 47%);
+
+}
 
 nav .menu .item:hover {
     color: hsl(188, 79%, 47%);

@@ -40,6 +40,9 @@ p {
     align-items: center;
     height: 75px;
 }
+.header-box {
+    position: relative;
+}
 
 /* ----- Logo ----- */
 .header-logo img {
@@ -64,9 +67,16 @@ nav .menu .item {
     position: relative;
     cursor: pointer;
 }
+.menu .item.active {
+    color: hsl(188, 79%, 47%);
+
+}
+
+
+
 
 nav .menu .item:hover {
-    color: hsl(188, 79%, 47%);
+    color: hsl(190, 73%, 32%);
 }
 
 nav .menu .item .sub {

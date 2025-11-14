@@ -99,7 +99,7 @@ body {
 .section-title {
     font-size: 22px;
     margin-bottom: 15px;
-    color: #00aaff;
+    color: #fff;
 }
 /* ===== Search Box ===== */
 .search-box {
@@ -109,24 +109,21 @@ body {
     display: flex;
     justify-content: space-between;
     outline: none;
-    background-color: #152238;
+    background-color: #1b2a47;
     color: #fff;
     border: 1px solid #2f4875;
     transition: 0.3s;
 }
 
+.search-box:focus {
+    border-color: #00aaff;
+}
 /*==== Search ====*/
 .search{
+    display: flex;
     width: 600px;
-    background: #1b2a47;
-    border: 1px solid #2c3e50;
     border-radius: 10px;
-    color: white;
     padding: 10px;
-    outline: none;
-}
-.search:focus{
-    border-color: #00aaff;
 }
 /* ===== Add Button ===== */
 .btn-add {
@@ -138,7 +135,7 @@ body {
     border-radius: 10px;
     text-decoration: none;
     transition: 0.3s;
-    text-decoration: none;
+
     margin-right: 10px;
 }
 

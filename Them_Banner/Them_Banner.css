@@ -99,7 +99,7 @@ body {
 .section-title {
     font-size: 22px;
     margin-bottom: 15px;
-    color: #00aaff;
+    color: #fff;
 }
 /* ===== Search Box ===== */
 .search-box {
@@ -109,24 +109,21 @@ body {
     display: flex;
     justify-content: space-between;
     outline: none;
-    background-color: #152238;
+    background-color: #1b2a47;
     color: #fff;
     border: 1px solid #2f4875;
     transition: 0.3s;
 }
 
+.search-box:focus {
+    border-color: #00aaff;
+}
 /*==== Search ====*/
 .search{
+    display: flex;
     width: 600px;
-    background: #1b2a47;
-    border: 1px solid #2c3e50;
     border-radius: 10px;
-    color: white;
     padding: 10px;
-    outline: none;
-}
-.search:focus{
-    border-color: #00aaff;
 }
 /* ===== Add Button ===== */
 .btn-add {
@@ -138,7 +135,7 @@ body {
     border-radius: 10px;
     text-decoration: none;
     transition: 0.3s;
-    text-decoration: none;
+
     margin-right: 10px;
 }
 
@@ -197,4 +194,94 @@ body {
 
 .activity-table tr:hover {
     background-color: #22385f;
+}
+
+/* ===== MAIN CONTENT ===== */
+.main {
+    margin-left: 250px;              /* chừa chỗ sidebar */
+    width: calc(100% - 250px);
+    padding: 20px 40px;
+}
+
+/* ===== TITLE ===== */
+.section-title {
+    font-size: 26px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* ===== FORM CONTAINER  ===== */
+.form-container {
+    width: 100%;
+    background: #152b4a;
+    border-radius: 12px;
+    padding: 25px 25px 35px;
+    margin-top: 20px;
+}
+
+/* ===== LABEL ===== */
+.form-container label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+/* ===== INPUT ===== */
+.form-container input,
+.form-container textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #2f4875;
+    background-color: #1b2a47;
+    color: #fff;
+    margin-bottom: 22px;
+    font-size: 15px;
+}
+
+.form-container input:focus,
+.form-container textarea:focus {
+    outline: none;
+    border-color: #00aaff;
+}
+
+/* TEXTAREA */
+.form-container textarea {
+    height: 140px;
+    resize: none;
+}
+
+/* ===== BUTTON GROUP ===== */
+.button-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.btn-save {
+    background-color: #00aaff;
+    padding: 10px 25px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    color: #fff;
+}
+
+.btn-save:hover {
+    background-color: #008ecc;
+}
+
+.btn-cancel {
+    background-color: #e74c3c;
+    padding: 10px 25px;
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.btn-cancel:hover {
+    background-color: #c0392b;
 }
