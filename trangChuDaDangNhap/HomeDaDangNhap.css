@@ -1,0 +1,663 @@
+/* Reset cơ bản */
+/* ================= RESET CƠ BẢN ================= */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1400px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* ================= HEADER ================= */
+#header .header-wrapper {
+    background-color: hsl(208, 100%, 22%);
+}
+#header {
+    position: sticky; /* hoặc fixed nếu muốn luôn hiển thị */
+    top: 0;
+    z-index: 1000; /* đảm bảo cao hơn các section bên dưới */
+    background-color: white; /* tránh trong suốt */
+}
+
+
+.header-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 75px;
+}
+.header-box {
+    position: relative;
+}
+
+/* ----- Logo ----- */
+.header-logo img {
+    height: 100px;
+    width: 100px;
+    padding-left: 10px;
+}
+
+/* ----- Menu ----- */
+nav .menu {
+    display: flex;
+    align-items: center;
+    height: 75px;
+}
+
+nav .menu .item {
+    color: hsl(200, 100%, 99%);
+    font-size: 20px;
+    font-weight: 500;
+    font-family: sans-serif;
+    padding: 20px;
+    position: relative;
+    cursor: pointer;
+}
+.menu .item.active {
+    color: hsl(188, 79%, 47%);
+
+}
+
+
+
+
+nav .menu .item:hover {
+    color: hsl(190, 73%, 32%);
+}
+
+nav .menu .item .sub {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+nav .menu .item .sub span {
+    width: 7px;
+    height: 7px;
+    background: hsl(0, 0%, 100%);
+    border-radius: 50%;
+}
+
+nav .menu .item:hover .sub span {
+    background: hsl(188, 79%, 47%);
+}
+
+nav .menu .item .sub-item {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: hsl(208, 100%, 22%);
+    border-radius: 6px;
+    padding: 15px 20px;
+    z-index: 2000; /* quan trọng */
+}
+
+nav .menu .item:hover .sub-item {
+    display: block;
+}
+
+nav .menu .item .sub-item a {
+    display: block;
+    color: hsl(200, 100%, 99%);
+    font-size: 18px;
+    padding: 8px 12px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+nav .menu .item .sub-item a:hover {
+    color: hsl(188, 79%, 47%);
+}
+
+/* ----- Header Right ----- */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+}
+
+/* Account Dropdown */
+.header-right .account {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    height: 75px;
+}
+
+.header-right .account i {
+    font-size: 26px;
+    color: hsl(200, 100%, 99%);
+    transition: color 0.3s ease;
+    margin-right: 5px;
+}
+
+.header-right .account span {
+    font-size: 20px;
+    color: hsl(200, 100%, 99%);
+}
+
+.header-right .account:hover i,
+.header-right .account:hover span {
+    color: hsl(188, 79%, 47%);
+}
+
+.account .dropdown {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 75px;
+    left: 0;
+    background: hsl(0, 0%, 100%);
+    width: auto;
+    border-radius: 6px;
+    padding: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    gap: 10px;
+}
+
+.account:hover .dropdown {
+    display: flex;
+}
+
+/* từng dòng */
+.dropdown a,
+.dropdown .btn-sign-out {
+    display: block;
+}
+.dropdown a {
+    font-size: 15px;
+    padding: 8px 0;
+}
+.dropdown-item:hover{
+    color: #4285F4;
+}
+/* Nút đăng ký */
+.btn-sign-out {
+    color: white;
+    background-color: hsl(188, 79%, 47%);
+    min-width: 175px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 4px;
+    padding: 12px 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.btn-sign-out:hover {
+    background-color: hsl(188, 79%, 40%);
+}
+
+/* Số điện thoại */
+.header-right .phone_number {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.header-right .phone_number i {
+    font-size: 22px;
+    color: hsl(33, 100%, 50%);
+    transition: color 0.3s ease;
+}
+
+.header-right .phone_number span {
+    color: hsl(33, 100%, 50%);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.header-right .phone_number:hover i,
+.header-right .phone_number:hover span {
+    color: hsl(43, 100%, 54%);
+}
+
+
+/* ================= FOOTER ================= */
+footer {
+    background-color: #f9fafb;
+    margin-top: 50px;
+}
+
+footer .footer-top {
+    padding: 50px 0 30px 0;
+}
+
+.ft_container {
+    width: 85%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.ft_col {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.list_col {
+    flex: 1;
+    min-width: 200px;
+}
+
+.list_col h4 {
+    margin-bottom: 15px;
+    color: hsl(10, 5%, 24%);
+    font-size: 22px;
+}
+
+.list_col a {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 16px;
+    color: hsl(40, 1%, 51%);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.list_col a:hover {
+    color: hsl(188, 79%, 47%);
+}
+.list_col p {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 16px;
+    color: hsl(40, 1%, 51%);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.list_col p:hover {
+    color: hsl(188, 79%, 47%);
+}
+/* Icon mạng xã hội */
+.icon_social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.icon_social i {
+    font-size: 24px;
+    background-color: hsl(188, 79%, 47%);
+    color: white;
+    border-radius: 50%;
+    padding: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.icon_social i:hover {
+    background-color: hsl(188, 79%, 40%);
+    transform: scale(1.1);
+}
+
+/* Footer bottom */
+.footer-bottom {
+    border-top: 1px solid #ccc;
+    padding: 15px 0;
+    text-align: center;
+    background-color: #eef1f3;
+}
+
+.footer-bottom span {
+    color: #555;
+    font-size: 14px;
+}
+
+/* Đảm bảo footer sát mép dưới */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Nếu vẫn có khoảng trắng do layout flex */
+.footer {
+    margin: 0;
+    padding: 0;
+}
+
+/* Loại bỏ khoảng trống do các phần tử block mặc định */
+.footer-bottom {
+    margin: 0;
+    padding: 10px 0;
+}
+
+/* Section tour */
+
+.tour-section {
+    background: hsl(0, 0%, 100%);
+    position: relative;
+    z-index: 1; /* thấp hơn header */
+}
+
+.tour-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+
+}
+
+.tour-section .tour-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 360px); /*  chỉnh thành 3 cột cố định */
+
+    row-gap: 10px; /* chỉ cách hàng, không lệch ngang */
+    column-gap: 15px; /* khoảng cách đều giữa các cột */
+    justify-content: center;
+
+}
+
+
+.tour-section h2 {
+    font-size: 36px;
+    font-weight: bold;
+    color: hsl(0, 3%, 24%);
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+
+.tour-section .title-group {
+    display: block;
+    font-size: 18px;
+    color: hsl(207, 23%, 63%);
+    margin-bottom: 20px;
+}
+
+.tour-card {
+    position: relative;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    width: 100%;
+    max-width: 320px;
+
+    border: 3px solid hsl(228, 8%, 88%);
+
+
+}
+
+.tour-card:hover {
+    transform: translateY(-5px);
+}
+
+/* ====== LABEL ====== */
+.label {
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    color: hsl(0, 0%, 100%);
+}
+
+.label.red {
+    background-color: hsl(0, 78%, 60%); /* đỏ giảm giá */
+}
+
+.tour-section .tour-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* phủ đầy mà không vỡ ảnh */
+}
+
+.tour-section .tour-detail {
+    padding: 10px 0;
+    text-align: left;
+    background-color: #fff;
+}
+
+.tour-section .tour-content {
+
+
+    text-align: left;
+    margin-left: 15px;
+}
+
+.tour-section .tour-content h3 {
+    font-size: 20px;
+    font-weight: bold;
+    color: hsl(206, 74%, 32%);
+}
+
+.tour-section .tour-time {
+
+
+    color: hsl(300, 1%, 57%);
+    font-size: 15px;
+    margin-left: 15px;
+}
+
+.tour-section .tour-info {
+    margin: 0 0 5px;
+    padding: 0 15px;
+}
+
+
+.tour-section .tour-info .tour-list {
+    padding: 0;
+    margin: 0;
+
+}
+
+/* Các mục trong danh sách */
+.tour-section .tour-info .tour-list li {
+    font-size: 16px;
+    color: hsl(188, 79%, 40%);
+    line-height: 1.6;
+    list-style: none; /* xóa dấu chấm mặc định */
+    position: relative;
+    margin-left: 20px; /* đẩy chữ sang phải cho có chỗ cho dấu chấm */
+}
+
+/* Thêm dấu chấm thủ công trước mỗi mục */
+.tour-section .tour-info .tour-list li::before {
+    content: "•"; /* dấu chấm tròn */
+    color: hsl(188, 79%, 40%); /* cùng màu chữ */
+    position: absolute;
+    left: -15px; /* đặt chấm ra ngoài bên trái */
+    top: 0;
+    font-size: 18px;
+}
+
+/* ==== Giá ==== */
+.tour-section .price {
+    display: flex;
+    position: relative;
+    justify-content: flex-end; /* giá nằm bên phải */
+    align-items: baseline;
+    gap: 10px; /* khoảng cách giữa giá cũ và giá mới */
+    margin-top: auto;
+    padding: 10px 20px 20px 0;
+    float: right;
+}
+
+.tour-section .price .old {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 16px;
+}
+
+.tour-section .price .new {
+    color: hsl(34, 100%, 52%); /* màu cam nổi bật */
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.tour-section .price .textCurrency {
+    font-size: 0.8em; /* nhỏ hơn một chút để gọn */
+    font-weight: bold;
+    margin-left: 2px; /* cách nhẹ số tiền */
+}
+
+.see-more {
+    display: flex;
+    justify-content: center;
+    margin: 35px 0;
+}
+
+.btn-see-more {
+    background: hsl(0, 0%, 100%);
+    width: 210px;
+    height: 60px;
+    border-radius: 5px;
+    border: 2px solid hsl(188, 79%, 40%);
+    display: flex;
+    justify-content: center; /* canh giữa theo chiều ngang */
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: hsl(188, 79%, 40%);
+
+}
+
+.btn-see-more:hover {
+    background: hsl(188, 79%, 40%);
+    color: #fff;
+}
+
+/* thanh search */
+.section-search {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.section-search img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(70%);
+    position: absolute;
+    z-index: -1;
+    cursor: pointer;
+
+
+}
+
+.search-container {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: hsl(200, 33%, 98%);
+    padding-top: 70px;
+}
+
+.home-title h1 {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.home-info h2 {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 40px;
+}
+
+.home-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.search-item1,
+.search-item2 {
+    display: flex;
+    align-items: center;
+    background: white;
+    color: hsl(220, 13%, 20%);
+    padding: 12px 20px;
+    border-radius: 15px;
+    width: 300px;
+    height: 67px;
+    box-shadow: 0 4px 10px hsl(0 0% 0% / 20%);
+}
+
+.search-item1 i,
+.search-item2 i {
+    font-size: 20px;
+    margin-right: 20px;
+    color: hsl(200, 90%, 45%);
+}
+
+.search-content {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.search-content label {
+    font-size: 13px;
+    font-weight: 600;
+    color: hsl(220, 10%, 40%);
+    margin-bottom: 3px;
+}
+
+.search-content input {
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background: transparent; /* nền trong suốt */
+    color: hsl(220, 13%, 20%);
+}
+
+.search-content select {
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background: transparent;
+    color: hsl(220, 13%, 20%);
+    width: 100%;
+    appearance: none; /* Ẩn mũi tên select */
+    overflow-y: auto;
+    margin-right: 25px;
+}
+
+.search-button {
+    background-color: hsl(28, 100%, 50%);
+    border: none;
+    color: white;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 15px 35px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    box-shadow: 0 4px 10px hsl(0 0% 0% / 25%);
+    height: 90px;
+    width: 110px;
+}
+
+.search-button:hover {
+    background-color: hsl(28, 100%, 45%);
+}
