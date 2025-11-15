@@ -1,8 +1,18 @@
-body{
+body {
     font-family: sans-serif;
     background: #ecf0f5;
     margin: 0;
 }
+
+a {
+    text-decoration: none;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
 .container {
     max-width: 1400px;
     width: 80%;
@@ -13,6 +23,7 @@ body{
 #header .header-wrapper {
     background-color: hsl(208, 100%, 22%);
 }
+
 #header {
     position: sticky; /* hoặc fixed nếu muốn luôn hiển thị */
     top: 0;
@@ -27,6 +38,7 @@ body{
     align-items: center;
     height: 75px;
 }
+
 .header-box {
     position: relative;
 }
@@ -54,12 +66,11 @@ nav .menu .item {
     position: relative;
     cursor: pointer;
 }
+
 .menu .item.active {
     color: hsl(188, 79%, 47%);
 
 }
-
-
 
 
 nav .menu .item:hover {
@@ -210,7 +221,8 @@ nav .menu .item .sub-item a:hover {
 .header-right .phone_number:hover span {
     color: hsl(43, 100%, 54%);
 }
-.content{
+
+.content {
     background: #ecf0f5;
     height: 100%;
     width: 1170px;
@@ -219,12 +231,14 @@ nav .menu .item .sub-item a:hover {
     margin-left: auto;
     margin-right: auto;
 }
-.noti_form{
+
+.noti_form {
     margin-left: auto;
     margin-right: auto;
     margin-top: 70px;
 }
-.noti_frame{
+
+.noti_frame {
     background: white;
     width: 450px;
     height: 300px;
@@ -236,7 +250,7 @@ nav .menu .item .sub-item a:hover {
 
 }
 
-.noti_header{
+.noti_header {
     position: relative;
     display: flex;
     font-weight: bold;
@@ -244,35 +258,42 @@ nav .menu .item .sub-item a:hover {
     padding-bottom: 10px;
     justify-content: center;
 }
-.noti_header .back{
+
+.noti_header .back {
     position: absolute;
     left: 0;
     text-decoration: none;
     color: gray;
     font-size: 20px;
 }
-.back:hover{
+
+.back:hover {
     color: darkgray;
 }
-.header_text{
+
+.header_text {
     text-align: center;
     font-size: 24px;
 }
-.noti_1{
+
+.noti_1 {
     font-size: 16px;
     display: block;
     padding-top: 15px;
 }
-.noti_2{
+
+.noti_2 {
     font-size: 16px;
     display: block;
     padding-top: 15px;
 }
-.btn{
+
+.btn {
     text-align: center;
     padding-top: 15px;
 }
-.btn .login_btn{
+
+.btn .login_btn {
     background: #26bed6;
     display: inline-block;
     width: calc(100% - 30px);
@@ -284,6 +305,7 @@ nav .menu .item .sub-item a:hover {
     color: white;
     text-decoration: none;
 }
-.btn .login_btn:hover{
+
+.btn .login_btn:hover {
     background-color: darkturquoise;
 }

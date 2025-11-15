@@ -1,8 +1,18 @@
-body{
+body {
     font-family: sans-serif;
     background: #ecf0f5;
     margin: 0;
 }
+
+a {
+    text-decoration: none;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
 .container {
     max-width: 1400px;
     width: 80%;
@@ -13,6 +23,7 @@ body{
 #header .header-wrapper {
     background-color: hsl(208, 100%, 22%);
 }
+
 #header {
     position: sticky; /* hoặc fixed nếu muốn luôn hiển thị */
     top: 0;
@@ -27,6 +38,7 @@ body{
     align-items: center;
     height: 75px;
 }
+
 .header-box {
     position: relative;
 }
@@ -54,12 +66,11 @@ nav .menu .item {
     position: relative;
     cursor: pointer;
 }
+
 .menu .item.active {
     color: hsl(188, 79%, 47%);
 
 }
-
-
 
 
 nav .menu .item:hover {
@@ -210,7 +221,8 @@ nav .menu .item .sub-item a:hover {
 .header-right .phone_number:hover span {
     color: hsl(43, 100%, 54%);
 }
-.content{
+
+.content {
     background: #ecf0f5;
     min-height: 100%;
     width: 1170px;
@@ -219,37 +231,45 @@ nav .menu .item .sub-item a:hover {
     margin-left: auto;
     margin-right: auto;
 }
+
 hearder-page {
     font-size: 15px;
     font-weight: bold;
     color: #1877F2;
 }
-.container-tour{
+
+.container-tour {
     display: flex;
 }
-.tour-section{
+
+.tour-section {
     padding-right: 65px;
     width: 1200px;
 }
-.tour-section img{
+
+.tour-section img {
     width: 132px;
     height: 110px;
     border-radius: 5px
 }
-.tour-img img{
-    width:100%;
+
+.tour-img img {
+    width: 100%;
     border-radius: 10px;
     height: 360px;
     transition: transform 0.6s ease;
     opacity: 1;
 }
+
 .tour-img img.fade-out {
     opacity: 0;
 }
-.thumb-list{
+
+.thumb-list {
     margin-top: 5px;
     margin-bottom: 20px;
 }
+
 .tour-img i {
     position: absolute;
     top: 50%;
@@ -261,13 +281,16 @@ hearder-page {
     padding: 10px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
 }
-.fa-arrow-left{
+
+.fa-arrow-left {
     left: 12%;
 }
-.fa-arrow-right{
+
+.fa-arrow-right {
     right: 35%;
 }
-.tour-info{
+
+.tour-info {
     background: white;
     width: 400px;
     height: 450px;
@@ -279,14 +302,17 @@ hearder-page {
     position: sticky;
     top: 50px;
 }
-.tour-info h2{
+
+.tour-info h2 {
     text-align: center;
     font-size: 23px;
 }
-.tour-info .tour-date{
+
+.tour-info .tour-date {
     display: flex;
     flex-direction: column;
 }
+
 .tour-info input {
     padding: 10px 10px 10px 15px;
     border: 1px solid #d0e3f0;
@@ -295,6 +321,7 @@ hearder-page {
     color: #333;
     width: 215px;
 }
+
 .tour-pricing .price {
     position: absolute;
     top: 38%;
@@ -302,6 +329,7 @@ hearder-page {
     right: 20%;
     color: red;
 }
+
 .tour-pricing .child-price {
     position: absolute;
     top: 51%;
@@ -309,25 +337,31 @@ hearder-page {
     right: 20%;
     color: red;
 }
-.total{
+
+.total {
     width: 215px;
 
 }
-.total .row{
+
+.total .row {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-top: 10px;
 }
-#basic-price{
-    color: #1877F2 ;
+
+#basic-price {
+    color: #1877F2;
 }
-#dis-price{
+
+#dis-price {
     color: red;
 }
-#total-price{
+
+#total-price {
     color: #FB8C00;
 }
+
 .tour-btn {
     margin-top: 20px;
     background-color: #ff8000;
@@ -339,10 +373,12 @@ hearder-page {
     padding: 12px 25px;
     width: 100%;;
 }
+
 .tour-btn:hover {
     background-color: #ff6600;
 }
-.tourDetails,.experience-section{
+
+.tourDetails, .experience-section {
     background: white;
     width: 100%;
     height: auto;
@@ -352,16 +388,19 @@ hearder-page {
     padding: 20px;
     box-sizing: border-box;
 }
-.tourDetails h4{
+
+.tourDetails h4 {
     margin-top: 0;
     font-size: 20px;
     font-weight: bold;
 }
-.tourDetails i{
+
+.tourDetails i {
     font-size: 15px;
     color: #1877F2;
 }
-.departure{
+
+.departure {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -369,33 +408,39 @@ hearder-page {
     margin-bottom: 12px;
     font-weight: 500;
 }
+
 .details-row {
     display: grid;
     grid-template-columns:repeat(3, 1fr);
     gap: 10px 20px;
     margin-top: 10px;
 }
-.d-item{
+
+.d-item {
     display: flex;
     align-items: center;
     font-size: 15px;
     gap: 5px;
 }
-.experience-section h2{
+
+.experience-section h2 {
     margin-top: 0;
     font-size: 20px;
     font-weight: bold;
 }
-.experience-row{
+
+.experience-row {
     display: flex;
     flex-direction: column;
     gap: 8px;
     margin-top: 12px;
 }
-.experience-row span{
+
+.experience-row span {
     display: block;
     font-size: 16px;
 }
+
 /*Footer*/
 footer {
     background-color: #f9fafb;
@@ -477,6 +522,7 @@ footer .footer-top {
     color: #555;
     font-size: 14px;
 }
+
 /* Đảm bảo footer sát mép dưới */
 html, body {
     height: 100%;

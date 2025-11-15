@@ -1,8 +1,18 @@
-body{
+body {
     font-family: sans-serif;
     background: #ecf0f5;
     margin: 0;
 }
+
+a {
+    text-decoration: none;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
 .container {
     max-width: 1400px;
     width: 80%;
@@ -13,6 +23,7 @@ body{
 #header .header-wrapper {
     background-color: hsl(208, 100%, 22%);
 }
+
 #header {
     position: sticky; /* hoặc fixed nếu muốn luôn hiển thị */
     top: 0;
@@ -27,6 +38,7 @@ body{
     align-items: center;
     height: 75px;
 }
+
 .header-box {
     position: relative;
 }
@@ -54,12 +66,11 @@ nav .menu .item {
     position: relative;
     cursor: pointer;
 }
+
 .menu .item.active {
     color: hsl(188, 79%, 47%);
 
 }
-
-
 
 
 nav .menu .item:hover {
@@ -211,7 +222,7 @@ nav .menu .item .sub-item a:hover {
     color: hsl(43, 100%, 54%);
 }
 
-.content{
+.content {
     background: #ecf0f5;
     height: 100%;
     width: 1170px;
@@ -220,12 +231,14 @@ nav .menu .item .sub-item a:hover {
     margin-left: auto;
     margin-right: auto;
 }
-.fpsw_form{
+
+.fpsw_form {
     margin-left: auto;
     margin-right: auto;
     margin-top: 70px;
 }
-.fpsw_frame{
+
+.fpsw_frame {
     background: white;
     width: 450px;
     height: 400px;
@@ -237,7 +250,7 @@ nav .menu .item .sub-item a:hover {
 
 }
 
-.fPSW_header{
+.fPSW_header {
     position: relative;
     display: flex;
     font-weight: bold;
@@ -245,32 +258,37 @@ nav .menu .item .sub-item a:hover {
     padding-bottom: 10px;
     justify-content: center;
 }
-.fPSW_header .back{
+
+.fPSW_header .back {
     position: absolute;
     left: 0;
     text-decoration: none;
     color: gray;
     font-size: 20px;
 }
-.back:hover{
+
+.back:hover {
     color: darkgray;
 }
-.header_text{
+
+.header_text {
     text-align: center;
     font-size: 24px;
 }
-.label{
-    font-size: 16px;
-    display: block;
-    padding-top: 10px;
-}
-.email label{
+
+.label {
     font-size: 16px;
     display: block;
     padding-top: 10px;
 }
 
-.email{
+.email label {
+    font-size: 16px;
+    display: block;
+    padding-top: 10px;
+}
+
+.email {
     font-size: 16px;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -278,19 +296,19 @@ nav .menu .item .sub-item a:hover {
     border-radius: 5px;
 }
 
-.fpsw_input{
+.fpsw_input {
     font-size: 16px;
     padding: 20px;
-    width:100%;
+    width: 100%;
     border-radius: 5px;
 }
 
-.btn{
+.btn {
     text-align: center;
     padding-top: 20px;
 }
 
-.btn .fpsw_btn{
+.btn .fpsw_btn {
     background: orange;
     display: inline-block;
     width: calc(100% - 30px);
@@ -303,6 +321,7 @@ nav .menu .item .sub-item a:hover {
     text-decoration: none;
 
 }
-.btn .fpsw_btn:hover{
+
+.btn .fpsw_btn:hover {
     background-color: darkorange;
 }

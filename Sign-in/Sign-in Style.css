@@ -1,8 +1,18 @@
-body{
+body {
     font-family: sans-serif;
     background: #ecf0f5;
     margin: 0;
 }
+
+a {
+    text-decoration: none;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
 .container {
     max-width: 1400px;
     width: 80%;
@@ -13,6 +23,7 @@ body{
 #header .header-wrapper {
     background-color: hsl(208, 100%, 22%);
 }
+
 #header {
     position: sticky; /* hoặc fixed nếu muốn luôn hiển thị */
     top: 0;
@@ -27,6 +38,7 @@ body{
     align-items: center;
     height: 75px;
 }
+
 .header-box {
     position: relative;
 }
@@ -54,12 +66,11 @@ nav .menu .item {
     position: relative;
     cursor: pointer;
 }
+
 .menu .item.active {
     color: hsl(188, 79%, 47%);
 
 }
-
-
 
 
 nav .menu .item:hover {
@@ -211,7 +222,7 @@ nav .menu .item .sub-item a:hover {
     color: hsl(43, 100%, 54%);
 }
 
-.content{
+.content {
     background: #ecf0f5;
     height: 100%;
     width: 1170px;
@@ -220,12 +231,14 @@ nav .menu .item .sub-item a:hover {
     margin-left: auto;
     margin-right: auto;
 }
-.sign_in_form{
+
+.sign_in_form {
     margin-left: auto;
     margin-right: auto;
     margin-top: 70px;
 }
-.sign-in_frame{
+
+.sign-in_frame {
     background: white;
     width: 450px;
     min-height: 500px;
@@ -237,7 +250,7 @@ nav .menu .item .sub-item a:hover {
 
 }
 
-.sign-in_header{
+.sign-in_header {
     position: relative;
     display: flex;
     font-weight: bold;
@@ -245,52 +258,62 @@ nav .menu .item .sub-item a:hover {
     padding-bottom: 10px;
     justify-content: center;
 }
-.sign-in_header .back{
+
+.sign-in_header .back {
     position: absolute;
     left: 0;
     text-decoration: none;
     color: gray;
     font-size: 20px;
 }
-.back:hover{
+
+.back:hover {
     color: darkgray;
 }
-.header_text{
+
+.header_text {
     text-align: center;
     font-size: 24px;
 }
-.acc label{
+
+.acc label {
     font-size: 16px;
     display: block;
     padding-top: 10px;
 }
+
 .Full_Name {
     font-size: 16px;
     display: block;
     padding-top: 10px;
 }
-.psw{
+
+.psw {
     position: relative;
 }
-.psw label{
+
+.psw label {
     font-size: 16px;
     display: block;
     padding-top: 10px;
 }
+
 .confirm_psw {
     font-size: 16px;
     display: block;
     padding-top: 10px;
 }
-.toggle-eye{
+
+.toggle-eye {
     position: absolute;
     right: 15px;
-    top:57%;
+    top: 57%;
     cursor: pointer;
     font-size: 15px;
-    color:gray;
+    color: gray;
 }
-.sign_in_input{
+
+.sign_in_input {
     font-size: 16px;
     padding: 20px;
     width: calc(100% - 40px);
@@ -298,10 +321,11 @@ nav .menu .item .sub-item a:hover {
 }
 
 
-.btn{
+.btn {
     text-align: center;
 }
-.btn .sign-in_btn{
+
+.btn .sign-in_btn {
     background: orange;
     display: inline-block;
     width: calc(100% - 30px);
@@ -314,16 +338,19 @@ nav .menu .item .sub-item a:hover {
     text-decoration: none;
     margin-top: 15px;
 }
-.btn .sign-in_btn:hover{
+
+.btn .sign-in_btn:hover {
     background-color: darkorange;
 }
-.line_or{
+
+.line_or {
     position: relative;
     height: 20px;
     border-top: 1px solid gray;
     margin: 20px 0;
 }
-.or{
+
+.or {
     text-align: center;
     font-size: 16px;
     color: gray;
@@ -334,14 +361,16 @@ nav .menu .item .sub-item a:hover {
     padding: 0 15px;
     background: white;
 }
-.social_login{
+
+.social_login {
     display: flex;
     text-align: center;
     justify-content: space-between;
     margin-top: 10px;
     width: 100%;
 }
-.social_login .facebook_login, .google_login{
+
+.social_login .facebook_login, .google_login {
     background: white;
     width: calc(50% - 15px);
     height: 45px;
