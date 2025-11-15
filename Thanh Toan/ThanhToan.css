@@ -328,6 +328,7 @@ html, body {
     padding: 10px 0;
 }
 
+
 /* PHƯƠNG THỨC THANH TOÁN */
 .main-container {
     display: flex;
@@ -428,6 +429,7 @@ html, body {
 .confirm-btn:hover {
     background: hsl(33, 100%, 45%);
 }
+
 
 /* THÔNG TIN TOUR VÀ GIÁ */
 .summary-section {
