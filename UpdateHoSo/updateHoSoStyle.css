@@ -1,8 +1,18 @@
-body{
+body {
     font-family: sans-serif;
     background: #ecf0f5;
     margin: 0;
 }
+
+a {
+    text-decoration: none;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
 .container {
     max-width: 1400px;
     width: 80%;
@@ -13,6 +23,7 @@ body{
 #header .header-wrapper {
     background-color: hsl(208, 100%, 22%);
 }
+
 #header {
     position: sticky; /* hoặc fixed nếu muốn luôn hiển thị */
     top: 0;
@@ -27,6 +38,7 @@ body{
     align-items: center;
     height: 75px;
 }
+
 .header-box {
     position: relative;
 }
@@ -54,12 +66,11 @@ nav .menu .item {
     position: relative;
     cursor: pointer;
 }
+
 .menu .item.active {
     color: hsl(188, 79%, 47%);
 
 }
-
-
 
 
 nav .menu .item:hover {
@@ -222,14 +233,16 @@ main {
     padding: 25px;
     box-sizing: border-box;
 }
-.profile-header{
+
+.profile-header {
     display: flex;
     font-size: 30px;
     align-items: center;
     justify-content: center;
     color: #1877F2;
 }
-.profile-item{
+
+.profile-item {
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid #eee;
@@ -238,11 +251,13 @@ main {
     box-sizing: border-box;
     gap: 20px;
 }
-.label{
+
+.label {
     font-weight: bold;
     width: 450px;
 }
-.input{
+
+.input {
     font-size: 15px;
     width: 55%;
     padding: 8px 12px;
@@ -250,12 +265,14 @@ main {
     border-radius: 5px;
     outline: none;
 }
+
 .profile-btn {
     display: flex;
     flex-direction: row;
     justify-content: center;
     margin-top: 20px;
 }
+
 .profile-btn .update-btn {
     background: #4285F4;
     display: inline-block;
@@ -268,6 +285,7 @@ main {
     text-decoration: none;
     margin: 5px;
 }
+
 .update-btn:hover {
     background-color: #3367D6;
 }
