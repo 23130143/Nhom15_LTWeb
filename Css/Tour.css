@@ -33,7 +33,6 @@ p {
     background-color: white; /* tránh trong suốt */
 }
 
-
 .header-box {
     display: flex;
     justify-content: space-between;
@@ -271,6 +270,7 @@ footer .footer-top {
 .list_col a:hover {
     color: hsl(188, 79%, 47%);
 }
+
 .list_col p {
     display: block;
     margin-bottom: 12px;

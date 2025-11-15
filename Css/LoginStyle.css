@@ -232,16 +232,16 @@ nav .menu .item .sub-item a:hover {
     margin-right: auto;
 }
 
-.sign_in_form {
+.login_form {
     margin-left: auto;
     margin-right: auto;
     margin-top: 70px;
 }
 
-.sign-in_frame {
+.login_frame {
     background: white;
     width: 450px;
-    min-height: 500px;
+    height: 390px;
     border-radius: 15px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
     margin: auto;
@@ -250,58 +250,34 @@ nav .menu .item .sub-item a:hover {
 
 }
 
-.sign-in_header {
-    position: relative;
-    display: flex;
-    font-weight: bold;
-    align-items: center;
-    padding-bottom: 10px;
-    justify-content: center;
-}
-
-.sign-in_header .back {
-    position: absolute;
-    left: 0;
-    text-decoration: none;
-    color: gray;
-    font-size: 20px;
-}
-
-.back:hover {
-    color: darkgray;
-}
-
-.header_text {
-    text-align: center;
+.login_header {
     font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 10px;
 }
 
-.acc label {
+.login_form_acc label {
     font-size: 16px;
     display: block;
     padding-top: 10px;
 }
 
-.Full_Name {
-    font-size: 16px;
-    display: block;
-    padding-top: 10px;
-}
-
-.psw {
+.login_form_psw {
     position: relative;
 }
 
-.psw label {
+.login_form_psw label {
     font-size: 16px;
     display: block;
     padding-top: 10px;
 }
 
-.confirm_psw {
+.login_input {
     font-size: 16px;
-    display: block;
-    padding-top: 10px;
+    padding: 20px;
+    width: calc(100% - 40px);
+    border-radius: 5px;
 }
 
 .toggle-eye {
@@ -313,19 +289,27 @@ nav .menu .item .sub-item a:hover {
     color: gray;
 }
 
-.sign_in_input {
-    font-size: 16px;
-    padding: 20px;
-    width: calc(100% - 40px);
-    border-radius: 5px;
+.login_form_more {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
+.login_form_more .forgotPsw {
+    text-decoration: none;
+}
+
+.sign_in {
+    text-decoration: none;
+}
 
 .btn {
     text-align: center;
+
 }
 
-.btn .sign-in_btn {
+.btn .login_btn {
     background: orange;
     display: inline-block;
     width: calc(100% - 30px);
@@ -336,48 +320,9 @@ nav .menu .item .sub-item a:hover {
     font-weight: bold;
     color: white;
     text-decoration: none;
-    margin-top: 15px;
 }
 
-.btn .sign-in_btn:hover {
+.btn .login_btn:hover {
     background-color: darkorange;
 }
-
-.line_or {
-    position: relative;
-    height: 20px;
-    border-top: 1px solid gray;
-    margin: 20px 0;
-}
-
-.or {
-    text-align: center;
-    font-size: 16px;
-    color: gray;
-    position: absolute;
-    top: -8px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 0 15px;
-    background: white;
-}
-
-.social_login {
-    display: flex;
-    text-align: center;
-    justify-content: space-between;
-    margin-top: 10px;
-    width: 100%;
-}
-
-.social_login .facebook_login, .google_login {
-    background: white;
-    width: calc(50% - 15px);
-    height: 45px;
-    border-radius: 5px;
-    border: 1px solid gray;
-}
-
-
-
 
