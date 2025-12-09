@@ -91,7 +91,7 @@
     </div>
 
     <div class="main-button">
-        <button class="btn-confirm" onclick="window.location.href='Tour.jsp'">Quay về trang chủ</button>
+        <button class="btn-confirm" onclick="window.location.href='index.jsp'">Quay về trang chủ</button>
     </div>
 </section>
 
