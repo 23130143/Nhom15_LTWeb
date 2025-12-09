@@ -1,0 +1,109 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="Css/Admin_DashBoard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+          integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+</head>
+<body>
+<!-- Sidebar -->
+<aside class="sidebar">
+    <div class="brand">
+        <div class="logo">✈️</div>
+        <div>
+            <h1>Travel Admin</h1>
+            <p>Quản trị web du lịch</p>
+        </div>
+    </div>
+
+    <nav class="menu">
+        <a class="menu-item active" href="http://localhost:63342/Nhom15_LTWeb/Admin_DashBoard.html?_ijt=okkvfcm26k44tle360e1cht84o&_ij_reload=RELOAD_ON_SAVE">DashBoard</a>
+        <a class="menu-item" href="http://localhost:63342/Nhom15_LTWeb/AdSanPham.html?_ijt=a97fumsa6ro5mrcmlfhf1bc4ms&_ij_reload=RELOAD_ON_SAVE">Tour</a>
+        <a class="menu-item" href="http://localhost:63342/Nhom15_LTWeb/Admin_NguoiDung.html?_ijt=rguv5o1221di9ht7ujp26328gd&_ij_reload=RELOAD_ON_SAVE">Người dùng</a>
+        <a class="menu-item" href="http://localhost:63342/Nhom15_LTWeb/Admin_KhuyenMai.html?_ijt=8p96ove48vsv29jj2q1a0esr4b&_ij_reload=RELOAD_ON_SAVE">Khuyến mãi</a>
+        <a class="menu-item " href="http://localhost:63342/Nhom15_LTWeb/Admin_Banner/Admin_Banner.html?_ijt=nu7j9qi89m7cet742v6cme27vs&_ij_reload=RELOAD_ON_SAVE">Banner</a>
+        <a class="menu-item logout" href="http://localhost:63342/Nhom15_LTWeb/Tour.html?_ijt=7tuf6q2bklajeet70tcj7hnv5h&_ij_reload=RELOAD_ON_SAVE">Đăng xuất</a>
+    </nav>
+</aside>
+
+<!-- Main content -->
+<div class="main">
+    <header class="topbar">
+
+
+        <div class="controls">
+            <div class="welcome">Xin chào, <strong>Admin</strong></div>
+        </div>
+    </header>
+
+    <section class="content">
+        <h2 class="section-title">Bảng điều khiển</h2>
+
+        <!-- KPI cards -->
+        <div class="cards">
+            <div class="card">
+                <div class="card-title">Tổng số điểm đến</div>
+                <div class="card-value">120</div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Người dùng</div>
+                <div class="card-value">5.430</div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Đặt chỗ hôm nay</div>
+                <div class="card-value">42</div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Doanh thu tháng</div>
+                <div class="card-value">350.000.000 VND</div>
+            </div>
+        </div>
+
+        <!-- Recent activity / bookings -->
+        <div class="panel">
+            <h3>Hoạt động gần đây</h3>
+
+            <table class="activity-table">
+                <thead>
+                <tr>
+                    <th>Ngày</th>
+                    <th>Người dùng</th>
+                    <th>Hoạt động</th>
+                    <th>Chi tiết</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>11/11/2025</td>
+                    <td>nguyenvan</td>
+                    <td>Đặt chỗ Tour Đà Nẵng</td>
+                    <td>Tour Hội An - Bà Nà Hills</td>
+                </tr>
+                <tr>
+                    <td>10/11/2025</td>
+                    <td>tranthi</td>
+                    <td>Hủy đặt chỗ</td>
+                    <td>Đơn #A2025110</td>
+                </tr>
+                <tr>
+                    <td>09/11/2025</td>
+                    <td>admin</td>
+                    <td>Thêm banner mới</td>
+                    <td>Black Friday 2025</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+    </section>
+</div>
+</body>
+</html>
