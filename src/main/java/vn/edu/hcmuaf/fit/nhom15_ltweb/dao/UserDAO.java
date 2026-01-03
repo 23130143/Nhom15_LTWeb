@@ -1,4 +1,5 @@
 package vn.edu.hcmuaf.fit.nhom15_ltweb.dao;
+import vn.edu.hcmuaf.fit.nhom15_ltweb.model.MD5;
 import  vn.edu.hcmuaf.fit.nhom15_ltweb.model.User;
 
 import vn.edu.hcmuaf.fit.nhom15_ltweb.ultils.DBConnect;
@@ -8,6 +9,23 @@ import java.util.List;
 
 public class UserDAO {
 
+    public User login(String email, String password) {
+        String query = "select * from users where email = ? and password = ?";
+        try(Connection connection = DBConnect.getConnection();
+            PreparedStatement ps = connection.prepareStatement(query);
+        ) {
+            ps.setString(1, email);
+            ps.setString(2, MD5.md5(password));
+            ResultSet rs = ps.executeQuery(query);
+            while (rs.next()){
+                User user = new User();
+                user.setEmail(rs.getString("email"));
+                user.setPassword(rs.getString("password"));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
     // Lấy tất cả người dùng
     public List<User> getAllUsers() {
         List<User> userList = new ArrayList<>();
