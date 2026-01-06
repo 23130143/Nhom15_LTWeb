@@ -362,7 +362,6 @@ html, body {
 
 }
 
-
 .tour-section h2 {
     font-size: 36px;
     font-weight: bold;
@@ -389,8 +388,6 @@ html, body {
     max-width: 320px;
 
     border: 3px solid hsl(228, 8%, 88%);
-
-
 }
 
 .tour-card:hover {
@@ -426,8 +423,6 @@ html, body {
 }
 
 .tour-section .tour-content {
-
-
     text-align: left;
     margin-left: 15px;
 }
@@ -439,8 +434,6 @@ html, body {
 }
 
 .tour-section .tour-time {
-
-
     color: hsl(300, 1%, 57%);
     font-size: 15px;
     margin-left: 15px;
