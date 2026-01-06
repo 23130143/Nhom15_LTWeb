@@ -7,8 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
           integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
-    <link rel="stylesheet" href="Css/Tour.css">
-
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/Css/index.css">
 </head>
 <body>
 <section id="header">
@@ -18,30 +17,27 @@
                 <div class="header-box">
                     <div class="logo">
                         <div class="header-logo">
-                            <a href="http://localhost:63342/Nhom15_LTWeb/Tour.html?_ijt=5vsd5k6ge3rent6bs7uo0esfn7&_ij_reload=RELOAD_ON_SAVE" aria-label="TravelNow" class="Travel-logo">
-                                <img src="IMAGE/asset/images/LOGO.png" alt="Travel ">
-
+                            <a href="<%= request.getContextPath() %>/index.jsp" aria-label="TravelNow" class="Travel-logo">
+                                <img src="<%= request.getContextPath() %>/IMAGE/asset/images/LOGO.png" alt="Travel">
                             </a>
                         </div>
-
                     </div>
                     <div class="header-center">
                         <nav>
                             <div class=" menu">
-                                <a href="http://localhost:63342/Nhom15_LTWeb/Tour.html?_ijt=5vsd5k6ge3rent6bs7uo0esfn7&_ij_reload=RELOAD_ON_SAVE" class="item active">Tour trong nước</a>
-                                <a href="http://localhost:63342/Nhom15_LTWeb/Tour.html?_ijt=5vsd5k6ge3rent6bs7uo0esfn7&_ij_reload=RELOAD_ON_SAVE" class="item">Tour nước ngoài</a>
-                                <a href="http://localhost:63342/Nhom15_LTWeb/Khuyen_Mai.html?_ijt=pu4dpgeu34blvj8j68iaaha89i&_ij_reload=RELOAD_ON_SAVE" class="item">Khuyến mãi</a>
-                                <a href="http://localhost:63342/Nhom15_LTWeb/GioiThieu.html?_ijt=pu4dpgeu34blvj8j68iaaha89i&_ij_reload=RELOAD_ON_SAVE" class="item">Giới thiệu</a>
+                                <a href="<%= request.getContextPath() %>/index.jsp" class="item active">Tour trong nước</a>
+                                <a href="<%= request.getContextPath() %>/index.jsp" class="item">Tour nước ngoài</a>
+                                <a href="<%= request.getContextPath() %>/Khuyen_Mai.jsp" class="item">Khuyến mãi</a>
+                                <a href="<%= request.getContextPath() %>/GioiThieu.jsp" class="item">Giới thiệu</a>
 
                                 <div class="item ">
                                     <div class="sub">
                                         <span></span><span></span><span></span>
                                     </div>
                                     <div class="sub-item">
-                                        <a href="http://localhost:63342/Nhom15_LTWeb/Tin%20t%E1%BB%A9c.html?_ijt=pu4dpgeu34blvj8j68iaaha89i&_ij_reload=RELOAD_ON_SAVE">Tin Tức</a>
-                                        <a href="http://localhost:63342/Nhom15_LTWeb/Cau_hoi_thuong_gap.html?_ijt=pu4dpgeu34blvj8j68iaaha89i&_ij_reload=RELOAD_ON_SAVE">Câu hỏi thường gặp</a>
-                                        <a href="http://localhost:63342/Nhom15_LTWeb/NhatKyDuLich.html?_ijt=pu4dpgeu34blvj8j68iaaha89i&_ij_reload=RELOAD_ON_SAVE">Nhật ký khách hàng</a>
-
+                                        <a href="<%= request.getContextPath() %>/Tin%20t%E1%BB%A9c.jsp">Tin Tức</a>
+                                        <a href="<%= request.getContextPath() %>/Cau_hoi_thuong_gap.jsp">Câu hỏi thường gặp</a>
+                                        <a href="<%= request.getContextPath() %>/NhatKyDuLich.jsp">Nhật ký khách hàng</a>
                                     </div>
                                 </div>
 
@@ -53,9 +49,9 @@
                             <i class="fa-solid fa-circle-user"></i>
                             <span>Tài khoản ▾</span>
                             <div class="dropdown">
-                                <button onclick="location.href='Sign-in.html'" class="register-btn">Đăng ký</button>
+                                <button onclick="location.href='<%= request.getContextPath() %>/Sign-in.jsp'" class="register-btn">Đăng ký</button>
                                 <p>Quý khách đã có tài khoản?<br>
-                                    <a href="http://localhost:63342/Nhom15_LTWeb/Log-in.html?_ijt=pu4dpgeu34blvj8j68iaaha89i&_ij_reload=RELOAD_ON_SAVE">Đăng nhập ngay</a>
+                                    <a href="<%= request.getContextPath() %>/Log-in.jsp">Đăng nhập ngay</a>
                                 </p>
                             </div>
                         </div>
@@ -105,7 +101,8 @@
                 </div>
             </div>
 
-            <button class="search-button" onclick="window.location.href='http://localhost:63342/Nhom15_LTWeb/Danh_muc_san_pham.html?_ijt=bgdd3ojvdrc8l95508rr5hd1f&_ij_reload=RELOAD_ON_SAVE'"> Tìm</button> <!--nút tìm ngay-->
+            <button class="search-button"
+                    onclick="window.location.href='<%= request.getContextPath() %>/Danh_muc_san_pham.jsp'">Tìm</button> <!--nút tìm ngay-->
         </div>
     </div>
 </section>
@@ -116,7 +113,7 @@
         <span class="title-group">Chơi Tết Thả Ga, Không Lo Về Giá</span>
 
         <div class="tour-grid">
-            <a href="http://localhost:63342/Nhom15_LTWeb/chi_tiet.html?_ijt=o8hptqqlnvin71m9dcpaa919bb&_ij_reload=RELOAD_ON_SAVE" class="tour-card">
+            <a href="<%= request.getContextPath() %>/chi_tiet.jsp" class="tour-card">
                 <div class="label red">Giảm 2 Triệu Nhóm 4</div>
                 <img class="tour-img" src="IMAGE/asset/images/Tour_1.jpg" alt="Tour Thụy Sĩ">
 
@@ -287,11 +284,9 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
         <div class="see-more">
-            <a href="http://localhost:63342/Nhom15_LTWeb/Danh_muc_san_pham.html?_ijt=4g7143ujh20u6lenkl86hlhg9l&_ij_reload=RELOAD_ON_SAVE" class="btn-see-more">Xem thêm tours</a>
+            <a href="<%= request.getContextPath() %>/Danh_muc_san_pham.jsp" class="btn-see-more">Xem thêm tours</a>
         </div>
     </div>
 </section>
@@ -471,11 +466,9 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
         <div class="see-more">
-            <a href="http://localhost:63342/Nhom15_LTWeb/Danh%20muc%20san%20pham/Danh_muc_san_pham.html?_ijt=oaploghbiegldjq410ls025kb&_ij_reload=RELOAD_ON_SAVE" class="btn-see-more">Xem thêm tours</a>
+            <a href="<%= request.getContextPath() %>/Danh_muc_san_pham.jsp" class="btn-see-more">Xem thêm tours</a>
         </div>
     </div>
 </section>
@@ -655,11 +648,9 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
         <div class="see-more">
-            <a href="http://localhost:63342/Nhom15_LTWeb/Danh%20muc%20san%20pham/Danh_muc_san_pham.html?_ijt=oaploghbiegldjq410ls025kb&_ij_reload=RELOAD_ON_SAVE" class="btn-see-more">Xem thêm tours</a>
+            <a href="<%= request.getContextPath() %>/Danh_muc_san_pham.jsp" class="btn-see-more">Xem thêm tours</a>
         </div>
     </div>
 </section>
@@ -671,25 +662,22 @@
             <div class="ft_col">
                 <div class="list_col">
                     <h4>Về TravelNow</h4>
-                    <a href="http://localhost:63342/Nhom15_LTWeb/GioiThieu.html?_ijt=pu4dpgeu34blvj8j68iaaha89i&_ij_reload=RELOAD_ON_SAVE">Giới thiệu</a>
-                    <a href="http://localhost:63342/Nhom15_LTWeb/DieuKienDieuKhoan.html?_ijt=u298ddfhl2r9h36eqvt6h38aqp&_ij_reload=RELOAD_ON_SAVE">Điều kiện & điều khoản</a>
-                    <a href="http://localhost:63342/Nhom15_LTWeb/QuyCheHoatDong.html?_ijt=lplai2mbkir68tldqbjl9eup0t&_ij_reload=RELOAD_ON_SAVE">Quy chế hoạt động </a>
+                    <a href="<%= request.getContextPath() %>/GioiThieu.jsp">Giới thiệu</a>
+                    <a href="<%= request.getContextPath() %>/DieuKienDieuKhoan.jsp">Điều kiện & điều khoản</a>
+                    <a href="<%= request.getContextPath() %>/QuyCheHoatDong.jsp">Quy chế hoạt động</a>
                 </div>
 
                 <div class="list_col">
                     <h4>Hỗ trợ khách hàng</h4>
-                    <a href="http://localhost:63342/Nhom15_LTWeb/Cau_hoi_thuong_gap.html?_ijt=pu4dpgeu34blvj8j68iaaha89i&_ij_reload=RELOAD_ON_SAVE">Câu hỏi thường gặp</a>
-                    <a href="http://localhost:63342/Nhom15_LTWeb/QuyCheHoatDong.html?_ijt=lplai2mbkir68tldqbjl9eup0t&_ij_reload=RELOAD_ON_SAVE">Quy chế hoạt động</a>
-
-
+                    <a href="<%= request.getContextPath() %>/Cau_hoi_thuong_gap.jsp">Câu hỏi thường gặp</a>
+                    <a href="<%= request.getContextPath() %>/QuyCheHoatDong.jsp">Quy chế hoạt động</a>
                 </div>
 
                 <div class="list_col">
                     <h4>Dịch vụ</h4>
-                    <a href="http://localhost:63342/Nhom15_LTWeb/Tour.html?_ijt=5vsd5k6ge3rent6bs7uo0esfn7&_ij_reload=RELOAD_ON_SAVE">Tour trong nước</a>
-                    <a href="http://localhost:63342/Nhom15_LTWeb/Tour.html?_ijt=5vsd5k6ge3rent6bs7uo0esfn7&_ij_reload=RELOAD_ON_SAVE">Tour ngoài nước</a>
-                    <a href="http://localhost:63342/Nhom15_LTWeb/Khuyen_Mai.html?_ijt=pu4dpgeu34blvj8j68iaaha89i&_ij_reload=RELOAD_ON_SAVE">Khuyến mãi</a>
-
+                    <a href="<%= request.getContextPath() %>/index.jsp">Tour trong nước</a>
+                    <a href="<%= request.getContextPath() %>/index.jsp">Tour ngoài nước</a>
+                    <a href="<%= request.getContextPath() %>/Khuyen_Mai.jsp">Khuyến mãi</a>
                 </div>
 
                 <div class="list_col">
