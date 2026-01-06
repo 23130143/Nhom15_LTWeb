@@ -241,7 +241,7 @@ nav .menu .item .sub-item a:hover {
 .login_frame {
     background: white;
     width: 450px;
-    height: 390px;
+    height: auto;
     border-radius: 15px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
     margin: auto;
@@ -255,6 +255,13 @@ nav .menu .item .sub-item a:hover {
     font-weight: bold;
     text-align: center;
     padding-bottom: 10px;
+}
+
+.login-error {
+    color: red !important;
+    text-align: center;
+    margin: 10px 0;
+    font-size: 14px;
 }
 
 .login_form_acc label {
