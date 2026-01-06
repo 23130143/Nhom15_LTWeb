@@ -87,27 +87,23 @@ public class UserDAO {
     }
 
     // Thêm người dùng mới
-    public void insertUser(User user) {
-        String query = "INSERT INTO User (fullName, email, password, role, createdAt, updatedAt, passport, phone, address, birthDate, gender) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    public boolean insertUser(String fullName, String email, String password) {
+        String query = "INSERT INTO User (fullName, email, password, role, createdAt) VALUES (?, ?, ?, ?, ?)";
 
         try (Connection connection = DBConnect.getConnection();
              PreparedStatement pstmt = connection.prepareStatement(query)) {
 
-            pstmt.setString(1, user.getFullName());
-            pstmt.setString(2, user.getEmail());
-            pstmt.setString(3, user.getPassword());
-            pstmt.setString(4, user.getRole());
-            pstmt.setTimestamp(5, new Timestamp(System.currentTimeMillis())); // createdAt
-            pstmt.setTimestamp(6, new Timestamp(System.currentTimeMillis())); // updatedAt
-            pstmt.setString(7, user.getPassport());
-            pstmt.setString(8, user.getPhone());
-            pstmt.setString(9, user.getAddress());
-            pstmt.setDate(10, new java.sql.Date(user.getBirthDate().getTime()));
-            pstmt.setString(11, user.getGender());
+            pstmt.setString(1, fullName);
+            pstmt.setString(2, email);
+            pstmt.setString(3, password);
+            pstmt.setString(4, "user");
+            pstmt.setDate(5, new java.sql.Date(System.currentTimeMillis()));
             pstmt.executeUpdate();
+            return true;
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return false;
     }
 
     // Cập nhật người dùng
