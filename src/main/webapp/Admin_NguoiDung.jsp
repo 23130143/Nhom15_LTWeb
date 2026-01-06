@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="Css/Admin_NguoiDung.css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/Css/Admin_NguoiDung.css">
 </head>
 <body>
 <!-- Sidebar -->
@@ -18,12 +18,12 @@
     </div>
 
     <nav class="menu">
-        <a class="menu-item " href="http://localhost:63342/Nhom15_LTWeb/Admin_DashBoard.html?_ijt=okkvfcm26k44tle360e1cht84o&_ij_reload=RELOAD_ON_SAVE">DashBoard</a>
-        <a class="menu-item" href="http://localhost:63342/Nhom15_LTWeb/AdSanPham.html?_ijt=a97fumsa6ro5mrcmlfhf1bc4ms&_ij_reload=RELOAD_ON_SAVE">Tour</a>
-        <a class="menu-item active" href="http://localhost:63342/Nhom15_LTWeb/Admin_NguoiDung.html?_ijt=rguv5o1221di9ht7ujp26328gd&_ij_reload=RELOAD_ON_SAVE">Người dùng</a>
-        <a class="menu-item" href="http://localhost:63342/Nhom15_LTWeb/Admin_KhuyenMai.html?_ijt=8p96ove48vsv29jj2q1a0esr4b&_ij_reload=RELOAD_ON_SAVE">Khuyến mãi</a>
-        <a class="menu-item " href="http://localhost:63342/Nhom15_LTWeb/Admin_Banner.html?_ijt=8qmn22mcuj4n09i6i8huafb60a&_ij_reload=RELOAD_ON_SAVE">Banner</a>
-        <a class="menu-item logout" href="http://localhost:63342/Nhom15_LTWeb/Tour.html?_ijt=7tuf6q2bklajeet70tcj7hnv5h&_ij_reload=RELOAD_ON_SAVE">Đăng xuất</a>
+        <a class="menu-item" href="<%= request.getContextPath() %>/Admin_DashBoard.jsp">DashBoard</a>
+        <a class="menu-item" href="<%= request.getContextPath() %>/AdSanPham.jsp">Tour</a>
+        <a class="menu-item active" href="<%= request.getContextPath() %>/Admin_NguoiDung.jsp">Người dùng</a>
+        <a class="menu-item" href="<%= request.getContextPath() %>/Admin_KhuyenMai.jsp">Khuyến mãi</a>
+        <a class="menu-item" href="<%= request.getContextPath() %>/Admin_Banner.jsp">Banner</a>
+        <a class="menu-item logout" href="<%= request.getContextPath() %>/index.jsp">Đăng xuất</a>
     </nav>
 </aside>
 
@@ -58,7 +58,6 @@
                 </thead>
 
                 <tbody>
-
                 <tr>
                     <td>1</td>
                     <td>Nguyễn Văn A</td>
@@ -97,14 +96,10 @@
                         <a href="#" class="btn-delete">Xóa</a>
                     </td>
                 </tr>
-
                 </tbody>
-
             </table>
         </div>
-
     </section>
 </div>
-
 </body>
 </html>

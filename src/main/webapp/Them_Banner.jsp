@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="Css/Them_Banner.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/Css/Them_Banner.css">
 </head>
 <body>
 <!-- Sidebar -->
@@ -18,14 +18,15 @@
     </div>
 
     <nav class="menu">
-        <a class="menu-item " href="#">DashBoard</a>
-        <a class="menu-item" href="#">Tour</a>
-        <a class="menu-item" href="#">Người dùng</a>
-        <a class="menu-item" href="#">Khuyến mãi</a>
-        <a class="menu-item active" href="#">Banner</a>
-        <a class="menu-item logout" href="#">Đăng xuất</a>
+        <a class="menu-item" href="${pageContext.request.contextPath}/Admin_DashBoard.jsp">DashBoard</a>
+        <a class="menu-item" href="${pageContext.request.contextPath}/AdSanPham.jsp">Tour</a>
+        <a class="menu-item" href="${pageContext.request.contextPath}/Admin_NguoiDung.jsp">Người dùng</a>
+        <a class="menu-item" href="${pageContext.request.contextPath}/Admin_KhuyenMai.jsp">Khuyến mãi</a>
+        <a class="menu-item active" href="${pageContext.request.contextPath}/Admin_Banner.jsp">Banner</a>
+        <a class="menu-item logout" href="${pageContext.request.contextPath}/Logout">Đăng xuất</a>
     </nav>
 </aside>
+
 <!-- Main Content -->
 <div class="main">
     <header class="topbar">
@@ -39,7 +40,6 @@
 
         <div class="form-container">
             <form action="#" method="post" enctype="multipart/form-data">
-
                 <label>Tiêu đề Banner</label>
                 <input type="text" name="title" placeholder="Nhập tiêu đề banner" required>
 
@@ -51,9 +51,8 @@
 
                 <div class="button-group">
                     <button type="submit" class="btn-save">Lưu</button>
-                    <a href="Admin_Banner.jsp" class="btn-cancel">Hủy</a>
+                    <a href="${pageContext.request.contextPath}/Admin_Banner.jsp" class="btn-cancel">Hủy</a>
                 </div>
-
             </form>
         </div>
     </section>

@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="Css/DoiMKStyle.css">
+
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/Css/DoiMKStyle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 <body>
@@ -15,44 +16,45 @@
                 <div class="header-box">
                     <div class="logo">
                         <div class="header-logo">
-                            <a href="http://localhost:63342/Nhom15_LTWeb/Tour/Tour.html?_ijt=okacd6dkt0a55p9ini17vv71hu&_ij_reload=RELOAD_ON_SAVE" aria-label="TravelNow" class="Travel-logo">
-                                <img src="IMAGE/asset/images/LOGO.png" alt="Travel ">
-
+                            <a href="<%= request.getContextPath() %>/index.jsp" aria-label="TravelNow" class="Travel-logo">
+                                <img src="<%= request.getContextPath() %>/IMAGE/asset/images/LOGO.png" alt="Travel ">
                             </a>
                         </div>
-
                     </div>
+
                     <div class="header-center">
                         <nav>
-                            <div class=" menu">
-                                <a href="http://localhost:63342/Nhom15_LTWeb/Tour/Tour.html?_ijt=oq987fl4ff9sngc4ppg5i9rshn&_ij_reload=RELOAD_ON_SAVE" class="item">Tour trong nước</a>
+                            <div class="menu">
+                                <a href="<%= request.getContextPath() %>/index.jsp" class="item">Tour trong nước</a>
                                 <a href="#" class="item">Tour nước ngoài</a>
-                                <a href="http://localhost:63342/Nhom15_LTWeb/Khuy%E1%BA%BFn%20m%C3%A3i/Khuyen_Mai.html?_ijt=m5h9irloiftkh8crm8730c5cfa&_ij_reload=RELOAD_ON_SAVE" class="item">Khuyến mãi</a>
-                                <a href="http://localhost:63342/Nhom15_LTWeb/GioiThieu/GioiThieu.html?_ijt=d7o8ks272o3csbgjv33vqua4sp&_ij_reload=RELOAD_ON_SAVE" class="item">Giới thiệu</a>
+                                <a href="<%= request.getContextPath() %>/Khuyen_Mai.jsp" class="item">Khuyến mãi</a>
+                                <a href="<%= request.getContextPath() %>/GioiThieu.jsp" class="item">Giới thiệu</a>
 
-                                <div class="item ">
+                                <div class="item">
                                     <div class="sub">
                                         <span></span><span></span><span></span>
                                     </div>
                                     <div class="sub-item">
-                                        <a href="http://localhost:63342/Nhom15_LTWeb/Trang%20tin%20t%E1%BB%A9c/Tin%20t%E1%BB%A9c.html?_ijt=d7o8ks272o3csbgjv33vqua4sp&_ij_reload=RELOAD_ON_SAVE">Tin Tức</a>
-                                        <a href="http://localhost:63342/Nhom15_LTWeb/Cau_hoi_thuong_gap/Cau_hoi_thuong_gap.html">Câu hỏi thường gặp</a>
-                                        <a href="http://localhost:63342/Nhom15_LTWeb/NhatKyDuLich/NhatKyDuLich.html?_ijt=d7o8ks272o3csbgjv33vqua4sp&_ij_reload=RELOAD_ON_SAVE">Nhật ký khách hàng</a>
-
+                                        <a href="<%= request.getContextPath() %>/Tin tức.jsp">Tin Tức</a>
+                                        <a href="<%= request.getContextPath() %>/Cau_hoi_thuong_gap.jsp">Câu hỏi thường gặp</a>
+                                        <a href="<%= request.getContextPath() %>/NhatKyDuLich.jsp">Nhật ký khách hàng</a>
                                     </div>
                                 </div>
 
                             </div>
                         </nav>
                     </div>
+
                     <div class="header-right">
                         <div class="account">
                             <i class="fa-solid fa-circle-user"></i>
                             <span>Tài khoản ▾</span>
                             <div class="dropdown">
-                                <button onclick="location.href='Sign-in.jsp'" class="register-btn">Đăng ký</button>
+                                <button onclick="location.href='<%= request.getContextPath() %>/Sign-in.jsp'" class="register-btn">
+                                    Đăng ký
+                                </button>
                                 <p>Quý khách đã có tài khoản?<br>
-                                    <a href="http://localhost:63342/Nhom15_LTWeb/Log-in/Log-in.html?_ijt=ndbdi2gjtmi0t38bj3v84i66cm&_ij_reload=RELOAD_ON_SAVE">Đăng nhập ngay</a>
+                                    <a href="<%= request.getContextPath() %>/Log-in.jsp">Đăng nhập ngay</a>
                                 </p>
                             </div>
                         </div>
@@ -66,33 +68,39 @@
         </header>
     </div>
 </section>
+
 <main id="main">
     <section class="change-psw">
         <h1 class="change-psw-header">Đổi mật khẩu</h1>
+
         <div class="psw-item">
             <label for="opsw" class="label">Nhập mật khẩu cũ:</label>
             <input id="opsw" class="input" type="password">
             <i class="fa-solid fa-eye-slash toggle-eye"></i>
         </div>
+
         <div class="psw-item">
             <label for="npsw" class="label">Nhập mật khẩu mới:</label>
             <input id="npsw" class="input" type="password">
             <i class="fa-solid fa-eye-slash toggle-eye"></i>
         </div>
+
         <div class="psw-item">
             <label for="cnpsw" class="label">Nhập lại mật khẩu:</label>
             <input id="cnpsw" class="input" type="password">
             <i class="fa-solid fa-eye-slash toggle-eye"></i>
         </div>
     </section>
+
     <section class="change-psw-btn">
         <div class="change">
-            <a href="http://localhost:63342/Nhom15_LTWeb/HoSo.html?_ijt=elipek9ebrhi1kjo2jr7nnfl6v&_ij_reload=RELOAD_ON_SAVE" class="change-btn">
+            <a href="<%= request.getContextPath() %>/HoSo.jsp" class="change-btn">
                 Đổi mật khẩu
             </a>
         </div>
     </section>
 </main>
-<script src="Javascript/EyesScript.js"></script>
+
+<script src="<%= request.getContextPath() %>/Javascript/EyesScript.js"></script>
 </body>
 </html>
