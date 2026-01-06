@@ -1,3 +1,4 @@
+
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -116,7 +117,7 @@
         <span class="title-group">Chơi Tết Thả Ga, Không Lo Về Giá</span>
 
         <div class="tour-grid">
-            <a href="http://localhost:63342/Nhom15_LTWeb/chi_tiet.html?_ijt=o8hptqqlnvin71m9dcpaa919bb&_ij_reload=RELOAD_ON_SAVE" class="tour-card">
+            <div class="tour-card">
                 <div class="label red">Giảm 2 Triệu Nhóm 4</div>
                 <img class="tour-img" src="IMAGE/asset/images/Tour_1.jpg" alt="Tour Thụy Sĩ">
 
@@ -142,7 +143,11 @@
                         <span class="new">13.390.000 <small class="textCurrency">đ</small></span>
                     </div>
                 </div>
-            </a>
+                <div class="add-to-cart">
+                    <i class="fa-solid fa-cart-plus"></i>
+                    <span>Thêm vào giỏ</span>
+                </div>
+            </div>
             <div class="tour-card">
                 <div class="label red">Giảm 1.5 Triệu Nhóm 3</div>
                 <img class="tour-img" src="IMAGE/asset/images/Tour_2.jpg" alt="Tour Pháp">
@@ -509,7 +514,9 @@
                         <span class="old">14.990.000 <small class="textCurrency">đ</small></span>
                         <span class="new">13.390.000 <small class="textCurrency">đ</small></span>
                     </div>
+
                 </div>
+
             </div>
             <div class="tour-card">
                 <div class="label red">Giảm 1.5 Triệu Nhóm 3</div>

@@ -487,7 +487,7 @@ html, body {
     gap: 10px; /* khoảng cách giữa giá cũ và giá mới */
     margin-top: auto;
     padding: 10px 20px 20px 0;
-    float: right;
+
 }
 
 .tour-section .price .old {
@@ -655,4 +655,67 @@ html, body {
 .search-button:hover {
     background-color: hsl(28, 100%, 45%);
 }
+.tour-card {
+    position: relative;
+    overflow: hidden; /* để overlay & nút không tràn ra ngoài */
+}
+
+/* ================= ADD TO CART ================= */
+.add-to-cart {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;                 /* 👈 nút dài hết card */
+    height: 55px;
+
+    background-color: hsl(188, 79%, 40%);
+    color: #fff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+
+    transform: translateY(100%); /* Ẩn xuống dưới */
+    opacity: 0;
+    pointer-events: none;
+
+    transition: all 0.35s ease;
+    z-index: 3;
+}
+
+/* Hover card → hiện nút */
+.tour-card:hover .add-to-cart {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Hover nút */
+.add-to-cart:hover {
+    background-color: hsl(188, 79%, 35%);
+}
+
+/* ================= LÀM MỜ TOUR CARD ================= */
+
+/* Overlay mờ phủ toàn card */
+.tour-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35); /* độ mờ */
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    z-index: 2;
+}
+
+/* Hover → bật overlay */
+.tour-card:hover::after {
+    opacity: 1;
+}
+
 
