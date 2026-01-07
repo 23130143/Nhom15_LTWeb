@@ -18,6 +18,7 @@ public class SigninController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String fullname = request.getParameter("fullname");
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String confirmPassword = request.getParameter("confirmPassword");
@@ -40,6 +41,14 @@ public class SigninController extends HttpServlet {
             request.setAttribute("errorPasswordWeak", "Password must have uppercase, lowercase, number, and special character");
             request.getRequestDispatcher("/Sign-in.jsp").forward(request, response);
             return;
+        }
+        boolean success = userDAO.insertUser(fullname, username, password);
+        if (success) {
+            request.setAttribute("success", "Sign-in successfully");
+            request.getRequestDispatcher("/Log-in.jsp").forward(request, response);
+        } else {
+            request.setAttribute("error", "Sign-in failed");
+            request.getRequestDispatcher("/Sign-in.jsp").forward(request, response);
         }
     }
 }
