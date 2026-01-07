@@ -1,11 +1,12 @@
 package vn.edu.hcmuaf.fit.nhom15_ltweb.service;
-import  vn.edu.hcmuaf.fit.nhom15_ltweb.model.User;
-import vn
-.edu.hcmuaf.fit.nhom15_ltweb.dao.UserDAO;
+
+import vn.edu.hcmuaf.fit.nhom15_ltweb.dao.UserDAO;
+import vn.edu.hcmuaf.fit.nhom15_ltweb.model.User;
+
 import java.util.List;
 
 public class UserService {
-    private final UserDAO userDAO;
+    private UserDAO userDAO;
 
     public UserService() {
         this.userDAO = new UserDAO();
@@ -21,19 +22,8 @@ public class UserService {
         return userDAO.getUserById(userID);
     }
 
-    // Thêm người dùng (logic có thể kiểm tra dữ liệu ở đây)
-    public void createUser(User user) {
-        // Kiểm tra email không được trùng
-        User existingUser = userDAO.getAllUsers().stream()
-                .filter(u -> u.getEmail().equalsIgnoreCase(user.getEmail()))
-                .findFirst()
-                .orElse(null);
-
-        if (existingUser != null) {
-            throw new IllegalArgumentException("Email đã tồn tại, vui lòng thử email khác!");
-        }
-
-        userDAO.insertUser(user);
+    public boolean existsByEmail(String email) {
+        return userDAO.existsByEmail(email);
     }
 
     // Cập nhật người dùng

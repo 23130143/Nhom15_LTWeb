@@ -6,12 +6,14 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import vn.edu.hcmuaf.fit.nhom15_ltweb.dao.UserDAO;
+import vn.edu.hcmuaf.fit.nhom15_ltweb.model.User;
+import vn.edu.hcmuaf.fit.nhom15_ltweb.service.LoginService;
 
 import java.io.IOException;
 
 @WebServlet(name = "Login", value = "/login")
 public class LoginController extends HttpServlet {
+    private LoginService loginService = new LoginService();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -31,13 +33,10 @@ public class LoginController extends HttpServlet {
             request.getRequestDispatcher("/Log-in.jsp").forward(request, response);
             return;
         }
-        username = username.trim();
-        password = password.trim();
-        UserDAO userDAO = new UserDAO();
-        if ((userDAO.login(username, password)) != null) {
+        User user = loginService.login(username, password);
+        if (user != null) {
             HttpSession session = request.getSession();
-            session.setAttribute("username", username);
-            session.setAttribute("password", password);
+            session.setAttribute("user", user);
             response.sendRedirect("/home");
         } else {
             request.setAttribute("errorInvalid", "Username or password is incorrect.");

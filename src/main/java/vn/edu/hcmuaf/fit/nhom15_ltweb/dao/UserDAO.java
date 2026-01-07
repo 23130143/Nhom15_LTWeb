@@ -11,7 +11,7 @@ import java.util.List;
 public class UserDAO {
 
     public User login(String email, String password) {
-        String query = "select * from users where email = ? and password = ?";
+        String query = "select * from User where email = ? and password = ?";
         try (Connection connection = DBConnect.getConnection();
              PreparedStatement ps = connection.prepareStatement(query);
         ) {
@@ -41,7 +41,7 @@ public class UserDAO {
     }
 
     public boolean existsByEmail(String email) {
-        String query = "select * from users where email = ?";
+        String query = "select * from User where email = ?";
         try (Connection connection = DBConnect.getConnection();
              PreparedStatement ps = connection.prepareStatement(query);) {
             ps.setString(1, email);
@@ -88,8 +88,8 @@ public class UserDAO {
 
     // Thêm người dùng mới
     public boolean insertUser(String fullName, String email, String password) {
-        String query = "INSERT INTO User (fullName, email, password, role, createdAt) VALUES (?, ?, ?, ?, ?)";
-
+        String query = "INSERT INTO User (fullName, email, password, role, createdAt, updateAt) VALUES (?, ?, ?, ?, ?, ?)";
+        MD5 md5 = new MD5();
         try (Connection connection = DBConnect.getConnection();
              PreparedStatement pstmt = connection.prepareStatement(query)) {
 
@@ -98,6 +98,7 @@ public class UserDAO {
             pstmt.setString(3, password);
             pstmt.setString(4, "user");
             pstmt.setDate(5, new java.sql.Date(System.currentTimeMillis()));
+            pstmt.setDate(6, new java.sql.Date(System.currentTimeMillis()));
             pstmt.executeUpdate();
             return true;
         } catch (SQLException e) {
