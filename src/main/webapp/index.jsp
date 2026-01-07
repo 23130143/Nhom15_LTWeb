@@ -145,7 +145,7 @@
                 </div>
                 <div class="add-to-cart">
                     <i class="fa-solid fa-cart-plus"></i>
-                    <span>Thêm vào giỏ</span>
+                    <span>Add to cart</span>
                 </div>
             </div>
             <div class="tour-card">
