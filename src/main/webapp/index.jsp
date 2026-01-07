@@ -1,3 +1,4 @@
+
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -138,6 +139,10 @@
                         <span class="old">14.990.000 <small class="textCurrency">đ</small></span>
                         <span class="new">13.390.000 <small class="textCurrency">đ</small></span>
                     </div>
+                </div>
+                <div class="add-to-cart">
+                    <i class="fa-solid fa-cart-plus"></i>
+                    <span>Add to cart</span>
                 </div>
             </div>
             <div class="tour-card">
@@ -502,7 +507,9 @@
                         <span class="old">14.990.000 <small class="textCurrency">đ</small></span>
                         <span class="new">13.390.000 <small class="textCurrency">đ</small></span>
                     </div>
+
                 </div>
+
             </div>
             <div class="tour-card">
                 <div class="label red">Giảm 1.5 Triệu Nhóm 3</div>
