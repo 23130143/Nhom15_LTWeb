@@ -113,7 +113,7 @@
         <span class="title-group">Chơi Tết Thả Ga, Không Lo Về Giá</span>
 
         <div class="tour-grid">
-            <a href="<%= request.getContextPath() %>/chi_tiet.jsp" class="tour-card">
+            <div class="tour-card">
                 <div class="label red">Giảm 2 Triệu Nhóm 4</div>
                 <img class="tour-img" src="IMAGE/asset/images/Tour_1.jpg" alt="Tour Thụy Sĩ">
 
@@ -139,7 +139,7 @@
                         <span class="new">13.390.000 <small class="textCurrency">đ</small></span>
                     </div>
                 </div>
-            </a>
+            </div>
             <div class="tour-card">
                 <div class="label red">Giảm 1.5 Triệu Nhóm 3</div>
                 <img class="tour-img" src="IMAGE/asset/images/Tour_2.jpg" alt="Tour Pháp">
