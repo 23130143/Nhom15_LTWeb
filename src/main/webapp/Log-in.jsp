@@ -17,7 +17,8 @@
                 <div class="header-box">
                     <div class="logo">
                         <div class="header-logo">
-                            <a href="${pageContext.request.contextPath}/index.jsp" aria-label="TravelNow" class="Travel-logo">
+                            <a href="${pageContext.request.contextPath}/index.jsp" aria-label="TravelNow"
+                               class="Travel-logo">
                                 <img src="${pageContext.request.contextPath}/IMAGE/asset/images/LOGO.png" alt="Travel ">
                             </a>
                         </div>
@@ -26,7 +27,8 @@
                     <div class="header-center">
                         <nav>
                             <div class="menu">
-                                <a href="${pageContext.request.contextPath}/index.jsp" class="item active">Tour trong nước</a>
+                                <a href="${pageContext.request.contextPath}/index.jsp" class="item active">Tour trong
+                                    nước</a>
                                 <a href="${pageContext.request.contextPath}/index.jsp" class="item">Tour nước ngoài</a>
                                 <a href="${pageContext.request.contextPath}/Khuyen_Mai.jsp" class="item">Khuyến mãi</a>
                                 <a href="${pageContext.request.contextPath}/GioiThieu.jsp" class="item">Giới thiệu</a>
@@ -37,8 +39,10 @@
                                     </div>
                                     <div class="sub-item">
                                         <a href="${pageContext.request.contextPath}/Tin tức.jsp">Tin Tức</a>
-                                        <a href="${pageContext.request.contextPath}/Cau_hoi_thuong_gap.jsp">Câu hỏi thường gặp</a>
-                                        <a href="${pageContext.request.contextPath}/NhatKyDuLich.jsp">Nhật ký khách hàng</a>
+                                        <a href="${pageContext.request.contextPath}/Cau_hoi_thuong_gap.jsp">Câu hỏi
+                                            thường gặp</a>
+                                        <a href="${pageContext.request.contextPath}/NhatKyDuLich.jsp">Nhật ký khách
+                                            hàng</a>
                                     </div>
                                 </div>
                             </div>
@@ -50,7 +54,9 @@
                             <i class="fa-solid fa-circle-user"></i>
                             <span>Tài khoản ▾</span>
                             <div class="dropdown">
-                                <button onclick="location.href='${pageContext.request.contextPath}/Sign-in.jsp'" class="register-btn">Đăng ký</button>
+                                <button onclick="location.href='${pageContext.request.contextPath}/Sign-in.jsp'"
+                                        class="register-btn">Đăng ký
+                                </button>
                                 <p>Quý khách đã có tài khoản?<br>
                                     <a href="${pageContext.request.contextPath}/Log-in.jsp">Đăng nhập ngay</a>
                                 </p>
@@ -75,12 +81,14 @@
             <%
                 if (request.getAttribute("errorEmpty") != null) {
             %>
-            <div class="login-error"><%= request.getAttribute("errorEmpty") %></div>
+            <div class="login-error"><%= request.getAttribute("errorEmpty") %>
+            </div>
             <%
                 }
                 if (request.getAttribute("errorInvalid") != null) {
             %>
-            <div class="login-error"><%= request.getAttribute("errorInvalid") %></div>
+            <div class="login-error"><%= request.getAttribute("errorInvalid") %>
+            </div>
             <%
                 }
             %>
@@ -97,8 +105,8 @@
             </div>
 
             <div class="login_form_more">
-                <a href="${pageContext.request.contextPath}/Fpsw.jsp" class="forgotPsw">Quên mật khẩu</a>
-                <a href="${pageContext.request.contextPath}/Sign-in.jsp" class="sign_in">Đăng ký ngay</a>
+                <a href="${pageContext.request.contextPath}/forgetpsw" class="forgotPsw">Quên mật khẩu</a>
+                <a href="${pageContext.request.contextPath}/signin" class="sign_in">Đăng ký ngay</a>
             </div>
 
             <div class="btn">

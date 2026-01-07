@@ -1,5 +1,6 @@
 package vn.edu.hcmuaf.fit.nhom15_ltweb.controller;
-import  vn.edu.hcmuaf.fit.nhom15_ltweb.model.User;
+
+import vn.edu.hcmuaf.fit.nhom15_ltweb.model.User;
 import vn.edu.hcmuaf.fit.nhom15_ltweb.service.UserService;
 
 import java.util.List;
@@ -23,62 +24,6 @@ public class UserController {
         }
     }
 
-    // Xử lý thêm người dùng
-    public void addUser() {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Nhập thông tin người dùng mới:");
-        System.out.print("Họ và tên: ");
-        String fullName = scanner.nextLine();
-
-        System.out.print("Email: ");
-        String email = scanner.nextLine();
-
-        System.out.print("Mật khẩu: ");
-        String password = scanner.nextLine();
-
-        System.out.print("Vai trò (admin/user): ");
-        String role = scanner.nextLine();
-
-        System.out.print("Số hộ chiếu (nếu có): ");
-        String passport = scanner.nextLine();
-
-        System.out.print("Số điện thoại: ");
-        String phone = scanner.nextLine();
-
-        System.out.print("Địa chỉ: ");
-        String address = scanner.nextLine();
-
-        System.out.print("Ngày sinh (yyyy-MM-dd): ");
-        String birthDate = scanner.nextLine();
-
-        System.out.print("Giới tính (Male/Female): ");
-        String gender = scanner.nextLine();
-
-        // Tạo và lưu người dùng
-        User newUser=new User();
-        newUser.setFullName(fullName);
-        newUser.setEmail(email);
-        newUser.setPassword(password);
-        newUser.setRole(role);
-        newUser.setPassport(passport);
-        newUser.setPhone(phone);
-        newUser.setAddress(address);
-        try {
-            newUser.setBirthDate(java.sql.Date.valueOf(birthDate)); // Chuyển đổi sang kiểu Date
-        } catch (IllegalArgumentException e) {
-            System.out.println("Ngày sinh không hợp lệ! Hủy thao tác...");
-            return;
-        }
-        newUser.setGender(gender);
-
-        try {
-            userService.createUser(newUser); // Gọi Service để lưu
-            System.out.println("Thêm người dùng thành công!");
-        } catch (IllegalArgumentException e) {
-            System.out.println("Lỗi: " + e.getMessage());
-        }
-    }
 
     // Xử lý cập nhật thông tin người dùng
     public void updateUser() {
