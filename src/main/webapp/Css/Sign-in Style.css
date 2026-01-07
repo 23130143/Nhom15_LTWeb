@@ -267,6 +267,13 @@ nav .menu .item .sub-item a:hover {
     font-size: 20px;
 }
 
+.signin-error {
+    color: red !important;
+    text-align: center;
+    margin: 10px 0;
+    font-size: 14px;
+}
+
 .back:hover {
     color: darkgray;
 }

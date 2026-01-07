@@ -404,12 +404,20 @@ html, body {
 .side-item:hover {
     color: hsl(188, 79%, 47%);
 }
+
+/* ===== BỔ SUNG: STYLE CHO SIDE-ITEM ACTIVE ===== */
+.side-item. active {
+    color: hsl(188, 79%, 47%);
+    font-weight: bold;
+    background-color: hsl(188, 79%, 95%);
+    border-left:  3px solid hsl(188, 79%, 47%);
+    padding-left: 12px;
+}
+
 /* ===== MAIN CONTENT ===== */
 .main-content {
     flex: 1;
     font-family: "Segoe UI", sans-serif;
-
-
 }
 
 /* Tiêu đề */
@@ -427,8 +435,6 @@ html, body {
     overflow: hidden;/* Ẩn phần nd khi vượt ra ngoài khung */
     background-color: hsl(43, 96%, 89%);
     margin-bottom: 20px;
-
-
 
 }
 .main-card.no-header .main-header {
@@ -543,4 +549,52 @@ html, body {
 
 .btn:hover {
     background-color: hsl(32, 93%, 65%);
+}
+
+/* ===== BỔ SUNG: STYLE CHO THÔNG BÁO KHÔNG CÓ KẾT QUẢ ===== */
+. no-result-message {
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 20px;
+}
+
+. no-result-box {
+    background-color: hsl(0, 0%, 97%);
+    border: 2px dashed hsl(0, 0%, 80%);
+    border-radius: 10px;
+    padding: 50px 30px;
+}
+
+.no-result-box i {
+    font-size:  60px;
+    color: hsl(0, 0%, 75%);
+    margin-bottom:  20px;
+    display: block;
+}
+
+.no-result-box p {
+    font-size: 18px;
+    color: hsl(0, 0%, 45%);
+    margin-bottom: 25px;
+}
+
+.no-result-box strong {
+    color:  hsl(33, 100%, 50%);
+}
+
+. btn-reset {
+    background-color:  hsl(188, 79%, 47%);
+    color: white;
+    border: none;
+    border-radius:  6px;
+    padding: 12px 30px;
+    font-size:  16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition:  background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-reset:hover {
+    background-color: hsl(188, 79%, 40%);
+    transform: translateY(-2px);
 }

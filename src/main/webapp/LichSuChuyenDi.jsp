@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="Css/LichSuChuyenDiStyle.css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/Css/LichSuChuyenDiStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 <section id="header">
@@ -14,44 +15,42 @@
                 <div class="header-box">
                     <div class="logo">
                         <div class="header-logo">
-                            <a href="http://localhost:63342/Nhom15_LTWeb/Tour.html?_ijt=5vsd5k6ge3rent6bs7uo0esfn7&_ij_reload=RELOAD_ON_SAVE" aria-label="TravelNow" class="Travel-logo">
-                                <img src="IMAGE/asset/images/LOGO.png" alt="Travel ">
-
+                            <a href="<%= request.getContextPath() %>/index.jsp" aria-label="TravelNow" class="Travel-logo">
+                                <img src="<%= request.getContextPath() %>/IMAGE/asset/images/LOGO.png" alt="Travel ">
                             </a>
                         </div>
-
                     </div>
+
                     <div class="header-center">
                         <nav>
-                            <div class=" menu">
-                                <a href="http://localhost:63342/Nhom15_LTWeb/Tour.html?_ijt=5vsd5k6ge3rent6bs7uo0esfn7&_ij_reload=RELOAD_ON_SAVE" class="item active">Tour trong nước</a>
-                                <a href="http://localhost:63342/Nhom15_LTWeb/Tour.html?_ijt=5vsd5k6ge3rent6bs7uo0esfn7&_ij_reload=RELOAD_ON_SAVE" class="item">Tour nước ngoài</a>
-                                <a href="http://localhost:63342/Nhom15_LTWeb/Khuyen_Mai.html?_ijt=pu4dpgeu34blvj8j68iaaha89i&_ij_reload=RELOAD_ON_SAVE" class="item">Khuyến mãi</a>
-                                <a href="http://localhost:63342/Nhom15_LTWeb/GioiThieu.html?_ijt=pu4dpgeu34blvj8j68iaaha89i&_ij_reload=RELOAD_ON_SAVE" class="item">Giới thiệu</a>
+                            <div class="menu">
+                                <a href="<%= request.getContextPath() %>/index.jsp" class="item active">Tour trong nước</a>
+                                <a href="<%= request.getContextPath() %>/index.jsp" class="item">Tour nước ngoài</a>
+                                <a href="<%= request.getContextPath() %>/Khuyen_Mai.jsp" class="item">Khuyến mãi</a>
+                                <a href="<%= request.getContextPath() %>/GioiThieu.jsp" class="item">Giới thiệu</a>
 
-                                <div class="item ">
+                                <div class="item">
                                     <div class="sub">
                                         <span></span><span></span><span></span>
                                     </div>
                                     <div class="sub-item">
-                                        <a href="http://localhost:63342/Nhom15_LTWeb/Tin%20t%E1%BB%A9c.html?_ijt=pu4dpgeu34blvj8j68iaaha89i&_ij_reload=RELOAD_ON_SAVE">Tin Tức</a>
-                                        <a href="http://localhost:63342/Nhom15_LTWeb/Cau_hoi_thuong_gap.html?_ijt=pu4dpgeu34blvj8j68iaaha89i&_ij_reload=RELOAD_ON_SAVE">Câu hỏi thường gặp</a>
-                                        <a href="http://localhost:63342/Nhom15_LTWeb/NhatKyDuLich.html?_ijt=pu4dpgeu34blvj8j68iaaha89i&_ij_reload=RELOAD_ON_SAVE">Nhật ký khách hàng</a>
-
+                                        <a href="<%= request.getContextPath() %>/Tin tức.jsp">Tin Tức</a>
+                                        <a href="<%= request.getContextPath() %>/Cau_hoi_thuong_gap.jsp">Câu hỏi thường gặp</a>
+                                        <a href="<%= request.getContextPath() %>/NhatKyDuLich.jsp">Nhật ký khách hàng</a>
                                     </div>
                                 </div>
-
                             </div>
                         </nav>
                     </div>
+
                     <div class="header-right">
                         <div class="account">
                             <i class="fa-solid fa-circle-user"></i>
                             <span>Tài khoản ▾</span>
                             <div class="dropdown">
-                                <button onclick="location.href='Sign-in.jsp'" class="register-btn">Đăng ký</button>
+                                <button onclick="location.href='<%= request.getContextPath() %>/Sign-in.jsp'" class="register-btn">Đăng ký</button>
                                 <p>Quý khách đã có tài khoản?<br>
-                                    <a href="http://localhost:63342/Nhom15_LTWeb/Log-in.html?_ijt=pu4dpgeu34blvj8j68iaaha89i&_ij_reload=RELOAD_ON_SAVE">Đăng nhập ngay</a>
+                                    <a href="<%= request.getContextPath() %>/Log-in.jsp">Đăng nhập ngay</a>
                                 </p>
                             </div>
                         </div>
@@ -79,6 +78,7 @@
                     <span class="total price after">Giá</span>
                     <span class="status-h">Trạng thái</span>
                 </div>
+
                 <div class="history-item">
                     <span class="id">#BK2025-001</span>
                     <span class="tour-name">Tour Singapore - Malaysia 4N3Đ</span>
@@ -87,6 +87,7 @@
                     <span class="total-price-after">250.000.000 VNĐ</span>
                     <span class="status completed">Đã hoàn thành</span>
                 </div>
+
                 <div class="history-item">
                     <span class="id">#BK2025-002</span>
                     <span class="tour-name">Tour Nha Trang 4N3Đ</span>
@@ -95,6 +96,7 @@
                     <span class="total-price-after">200.000.000 VNĐ</span>
                     <span class="status ongoing">Đang đi</span>
                 </div>
+
                 <div class="history-item">
                     <span class="id">#BK2025-003</span>
                     <span class="tour-name">Tour Phú Quốc 3N2Đ</span>
@@ -103,6 +105,7 @@
                     <span class="total-price-after">100.000.000 VNĐ</span>
                     <span class="status upcoming">Chưa đi</span>
                 </div>
+
                 <div class="history-item">
                     <span class="id">#BK2025-004</span>
                     <span class="tour-name">Tour Hạ Long 2N1Đ</span>
@@ -111,7 +114,6 @@
                     <span class="total-price-after">80.000.000 VNĐ</span>
                     <span class="status canceled">Đã hủy</span>
                 </div>
-
             </div>
         </div>
     </section>

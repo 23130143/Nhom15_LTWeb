@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="Css/HomeDaDangNhap.css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/Css/HomeDaDangNhap.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
           integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
@@ -17,33 +17,30 @@
                 <div class="header-box">
                     <div class="logo">
                         <div class="header-logo">
-                            <a href="http://localhost:63342/Nhom15_LTWeb/HomeDaDangNhap.html?_ijt=qrblv2ace4tiinahbe45jf16ah&_ij_reload=RELOAD_ON_SAVE" aria-label="TravelNow" class="Travel-logo">
-                                <img src="IMAGE/asset/images/LOGO.png" alt="Travel ">
-
+                            <a href="<%= request.getContextPath() %>/HomeDaDangNhap.jsp" aria-label="TravelNow" class="Travel-logo">
+                                <img src="<%= request.getContextPath() %>/IMAGE/asset/images/LOGO.png" alt="Travel ">
                             </a>
                         </div>
-
                     </div>
+
                     <div class="header-center">
                         <nav>
-                            <div class=" menu">
-                                <a href="http://localhost:63342/Nhom15_LTWeb/HomeDaDangNhap.html?_ijt=qrblv2ace4tiinahbe45jf16ah&_ij_reload=RELOAD_ON_SAVE" class="item active">Tour trong nước</a>
+                            <div class="menu">
+                                <a href="<%= request.getContextPath() %>/HomeDaDangNhap.jsp" class="item active">Tour trong nước</a>
                                 <a href="#" class="item">Tour nước ngoài</a>
-                                <a href="http://localhost:63342/Nhom15_LTWeb/Khuy%E1%BA%BFn%20m%C3%A3i/Khuyen_Mai.html?_ijt=m5h9irloiftkh8crm8730c5cfa&_ij_reload=RELOAD_ON_SAVE" class="item">Khuyến mãi</a>
-                                <a href="http://localhost:63342/Nhom15_LTWeb/GioiThieu/GioiThieu.html?_ijt=d7o8ks272o3csbgjv33vqua4sp&_ij_reload=RELOAD_ON_SAVE" class="item">Giới thiệu</a>
+                                <a href="<%= request.getContextPath() %>/Khuyen_Mai.jsp" class="item">Khuyến mãi</a>
+                                <a href="<%= request.getContextPath() %>/GioiThieu.jsp" class="item">Giới thiệu</a>
 
-                                <div class="item ">
+                                <div class="item">
                                     <div class="sub">
                                         <span></span><span></span><span></span>
                                     </div>
                                     <div class="sub-item">
-                                        <a href="http://localhost:63342/Nhom15_LTWeb/Trang%20tin%20t%E1%BB%A9c/Tin%20t%E1%BB%A9c.html?_ijt=d7o8ks272o3csbgjv33vqua4sp&_ij_reload=RELOAD_ON_SAVE">Tin Tức</a>
-                                        <a href="http://localhost:63342/Nhom15_LTWeb/Cau_hoi_thuong_gap/Cau_hoi_thuong_gap.html">Câu hỏi thường gặp</a>
-                                        <a href="http://localhost:63342/Nhom15_LTWeb/NhatKyDuLich/NhatKyDuLich.html?_ijt=d7o8ks272o3csbgjv33vqua4sp&_ij_reload=RELOAD_ON_SAVE">Nhật ký khách hàng</a>
-
+                                        <a href="<%= request.getContextPath() %>/Tin tức.jsp">Tin Tức</a>
+                                        <a href="<%= request.getContextPath() %>/Cau_hoi_thuong_gap.jsp">Câu hỏi thường gặp</a>
+                                        <a href="<%= request.getContextPath() %>/NhatKyDuLich.jsp">Nhật ký khách hàng</a>
                                     </div>
                                 </div>
-
                             </div>
                         </nav>
                     </div>
@@ -52,9 +49,9 @@
                             <i class="fa-solid fa-circle-user"></i>
                             <span>Tên tài khoản ▾</span>
                             <div class="dropdown">
-                                <a href="http://localhost:63342/Nhom15_LTWeb/LichSuChuyenDi.html?_ijt=elipek9ebrhi1kjo2jr7nnfl6v&_ij_reload=RELOAD_ON_SAVE" class="dropdown-item">Kỳ nghỉ của tôi</a>
-                                <a href="http://localhost:63342/Nhom15_LTWeb/HoSo.html?_ijt=elipek9ebrhi1kjo2jr7nnfl6v&_ij_reload=RELOAD_ON_SAVE" class="dropdown-item">Hồ sơ của tôi</a>
-                                <a href="http://localhost:63342/Nhom15_LTWeb/Tour.html?_ijt=5vsd5k6ge3rent6bs7uo0esfn7&_ij_reload=RELOAD_ON_SAVE" class="btn-sign-out"> Đăng xuất</a>
+                                <a href="<%= request.getContextPath() %>/LichSuChuyenDi.jsp" class="dropdown-item">Kỳ nghỉ của tôi</a>
+                                <a href="<%= request.getContextPath() %>/HoSo.jsp" class="dropdown-item">Hồ sơ của tôi</a>
+                                <a href="<%= request.getContextPath() %>/index.jsp" class="btn-sign-out">Đăng xuất</a>
                             </div>
                         </div>
                         <div class="phone_number">
@@ -94,17 +91,17 @@
                     <label for="002"> KHỞI HÀNH TỪ </label>
                     <select id="002">
                         <option value="">Vui lòng chọn</option>
-                        <option>Thụy Sĩ</option>
-                        <option>Pháp</option>
-                        <option>Ý</option>
-                        <option>Nhật Bản</option>
-                        <option>Đài Loan</option>
-                        <option>Hàn Quốc</option>
+                        <option>Hồ Chí Minh</option>
+                        <option>Hà Nội</option>
+                        <option>Đà Nẵng</option>
+                        <option>Phú Quốc</option>
+                        <option>Hải Phòng</option>
                     </select>
                 </div>
             </div>
 
-            <button class="search-button"> Tìm</button> <!--nút tìm ngay-->
+            <button class="search-button"
+                    onclick="window.location.href='<%= request.getContextPath() %>/Danh_muc_san_pham.jsp'">Tìm</button> <!--nút tìm ngay-->
         </div>
     </div>
 </section>
@@ -115,7 +112,7 @@
         <span class="title-group">Chơi Tết Thả Ga, Không Lo Về Giá</span>
 
         <div class="tour-grid">
-            <a href="http://localhost:63342/Nhom15_LTWeb/Chi%20tiet%20dat%20tour/chi_tiet.html?_ijt=epekq19sg57d84ivpm2gu7cihs&_ij_reload=RELOAD_ON_SAVE" class="tour-card">
+            <a href="<%= request.getContextPath() %>/chi_tiet.jsp" class="tour-card">
                 <div class="label red">Giảm 2 Triệu Nhóm 4</div>
                 <img class="tour-img" src="IMAGE/asset/images/Tour_1.jpg" alt="Tour Thụy Sĩ">
 
@@ -286,17 +283,15 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
         <div class="see-more">
-            <a href="http://localhost:63342/Nhom15_LTWeb/Danh%20muc%20san%20pham/Danh_muc_san_pham.html?_ijt=oaploghbiegldjq410ls025kb&_ij_reload=RELOAD_ON_SAVE" class="btn-see-more">Xem thêm tours</a>
+            <a href="<%= request.getContextPath() %>/Danh_muc_san_pham.jsp" class="btn-see-more">Xem thêm tours</a>
         </div>
     </div>
 </section>
 <section class="tour-section" id="2">
     <div class="container">
-        <h2>Tour ưu đãi hôm nay</h2>
+        <h2>Tour Châu Âu</h2>
         <span class="title-group">Chơi Tết Thả Ga, Không Lo Về Giá</span>
 
         <div class="tour-grid">
@@ -470,17 +465,15 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
         <div class="see-more">
-            <a href="http://localhost:63342/Nhom15_LTWeb/Danh%20muc%20san%20pham/Danh_muc_san_pham.html?_ijt=oaploghbiegldjq410ls025kb&_ij_reload=RELOAD_ON_SAVE" class="btn-see-more">Xem thêm tours</a>
+            <a href="<%= request.getContextPath() %>/Danh_muc_san_pham.jsp" class="btn-see-more">Xem thêm tours</a>
         </div>
     </div>
 </section>
 <section class="tour-section" id="3">
     <div class="container">
-        <h2>Tour ưu đãi hôm nay</h2>
+        <h2>Tour Châu Á</h2>
         <span class="title-group">Chơi Tết Thả Ga, Không Lo Về Giá</span>
 
         <div class="tour-grid">
@@ -654,11 +647,9 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
         <div class="see-more">
-            <a href="http://localhost:63342/Nhom15_LTWeb/Danh%20muc%20san%20pham/Danh_muc_san_pham.html?_ijt=oaploghbiegldjq410ls025kb&_ij_reload=RELOAD_ON_SAVE" class="btn-see-more">Xem thêm tours</a>
+            <a href="<%= request.getContextPath() %>/Danh_muc_san_pham.jsp" class="btn-see-more">Xem thêm tours</a>
         </div>
     </div>
 </section>
@@ -670,33 +661,30 @@
             <div class="ft_col">
                 <div class="list_col">
                     <h4>Về TravelNow</h4>
-                    <a href="http://localhost:63342/Nhom15_LTWeb/GioiThieu/GioiThieu.html?_ijt=b8slcqem06q8g7ssbe5rvp6oea&_ij_reload=RELOAD_ON_SAVE">Giới thiệu</a>
-                    <a href="http://localhost:63342/Nhom15_LTWeb/DieuKienDieuKhoan/DieuKienDieuKhoan.html?_ijt=b8slcqem06q8g7ssbe5rvp6oea&_ij_reload=RELOAD_ON_SAVE">Điều khoản & điều kiện</a>
-                    <a href="http://localhost:63342/Nhom15_LTWeb/QuyCheHoatDong/QuyCheHoatDong.html?_ijt=b8slcqem06q8g7ssbe5rvp6oea&_ij_reload=RELOAD_ON_SAVE">Quy chế hoạt động </a>
+                    <a href="<%= request.getContextPath() %>/GioiThieu.jsp">Giới thiệu</a>
+                    <a href="<%= request.getContextPath() %>/DieuKienDieuKhoan.jsp">Điều kiện & điều khoản</a>
+                    <a href="<%= request.getContextPath() %>/QuyCheHoatDong.jsp">Quy chế hoạt động</a>
                 </div>
 
                 <div class="list_col">
                     <h4>Hỗ trợ khách hàng</h4>
-                    <a href="http://localhost:63342/Nhom15_LTWeb/Cau_hoi_thuong_gap/Cau_hoi_thuong_gap.html?_ijt=7jj5gss44dstgu50qigle8kpbm&_ij_reload=RELOAD_ON_SAVE">Câu hỏi thường gặp</a>
-                    <a href="http://localhost:63342/Nhom15_LTWeb/QuyCheHoatDong/QuyCheHoatDong.html?_ijt=ric6vj4caciu8bn3gv3f21919s&_ij_reload=RELOAD_ON_SAVE">Quy chế hoạt động</a>
-
-
+                    <a href="<%= request.getContextPath() %>/Cau_hoi_thuong_gap.jsp">Câu hỏi thường gặp</a>
+                    <a href="<%= request.getContextPath() %>/QuyCheHoatDong.jsp">Quy chế hoạt động</a>
                 </div>
 
                 <div class="list_col">
                     <h4>Dịch vụ</h4>
-                    <a href="http://localhost:63342/Nhom15_LTWeb/Tour/Tour.html?_ijt=oq987fl4ff9sngc4ppg5i9rshn&_ij_reload=RELOAD_ON_SAVE">Tour trong nước</a>
-                    <a href="#">Tour ngoài nước</a>
-                    <a href="http://localhost:63342/Nhom15_LTWeb/Khuy%E1%BA%BFn%20m%C3%A3i/Khuyen_Mai.html?_ijt=m5h9irloiftkh8crm8730c5cfa&_ij_reload=RELOAD_ON_SAVE">Khuyến mãi</a>
-
+                    <a href="<%= request.getContextPath() %>/index.jsp">Tour trong nước</a>
+                    <a href="<%= request.getContextPath() %>/index.jsp">Tour ngoài nước</a>
+                    <a href="<%= request.getContextPath() %>/Khuyen_Mai.jsp">Khuyến mãi</a>
                 </div>
 
                 <div class="list_col">
                     <h4>Liên hệ</h4>
-                    <p>Công ty TNHH Du Lịch Chân Trời Mới</p>
-                    <p>215 Nam Kỳ Khởi Nghĩa, Q.3, TP.HCM</p>
+                    <p>Trường Đại Học Nông Lâm TPHCM</p>
+                    <p>Phường Linh Xuân, TP.HCM</p>
                     <p><i class="fa-solid fa-phone"></i> Hotline: 1900 1870</p>
-                    <p><i class="fa-solid fa-envelope"></i> support@ivivu.com</p>
+                    <p><i class="fa-solid fa-envelope"></i> support@travelnow.com</p>
                 </div>
             </div>
 
@@ -710,7 +698,7 @@
 
     <div class="footer-bottom">
         <div class="ft_container">
-            <span>@2025 iVIVU.com. All Rights Reserved.</span>
+            <span>@2025 TravelNow. All Rights Reserved.</span>
         </div>
     </div>
 </footer>

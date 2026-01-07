@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="Css/noti_fpsw.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/Css/noti_fpsw.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 <body>
@@ -16,44 +16,43 @@
                 <div class="header-box">
                     <div class="logo">
                         <div class="header-logo">
-                            <a href="http://localhost:63342/Nhom15_LTWeb/Tour.html?_ijt=5vsd5k6ge3rent6bs7uo0esfn7&_ij_reload=RELOAD_ON_SAVE" aria-label="TravelNow" class="Travel-logo">
-                                <img src="IMAGE/asset/images/LOGO.png" alt="Travel ">
-
+                            <a href="${pageContext.request.contextPath}/index.jsp" aria-label="TravelNow" class="Travel-logo">
+                                <img src="${pageContext.request.contextPath}/IMAGE/asset/images/LOGO.png" alt="Travel ">
                             </a>
                         </div>
-
                     </div>
+
                     <div class="header-center">
                         <nav>
-                            <div class=" menu">
-                                <a href="http://localhost:63342/Nhom15_LTWeb/Tour.html?_ijt=5vsd5k6ge3rent6bs7uo0esfn7&_ij_reload=RELOAD_ON_SAVE" class="item active">Tour trong nước</a>
-                                <a href="http://localhost:63342/Nhom15_LTWeb/Tour.html?_ijt=5vsd5k6ge3rent6bs7uo0esfn7&_ij_reload=RELOAD_ON_SAVE" class="item">Tour nước ngoài</a>
-                                <a href="http://localhost:63342/Nhom15_LTWeb/Khuyen_Mai.html?_ijt=pu4dpgeu34blvj8j68iaaha89i&_ij_reload=RELOAD_ON_SAVE" class="item">Khuyến mãi</a>
-                                <a href="http://localhost:63342/Nhom15_LTWeb/GioiThieu.html?_ijt=pu4dpgeu34blvj8j68iaaha89i&_ij_reload=RELOAD_ON_SAVE" class="item">Giới thiệu</a>
+                            <div class="menu">
+                                <a href="${pageContext.request.contextPath}/index.jsp" class="item active">Tour trong nước</a>
+                                <a href="${pageContext.request.contextPath}/index.jsp" class="item">Tour nước ngoài</a>
+                                <a href="${pageContext.request.contextPath}/Khuyen_Mai.jsp" class="item">Khuyến mãi</a>
+                                <a href="${pageContext.request.contextPath}/GioiThieu.jsp" class="item">Giới thiệu</a>
 
-                                <div class="item ">
+                                <div class="item">
                                     <div class="sub">
                                         <span></span><span></span><span></span>
                                     </div>
                                     <div class="sub-item">
-                                        <a href="http://localhost:63342/Nhom15_LTWeb/Tin%20t%E1%BB%A9c.html?_ijt=pu4dpgeu34blvj8j68iaaha89i&_ij_reload=RELOAD_ON_SAVE">Tin Tức</a>
-                                        <a href="http://localhost:63342/Nhom15_LTWeb/Cau_hoi_thuong_gap.html?_ijt=pu4dpgeu34blvj8j68iaaha89i&_ij_reload=RELOAD_ON_SAVE">Câu hỏi thường gặp</a>
-                                        <a href="http://localhost:63342/Nhom15_LTWeb/NhatKyDuLich.html?_ijt=pu4dpgeu34blvj8j68iaaha89i&_ij_reload=RELOAD_ON_SAVE">Nhật ký khách hàng</a>
-
+                                        <a href="${pageContext.request.contextPath}/Tin tức.jsp">Tin Tức</a>
+                                        <a href="${pageContext.request.contextPath}/Cau_hoi_thuong_gap.jsp">Câu hỏi thường gặp</a>
+                                        <a href="${pageContext.request.contextPath}/NhatKyDuLich.jsp">Nhật ký khách hàng</a>
                                     </div>
                                 </div>
 
                             </div>
                         </nav>
                     </div>
+
                     <div class="header-right">
                         <div class="account">
                             <i class="fa-solid fa-circle-user"></i>
                             <span>Tài khoản ▾</span>
                             <div class="dropdown">
-                                <button onclick="location.href='Sign-in.jsp'" class="register-btn">Đăng ký</button>
+                                <button onclick="location.href='${pageContext.request.contextPath}/Sign-in.jsp'" class="register-btn">Đăng ký</button>
                                 <p>Quý khách đã có tài khoản?<br>
-                                    <a href="http://localhost:63342/Nhom15_LTWeb/Log-in.html?_ijt=pu4dpgeu34blvj8j68iaaha89i&_ij_reload=RELOAD_ON_SAVE">Đăng nhập ngay</a>
+                                    <a href="${pageContext.request.contextPath}/Log-in.jsp">Đăng nhập ngay</a>
                                 </p>
                             </div>
                         </div>
@@ -72,24 +71,23 @@
     <div class="noti_form">
         <div class="noti_frame">
             <header class="noti_header">
-                <a href="http://localhost:63342/Nhom15_LTWeb/Fpsw.html?_ijt=b85hku9jte32qamoovmhf8cmu2&_ij_reload=RELOAD_ON_SAVE"
-                   class="back">
+                <a href="${pageContext.request.contextPath}/Fpsw.jsp" class="back">
                     <i class="fa-solid fa-arrow-left"></i>
                 </a>
                 <span class="header_text">Thông báo</span>
             </header>
+
             <div class="noti_1">
                 Hệ thống đã gửi link lấy lại mật khẩu đến email của quý khách!
-
             </div>
+
             <div class="noti_2">
                 Trong vòng 5 phút vẫn chưa nhận được mail, quý khách vui lòng thử lại bước này.
             </div>
-            <div class="btn">
-                <a href="http://localhost:63342/Nhom15_LTWeb/Log-in.html?_ijt=i1qu2vani4itjddujf743tl6dv&_ij_reload=RELOAD_ON_SAVE"
-                   class="login_btn">Trở về đăng nhập</a>
-            </div>
 
+            <div class="btn">
+                <a href="${pageContext.request.contextPath}/Log-in.jsp" class="login_btn">Trở về đăng nhập</a>
+            </div>
         </div>
     </div>
 </main>
