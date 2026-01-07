@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="Css/ThanhToanTaiVP.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/Css/ThanhToanTaiVP.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
@@ -15,44 +15,42 @@
                 <div class="header-box">
                     <div class="logo">
                         <div class="header-logo">
-                            <a href="http://localhost:63342/Nhom15_LTWeb/Tour.html?_ijt=5vsd5k6ge3rent6bs7uo0esfn7&_ij_reload=RELOAD_ON_SAVE" aria-label="TravelNow" class="Travel-logo">
-                                <img src="IMAGE/asset/images/LOGO.png" alt="Travel ">
-
+                            <a href="${pageContext.request.contextPath}/index.jsp" aria-label="TravelNow" class="Travel-logo">
+                                <img src="${pageContext.request.contextPath}/IMAGE/asset/images/LOGO.png" alt="Travel ">
                             </a>
                         </div>
-
                     </div>
+
                     <div class="header-center">
                         <nav>
-                            <div class=" menu">
-                                <a href="http://localhost:63342/Nhom15_LTWeb/Tour.html?_ijt=5vsd5k6ge3rent6bs7uo0esfn7&_ij_reload=RELOAD_ON_SAVE" class="item active">Tour trong nước</a>
-                                <a href="http://localhost:63342/Nhom15_LTWeb/Tour.html?_ijt=5vsd5k6ge3rent6bs7uo0esfn7&_ij_reload=RELOAD_ON_SAVE" class="item">Tour nước ngoài</a>
-                                <a href="http://localhost:63342/Nhom15_LTWeb/Khuyen_Mai.html?_ijt=pu4dpgeu34blvj8j68iaaha89i&_ij_reload=RELOAD_ON_SAVE" class="item">Khuyến mãi</a>
-                                <a href="http://localhost:63342/Nhom15_LTWeb/GioiThieu.html?_ijt=pu4dpgeu34blvj8j68iaaha89i&_ij_reload=RELOAD_ON_SAVE" class="item">Giới thiệu</a>
+                            <div class="menu">
+                                <a href="${pageContext.request.contextPath}/index.jsp" class="item active">Tour trong nước</a>
+                                <a href="${pageContext.request.contextPath}/index.jsp" class="item">Tour nước ngoài</a>
+                                <a href="${pageContext.request.contextPath}/Khuyen_Mai.jsp" class="item">Khuyến mãi</a>
+                                <a href="${pageContext.request.contextPath}/GioiThieu.jsp" class="item">Giới thiệu</a>
 
-                                <div class="item ">
+                                <div class="item">
                                     <div class="sub">
                                         <span></span><span></span><span></span>
                                     </div>
                                     <div class="sub-item">
-                                        <a href="http://localhost:63342/Nhom15_LTWeb/Tin%20t%E1%BB%A9c.html?_ijt=pu4dpgeu34blvj8j68iaaha89i&_ij_reload=RELOAD_ON_SAVE">Tin Tức</a>
-                                        <a href="http://localhost:63342/Nhom15_LTWeb/Cau_hoi_thuong_gap.html?_ijt=pu4dpgeu34blvj8j68iaaha89i&_ij_reload=RELOAD_ON_SAVE">Câu hỏi thường gặp</a>
-                                        <a href="http://localhost:63342/Nhom15_LTWeb/NhatKyDuLich.html?_ijt=pu4dpgeu34blvj8j68iaaha89i&_ij_reload=RELOAD_ON_SAVE">Nhật ký khách hàng</a>
-
+                                        <a href="${pageContext.request.contextPath}/Tin tức.jsp">Tin Tức</a>
+                                        <a href="${pageContext.request.contextPath}/Cau_hoi_thuong_gap.jsp">Câu hỏi thường gặp</a>
+                                        <a href="${pageContext.request.contextPath}/NhatKyDuLich.jsp">Nhật ký khách hàng</a>
                                     </div>
                                 </div>
-
                             </div>
                         </nav>
                     </div>
+
                     <div class="header-right">
                         <div class="account">
                             <i class="fa-solid fa-circle-user"></i>
                             <span>Tài khoản ▾</span>
                             <div class="dropdown">
-                                <button onclick="location.href='Sign-in.html'" class="register-btn">Đăng ký</button>
+                                <button onclick="location.href='${pageContext.request.contextPath}/Sign-in.jsp'" class="register-btn">Đăng ký</button>
                                 <p>Quý khách đã có tài khoản?<br>
-                                    <a href="http://localhost:63342/Nhom15_LTWeb/Log-in.html?_ijt=pu4dpgeu34blvj8j68iaaha89i&_ij_reload=RELOAD_ON_SAVE">Đăng nhập ngay</a>
+                                    <a href="${pageContext.request.contextPath}/Log-in.jsp">Đăng nhập ngay</a>
                                 </p>
                             </div>
                         </div>
@@ -77,7 +75,13 @@
         <div class="office">
             <div class="office-wrapper">
                 <label class="office-item-label" for="officeHCM">
-                    <input type="radio" name="office" value="HCM" class="office-radio" id="officeHCM" data-url="http://localhost:63342/Nhom15_LTWeb/PaymentOffice.html?_ijt=hta2bgtpbtsuuau67eaqqbn1tf&_ij_reload=RELOAD_ON_SAVE">
+                    <input
+                            type="radio"
+                            name="office"
+                            value="HCM"
+                            class="office-radio"
+                            id="officeHCM"
+                            data-url="${pageContext.request.contextPath}/PaymentOffice.jsp">
                 </label>
 
                 <div class="office-details">
@@ -86,10 +90,15 @@
                 </div>
             </div>
 
-
             <div class="office-wrapper">
                 <label class="office-item-label" for="officeHCM2">
-                    <input type="radio" name="office" value="HCM" class="office-radio" id="officeHCM2" data-url="http://localhost:63342/Nhom15_LTWeb/PaymentOffice2.html?_ijt=2qn5300poahd5l85boqombo7fs&_ij_reload=RELOAD_ON_SAVE">
+                    <input
+                            type="radio"
+                            name="office"
+                            value="HCM"
+                            class="office-radio"
+                            id="officeHCM2"
+                            data-url="${pageContext.request.contextPath}/PaymentOffice2.jsp">
                 </label>
 
                 <div class="office-details">
@@ -110,37 +119,33 @@
         <button class="btn-confirm">Gửi địa chỉ qua điện thoại</button>
         <div class="link-change">
             <i class="fa-solid fa-repeat"></i>
-            <a href="http://localhost:63342/Nhom15_LTWeb/ThanhToan.html?_ijt=rdm0kfrupv9rds9v1pvg083cdq&_ij_reload=RELOAD_ON_SAVE"> Đổi hình thức thanh toán khác</a>
+            <a href="${pageContext.request.contextPath}/ThanhToan.jsp">Đổi hình thức thanh toán khác</a>
         </div>
     </div>
 </section>
 
-<!-- Footer -->
 <footer class="footer">
     <div class="footer-top">
         <div class="ft_container">
             <div class="ft_col">
                 <div class="list_col">
                     <h4>Về TravelNow</h4>
-                    <a href="http://localhost:63342/Nhom15_LTWeb/GioiThieu.html?_ijt=pu4dpgeu34blvj8j68iaaha89i&_ij_reload=RELOAD_ON_SAVE">Giới thiệu</a>
-                    <a href="http://localhost:63342/Nhom15_LTWeb/DieuKienDieuKhoan.html?_ijt=u298ddfhl2r9h36eqvt6h38aqp&_ij_reload=RELOAD_ON_SAVE">Điều kiện & điều khoản</a>
-                    <a href="http://localhost:63342/Nhom15_LTWeb/QuyCheHoatDong.html?_ijt=lplai2mbkir68tldqbjl9eup0t&_ij_reload=RELOAD_ON_SAVE">Quy chế hoạt động </a>
+                    <a href="${pageContext.request.contextPath}/GioiThieu.jsp">Giới thiệu</a>
+                    <a href="${pageContext.request.contextPath}/DieuKienDieuKhoan.jsp">Điều kiện \&amp; điều khoản</a>
+                    <a href="${pageContext.request.contextPath}/QuyCheHoatDong.jsp">Quy chế hoạt động</a>
                 </div>
 
                 <div class="list_col">
                     <h4>Hỗ trợ khách hàng</h4>
-                    <a href="http://localhost:63342/Nhom15_LTWeb/Cau_hoi_thuong_gap.html?_ijt=pu4dpgeu34blvj8j68iaaha89i&_ij_reload=RELOAD_ON_SAVE">Câu hỏi thường gặp</a>
-                    <a href="http://localhost:63342/Nhom15_LTWeb/QuyCheHoatDong.html?_ijt=lplai2mbkir68tldqbjl9eup0t&_ij_reload=RELOAD_ON_SAVE">Quy chế hoạt động</a>
-
-
+                    <a href="${pageContext.request.contextPath}/Cau_hoi_thuong_gap.jsp">Câu hỏi thường gặp</a>
+                    <a href="${pageContext.request.contextPath}/QuyCheHoatDong.jsp">Quy chế hoạt động</a>
                 </div>
 
                 <div class="list_col">
                     <h4>Dịch vụ</h4>
-                    <a href="http://localhost:63342/Nhom15_LTWeb/Tour.html?_ijt=5vsd5k6ge3rent6bs7uo0esfn7&_ij_reload=RELOAD_ON_SAVE">Tour trong nước</a>
-                    <a href="http://localhost:63342/Nhom15_LTWeb/Tour.html?_ijt=5vsd5k6ge3rent6bs7uo0esfn7&_ij_reload=RELOAD_ON_SAVE">Tour ngoài nước</a>
-                    <a href="http://localhost:63342/Nhom15_LTWeb/Khuyen_Mai.html?_ijt=pu4dpgeu34blvj8j68iaaha89i&_ij_reload=RELOAD_ON_SAVE">Khuyến mãi</a>
-
+                    <a href="${pageContext.request.contextPath}/index.jsp">Tour trong nước</a>
+                    <a href="${pageContext.request.contextPath}/index.jsp">Tour ngoài nước</a>
+                    <a href="${pageContext.request.contextPath}/Khuyen_Mai.jsp">Khuyến mãi</a>
                 </div>
 
                 <div class="list_col">
@@ -166,6 +171,7 @@
         </div>
     </div>
 </footer>
-<script src="Javascript/button.js"></script>
+
+<script src="${pageContext.request.contextPath}/Javascript/button.js"></script>
 </body>
 </html>

@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
     <link rel="stylesheet" href="${pageContext.request.contextPath}/Css/LoginStyle.css?v=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-    <script src="Javascript/EyesScript.js"></script>
+    <script src="${pageContext.request.contextPath}/Javascript/EyesScript.js"></script>
 </head>
 <body>
 <section id="header">
@@ -16,53 +17,42 @@
                 <div class="header-box">
                     <div class="logo">
                         <div class="header-logo">
-                            <a href="http://localhost:63342/Nhom15_LTWeb/Tour.html?_ijt=5vsd5k6ge3rent6bs7uo0esfn7&_ij_reload=RELOAD_ON_SAVE"
-                               aria-label="TravelNow" class="Travel-logo">
-                                <img src="IMAGE/asset/images/LOGO.png" alt="Travel ">
-
+                            <a href="${pageContext.request.contextPath}/index.jsp" aria-label="TravelNow" class="Travel-logo">
+                                <img src="${pageContext.request.contextPath}/IMAGE/asset/images/LOGO.png" alt="Travel ">
                             </a>
                         </div>
-
                     </div>
+
                     <div class="header-center">
                         <nav>
-                            <div class=" menu">
-                                <a href="http://localhost:63342/Nhom15_LTWeb/Tour.html?_ijt=5vsd5k6ge3rent6bs7uo0esfn7&_ij_reload=RELOAD_ON_SAVE"
-                                   class="item active">Tour trong nước</a>
-                                <a href="http://localhost:63342/Nhom15_LTWeb/Tour.html?_ijt=5vsd5k6ge3rent6bs7uo0esfn7&_ij_reload=RELOAD_ON_SAVE"
-                                   class="item">Tour nước ngoài</a>
-                                <a href="http://localhost:63342/Nhom15_LTWeb/Khuyen_Mai.html?_ijt=pu4dpgeu34blvj8j68iaaha89i&_ij_reload=RELOAD_ON_SAVE"
-                                   class="item">Khuyến mãi</a>
-                                <a href="http://localhost:63342/Nhom15_LTWeb/GioiThieu.html?_ijt=pu4dpgeu34blvj8j68iaaha89i&_ij_reload=RELOAD_ON_SAVE"
-                                   class="item">Giới thiệu</a>
+                            <div class="menu">
+                                <a href="${pageContext.request.contextPath}/index.jsp" class="item active">Tour trong nước</a>
+                                <a href="${pageContext.request.contextPath}/index.jsp" class="item">Tour nước ngoài</a>
+                                <a href="${pageContext.request.contextPath}/Khuyen_Mai.jsp" class="item">Khuyến mãi</a>
+                                <a href="${pageContext.request.contextPath}/GioiThieu.jsp" class="item">Giới thiệu</a>
 
-                                <div class="item ">
+                                <div class="item">
                                     <div class="sub">
                                         <span></span><span></span><span></span>
                                     </div>
                                     <div class="sub-item">
-                                        <a href="http://localhost:63342/Nhom15_LTWeb/Tin%20t%E1%BB%A9c.html?_ijt=pu4dpgeu34blvj8j68iaaha89i&_ij_reload=RELOAD_ON_SAVE">Tin
-                                            Tức</a>
-                                        <a href="http://localhost:63342/Nhom15_LTWeb/Cau_hoi_thuong_gap.html?_ijt=pu4dpgeu34blvj8j68iaaha89i&_ij_reload=RELOAD_ON_SAVE">Câu
-                                            hỏi thường gặp</a>
-                                        <a href="http://localhost:63342/Nhom15_LTWeb/NhatKyDuLich.html?_ijt=pu4dpgeu34blvj8j68iaaha89i&_ij_reload=RELOAD_ON_SAVE">Nhật
-                                            ký khách hàng</a>
-
+                                        <a href="${pageContext.request.contextPath}/Tin tức.jsp">Tin Tức</a>
+                                        <a href="${pageContext.request.contextPath}/Cau_hoi_thuong_gap.jsp">Câu hỏi thường gặp</a>
+                                        <a href="${pageContext.request.contextPath}/NhatKyDuLich.jsp">Nhật ký khách hàng</a>
                                     </div>
                                 </div>
-
                             </div>
                         </nav>
                     </div>
+
                     <div class="header-right">
                         <div class="account">
                             <i class="fa-solid fa-circle-user"></i>
                             <span>Tài khoản ▾</span>
                             <div class="dropdown">
-                                <button onclick="location.href='Sign-in.jsp'" class="register-btn">Đăng ký</button>
+                                <button onclick="location.href='${pageContext.request.contextPath}/Sign-in.jsp'" class="register-btn">Đăng ký</button>
                                 <p>Quý khách đã có tài khoản?<br>
-                                    <a href="http://localhost:63342/Nhom15_LTWeb/Log-in.html?_ijt=pu4dpgeu34blvj8j68iaaha89i&_ij_reload=RELOAD_ON_SAVE">Đăng
-                                        nhập ngay</a>
+                                    <a href="${pageContext.request.contextPath}/Log-in.jsp">Đăng nhập ngay</a>
                                 </p>
                             </div>
                         </div>
@@ -78,45 +68,44 @@
 </section>
 
 <main class="content">
-    <form action="login" method="post" class="login_form">
+    <form action="${pageContext.request.contextPath}/login" method="post" class="login_form">
         <div class="login_frame">
             <header class="login_header">Đăng nhập</header>
+
             <%
                 if (request.getAttribute("errorEmpty") != null) {
             %>
-            <div class="login-error"><%= request.getAttribute("errorEmpty")%>
-            </div>
-            <% } %><%
-            if (request.getAttribute("errorInvalid") != null) {
-        %>
-            <div class="login-error"><%= request.getAttribute("errorInvalid")%>
-            </div>
-            <% } %>
+            <div class="login-error"><%= request.getAttribute("errorEmpty") %></div>
+            <%
+                }
+                if (request.getAttribute("errorInvalid") != null) {
+            %>
+            <div class="login-error"><%= request.getAttribute("errorInvalid") %></div>
+            <%
+                }
+            %>
+
             <div class="login_form_acc">
                 <label for="gmail">Gmail</label>
                 <input id="gmail" name="username" class="login_input" type="email" placeholder="">
             </div>
+
             <div class="login_form_psw">
                 <label for="psw">Mật khẩu</label>
                 <input id="psw" name="password" class="login_input" type="password" placeholder="">
                 <i class="fa-solid fa-eye-slash toggle-eye"></i>
             </div>
+
             <div class="login_form_more">
-                <a href="http://localhost:63342/Nhom15_LTWeb/Fpsw.html?_ijt=5j6f30228s5m385cr4mp2ah0ba&_ij_reload=RELOAD_ON_SAVE"
-                   class="forgotPsw">Quên mật khẩu</a>
-                <a href="http://localhost:63342/Nhom15_LTWeb/Sign-in.html?_ijt=dftr8rqv8o4tm4chrbluan9sk7&_ij_reload=RELOAD_ON_SAVE"
-                   class="sign_in">Đăng ký ngay</a>
-            </div>
-            <div class="btn">
-                <button type="submit"
-                        class="login_btn">Đăng nhập
-                </button>
+                <a href="${pageContext.request.contextPath}/Fpsw.jsp" class="forgotPsw">Quên mật khẩu</a>
+                <a href="${pageContext.request.contextPath}/Sign-in.jsp" class="sign_in">Đăng ký ngay</a>
             </div>
 
+            <div class="btn">
+                <button type="submit" class="login_btn">Đăng nhập</button>
+            </div>
         </div>
     </form>
 </main>
-
-
 </body>
 </html>

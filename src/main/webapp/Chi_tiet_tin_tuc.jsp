@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Chọn thời điểm đi Nhật Bản ngắm lá vàng, lá đỏ đẹp</title>
-    <link rel="stylesheet" href="Css/Chi_tiet_tin_tuc.css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/Css/Chi_tiet_tin_tuc.css">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
           integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
@@ -18,29 +18,28 @@
                 <div class="header-box">
                     <div class="logo">
                         <div class="header-logo">
-                            <a href="http://localhost:63342/Nhom15_LTWeb/Tour.html?_ijt=5vsd5k6ge3rent6bs7uo0esfn7&_ij_reload=RELOAD_ON_SAVE" aria-label="TravelNow" class="Travel-logo">
-                                <img src="IMAGE/asset/images/LOGO.png" alt="Travel ">
-
+                            <a href="<%= request.getContextPath() %>/index.jsp" aria-label="TravelNow" class="Travel-logo">
+                                <img src="<%= request.getContextPath() %>/IMAGE/asset/images/LOGO.png" alt="Travel ">
                             </a>
                         </div>
 
                     </div>
                     <div class="header-center">
                         <nav>
-                            <div class=" menu">
-                                <a href="http://localhost:63342/Nhom15_LTWeb/Tour.html?_ijt=5vsd5k6ge3rent6bs7uo0esfn7&_ij_reload=RELOAD_ON_SAVE" class="item active">Tour trong nước</a>
-                                <a href="http://localhost:63342/Nhom15_LTWeb/Tour.html?_ijt=5vsd5k6ge3rent6bs7uo0esfn7&_ij_reload=RELOAD_ON_SAVE" class="item">Tour nước ngoài</a>
-                                <a href="http://localhost:63342/Nhom15_LTWeb/Khuyen_Mai.html?_ijt=pu4dpgeu34blvj8j68iaaha89i&_ij_reload=RELOAD_ON_SAVE" class="item">Khuyến mãi</a>
-                                <a href="http://localhost:63342/Nhom15_LTWeb/GioiThieu.html?_ijt=pu4dpgeu34blvj8j68iaaha89i&_ij_reload=RELOAD_ON_SAVE" class="item">Giới thiệu</a>
+                            <div class="menu">
+                                <a href="<%= request.getContextPath() %>/index.jsp" class="item active">Tour trong nước</a>
+                                <a href="<%= request.getContextPath() %>/index.jsp" class="item">Tour nước ngoài</a>
+                                <a href="<%= request.getContextPath() %>/Khuyen_Mai.jsp" class="item">Khuyến mãi</a>
+                                <a href="<%= request.getContextPath() %>/GioiThieu.jsp" class="item">Giới thiệu</a>
 
-                                <div class="item ">
+                                <div class="item">
                                     <div class="sub">
                                         <span></span><span></span><span></span>
                                     </div>
                                     <div class="sub-item">
-                                        <a href="http://localhost:63342/Nhom15_LTWeb/Tin%20t%E1%BB%A9c.html?_ijt=pu4dpgeu34blvj8j68iaaha89i&_ij_reload=RELOAD_ON_SAVE">Tin Tức</a>
-                                        <a href="http://localhost:63342/Nhom15_LTWeb/Cau_hoi_thuong_gap.html?_ijt=pu4dpgeu34blvj8j68iaaha89i&_ij_reload=RELOAD_ON_SAVE">Câu hỏi thường gặp</a>
-                                        <a href="http://localhost:63342/Nhom15_LTWeb/NhatKyDuLich.html?_ijt=pu4dpgeu34blvj8j68iaaha89i&_ij_reload=RELOAD_ON_SAVE">Nhật ký khách hàng</a>
+                                        <a href="<%= request.getContextPath() %>/Tin tức.jsp">Tin Tức</a>
+                                        <a href="<%= request.getContextPath() %>/Cau_hoi_thuong_gap.jsp">Câu hỏi thường gặp</a>
+                                        <a href="<%= request.getContextPath() %>/NhatKyDuLich.jsp">Nhật ký khách hàng</a>
 
                                     </div>
                                 </div>
@@ -53,9 +52,9 @@
                             <i class="fa-solid fa-circle-user"></i>
                             <span>Tài khoản ▾</span>
                             <div class="dropdown">
-                                <button onclick="location.href='Sign-in.jsp'" class="register-btn">Đăng ký</button>
+                                <button onclick="location.href='<%= request.getContextPath() %>/Sign-in.jsp'" class="register-btn">Đăng ký</button>
                                 <p>Quý khách đã có tài khoản?<br>
-                                    <a href="http://localhost:63342/Nhom15_LTWeb/Log-in.html?_ijt=pu4dpgeu34blvj8j68iaaha89i&_ij_reload=RELOAD_ON_SAVE">Đăng nhập ngay</a>
+                                    <a href="<%= request.getContextPath() %>/Log-in.jsp">Đăng nhập ngay</a>
                                 </p>
                             </div>
                         </div>
@@ -70,7 +69,7 @@
     </div>
 </section>
 
-<main >
+<main>
     <div class="article">
         <div class="article-container">
             <div class="news-article">
@@ -81,7 +80,7 @@
                     giúp du khách dễ dàng lựa chọn thời điểm lý tưởng để ngắm lá vàng – lá đỏ.</em></p>
 
                 <div class="article-img">
-                    <img src="IMAGE/asset/images/Chi_tiet_tin_tuc_1.jpg" alt="Mùa thu ở Fukushima Nhật Bản">
+                    <img src="<%= request.getContextPath() %>/IMAGE/asset/images/Chi_tiet_tin_tuc_1.jpg" alt="Mùa thu ở Fukushima Nhật Bản">
                     <p class="img-caption">Mùa thu ở Fukushima, một tỉnh ở miền Trung Nhật Bản. Ảnh: Ngô Trần Hải An</p>
                 </div>
 
@@ -94,7 +93,7 @@
                     Ngoài ra, thông tin về mùa lá tại gần 2.900 ngọn núi cũng được cung cấp theo từng độ cao.</p>
 
                 <div class="article-img">
-                    <img src="IMAGE/asset/images/Chi_tiet_tin_tuc_2.jpg" alt="Lịch lá vàng mùa thu Nhật Bản 2025">
+                    <img src="<%= request.getContextPath() %>/IMAGE/asset/images/Chi_tiet_tin_tuc_2.jpg" alt="Lịch lá vàng mùa thu Nhật Bản 2025">
                     <p class="img-caption">Lịch lá vàng mùa thu 2025. Ảnh: JMC</p>
                 </div>
 
@@ -115,7 +114,7 @@
                     Du khách có thể theo dõi trên trang thời tiết Otenki Navigator (phiên bản tiếng Anh).</p>
 
                 <div class="article-img">
-                    <img src="IMAGE/asset/images/Chi_tiet_tin_tuc_3.jpg" alt="Lịch lá đỏ mùa thu 2025 Nhật Bản">
+                    <img src="<%= request.getContextPath() %>/IMAGE/asset/images/Chi_tiet_tin_tuc_3.jpg" alt="Lịch lá đỏ mùa thu 2025 Nhật Bản">
                     <p class="img-caption">Lịch lá đỏ mùa thu 2025. Ảnh: JMC</p>
                 </div>
 
@@ -126,32 +125,28 @@
     </div>
 </main>
 
-<!-- Footer -->
 <footer class="footer">
     <div class="footer-top">
         <div class="ft_container">
             <div class="ft_col">
                 <div class="list_col">
                     <h4>Về TravelNow</h4>
-                    <a href="http://localhost:63342/Nhom15_LTWeb/GioiThieu.html?_ijt=pu4dpgeu34blvj8j68iaaha89i&_ij_reload=RELOAD_ON_SAVE">Giới thiệu</a>
-                    <a href="http://localhost:63342/Nhom15_LTWeb/DieuKienDieuKhoan.html?_ijt=u298ddfhl2r9h36eqvt6h38aqp&_ij_reload=RELOAD_ON_SAVE">Điều kiện & điều khoản</a>
-                    <a href="http://localhost:63342/Nhom15_LTWeb/QuyCheHoatDong.html?_ijt=lplai2mbkir68tldqbjl9eup0t&_ij_reload=RELOAD_ON_SAVE">Quy chế hoạt động </a>
+                    <a href="<%= request.getContextPath() %>/GioiThieu.jsp">Giới thiệu</a>
+                    <a href="<%= request.getContextPath() %>/DieuKienDieuKhoan.jsp">Điều kiện &amp; điều khoản</a>
+                    <a href="<%= request.getContextPath() %>/QuyCheHoatDong.jsp">Quy chế hoạt động </a>
                 </div>
 
                 <div class="list_col">
                     <h4>Hỗ trợ khách hàng</h4>
-                    <a href="http://localhost:63342/Nhom15_LTWeb/Cau_hoi_thuong_gap.html?_ijt=pu4dpgeu34blvj8j68iaaha89i&_ij_reload=RELOAD_ON_SAVE">Câu hỏi thường gặp</a>
-                    <a href="http://localhost:63342/Nhom15_LTWeb/QuyCheHoatDong.html?_ijt=lplai2mbkir68tldqbjl9eup0t&_ij_reload=RELOAD_ON_SAVE">Quy chế hoạt động</a>
-
-
+                    <a href="<%= request.getContextPath() %>/Cau_hoi_thuong_gap.jsp">Câu hỏi thường gặp</a>
+                    <a href="<%= request.getContextPath() %>/QuyCheHoatDong.jsp">Quy chế hoạt động</a>
                 </div>
 
                 <div class="list_col">
                     <h4>Dịch vụ</h4>
-                    <a href="http://localhost:63342/Nhom15_LTWeb/Tour.html?_ijt=5vsd5k6ge3rent6bs7uo0esfn7&_ij_reload=RELOAD_ON_SAVE">Tour trong nước</a>
-                    <a href="http://localhost:63342/Nhom15_LTWeb/Tour.html?_ijt=5vsd5k6ge3rent6bs7uo0esfn7&_ij_reload=RELOAD_ON_SAVE">Tour ngoài nước</a>
-                    <a href="http://localhost:63342/Nhom15_LTWeb/Khuyen_Mai.html?_ijt=pu4dpgeu34blvj8j68iaaha89i&_ij_reload=RELOAD_ON_SAVE">Khuyến mãi</a>
-
+                    <a href="<%= request.getContextPath() %>/index.jsp">Tour trong nước</a>
+                    <a href="<%= request.getContextPath() %>/index.jsp">Tour ngoài nước</a>
+                    <a href="<%= request.getContextPath() %>/Khuyen_Mai.jsp">Khuyến mãi</a>
                 </div>
 
                 <div class="list_col">

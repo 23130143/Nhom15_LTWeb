@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
           integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
-    <link rel="stylesheet" href="Css/UpdateStyle.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/Css/UpdateStyle.css">
 </head>
 <body>
 <!-- Sidebar -->
@@ -21,12 +21,12 @@
     </div>
 
     <nav class="menu">
-        <a class="menu-item " href="#">DashBoard</a>
-        <a class="menu-item active" href="http://localhost:63342/Nhom15_LTWeb/admin-sanPham/AdSanPham.html?_ijt=gcuktm545a9iu4iih3c04cj1ne&_ij_reload=RELOAD_ON_SAVE">Tour</a>
-        <a class="menu-item " href="#">Người dùng</a>
-        <a class="menu-item " href="#">Khuyến mãi</a>
-        <a class="menu-item " href="#">Banner</a>
-        <a class="menu-item logout" href="#">Đăng xuất</a>
+        <a class="menu-item" href="${pageContext.request.contextPath}/Admin_DashBoard.jsp">DashBoard</a>
+        <a class="menu-item active" href="${pageContext.request.contextPath}/AdSanPham.jsp">Tour</a>
+        <a class="menu-item" href="${pageContext.request.contextPath}/Admin_NguoiDung.jsp">Người dùng</a>
+        <a class="menu-item" href="${pageContext.request.contextPath}/Admin_KhuyenMai.jsp">Khuyến mãi</a>
+        <a class="menu-item" href="${pageContext.request.contextPath}/Admin_Banner.jsp">Banner</a>
+        <a class="menu-item logout" href="${pageContext.request.contextPath}/Logout">Đăng xuất</a>
     </nav>
 </aside>
 
@@ -40,6 +40,7 @@
 
     <div class="form-container">
         <h2>Thay Đổi Tour</h2>
+
         <div class="content">
             <div class="form-group">
                 <label for="id_tour">ID Tour</label>
@@ -112,10 +113,8 @@
             </div>
 
             <div class="form-actions">
-                <a href="http://localhost:63342/Nhom15_LTWeb/admin-sanPham/AdSanPham.html?_ijt=47kt0g6slo52oggs2c68juokjk&_ij_reload=RELOAD_ON_SAVE"
-                   class="btn-submit">Lưu Tour</a>
-                <a href="http://localhost:63342/Nhom15_LTWeb/admin-sanPham/AdSanPham.html?_ijt=47kt0g6slo52oggs2c68juokjk&_ij_reload=RELOAD_ON_SAVE"
-                   class="btn-cancel">Hủy</a>
+                <a href="${pageContext.request.contextPath}/AdSanPham.jsp" class="btn-submit">Lưu Tour</a>
+                <a href="${pageContext.request.contextPath}/AdSanPham.jsp" class="btn-cancel">Hủy</a>
             </div>
         </div>
     </div>
