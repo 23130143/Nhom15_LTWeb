@@ -33,7 +33,7 @@ public class UserService {
             throw new IllegalArgumentException("Email đã tồn tại, vui lòng thử email khác!");
         }
 
-        userDAO.insertUser(user);
+      //  userDAO.insertUser(user);
     }
 
     // Cập nhật người dùng
