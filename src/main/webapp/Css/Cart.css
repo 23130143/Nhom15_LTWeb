@@ -26,6 +26,7 @@ p {
 #header .header-wrapper {
     background-color: hsl(208, 100%, 22%);
 }
+
 #header {
     position: sticky; /* hoặc fixed nếu muốn luôn hiển thị */
     top: 0;
@@ -39,6 +40,7 @@ p {
     align-items: center;
     height: 75px;
 }
+
 .header-box {
     position: relative;
 }
@@ -66,12 +68,11 @@ nav .menu .item {
     position: relative;
     cursor: pointer;
 }
+
 .menu .item.active {
     color: hsl(188, 79%, 47%);
 
 }
-
-
 
 
 nav .menu .item:hover {
@@ -283,6 +284,7 @@ footer .footer-top {
 .list_col p:hover {
     color: hsl(188, 79%, 47%);
 }
+
 /* Icon mạng xã hội */
 .icon_social {
     display: flex;
@@ -648,11 +650,157 @@ html, body {
 .search-button:hover {
     background-color: hsl(28, 100%, 45%);
 }
+
 .tour-card {
     position: relative;
     overflow: hidden; /* để overlay & nút không tràn ra ngoài */
 }
 
+/* ================= CART PAGE STYLES ================= */
+.cart-container {
+    padding: 40px 0;
+    min-height: 500px;
+}
+
+.cart-title {
+    font-size: 28px;
+    color: hsl(208, 100%, 22%);
+    margin-bottom: 25px;
+    border-left: 5px solid hsl(188, 79%, 47%);
+    padding-left: 15px;
+}
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.cart-table th {
+    background-color: hsl(208, 100%, 22%);
+    color: #fff;
+    padding: 15px;
+    text-align: left;
+}
+
+.cart-table td {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    vertical-align: middle;
+}
+
+/* Tên sản phẩm & Ảnh */
+.product-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.product-info img {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* Nhóm số lượng */
+.quantity-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.q-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 150px;
+}
+
+.q-item span {
+    font-size: 14px;
+    color: #666;
+}
+
+.q-item input {
+    width: 50px;
+    padding: 4px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+}
+
+/* Giá & Nút xóa */
+.price-cell {
+    font-weight: bold;
+    color: hsl(28, 100%, 50%);
+    font-size: 18px;
+}
+
+.btn-delete {
+    background: #ffeded;
+    color: #ff4d4d;
+    border: 1px solid #ff4d4d;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-delete:hover {
+    background: #ff4d4d;
+    color: #fff;
+}
+
+/* Tổng kết */
+.cart-summary {
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.total-box {
+    text-align: right;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    width: 350px;
+}
+
+.total-box p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.total-box strong {
+    color: hsl(28, 100%, 50%);
+    font-size: 24px;
+}
+
+.action-btns {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.btn-continue {
+    padding: 10px 15px;
+    border: 1px solid hsl(208, 100%, 22%);
+    background: transparent;
+    cursor: pointer;
+}
+
+.btn-checkout {
+    padding: 10px 20px;
+    background: hsl(188, 79%, 47%);
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
 
 /* ================= CART ICON (HEADER) ================= */
 
@@ -697,4 +845,5 @@ html, body {
 
     border-radius: 50%;
 }
+
 
