@@ -96,7 +96,7 @@
             %>
             <div class="email">
                 <label for="email">Email</label>
-                <input id="email" class="fpsw_input" type="email" placeholder="">
+                <input id="email" class="fpsw_input" type="email" name="email" placeholder="">
             </div>
 
             <div class="btn">

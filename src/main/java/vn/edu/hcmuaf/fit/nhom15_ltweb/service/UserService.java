@@ -27,15 +27,19 @@ public class UserService {
     }
 
     // Cập nhật người dùng
-    public void updateUser(User user) {
-        if (user.getUserID() <= 0) {
-            throw new IllegalArgumentException("ID người dùng không hợp lệ!");
+    public boolean updateUser(User user) {
+        if (user == null || user.getUserID() <= 0) {
+            return false;
         }
-        userDAO.updateUser(user);
+        return userDAO.updateUserProfile(user);
     }
 
     // Xóa người dùng theo ID
     public void deleteUser(int userID) {
         userDAO.deleteUser(userID);
+    }
+
+    public void updatePSW(String email, String hashPSW) {
+        userDAO.updatePSW(email, hashPSW);
     }
 }
