@@ -35,39 +35,99 @@ public class Tour implements Serializable {
     }
 
     // Getters và Setters
-    public int getTourID() { return tourID; }
-    public void setTourID(int tourID) { this.tourID = tourID; }
+    public int getTourID() {
+        return tourID;
+    }
 
-    public String getTitle() { return title; }
-    public void setTitle(String title) { this.title = title; }
+    public void setTourID(int tourID) {
+        this.tourID = tourID;
+    }
 
-    public double getAdultPrice() { return adultPrice; }
-    public void setAdultPrice(double adultPrice) { this.adultPrice = adultPrice; }
+    public String getTitle() {
+        return title;
+    }
 
-    public double getChildPrice() { return childPrice; }
-    public void setChildPrice(double childPrice) { this.childPrice = childPrice; }
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-    public int getCategoriesID() { return categoriesID; }
-    public void setCategoriesID(int categoriesID) { this.categoriesID = categoriesID; }
+    public double getAdultPrice() {
+        return adultPrice;
+    }
 
-    public int getAvailableCapacity() { return availableCapacity; }
-    public void setAvailableCapacity(int availableCapacity) { this.availableCapacity = availableCapacity; }
+    public void setAdultPrice(double adultPrice) {
+        this.adultPrice = adultPrice;
+    }
 
-    public String getDeparture() { return departure; }
-    public void setDeparture(String departure) { this.departure = departure; }
+    public double getChildPrice() {
+        return childPrice;
+    }
 
-    public String getDescription() { return description; }
-    public void setDescription(String description) { this.description = description; }
+    public void setChildPrice(double childPrice) {
+        this.childPrice = childPrice;
+    }
 
-    public String getSchedule() { return schedule; }
-    public void setSchedule(String schedule) { this.schedule = schedule; }
+    public int getCategoriesID() {
+        return categoriesID;
+    }
 
-    public String getLocation() { return location; }
-    public void setLocation(String location) { this.location = location; }
+    public void setCategoriesID(int categoriesID) {
+        this.categoriesID = categoriesID;
+    }
 
-    public String getDuration() { return duration; }
-    public void setDuration(String duration) { this.duration = duration; }
+    public int getAvailableCapacity() {
+        return availableCapacity;
+    }
 
-    public int getSlTour() { return slTour; }
-    public void setSlTour(int slTour) { this.slTour = slTour; }
+    public void setAvailableCapacity(int availableCapacity) {
+        this.availableCapacity = availableCapacity;
+    }
+
+    public String getDeparture() {
+        return departure;
+    }
+
+    public void setDeparture(String departure) {
+        this.departure = departure;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getSchedule() {
+        return schedule;
+    }
+
+    public void setSchedule(String schedule) {
+        this.schedule = schedule;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getDuration() {
+        return duration;
+    }
+
+    public void setDuration(String duration) {
+        this.duration = duration;
+    }
+
+    public int getSlTour() {
+        return slTour;
+    }
+
+    public void setSlTour(int slTour) {
+        this.slTour = slTour;
+    }
 }

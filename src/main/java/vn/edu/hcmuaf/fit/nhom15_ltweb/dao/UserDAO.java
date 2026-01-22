@@ -11,7 +11,7 @@ import java.util.List;
 public class UserDAO {
 
     public User login(String email, String password) {
-        String query = "select * from User where email = ? and password = ?";
+        String query = "select * from Users where email = ? and password = ?";
         try (Connection connection = DBConnect.getConnection();
              PreparedStatement ps = connection.prepareStatement(query);
         ) {
@@ -41,7 +41,7 @@ public class UserDAO {
     }
 
     public boolean existsByEmail(String email) {
-        String query = "select * from User where email = ?";
+        String query = "select * from Users where email = ?";
         try (Connection connection = DBConnect.getConnection();
              PreparedStatement ps = connection.prepareStatement(query);) {
             ps.setString(1, email);
@@ -55,7 +55,7 @@ public class UserDAO {
     // Lấy tất cả người dùng
     public List<User> getAllUsers() {
         List<User> userList = new ArrayList<>();
-        String query = "SELECT * FROM User";
+        String query = "SELECT * FROM Users";
 
         try (Connection connection = DBConnect.getConnection();
              PreparedStatement stmt = connection.prepareStatement(query);
@@ -71,7 +71,7 @@ public class UserDAO {
 
     // Lấy người dùng theo ID
     public User getUserById(int userID) {
-        String query = "SELECT * FROM User WHERE userID = ?";
+        String query = "SELECT * FROM Users WHERE userID = ?";
         try (Connection connection = DBConnect.getConnection();
              PreparedStatement pstmt = connection.prepareStatement(query)) {
 
@@ -94,7 +94,7 @@ public class UserDAO {
 
             pstmt.setString(1, fullName);
             pstmt.setString(2, email);
-            pstmt.setString(3, (password));
+            pstmt.setString(3, password);
             pstmt.setString(4, "user");
             pstmt.setDate(5, new java.sql.Date(System.currentTimeMillis()));
             pstmt.setDate(6, new java.sql.Date(System.currentTimeMillis()));
@@ -108,7 +108,7 @@ public class UserDAO {
 
     // Cập nhật người dùng
     public boolean updateUserProfile(User user) {
-        String query = "UPDATE User SET fullName = ?, email = ?, updatedAt = ?, passport = ?, phone = ?, address = ?, birthDate = ?, gender = ? WHERE userID = ?";
+        String query = "UPDATE Users SET fullName = ?, email = ?, updatedAt = ?, passport = ?, phone = ?, address = ?, birthDate = ?, gender = ? WHERE userID = ?";
 
         try (Connection connection = DBConnect.getConnection();
              PreparedStatement pstmt = connection.prepareStatement(query)) {
@@ -135,7 +135,7 @@ public class UserDAO {
 
     // Xóa người dùng
     public void deleteUser(int userID) {
-        String query = "DELETE FROM User WHERE userID = ?";
+        String query = "DELETE FROM Users WHERE userID = ?";
         try (Connection connection = DBConnect.getConnection();
              PreparedStatement pstmt = connection.prepareStatement(query)) {
 
@@ -179,7 +179,7 @@ public class UserDAO {
     }
 
     public void updatePSW(String email, String hashPSW) {
-        String query = "UPDATE User SET password = ? WHERE email = ?";
+        String query = "UPDATE Users SET password = ? WHERE email = ?";
         try (
                 Connection connection = DBConnect.getConnection();
                 PreparedStatement ps = connection.prepareStatement(query);
