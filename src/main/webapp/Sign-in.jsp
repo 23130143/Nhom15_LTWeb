@@ -86,7 +86,7 @@
                 if (request.getAttribute("errorEmail") != null) {
             %>
             <div class="signin-error"><%= request.getAttribute("errorEmail")%></div>
-
+            <% } %>
             <%
                 if (request.getAttribute("errorPassword") != null) {
             %>
@@ -99,11 +99,11 @@
             <div class="login-error"><%= request.getAttribute("errorPasswordWeak")%></div>
             <% } %>
 
-            <% } %>
+
 
             <div class="Full_Name">
                 <label for="FN">Họ và tên</label>
-                <input id="FN" class="sign_in_input" type="text" placeholder="">
+                <input id="FN" class="sign_in_input" type="text" placeholder="" name="fullname">
             </div>
 
             <div class="acc">
