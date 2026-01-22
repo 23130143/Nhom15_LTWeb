@@ -1,7 +1,8 @@
 package vn.edu.hcmuaf.fit.nhom15_ltweb.model;
+import java.io.Serializable;
 import java.lang.reflect.Constructor;
 import java.util.Date;
-public class User {
+public class User implements Serializable {
     private int userID;            // ID (khóa chính)
     private String fullName;       // Tên đầy đủ của người dùng
     private String email;          // Email
