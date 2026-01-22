@@ -1,3 +1,5 @@
+<%@ page import="vn.edu.hcmuaf.fit.nhom15_ltweb.model.ActivityLog" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,6 +12,15 @@
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
 </head>
 <body>
+<%
+    Integer totalTours = (Integer) request.getAttribute("totalTours");
+    Integer totalUsers = (Integer) request.getAttribute("totalUsers");
+    Integer todayBookings = (Integer) request.getAttribute("todayBookings");
+    Double monthlyRevenue = (Double) request.getAttribute("monthlyRevenue");
+
+    List<vn.edu.hcmuaf.fit.nhom15_ltweb.model.ActivityLog> activities = (List<ActivityLog>) request.getAttribute("activities");
+%>
+
 <!-- Sidebar -->
 <aside class="sidebar">
     <div class="brand">
@@ -45,22 +56,25 @@
         <div class="cards">
             <div class="card">
                 <div class="card-title">Tổng số điểm đến</div>
-                <div class="card-value">120</div>
+                <div class="card-value"><%=totalTours%>
+                </div>
             </div>
 
             <div class="card">
                 <div class="card-title">Người dùng</div>
-                <div class="card-value">5.430</div>
+                <div class="card-value"><%=totalUsers%>></div>
             </div>
 
             <div class="card">
                 <div class="card-title">Đặt chỗ hôm nay</div>
-                <div class="card-value">42</div>
+                <div class="card-value"><%=todayBookings%>
+                </div>
             </div>
 
             <div class="card">
                 <div class="card-title">Doanh thu tháng</div>
-                <div class="card-value">350.000.000 VND</div>
+                <div class="card-value"><%=monthlyRevenue%>
+                </div>
             </div>
         </div>
 
@@ -78,24 +92,32 @@
                 </tr>
                 </thead>
                 <tbody>
+                <%
+                    if (activities != null && !activities.isEmpty()) {
+                        for (vn.edu.hcmuaf.fit.nhom15_ltweb.model.ActivityLog log : activities) {
+                %>
                 <tr>
-                    <td>11/11/2025</td>
-                    <td>nguyenvan</td>
-                    <td>Đặt chỗ Tour Đà Nẵng</td>
-                    <td>Tour Hội An - Bà Nà Hills</td>
+                    <td><%= log.getCreatedAt() %>
+                    </td>
+                    <td><%= log.getUsername() %>
+                    </td>
+                    <td><%= log.getAction() %>
+                    </td>
+                    <td><%= log.getDetail() %>
+                    </td>
                 </tr>
+                <%
+                    }
+                } else {
+                %>
                 <tr>
-                    <td>10/11/2025</td>
-                    <td>tranthi</td>
-                    <td>Hủy đặt chỗ</td>
-                    <td>Đơn #A2025110</td>
+                    <td colspan="4" style="text-align:center;">
+                        Chưa có hoạt động nào
+                    </td>
                 </tr>
-                <tr>
-                    <td>09/11/2025</td>
-                    <td>admin</td>
-                    <td>Thêm banner mới</td>
-                    <td>Black Friday 2025</td>
-                </tr>
+                <%
+                    }
+                %>
                 </tbody>
             </table>
         </div>

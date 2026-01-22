@@ -1,3 +1,5 @@
+<%@ page import="vn.edu.hcmuaf.fit.nhom15_ltweb.model.User" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -58,44 +60,43 @@
                 </thead>
 
                 <tbody>
+                <%
+                    List<User> users = (List<User>) request.getAttribute("users");
+                    if (users != null && !users.isEmpty()) {
+                        for (User u : users) {
+                %>
                 <tr>
-                    <td>1</td>
-                    <td>Nguyễn Văn A</td>
-                    <td>ABC123</td>
-                    <td>vana@example.com</td>
-                    <td>0909123456</td>
-                    <td>12/12/2025</td>
+                    <td><%= u.getUserID() %>
+                    </td>
+                    <td><%= u.getFullName() %>
+                    </td>
+                    <td>******</td>
+                    <%-- KHÔNG nên hiển thị password --%>
+                    <td><%= u.getEmail() %>
+                    </td>
+                    <td><%= u.getPhone() %>
+                    </td>
+                    <td><%= u.getCreatedAt() %>
+                    </td>
                     <td>
-                        <a href="#" class="btn-edit">Sửa</a>
-                        <a href="#" class="btn-delete">Xóa</a>
+                        <a href="EditUser?id=<%= u.getUserID() %>" class="btn-edit">Sửa</a>
+                        <a href="DeleteUser?id=<%= u.getUserID() %>"
+                           class="btn-delete"
+                           onclick="return confirm('Bạn có chắc muốn xóa user này?')">
+                            Xóa
+                        </a>
                     </td>
                 </tr>
-
+                <%
+                    }
+                } else {
+                %>
                 <tr>
-                    <td>2</td>
-                    <td>Trần Thị B</td>
-                    <td>ABC123</td>
-                    <td>tranb@example.com</td>
-                    <td>0912345678</td>
-                    <td>05/01/2026</td>
-                    <td>
-                        <a href="#" class="btn-edit">Sửa</a>
-                        <a href="#" class="btn-delete">Xóa</a>
-                    </td>
+                    <td colspan="7" style="text-align:center">Không có người dùng</td>
                 </tr>
-
-                <tr>
-                    <td>3</td>
-                    <td>Phạm Hoàng C</td>
-                    <td>ABC123</td>
-                    <td>hoangc@example.com</td>
-                    <td>0988123456</td>
-                    <td>20/02/2026</td>
-                    <td>
-                        <a href="#" class="btn-edit">Sửa</a>
-                        <a href="#" class="btn-delete">Xóa</a>
-                    </td>
-                </tr>
+                <%
+                    }
+                %>
                 </tbody>
             </table>
         </div>

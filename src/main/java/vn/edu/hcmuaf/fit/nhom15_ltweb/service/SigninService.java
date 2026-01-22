@@ -15,7 +15,7 @@ public class SigninService {
 
         if (userDAO.existsByEmail(username)) return "EMAIL";
 
-        if (userDAO.checkPassword(password)) return "WEAK_PASSWORD";
+        if (!userDAO.checkPassword(password)) return "WEAK_PASSWORD";
 
         String passwordMD5 = MD5.md5(password);
 
