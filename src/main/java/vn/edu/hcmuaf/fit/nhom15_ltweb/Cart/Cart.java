@@ -22,25 +22,25 @@ public class Cart implements Serializable {
         CartItem item = data.get(tour.getTourID());
         double finalAdult = tour.getAdultPrice();
         double finalChild = tour.getChildPrice();
-        Promotion promo = tour.getPromotion();
-        if (promo!=null&& promo.getPromoType().equals("PERCENT")&&promo.getDiscountValue()>0) {
-            // 2. Nếu có rồi: Chỉ cần cộng dồn số lượng người lớn và trẻ em
-            finalAdult = tour.getAdultPrice() * (1 - promo.getDiscountValue() / 100);
-            finalChild = tour.getChildPrice() * (1 - promo.getDiscountValue() / 100);
-        } if (data.containsKey(tour.getTourID())) {
-
-            item.upAdultQuantity(adultQty);
-            item.upChildQuantity(childQty);
-
-            // Cập nhật lại đơn giá mới nhất
-            item.setAdultPrice(finalAdult);
-            item.setChildPrice(finalChild);
-        } else {
-            // Dùng tour.getTitle() làm name cho CartItem
-            data.put(tour.getTourID(), new CartItem(
-                    finalAdult, finalChild, childQty, adultQty, tour.getTitle(), tour
-            ));
-        }
+//        Promotion promo = tour.getPromotion();
+//        if (promo!=null&& promo.getPromoType().equals("PERCENT")&&promo.getDiscountValue()>0) {
+//            // 2. Nếu có rồi: Chỉ cần cộng dồn số lượng người lớn và trẻ em
+//            finalAdult = tour.getAdultPrice() * (1 - promo.getDiscountValue() / 100);
+//            finalChild = tour.getChildPrice() * (1 - promo.getDiscountValue() / 100);
+//        } if (data.containsKey(tour.getTourID())) {
+//
+//            item.upAdultQuantity(adultQty);
+//            item.upChildQuantity(childQty);
+//
+//            // Cập nhật lại đơn giá mới nhất
+//            item.setAdultPrice(finalAdult);
+//            item.setChildPrice(finalChild);
+//        } else {
+//            // Dùng tour.getTitle() làm name cho CartItem
+//            data.put(tour.getTourID(), new CartItem(
+//                    finalAdult, finalChild, childQty, adultQty, tour.getTitle(), tour
+//            ));
+//        }
 
     }
     public List<CartItem> getItems() {

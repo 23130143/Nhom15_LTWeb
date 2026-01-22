@@ -23,32 +23,27 @@ public class TourService {
 
     // Lấy tour theo ID
     public Tour getTourById(int tourID) {
-        return tourDAO. getTourById(tourID);
+        return tourDAO.getTourById(tourID);
     }
 
     // Lấy tất cả danh mục
     public List<Category> getAllCategories() {
-        return categoryDAO. getAllCategories();
+        return categoryDAO.getAllCategories();
     }
 
     // Lấy danh mục theo ID
     public Category getCategoryById(int categoryId) {
         return categoryDAO.getCategoryById(categoryId);
-package vn.edu.hcmuaf.fit.nhom15_ltweb.service;
-import vn.edu.hcmuaf.fit.nhom15_ltweb.dao.TourDAO;
-import vn.edu.hcmuaf.fit.nhom15_ltweb.model.Tour;
-
-public class TourService {
-    private TourDAO tourDAO = new TourDAO(); // Khởi tạo DAO để lấy dữ liệu
-
-    public Tour getTourById(int id) {
-        // Gọi DAO để lấy Tour đã có sẵn Promotion và ImageURL
-        return tourDAO.getTourById(id);
-    }
-
-    // Fen có thể thêm logic kiểm tra sức chứa ở đây nếu muốn nâng cao
-    public boolean checkCapacity(int tourID, int requestedQty) {
-        Tour tour = tourDAO.getTourById(tourID);
-        return tour != null && tour.getAvailableCapacity() >= requestedQty; //
     }
 }
+//    public Tour getTourById(int id) {
+//        // Gọi DAO để lấy Tour đã có sẵn Promotion và ImageURL
+//        return tourDAO.getTourById(id);
+//    }
+//
+//    // Fen có thể thêm logic kiểm tra sức chứa ở đây nếu muốn nâng cao
+//    public boolean checkCapacity(int tourID, int requestedQty) {
+//        Tour tour = tourDAO.getTourById(tourID);
+//        return tour != null && tour.getAvailableCapacity() >= requestedQty; //
+//    }
+//}

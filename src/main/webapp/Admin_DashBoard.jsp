@@ -1,5 +1,6 @@
 <%@ page import="vn.edu.hcmuaf.fit.nhom15_ltweb.model.ActivityLog" %>
 <%@ page import="java.util.List" %>
+<%@ page import="vn.edu.hcmuaf.fit.nhom15_ltweb.model.DashboardSummary" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,6 +14,7 @@
 </head>
 <body>
 <%
+    DashboardSummary summary = (DashboardSummary) request.getAttribute("summary");
     Integer totalTours = (Integer) request.getAttribute("totalTours");
     Integer totalUsers = (Integer) request.getAttribute("totalUsers");
     Integer todayBookings = (Integer) request.getAttribute("todayBookings");
@@ -56,25 +58,27 @@
         <div class="cards">
             <div class="card">
                 <div class="card-title">Tổng số điểm đến</div>
-                <div class="card-value"><%=totalTours%>
+                <div class="card-value"><%= summary.getTotalLocations() %>
                 </div>
             </div>
+        </div>
 
-            <div class="card">
-                <div class="card-title">Người dùng</div>
-                <div class="card-value"><%=totalUsers%>></div>
+        <div class="card">
+            <div class="card-title">Người dùng</div>
+            <div class="card-value"><%= summary.getTotalUsers() %>
             </div>
+        </div>
 
-            <div class="card">
-                <div class="card-title">Đặt chỗ hôm nay</div>
-                <div class="card-value"><%=todayBookings%>
-                </div>
+        <div class="card">
+            <div class="card-title">Đặt chỗ hôm nay</div>
+            <div class="card-value"><%= summary.getBookingToday() %>
             </div>
+        </div>
 
-            <div class="card">
-                <div class="card-title">Doanh thu tháng</div>
-                <div class="card-value"><%=monthlyRevenue%>
-                </div>
+
+        <div class="card">
+            <div class="card-title">Doanh thu tháng</div>
+            <div class="card-value"><%= summary.getRevenueMonth() %>
             </div>
         </div>
 
