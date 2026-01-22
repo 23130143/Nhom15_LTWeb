@@ -11,13 +11,13 @@ import java.util.List;
 public class UserDAO {
 
     public User login(String email, String password) {
-        String query = "select * from users where email = ? and password = ?";
+        String query = "select * from User where email = ? and password = ?";
         try (Connection connection = DBConnect.getConnection();
              PreparedStatement ps = connection.prepareStatement(query);
         ) {
             ps.setString(1, email);
             ps.setString(2, MD5.md5(password));
-            ResultSet rs = ps.executeQuery(query);
+            ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 User user = new User();
                 user.setUserID(rs.getInt("userID"));
@@ -41,7 +41,7 @@ public class UserDAO {
     }
 
     public boolean existsByEmail(String email) {
-        String query = "select * from users where email = ?";
+        String query = "select * from User where email = ?";
         try (Connection connection = DBConnect.getConnection();
              PreparedStatement ps = connection.prepareStatement(query);) {
             ps.setString(1, email);
@@ -58,7 +58,7 @@ public class UserDAO {
         String query = "SELECT * FROM User";
 
         try (Connection connection = DBConnect.getConnection();
-             Statement stmt = connection.createStatement();
+             PreparedStatement stmt = connection.prepareStatement(query);
              ResultSet rs = stmt.executeQuery(query)) {
             while (rs.next()) {
                 userList.add(parseUser(rs));
@@ -88,16 +88,17 @@ public class UserDAO {
 
     // Thêm người dùng mới
     public boolean insertUser(String fullName, String email, String password) {
-        String query = "INSERT INTO User (fullName, email, password, role, createdAt) VALUES (?, ?, ?, ?, ?)";
-
+        String query = "INSERT INTO User (fullName, email, password, role, createdAt, updateAt) VALUES (?, ?, ?, ?, ?, ?)";
+        MD5 md5 = new MD5();
         try (Connection connection = DBConnect.getConnection();
              PreparedStatement pstmt = connection.prepareStatement(query)) {
 
             pstmt.setString(1, fullName);
             pstmt.setString(2, email);
-            pstmt.setString(3, password);
+            pstmt.setString(3, MD5.md5(password));
             pstmt.setString(4, "user");
             pstmt.setDate(5, new java.sql.Date(System.currentTimeMillis()));
+            pstmt.setDate(6, new java.sql.Date(System.currentTimeMillis()));
             pstmt.executeUpdate();
             return true;
         } catch (SQLException e) {
@@ -107,26 +108,30 @@ public class UserDAO {
     }
 
     // Cập nhật người dùng
-    public void updateUser(User user) {
-        String query = "UPDATE User SET fullName = ?, email = ?, role = ?, updatedAt = ?, passport = ?, phone = ?, address = ?, birthDate = ?, gender = ? WHERE userID = ?";
+    public boolean updateUserProfile(User user) {
+        String query = "UPDATE User SET fullName = ?, email = ?, updatedAt = ?, passport = ?, phone = ?, address = ?, birthDate = ?, gender = ? WHERE userID = ?";
 
         try (Connection connection = DBConnect.getConnection();
              PreparedStatement pstmt = connection.prepareStatement(query)) {
 
             pstmt.setString(1, user.getFullName());
             pstmt.setString(2, user.getEmail());
-            pstmt.setString(3, user.getRole());
-            pstmt.setTimestamp(4, new Timestamp(System.currentTimeMillis())); // updatedAt
-            pstmt.setString(5, user.getPassport());
-            pstmt.setString(6, user.getPhone());
-            pstmt.setString(7, user.getAddress());
-            pstmt.setDate(8, new java.sql.Date(user.getBirthDate().getTime()));
-            pstmt.setString(9, user.getGender());
-            pstmt.setInt(10, user.getUserID());
-            pstmt.executeUpdate();
+            pstmt.setTimestamp(3, new Timestamp(System.currentTimeMillis())); // updatedAt
+            pstmt.setString(4, user.getPassport());
+            pstmt.setString(5, user.getPhone());
+            pstmt.setString(6, user.getAddress());
+            if (user.getBirthDate() != null) {
+                pstmt.setDate(7, new java.sql.Date(user.getBirthDate().getTime()));
+            } else {
+                pstmt.setNull(7, Types.DATE);
+            }
+            pstmt.setString(8, user.getGender());
+            pstmt.setInt(9, user.getUserID());
+            return pstmt.executeUpdate() == 1;
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return false;
     }
 
     // Xóa người dùng
@@ -172,5 +177,20 @@ public class UserDAO {
         String regex = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=!]).{8,}$";
 
         return password.matches(regex);
+    }
+
+    public void updatePSW(String email, String hashPSW) {
+        String query = "UPDATE User SET password = ? WHERE email = ?";
+        try (
+                Connection connection = DBConnect.getConnection();
+                PreparedStatement ps = connection.prepareStatement(query);
+        ) {
+            ps.setString(1, hashPSW);
+            ps.setString(2, email);
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

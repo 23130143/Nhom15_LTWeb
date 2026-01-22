@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="<%= request.getContextPath() %>/Css/Fpsw-style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/Css/Fpsw-style.css?v=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 <body>
@@ -15,7 +15,8 @@
                 <div class="header-box">
                     <div class="logo">
                         <div class="header-logo">
-                            <a href="<%= request.getContextPath() %>/index.jsp" aria-label="TravelNow" class="Travel-logo">
+                            <a href="<%= request.getContextPath() %>/index.jsp" aria-label="TravelNow"
+                               class="Travel-logo">
                                 <img src="<%= request.getContextPath() %>/IMAGE/asset/images/LOGO.png" alt="Travel ">
                             </a>
                         </div>
@@ -24,7 +25,8 @@
                     <div class="header-center">
                         <nav>
                             <div class="menu">
-                                <a href="<%= request.getContextPath() %>/index.jsp" class="item active">Tour trong nước</a>
+                                <a href="<%= request.getContextPath() %>/index.jsp" class="item active">Tour trong
+                                    nước</a>
                                 <a href="<%= request.getContextPath() %>/index.jsp" class="item">Tour nước ngoài</a>
                                 <a href="<%= request.getContextPath() %>/Khuyen_Mai.jsp" class="item">Khuyến mãi</a>
                                 <a href="<%= request.getContextPath() %>/GioiThieu.jsp" class="item">Giới thiệu</a>
@@ -35,8 +37,10 @@
                                     </div>
                                     <div class="sub-item">
                                         <a href="<%= request.getContextPath() %>/Tin tức.jsp">Tin Tức</a>
-                                        <a href="<%= request.getContextPath() %>/Cau_hoi_thuong_gap.jsp">Câu hỏi thường gặp</a>
-                                        <a href="<%= request.getContextPath() %>/NhatKyDuLich.jsp">Nhật ký khách hàng</a>
+                                        <a href="<%= request.getContextPath() %>/Cau_hoi_thuong_gap.jsp">Câu hỏi thường
+                                            gặp</a>
+                                        <a href="<%= request.getContextPath() %>/NhatKyDuLich.jsp">Nhật ký khách
+                                            hàng</a>
                                     </div>
                                 </div>
 
@@ -49,7 +53,9 @@
                             <i class="fa-solid fa-circle-user"></i>
                             <span>Tài khoản ▾</span>
                             <div class="dropdown">
-                                <button onclick="location.href='<%= request.getContextPath() %>/Sign-in.jsp'" class="register-btn">Đăng ký</button>
+                                <button onclick="location.href='<%= request.getContextPath() %>/Sign-in.jsp'"
+                                        class="register-btn">Đăng ký
+                                </button>
                                 <p>Quý khách đã có tài khoản?<br>
                                     <a href="<%= request.getContextPath() %>/Log-in.jsp">Đăng nhập ngay</a>
                                 </p>
@@ -67,7 +73,7 @@
 </section>
 
 <main class="container">
-    <div class="fpsw_form">
+    <form action="${pageContext.request.contextPath}/forgetpsw" method="post" class="fpsw_form">
         <div class="fpsw_frame">
             <header class="fPSW_header">
                 <a href="<%= request.getContextPath() %>/Log-in.jsp" class="back">
@@ -80,16 +86,24 @@
                 Vui lòng nhập email Quý khách đã đăng ký với nơi lừa đảo của chúng tôi
             </div>
 
+            <%
+                if (request.getAttribute("error") != null) {
+            %>
+            <div class="error"><%=request.getAttribute("error") %>
+            </div>
+            <%
+                }
+            %>
             <div class="email">
                 <label for="email">Email</label>
-                <input id="email" class="fpsw_input" type="email" placeholder="">
+                <input id="email" class="fpsw_input" type="email" name="email" placeholder="">
             </div>
 
             <div class="btn">
-                <a href="<%= request.getContextPath() %>/noti_fpsw.jsp" class="fpsw_btn">Kích hoạt lại mật khẩu</a>
+                <button type="submit" class="fpsw_btn">Kích hoạt lại mật khẩu</button>
             </div>
         </div>
-    </div>
+    </form>
 </main>
 </body>
 </html>
