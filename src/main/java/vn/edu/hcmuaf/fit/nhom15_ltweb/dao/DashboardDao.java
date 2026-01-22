@@ -95,6 +95,6 @@ public class DashboardDao {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return null;
+        return list;
     }
 }
