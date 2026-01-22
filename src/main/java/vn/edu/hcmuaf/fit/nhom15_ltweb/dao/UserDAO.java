@@ -16,7 +16,7 @@ public class UserDAO {
              PreparedStatement ps = connection.prepareStatement(query);
         ) {
             ps.setString(1, email);
-            ps.setString(2, MD5.md5(password));
+            ps.setString(2, (password));
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 User user = new User();
@@ -88,14 +88,13 @@ public class UserDAO {
 
     // Thêm người dùng mới
     public boolean insertUser(String fullName, String email, String password) {
-        String query = "INSERT INTO User (fullName, email, password, role, createdAt, updateAt) VALUES (?, ?, ?, ?, ?, ?)";
-        MD5 md5 = new MD5();
+        String query = "INSERT INTO User (fullName, email, password, role, createdAt, updatedAt) VALUES (?, ?, ?, ?, ?, ?)";
         try (Connection connection = DBConnect.getConnection();
              PreparedStatement pstmt = connection.prepareStatement(query)) {
 
             pstmt.setString(1, fullName);
             pstmt.setString(2, email);
-            pstmt.setString(3, MD5.md5(password));
+            pstmt.setString(3, (password));
             pstmt.setString(4, "user");
             pstmt.setDate(5, new java.sql.Date(System.currentTimeMillis()));
             pstmt.setDate(6, new java.sql.Date(System.currentTimeMillis()));

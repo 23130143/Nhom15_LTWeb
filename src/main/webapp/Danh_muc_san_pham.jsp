@@ -1,4 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page import="java.util.List" %>
+<%@ page import="vn.edu.hcmuaf.fit.nhom15_ltweb.model.Category" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -70,6 +72,36 @@
             <!-- SIDE BAR -->
             <div class="side-container">
                 <div class="side-bar">
+                    <%-- DANH MỤC TOUR ĐỘNG --%>
+                    <div class="side-menu">
+                        <div class="side-title">
+                            <div class="arrow">
+                                <h4>Danh mục Tour</h4>
+                                <i class="fa-solid fa-angle-down"></i>
+                            </div>
+                        </div>
+                        <div class="side-body">
+                            <ul class="category-list">
+                                <li>
+                                    <a href="<%=request.getContextPath()%>/search-by-category" class="side-item">Tất cả tour</a>
+                                </li>
+                                <%
+                                    List<Category> cates = (List<Category>)request.getAttribute("categories");
+                                    if (cates != null) {
+                                        for (Category cat : cates) {
+                                %>
+                                <li>
+                                    <a href="<%=request.getContextPath()%>/search-by-category?categoryId=<%=cat.getCategoriesID()%>" class="side-item">
+                                        <%=cat.getCategoriesName()%>
+                                    </a>
+                                </li>
+                                <%
+                                        }
+                                    }
+                                %>
+                            </ul>
+                        </div>
+                    </div>
                     <div class="side-menu">
                         <div class="side-title">
                             <div class="arrow">

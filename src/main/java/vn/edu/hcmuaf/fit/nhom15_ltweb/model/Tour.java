@@ -14,11 +14,12 @@ public class Tour implements Serializable {
     private String location;
     private String duration;
     private int slTour;
-    private Promotion promotion;
-    private String imageURL; // THÊM TRƯỜNG NÀY
+
     public Tour() {}
 
-    public Tour(int tourID, String title, double adultPrice, double childPrice, int categoriesID, int availableCapacity, String departure, String description, String schedule, String location, String duration, int slTour) {
+    public Tour(int tourID, String title, double adultPrice, double childPrice, int categoriesID,
+                int availableCapacity, String departure, String description, String schedule,
+                String location, String duration, int slTour) {
         this.tourID = tourID;
         this.title = title;
         this.adultPrice = adultPrice;
@@ -31,7 +32,6 @@ public class Tour implements Serializable {
         this.location = location;
         this.duration = duration;
         this.slTour = slTour;
-
     }
 
     // Getters và Setters
@@ -70,14 +70,4 @@ public class Tour implements Serializable {
 
     public int getSlTour() { return slTour; }
     public void setSlTour(int slTour) { this.slTour = slTour; }
-
-    public Promotion getPromotion() {
-        return promotion;
-    }
-
-    public void setPromotion(Promotion promotion) {
-        this.promotion = promotion;
-    }
-    public String getImageURL() { return imageURL; }
-    public void setImageURL(String imageURL) { this.imageURL = imageURL; }
 }
