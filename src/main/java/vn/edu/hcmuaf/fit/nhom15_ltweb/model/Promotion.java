@@ -51,13 +51,11 @@ public class Promotion implements Serializable {
         this.promoType = promoType;
     }
 
-    public double getDiscountValue() {
-        return discountValue;
-    }
+    public int getImageID() { return imageID; }
+    public void setImageID(int imageID) { this.imageID = imageID; }
 
-    public void setDiscountValue(double discountValue) {
-        this.discountValue = discountValue;
-    }
+    public String getPromoName() { return promoName; }
+    public void setPromoName(String promoName) { this.promoName = promoName; }
 
     public Date getStartDate() {
         return startDate;

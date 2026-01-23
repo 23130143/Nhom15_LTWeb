@@ -6,6 +6,9 @@ import vn.edu.hcmuaf.fit.nhom15_ltweb.ultils.DBConnect;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import vn.edu.hcmuaf.fit.nhom15_ltweb.model.TourExperience;
+
+
 
 public class TourDAO {
 
@@ -159,11 +162,84 @@ public class TourDAO {
 //                }
 //
 //                return tour;
-//
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        return null;
-//    }
+//             }
+//         } catch (Exception e) { e.printStackTrace(); }
+//         return null;
+//     }
+    public List<Tour> getTopSellingTours(int limit) {
+        List<Tour> list = new ArrayList<>();
+        String sql = "SELECT t.*, COALESCE(SUM(b.adultCount + b.childCount), 0) AS totalSold " +
+                "FROM Tours t " +
+                "LEFT JOIN Bookings b ON t.tourID = b.tourID " +
+                "GROUP BY t.tourID " +
+                "ORDER BY totalSold DESC " +
+                "LIMIT ?";
+
+        try (Connection conn = DBConnect.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, limit);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(mapTour(rs));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    // Lấy tour bán chạy nhất theo danh mục
+    public List<Tour> getTopSellingToursByCategory(int categoriesID, int limit) {
+        List<Tour> list = new ArrayList<>();
+        String sql = "SELECT t.*, COALESCE(SUM(b.adultCount + b.childCount), 0) AS totalSold " +
+                "FROM Tours t " +
+                "LEFT JOIN Bookings b ON t.tourID = b.tourID " +
+                "WHERE t.categoriesID = ? " +
+                "GROUP BY t.tourID " +
+                "ORDER BY totalSold DESC " +
+                "LIMIT ?";
+
+        try (Connection conn = DBConnect.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, categoriesID);
+            ps.setInt(2, limit);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                list.add(mapTour(rs));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+    // Lấy danh sách điểm tham quan theo tourID (giới hạn số lượng)
+    public List<TourExperience> getExperiencesByTourId(int tourID, int limit) {
+        List<TourExperience> list = new ArrayList<>();
+        String sql = "SELECT * FROM TourExperience WHERE tourID = ? LIMIT ?";
+
+        try (Connection conn = DBConnect.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setInt(1, tourID);
+            ps.setInt(2, limit);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                TourExperience exp = new TourExperience();
+                exp.setTourExperienceID(rs.getInt("TourExperienceID"));
+                exp.setTourID(rs.getInt("tourID"));
+                exp.setTourExperienceTitle(rs.getString("TourExperienceTitle"));
+                exp.setTourExperienceInfo(rs.getString("TourExperienceInfo"));
+                list.add(exp);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    // Lấy tất cả điểm tham quan của tour
+    public List<TourExperience> getAllExperiencesByTourId(int tourID) {
+        return getExperiencesByTourId(tourID, 100);
+    }
 }

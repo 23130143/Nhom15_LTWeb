@@ -35,9 +35,18 @@ public class TourService {
     public Category getCategoryById(int categoryId) {
         return categoryDAO.getCategoryById(categoryId);
     }
+    public List<Tour> getTopSellingTours(int limit) {
+        return tourDAO.getTopSellingTours(limit);
+    }
 
-//    public Tour getTourById_p(int tourID) {
-//        return tourDAO.getTourById_p(tourID);
+    // Lấy tour bán chạy nhất theo danh mục
+    public List<Tour> getTopSellingToursByCategory(int categoriesID, int limit) {
+        return tourDAO.getTopSellingToursByCategory(categoriesID, limit);
+    }
+}
+//    public Tour getTourById(int id) {
+//        // Gọi DAO để lấy Tour đã có sẵn Promotion và ImageURL
+//        return tourDAO.getTourById(id);
 //    }
 }
 
