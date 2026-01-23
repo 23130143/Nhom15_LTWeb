@@ -11,7 +11,7 @@ public class SigninService {
                 fullname.isEmpty() || username.isEmpty() || password.isEmpty() || confirmPassword.isEmpty())
             return "EMPTY";
 
-        if (!password.equalsIgnoreCase(confirmPassword)) return "PASSWORD";
+        if (!password.equals(confirmPassword)) return "PASSWORD";
 
         if (userDAO.existsByEmail(username)) return "EMAIL";
 

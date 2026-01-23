@@ -18,7 +18,11 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        HttpSession session = request.getSession(false);
+        if (session != null && session.getAttribute("user") != null) {
+            response.sendRedirect(request.getContextPath() + "/home");
+            return;
+        }
         request.getRequestDispatcher("/Log-in.jsp")
                 .forward(request, response);
     }
@@ -37,7 +41,12 @@ public class LoginController extends HttpServlet {
         if (user != null) {
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
-            response.sendRedirect("/index.jsp");
+            if ("ADMIN".equalsIgnoreCase(user.getRole())) {
+                response.sendRedirect("/Admin_DashBoard.jsp");
+            } else {
+                session.setMaxInactiveInterval(30 * 60);
+                response.sendRedirect("/index.jsp");
+            }
         } else {
             request.setAttribute("errorInvalid", "Username or password is incorrect.");
             request.getRequestDispatcher("/Log-in.jsp").forward(request, response);

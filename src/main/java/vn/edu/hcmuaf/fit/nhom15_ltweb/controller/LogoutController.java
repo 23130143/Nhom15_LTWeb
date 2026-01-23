@@ -6,25 +6,20 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import vn.edu.hcmuaf.fit.nhom15_ltweb.model.cart.Cart;
 
 import java.io.IOException;
 
-@WebServlet(name = "MyCart", value = "/my-cart")
-public class MyCart extends HttpServlet {
+@WebServlet(name = "LogoutController", value = "/logout")
+public class LogoutController extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        HttpSession session = request.getSession();
-        Cart cart = (Cart) session.getAttribute("cart");
-
-        if (cart == null) {
-            cart = new Cart();
-            session.setAttribute("cart", cart);
+        HttpSession session = request.getSession(false);
+        if (session != null) {
+            session.invalidate();
         }
-
-        request.setAttribute("cart", cart);
-        request.getRequestDispatcher("/Cart.jsp").forward(request, response);
+        response.sendRedirect(request.getContextPath() + "/home");
     }
 }

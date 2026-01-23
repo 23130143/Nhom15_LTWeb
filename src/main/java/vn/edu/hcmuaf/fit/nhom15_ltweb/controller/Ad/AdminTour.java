@@ -6,20 +6,24 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import vn.edu.hcmuaf.fit.nhom15_ltweb.model.User;
-import vn.edu.hcmuaf.fit.nhom15_ltweb.service.UserService;
+import vn.edu.hcmuaf.fit.nhom15_ltweb.service.TourAdminService;
 
 import java.io.IOException;
-import java.util.List;
 
-@WebServlet(name = "AdminNguoiDungController", value = "/admin/users")
-public class AdminNguoiDungController extends HttpServlet {
-    UserService userService = new UserService();
+@WebServlet(name = "AdminTour", value = "/admin/tours")
+public class AdminTour extends HttpServlet {
+    private TourAdminService service = new TourAdminService();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<User> users = userService.getAllUsers();
-        request.setAttribute("users", users);
-        request.getRequestDispatcher("/Admin_NguoiDung.jsp").forward(request, response);
+        User user = (User) request.getSession().getAttribute("user");
+        if (user == null || !"ADMIN".equals(user.getRole())) {
+            response.sendRedirect(request.getContextPath() + "/login.jsp");
+            return;
+        }
+
+        request.setAttribute("tourList", service.getAllTour());
+        request.getRequestDispatcher("/AdSanPham.jsp").forward(request, response);
     }
 
     @Override

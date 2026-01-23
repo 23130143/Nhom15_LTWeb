@@ -101,6 +101,7 @@ body {
     margin-bottom: 15px;
     color: #00aaff;
 }
+
 /* ===== Search Box ===== */
 .search-box {
     padding: 10px 15px;
@@ -116,7 +117,7 @@ body {
 }
 
 /*==== Search ====*/
-.search{
+.search {
     width: 600px;
     background: #1b2a47;
     border: 1px solid #2c3e50;
@@ -125,9 +126,11 @@ body {
     padding: 10px;
     outline: none;
 }
-.search:focus{
+
+.search:focus {
     border-color: #00aaff;
 }
+
 /* ===== Add Button ===== */
 .btn-add {
     display: inline-block;
@@ -196,4 +199,19 @@ body {
 
 .activity-table tr:hover {
     background-color: #22385f;
+}
+
+.price-cell {
+    line-height: 1.4;
+    font-size: 14px;
+}
+
+.price-adult {
+    font-weight: 600;
+    color: #00d4ff;
+}
+
+.price-child {
+    font-size: 13px;
+    color: #a0aec0;
 }
