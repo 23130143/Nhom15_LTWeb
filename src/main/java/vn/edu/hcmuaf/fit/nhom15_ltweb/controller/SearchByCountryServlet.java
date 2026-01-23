@@ -47,7 +47,7 @@ public class SearchByCountryServlet extends HttpServlet {
             while (rs.next()) {
                 Tour tour = new Tour();
                 // ...các dòng set trường... copy hệt trên!
-                tour.setImageURL(rs.getString("imageURL"));
+//                tour.setImageURL(rs.getString("imageURL"));
                 tours.add(tour);
             }
         } catch (Exception e) {
