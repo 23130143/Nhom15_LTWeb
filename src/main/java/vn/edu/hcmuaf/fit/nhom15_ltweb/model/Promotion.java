@@ -2,98 +2,62 @@ package vn.edu.hcmuaf.fit.nhom15_ltweb.model;
 
 
 
-
 import java.io.Serializable;
 import java.sql.Date;
 
 public class Promotion implements Serializable {
-    private int promoID;         // int
-    private int imageID;         // int
-    private String promoName;    // varchar(100)
-    private String promoType;    // varchar(20) - để check "PERCENT"
-    private double discountValue;// decimal(10,2)
-    private Date startDate;      // date
-    private Date endDate;        // date
-    private boolean active;      // tinyint(1)
+    private int promoID;
+    private int imageID;
+    private String promoName;
+    private String promoType;
+    private double discountValue;
+    private Date startDate;
+    private Date endDate;
+    private boolean active;
 
     public Promotion() {}
 
-    // Getter và Setter
+    // ========== GETTER & SETTER ==========
 
-    public Promotion(boolean active, Date endDate, Date startDate, double discountValue, String promoType, String promoName, int imageID, int promoID) {
-        this.active = active;
-        this.endDate = endDate;
-        this.startDate = startDate;
-        this.discountValue = discountValue;
-        this.promoType = promoType;
-        this.promoName = promoName;
-        this.imageID = imageID;
-        this.promoID = promoID;
+    public int getPromoID() { return promoID; }
+    public void setPromoID(int promoID) { this.promoID = promoID; }
+
+    public int getImageID() { return imageID; }
+    public void setImageID(int imageID) { this.imageID = imageID; }
+
+    public String getPromoName() { return promoName; }
+    public void setPromoName(String promoName) { this.promoName = promoName; }
+
+    public String getPromoType() { return promoType; }
+    public void setPromoType(String promoType) { this.promoType = promoType; }
+
+    public double getDiscountValue() { return discountValue; }
+    public void setDiscountValue(double discountValue) { this.discountValue = discountValue; }
+
+    public Date getStartDate() { return startDate; }
+    public void setStartDate(Date startDate) { this.startDate = startDate; }
+
+    public Date getEndDate() { return endDate; }
+    public void setEndDate(Date endDate) { this.endDate = endDate; }
+
+    public boolean isActive() { return active; }
+    public void setActive(boolean active) { this.active = active; }
+
+    // ========== METHOD TÍNH GIÁ ==========
+
+    // Tính giá sau khuyến mãi
+    public double calculateNewPrice(double originalPrice) {
+        if ("PERCENT".equalsIgnoreCase(this.promoType)) {
+            // Giảm theo %: giá mới = giá gốc * (1 - discount/100)
+            return originalPrice * (1 - this.discountValue / 100);
+        } else {
+            // Giảm trực tiếp (FIXED): giá mới = giá gốc - discount
+            return originalPrice - this.discountValue;
+        }
     }
 
-    public boolean isActive() {
-        return active;
+    // Lấy label khuyến mãi
+    public String getLabel() {
+        return (this.promoName != null && !this.promoName.isEmpty()) ? this.promoName : "Khuyến mãi";
     }
-
-    public void setActive(boolean active) {
-        this.active = active;
-    }
-
-    public Date getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
-    }
-
-    public Date getStartDate() {
-        return startDate;
-    }
-
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
-    }
-
-    public double getDiscountValue() {
-        return discountValue;
-    }
-
-    public void setDiscountValue(double discountValue) {
-        this.discountValue = discountValue;
-    }
-
-    public String getPromoType() {
-        return promoType;
-    }
-
-    public void setPromoType(String promoType) {
-        this.promoType = promoType;
-    }
-
-    public String getPromoName() {
-        return promoName;
-    }
-
-    public void setPromoName(String promoName) {
-        this.promoName = promoName;
-    }
-
-    public int getImageID() {
-        return imageID;
-    }
-
-    public void setImageID(int imageID) {
-        this.imageID = imageID;
-    }
-
-    public int getPromoID() {
-        return promoID;
-    }
-
-    public void setPromoID(int promoID) {
-        this.promoID = promoID;
-    }
-
-    // ... Bạn hãy tạo tiếp các Getter/Setter còn lại bằng IntelliJ (Alt+Insert)
 }
