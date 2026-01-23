@@ -13,12 +13,12 @@ public class TourService {
 
     // Lấy tất cả tour
     public List<Tour> getAllTours() {
-        return tourDAO.getAllTours();
+        return TourDAO.getAllToursWithImage();
     }
 
     // Tìm theo danh mục
-    public List<Tour> searchByCategory(int categoriesID) {
-        return tourDAO.searchByCategory(categoriesID);
+    public List<Tour> searchByCategory(int categoryId) {
+        return TourDAO.getToursByCategoryWithImage(categoryId);
     }
 
     // Lấy tour theo ID
