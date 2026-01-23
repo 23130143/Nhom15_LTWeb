@@ -1,4 +1,3 @@
-
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +17,8 @@
                 <div class="header-box">
                     <div class="logo">
                         <div class="header-logo">
-                            <a href="<%= request.getContextPath() %>/index.jsp" aria-label="TravelNow" class="Travel-logo">
+                            <a href="<%= request.getContextPath() %>/index.jsp" aria-label="TravelNow"
+                               class="Travel-logo">
                                 <img src="<%= request.getContextPath() %>/IMAGE/asset/images/LOGO.png" alt="Travel">
                             </a>
                         </div>
@@ -26,7 +26,8 @@
                     <div class="header-center">
                         <nav>
                             <div class=" menu">
-                                <a href="<%= request.getContextPath() %>/index.jsp" class="item active">Tour trong nước</a>
+                                <a href="<%= request.getContextPath() %>/index.jsp" class="item active">Tour trong
+                                    nước</a>
                                 <a href="<%= request.getContextPath() %>/index.jsp" class="item">Tour nước ngoài</a>
                                 <a href="<%= request.getContextPath() %>/Khuyen_Mai.jsp" class="item">Khuyến mãi</a>
                                 <a href="<%= request.getContextPath() %>/GioiThieu.jsp" class="item">Giới thiệu</a>
@@ -37,8 +38,10 @@
                                     </div>
                                     <div class="sub-item">
                                         <a href="<%= request.getContextPath() %>/Tin%20t%E1%BB%A9c.jsp">Tin Tức</a>
-                                        <a href="<%= request.getContextPath() %>/Cau_hoi_thuong_gap.jsp">Câu hỏi thường gặp</a>
-                                        <a href="<%= request.getContextPath() %>/NhatKyDuLich.jsp">Nhật ký khách hàng</a>
+                                        <a href="<%= request.getContextPath() %>/Cau_hoi_thuong_gap.jsp">Câu hỏi thường
+                                            gặp</a>
+                                        <a href="<%= request.getContextPath() %>/NhatKyDuLich.jsp">Nhật ký khách
+                                            hàng</a>
                                     </div>
                                 </div>
 
@@ -56,9 +59,11 @@
                             <i class="fa-solid fa-circle-user"></i>
                             <span>Tài khoản ▾</span>
                             <div class="dropdown">
-                                <button onclick="location.href='<%= request.getContextPath() %>/Sign-in.jsp'" class="register-btn">Đăng ký</button>
+                                <button onclick="location.href='<%= request.getContextPath() %>/Sign-in.jsp'"
+                                        class="register-btn">Đăng ký
+                                </button>
                                 <p>Quý khách đã có tài khoản?<br>
-                                    <a href="<%= request.getContextPath() %>/Log-in.jsp">Đăng nhập ngay</a>
+                                    <a href="<%= request.getContextPath() %>/login">Đăng nhập ngay</a>
                                 </p>
                             </div>
                         </div>
@@ -109,7 +114,8 @@
             </div>
 
             <button class="search-button"
-                    onclick="window.location.href='<%= request.getContextPath() %>/Danh_muc_san_pham.jsp'">Tìm</button> <!--nút tìm ngay-->
+                    onclick="window.location.href='<%= request.getContextPath() %>/Danh_muc_san_pham.jsp'">Tìm
+            </button> <!--nút tìm ngay-->
         </div>
     </div>
 </section>
@@ -146,7 +152,7 @@
                         <span class="new">13.390.000 <small class="textCurrency">đ</small></span>
                     </div>
                 </div>
-               
+
             </div>
             <div class="tour-card">
                 <div class="label red">Giảm 1.5 Triệu Nhóm 3</div>

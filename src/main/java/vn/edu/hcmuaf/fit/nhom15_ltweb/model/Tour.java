@@ -1,4 +1,5 @@
 package vn.edu.hcmuaf.fit.nhom15_ltweb.model;
+
 import java.io.Serializable;
 
 public class Tour implements Serializable {
@@ -14,8 +15,10 @@ public class Tour implements Serializable {
     private String location;
     private String duration;
     private int slTour;
+    private int soldQuantity;
 
-    public Tour() {}
+    public Tour() {
+    }
 
     public Tour(int tourID, String title, double adultPrice, double childPrice, int categoriesID,
                 int availableCapacity, String departure, String description, String schedule,
@@ -37,6 +40,14 @@ public class Tour implements Serializable {
     // Getters và Setters
     public int getTourID() {
         return tourID;
+    }
+
+    public int getSoldQuantity() {
+        return soldQuantity;
+    }
+
+    public void setSoldQuantity(int soldQuantity) {
+        this.soldQuantity = soldQuantity;
     }
 
     public void setTourID(int tourID) {
