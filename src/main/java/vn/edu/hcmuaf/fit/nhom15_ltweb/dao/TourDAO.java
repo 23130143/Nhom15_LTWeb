@@ -13,7 +13,7 @@ import vn.edu.hcmuaf.fit.nhom15_ltweb.model.TourExperience;
 public class TourDAO {
 
     // Lấy tất cả Tour
-    public List<Tour> getAllTours() {
+    public static List<Tour> getAllTours() {
         List<Tour> list = new ArrayList<>();
         String sql = "SELECT * FROM tours";
 
@@ -27,6 +27,43 @@ public class TourDAO {
             e.printStackTrace();
         }
         return list;
+    }
+
+    public static List<Tour> getToursByCategoryWithImage(int categoryId) {
+        List<Tour> tours = new ArrayList<>();
+        String sql = "SELECT t.*, ti.imageURL " +
+                "FROM tours t " +
+                "LEFT JOIN ( " +
+                "    SELECT tourID, MIN(imageID) as minImageID " +
+                "    FROM tourimages GROUP BY tourID " +
+                ") minimg ON t.tourID = minimg.tourID " +
+                "LEFT JOIN tourimages ti ON minimg.minImageID = ti.imageID " +
+                "WHERE t.categoriesID = ?";
+        try (Connection conn = DBConnect.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, categoryId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Tour tour = new Tour();
+                tour.setTourID(rs.getInt("tourID"));
+                tour.setTitle(rs.getString("title"));
+                tour.setAdultPrice(rs.getDouble("adultPrice"));
+                tour.setChildPrice(rs.getDouble("childPrice"));
+                tour.setCategoriesID(rs.getInt("categoriesID"));
+                tour.setAvailableCapacity(rs.getInt("availableCapacity"));
+                tour.setDeparture(rs.getString("departure"));
+                tour.setDescription(rs.getString("description"));
+                tour.setSchedule(rs.getString("schedule"));
+                tour.setLocation(rs.getString("location"));
+                tour.setDuration(rs.getString("duration"));
+                tour.setSlTour(rs.getInt("SlTour"));
+                tour.setImageURL(rs.getString("imageURL")); // Dòng này lấy ảnh!
+                tours.add(tour);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return tours;
     }
 
     // Tìm kiếm theo tên tour
@@ -123,7 +160,7 @@ public class TourDAO {
     }
 
     // Map ResultSet sang Tour object
-    private Tour mapTour(ResultSet rs) throws SQLException {
+    private static Tour mapTour(ResultSet rs) throws SQLException {
         Tour tour = new Tour();
         tour.setTourID(rs.getInt("tourID"));
         tour.setTitle(rs.getString("title"));
@@ -140,6 +177,52 @@ public class TourDAO {
         return tour;
     }
 
+    public static List<Tour> getToursByCountry(String country) {
+        // bạn tùy chỉnh, đây là ví dụ:
+        List<Tour> result = new ArrayList<>();
+        for (Tour t : getAllTours()) {
+            if (t.getLocation().equalsIgnoreCase(country)) {
+                result.add(t);
+            }
+        }
+        return result;
+
+    }
+
+    public static List<Tour> getAllToursWithImage() {
+        List<Tour> tours = new ArrayList<>();
+        String sql = "SELECT t.*, ti.imageURL " +
+                "FROM tours t " +
+                "LEFT JOIN ( " +
+                "    SELECT tourID, MIN(imageID) as minImageID " +
+                "    FROM tourimages GROUP BY tourID " +
+                ") minimg ON t.tourID = minimg.tourID " +
+                "LEFT JOIN tourimages ti ON minimg.minImageID = ti.imageID";
+        try (Connection conn = DBConnect.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
+                Tour tour = new Tour();
+                tour.setTourID(rs.getInt("tourID"));
+                tour.setTitle(rs.getString("title"));
+                tour.setAdultPrice(rs.getDouble("adultPrice"));
+                tour.setChildPrice(rs.getDouble("childPrice"));
+                tour.setCategoriesID(rs.getInt("categoriesID"));
+                tour.setAvailableCapacity(rs.getInt("availableCapacity"));
+                tour.setDeparture(rs.getString("departure"));
+                tour.setDescription(rs.getString("description"));
+                tour.setSchedule(rs.getString("schedule"));
+                tour.setLocation(rs.getString("location"));
+                tour.setDuration(rs.getString("duration"));
+                tour.setSlTour(rs.getInt("SlTour"));
+                // DÒNG NÀY LẤY ẢNH
+                tour.setImageURL(rs.getString("imageURL"));
+                tours.add(tour);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return tours;
 //    public Tour getTourById_p(int id) {
 //        // 1. Lấy thông tin Tour và Khuyến mãi (PERCENT)
 //        String sql = "SELECT t.*, p.promoType, p.discountValue " +
