@@ -14,6 +14,7 @@ public class Tour implements Serializable {
     private String location;
     private String duration;
     private int slTour;
+    private String imageURL;
 
     public Tour() {}
 
@@ -129,5 +130,11 @@ public class Tour implements Serializable {
 
     public void setSlTour(int slTour) {
         this.slTour = slTour;
+    }
+
+    public String getImageURL() {return imageURL;}
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
     }
 }
