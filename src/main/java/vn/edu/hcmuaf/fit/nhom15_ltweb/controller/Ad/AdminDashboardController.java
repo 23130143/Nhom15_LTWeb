@@ -10,13 +10,14 @@ import vn.edu.hcmuaf.fit.nhom15_ltweb.service.DashboardService;
 
 import java.io.IOException;
 
-@WebServlet(name = "AdminDashboardController", value = "/AdminDashboard")
+@WebServlet(name = "AdminDashboardController", value = "/dashboard")
 public class AdminDashboardController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         User user = (User) request.getSession().getAttribute("user");
         if (user == null || !user.getRole().equals("ADMIN")) {
             response.sendRedirect(request.getContextPath() + "/login.jsp");
+            return;
         }
         DashboardService dashboardService = new DashboardService();
 

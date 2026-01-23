@@ -1,8 +1,12 @@
 package vn.edu.hcmuaf.fit.nhom15_ltweb.controller;
-import jakarta.servlet.*;
-import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import vn.edu.hcmuaf.fit.nhom15_ltweb.service.CartService;
+
 import java.io.IOException;
 
 @WebServlet(name = "UpdateItem", value = "/update-item")
@@ -18,7 +22,7 @@ public class UpdateItem extends HttpServlet {
             int childQty = Integer.parseInt(request.getParameter("childQty"));
 
             // Gọi Service để cập nhật dữ liệu trong Session
-            cartService.updateTour(request.getSession(), tourID, adultQty, childQty);
+//            cartService.updateTour(request.getSession(), tourID, adultQty, childQty);
 
             response.sendRedirect("my-cart");
         } catch (Exception e) {

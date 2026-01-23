@@ -74,7 +74,7 @@ public class TourDAO {
         // Thêm điều kiện tìm theo tên
         if (name != null && !name.trim().isEmpty()) {
             sql.append(" AND title LIKE ?");
-            params.add("%" + name. trim() + "%");
+            params.add("%" + name.trim() + "%");
         }
 
         // Thêm điều kiện tìm theo danh mục
@@ -92,7 +92,7 @@ public class TourDAO {
                 if (param instanceof String) {
                     ps.setString(i + 1, (String) param);
                 } else if (param instanceof Integer) {
-                    ps. setInt(i + 1, (Integer) param);
+                    ps.setInt(i + 1, (Integer) param);
                 }
             }
 
@@ -127,7 +127,7 @@ public class TourDAO {
         Tour tour = new Tour();
         tour.setTourID(rs.getInt("tourID"));
         tour.setTitle(rs.getString("title"));
-        tour.setAdultPrice(rs. getDouble("adultPrice"));
+        tour.setAdultPrice(rs.getDouble("adultPrice"));
         tour.setChildPrice(rs.getDouble("Childprice"));
         tour.setCategoriesID(rs.getInt("categoriesID"));
         tour.setAvailableCapacity(rs.getInt("availableCapacity"));
@@ -139,41 +139,33 @@ public class TourDAO {
         tour.setSlTour(rs.getInt("SlTour"));
         return tour;
     }
-    public Tour getTourById_p(int id) {
-        // 1. Lấy thông tin Tour và Khuyến mãi (PERCENT)
-        String sql = "SELECT t.*, p.promoType, p.discountValue " +
-                "FROM Tours t " +
-                "LEFT JOIN TourPromotions tp ON t.tourID = tp.tourID " +
-                "LEFT JOIN Promotions p ON tp.promoID = p.promoID " +
-                "WHERE t.tourID = ?";
-        try (Connection conn = DBConnect.getConnection();
-             PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setInt(1, id);
-            ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                Tour tour = new Tour();
-                tour.setTourID(rs.getInt("tourID"));
-                tour.setTitle(rs.getString("title"));
-                tour.setAdultPrice(rs.getDouble("adultPrice"));
-                tour.setChildPrice(rs.getDouble("childPrice"));
 
-//                // Đóng gói Promotion để xử lý PERCENT sau này
-//                Promotion promo = new Promotion();
-//                promo.setPromoType(rs.getString("promoType"));
-//                promo.setDiscountValue(rs.getDouble("discountValue"));
-//                tour.setPromotion(promo);
+//    public Tour getTourById_p(int id) {
+//        // 1. Lấy thông tin Tour và Khuyến mãi (PERCENT)
+//        String sql = "SELECT t.*, p.promoType, p.discountValue " +
+//                "FROM Tours t " +
+//                "LEFT JOIN TourPromotions tp ON t.tourID = tp.tourID " +
+//                "LEFT JOIN Promotions p ON tp.promoID = p.promoID " +
+//                "WHERE t.tourID = ?";
+//        try (Connection conn = DBConnect.getConnection();
+//             PreparedStatement ps = conn.prepareStatement(sql)) {
+//            ps.setInt(1, id);
+//            ResultSet rs = ps.executeQuery();
+//            if (rs.next()) {
+//                Tour tour = mapTour(rs);
 //
-//                // 2. SỬ DỤNG TOURIMAGESDAO: Lấy ảnh đại diện cho Tour
-//                TourimagesDAO imgDAO = new TourimagesDAO();
-//                Tourimages mainImg = imgDAO.getMainImageByTourId(id);
-//                if (mainImg != null) {
-//                    tour.setImageURL(mainImg.getImageURL());                }
+//                // Nếu có khuyến mãi
+//                String promoType = rs.getString("promoType");
+//                if (promoType != null) {
+//                    tour.setPromoType(promoType);
+//                    tour.setDiscountValue(rs.getDouble("discountValue"));
+//                }
 //
 //                return tour;
-            }
-        } catch (Exception e) { e.printStackTrace(); }
-        return null;
-    }
+//             }
+//         } catch (Exception e) { e.printStackTrace(); }
+//         return null;
+//     }
     public List<Tour> getTopSellingTours(int limit) {
         List<Tour> list = new ArrayList<>();
         String sql = "SELECT t.*, COALESCE(SUM(b.adultCount + b.childCount), 0) AS totalSold " +

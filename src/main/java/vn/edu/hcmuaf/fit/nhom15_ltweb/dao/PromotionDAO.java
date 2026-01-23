@@ -1,7 +1,11 @@
 package vn.edu.hcmuaf.fit.nhom15_ltweb.dao;
-import vn.edu.hcmuaf.fit.nhom15_ltweb.ultils.DBConnect; // Giả định lớp kết nối của bạn
+
 import vn.edu.hcmuaf.fit.nhom15_ltweb.model.Promotion;
-import java.sql.*;
+import vn.edu.hcmuaf.fit.nhom15_ltweb.ultils.DBConnect;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class PromotionDAO {
     // Lấy khuyến mãi đang active và trong thời hạn cho một Tour cụ thể

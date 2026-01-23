@@ -1,9 +1,9 @@
-package vn.edu. hcmuaf.fit.nhom15_ltweb.service;
+package vn.edu.hcmuaf.fit.nhom15_ltweb.service;
 
-import vn.edu. hcmuaf.fit.nhom15_ltweb.dao.TourDAO;
-import vn. edu.hcmuaf.fit.nhom15_ltweb.dao.CategoryDAO;
-import vn.edu.hcmuaf. fit.nhom15_ltweb.model.Tour;
-import vn.edu. hcmuaf.fit.nhom15_ltweb.model.Category;
+import vn.edu.hcmuaf.fit.nhom15_ltweb.dao.CategoryDAO;
+import vn.edu.hcmuaf.fit.nhom15_ltweb.dao.TourDAO;
+import vn.edu.hcmuaf.fit.nhom15_ltweb.model.Category;
+import vn.edu.hcmuaf.fit.nhom15_ltweb.model.Tour;
 
 import java.util.List;
 
@@ -48,6 +48,8 @@ public class TourService {
 //        // Gọi DAO để lấy Tour đã có sẵn Promotion và ImageURL
 //        return tourDAO.getTourById(id);
 //    }
+}
+
 //
 //    // Fen có thể thêm logic kiểm tra sức chứa ở đây nếu muốn nâng cao
 //    public boolean checkCapacity(int tourID, int requestedQty) {

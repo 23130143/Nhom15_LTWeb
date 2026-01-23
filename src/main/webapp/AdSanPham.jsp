@@ -1,3 +1,5 @@
+<%@ page import="vn.edu.hcmuaf.fit.nhom15_ltweb.model.Tour" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -63,55 +65,53 @@
                     <th>Hành động</th>
                 </tr>
                 </thead>
+                <%
+                    List<Tour> tours = (List<Tour>) request.getAttribute("tourList");
+                %>
 
                 <tbody>
+                <%
+                    int i = 1;
+                    for (Tour t : tours) {
+                %>
                 <tr>
-                    <td>1</td>
-                    <td>Tour Singapore - Malaysia</td>
-                    <td>2.500.000 VND</td>
-                    <td>TP.HCM</td>
-                    <td>12/12/2025</td>
-                    <td>5 ngày 4 đêm</td>
-                    <td>25</td>
-                    <td>5</td>
-                    <td>2</td>
+                    <td><%= i++ %>
+                    </td>
+                    <td><%= t.getTitle() %>
+                    </td>
+                    <td class="price-cell">
+                        <div class="price-adult">
+                            👤 NL:
+                            <strong><%= String.format("%,.0f", t.getAdultPrice()) %>
+                            </strong> VND
+                        </div>
+                        <div class="price-child">
+                            🧒 TE:
+                            <%= String.format("%,.0f", t.getChildPrice()) %> VND
+                        </div>
+                    </td>
+                    <td><%= t.getDeparture() %>
+                    </td>
+                    <td><%= t.getDeparture() %>
+                    </td>
+                    <td><%= t.getDuration() %>
+                    </td>
+                    <td><%= t.getAvailableCapacity() %>
+                    </td>
+                    <td><%= t.getSlTour() %>
+                    </td>
+                    <td><%= t.getSoldQuantity() %>
+                    </td>
                     <td>
-                        <a href="#" class="btn-edit">Sửa</a>
-                        <a href="#" class="btn-delete">Xóa</a>
+                        <a href="edit-tour?id=<%= t.getTourID() %>" class="btn btn-warning">Sửa</a>
+                        <a href="delete-tour?id=<%= t.getTourID() %>"
+                           onclick="return confirm('Xóa tour này?')"
+                           class="btn btn-danger">Xóa</a>
                     </td>
                 </tr>
-
-                <tr>
-                    <td>2</td>
-                    <td>Tour Đà Lạt 3N2Đ</td>
-                    <td>3.400.000 VND</td>
-                    <td>Đà Lạt</td>
-                    <td>20/12/2025</td>
-                    <td>5 ngày 4 đêm</td>
-                    <td>25</td>
-                    <td>5</td>
-                    <td>0</td>
-                    <td>
-                        <a href="#" class="btn-edit">Sửa</a>
-                        <a href="#" class="btn-delete">Xóa</a>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>3</td>
-                    <td>Tour Phú Quốc</td>
-                    <td>4.900.000 VND</td>
-                    <td>Phú Quốc</td>
-                    <td>05/01/2026</td>
-                    <td>5 ngày 4 đêm</td>
-                    <td>25</td>
-                    <td>5</td>
-                    <td>1</td>
-                    <td>
-                        <a href="#" class="btn-edit">Sửa</a>
-                        <a href="#" class="btn-delete">Xóa</a>
-                    </td>
-                </tr>
+                <%
+                    }
+                %>
                 </tbody>
             </table>
         </div>
