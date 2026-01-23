@@ -45,7 +45,7 @@ public class LoginController extends HttpServlet {
                 response.sendRedirect("/Admin_DashBoard.jsp");
             } else {
                 session.setMaxInactiveInterval(30 * 60);
-                response.sendRedirect("/index.jsp");
+                response.sendRedirect(request.getContextPath() + "/home");
             }
         } else {
             request.setAttribute("errorInvalid", "Username or password is incorrect.");

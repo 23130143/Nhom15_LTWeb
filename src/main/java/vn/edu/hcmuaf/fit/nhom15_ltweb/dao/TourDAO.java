@@ -57,7 +57,7 @@ public class TourDAO {
                 tour.setLocation(rs.getString("location"));
                 tour.setDuration(rs.getString("duration"));
                 tour.setSlTour(rs.getInt("SlTour"));
-                tour.setImageURL(rs.getString("imageURL")); // Dòng này lấy ảnh!
+//                tour.setImageURL(rs.getString("imageURL")); // Dòng này lấy ảnh!
                 tours.add(tour);
             }
         } catch (Exception e) {
@@ -216,13 +216,14 @@ public class TourDAO {
                 tour.setDuration(rs.getString("duration"));
                 tour.setSlTour(rs.getInt("SlTour"));
                 // DÒNG NÀY LẤY ẢNH
-                tour.setImageURL(rs.getString("imageURL"));
+//                tour.setImageURL(rs.getString("imageURL"));
                 tours.add(tour);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
         return tours;
+    }
 //    public Tour getTourById_p(int id) {
 //        // 1. Lấy thông tin Tour và Khuyến mãi (PERCENT)
 //        String sql = "SELECT t.*, p.promoType, p.discountValue " +

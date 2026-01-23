@@ -48,7 +48,7 @@ public class TourService {
 //        // Gọi DAO để lấy Tour đã có sẵn Promotion và ImageURL
 //        return tourDAO.getTourById(id);
 //    }
-}
+//}
 
 //
 //    // Fen có thể thêm logic kiểm tra sức chứa ở đây nếu muốn nâng cao
