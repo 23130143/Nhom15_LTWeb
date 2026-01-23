@@ -17,6 +17,7 @@ public class PromotionDAO {
             if (rs.next()) {
                 Promotion p = new Promotion();
                 p.setPromoID(rs.getInt("promoID"));
+                p.setPromoName(rs.getString("promoName"));  // ← THÊM DÒNG NÀY
                 p.setPromoType(rs.getString("promoType")); // Lấy PERCENT
                 p.setDiscountValue(rs.getDouble("discountValue"));
                 return p;
@@ -26,4 +27,5 @@ public class PromotionDAO {
         }
         return null;
     }
+
 }
