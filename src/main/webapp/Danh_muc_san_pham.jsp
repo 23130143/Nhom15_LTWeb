@@ -1,6 +1,9 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="java.util.List" %>
 <%@ page import="vn.edu.hcmuaf.fit.nhom15_ltweb.model.Category" %>
+<%@ page import="vn.edu.hcmuaf.fit.nhom15_ltweb.model.TourWithImage" %>
+<%@ page import="vn.edu.hcmuaf.fit.nhom15_ltweb.model.Tourimages" %>
+<%@ page import="vn.edu.hcmuaf.fit.nhom15_ltweb.model.Tour" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -85,20 +88,6 @@
                                 <li>
                                     <a href="<%=request.getContextPath()%>/search-by-category" class="side-item">Tất cả tour</a>
                                 </li>
-                                <%
-                                    List<Category> cates = (List<Category>)request.getAttribute("categories");
-                                    if (cates != null) {
-                                        for (Category cat : cates) {
-                                %>
-                                <li>
-                                    <a href="<%=request.getContextPath()%>/search-by-category?categoryId=<%=cat.getCategoriesID()%>" class="side-item">
-                                        <%=cat.getCategoriesName()%>
-                                    </a>
-                                </li>
-                                <%
-                                        }
-                                    }
-                                %>
                             </ul>
                         </div>
                     </div>
@@ -110,11 +99,11 @@
                             </div>
                         </div>
                         <div class="side-body">
-                            <div class="side-item">Trung Quốc</div>
-                            <div class="side-item">Hàn Quốc</div>
-                            <div class="side-item">Đài Loan</div>
-                            <div class="side-item">Thụy Sĩ</div>
-                            <div class="side-item">Pháp</div>
+                            <li><a href="<%=request.getContextPath()%>/search-by-category?categoryId=1" class="side-item">Trung Quốc</a></li>
+                            <li><a href="<%=request.getContextPath()%>/search-by-category?categoryId=2" class="side-item">Hàn Quốc</a></li>
+                            <li><a href="<%=request.getContextPath()%>/search-by-category?categoryId=3" class="side-item">Đài Loan</a></li>
+                            <li><a href="<%=request.getContextPath()%>/search-by-category?categoryId=4" class="side-item">Thụy Sĩ</a></li>
+                            <li><a href="<%=request.getContextPath()%>/search-by-category?categoryId=5" class="side-item">Pháp</a></li>
                         </div>
                     </div>
 
@@ -126,11 +115,11 @@
                             </div>
                         </div>
                         <div class="side-body">
-                            <div class="side-item">Đà Nẵng</div>
-                            <div class="side-item">Hạ Long</div>
-                            <div class="side-item">Hà Nội</div>
-                            <div class="side-item">Lào Cai</div>
-                            <div class="side-item">Phú Quốc</div>
+                            <li><a href="<%=request.getContextPath()%>/search-by-category?categoryId=6" class="side-item">Đà Nẵng</a></li>
+                            <li><a href="<%=request.getContextPath()%>/search-by-category?categoryId=7" class="side-item">Sapa</a></li>
+                            <li><a href="<%=request.getContextPath()%>/search-by-category?categoryId=8" class="side-item">Hà Nội</a></li>
+                            <li><a href="<%=request.getContextPath()%>/search-by-category?categoryId=9" class="side-item">Lào Cai</a></li>
+                            <li><a href="<%=request.getContextPath()%>/search-by-category?categoryId=10" class="side-item">Phú Quốc</a></li>
                         </div>
                     </div>
 
@@ -142,9 +131,8 @@
                             </div>
                         </div>
                         <div class="side-body">
-                            <div class="side-item">Tour Đài Loan</div>
-                            <div class="side-item">Tour Trung Quốc</div>
-                            <div class="side-item">Tour Đức</div>
+                            <li><a href="<%=request.getContextPath()%>/search-by-category?categoryId=11" class="side-item">Tour Đài Loan</a></li>
+                            <li><a href="<%=request.getContextPath()%>/search-by-category?categoryId=12" class="side-item">Tour Trung Quốc</a></li>
                         </div>
                     </div>
                     <div class="side-menu">
@@ -155,8 +143,8 @@
                             </div>
                         </div>
                         <div class="side-body">
-                            <div class="side-item">Tour Trọn gói</div>
-                            <div class="side-item">Tour Ngắn hạn</div>
+                            <li><a href="<%=request.getContextPath()%>/search-by-category?categoryId=13" class="side-item">Tour Trọn gói</a></li>
+                            <li><a href="<%=request.getContextPath()%>/search-by-category?categoryId=14" class="side-item">Tour Ngắn hạn</a></li>
                         </div>
                     </div>
                 </div>
@@ -167,32 +155,46 @@
                 <div id="title">
                     <h1>Tour ưu đãi hot nhất hôm nay</h1>
                 </div>
-                <div onclick="location.href='<%= request.getContextPath() %>/chi_tiet.jsp'" class="main-card">
+                <%
+                    List<TourWithImage> tourList = (List<TourWithImage>)request.getAttribute("tourList");
+                %>
+                <% if (tourList != null && !tourList.isEmpty()) {
+                    for (TourWithImage twi : tourList) {
+                        Tour tour = twi.getTour();
+                        Tourimages img = twi.getImage();
+                %>
+                <div onclick="location.href='<%= request.getContextPath() %>/chi_tiet.jsp?tourID=<%=tour.getTourID()%>'" class="main-card">
                     <div class="main-header">Xách vali lên và đi, ưu đãi nhóm chờ bạn!</div>
                     <div class="main-body">
                         <div class="main-img">
                             <div class="main-label-red">Giảm 3 Triệu Nhóm 4</div>
-                            <img src="<%= request.getContextPath() %>/IMAGE/asset/images/Tour_6.jpg" alt="Tour Hàn Quốc" />
+                            <img src="<%= request.getContextPath() %>/IMAGE/asset/images/<%= (img!=null ? img.getImageURL() : "TourDaNang_HoiAn.png") %>" alt="<%=tour.getTitle()%>" />
                         </div>
                         <div class="main-info">
                             <div class="main-title">
-                                <h3>Tour Hàn Quốc 5N4Đ: Seoul - Nami - Everland - Cung Điện Gyeongbokgung</h3>
+                                <h3><%=tour.getTitle()%></h3>
                             </div>
                             <div class="tour-time">
                                 <i class="fa-solid fa-clock"></i>
-                                <span class="tour-time-text">5 Ngày 4 Đêm</span>
+                                <span class="tour-time-text"><%=tour.getDuration()%></span>
                             </div>
                             <div class="item-price">
                                 <div class="main-price">
-                                    <span class="price">13.390.000 <small class="textCurrency">đ</small></span>
+                                    <span class="price"><%= String.format("%,.0f", tour.getAdultPrice()) %> <small class="textCurrency">đ</small></span>
                                 </div>
                                 <div class="main-detail">
-                                    <button class="btn">Xem Tour</button>
+                                    <a href="<%=request.getContextPath()%>/chi_tiet.jsp?tourID=<%=tour.getTourID()%>">
+                                        <button class="btn">Xem Tour</button>
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <%  }
+                } else { %>
+                <p>Không có tour nào trong danh mục này.</p>
+                <% } %>
                 <div class="main-card">
                     <div class="main-header">Trải nghiệm nước Pháp lãng mạn cùng bạn bè!</div>
                     <div class="main-body">

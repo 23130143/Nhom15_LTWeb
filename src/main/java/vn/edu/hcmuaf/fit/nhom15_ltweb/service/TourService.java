@@ -4,6 +4,7 @@ import vn.edu.hcmuaf.fit.nhom15_ltweb.dao.CategoryDAO;
 import vn.edu.hcmuaf.fit.nhom15_ltweb.dao.TourDAO;
 import vn.edu.hcmuaf.fit.nhom15_ltweb.model.Category;
 import vn.edu.hcmuaf.fit.nhom15_ltweb.model.Tour;
+import vn.edu.hcmuaf.fit.nhom15_ltweb.model.TourWithImage;
 
 import java.util.List;
 
@@ -31,6 +32,18 @@ public class TourService {
         return categoryDAO.getAllCategories();
     }
 
+    public List<TourWithImage> getToursWithImageByCategory(int categoryId) {
+        return TourDAO.getToursWithImageByCategory(categoryId);
+    }
+
+    public List<TourWithImage> getToursWithImageByCountry(String country) {
+        return TourDAO.getToursWithImageByCountry(country); // DAO mới
+    }
+
+    public List<TourWithImage> getAllToursWithImage() {
+        return TourDAO.getAllToursWithImage();
+    }
+
     // Lấy danh mục theo ID
     public Category getCategoryById(int categoryId) {
         return categoryDAO.getCategoryById(categoryId);
@@ -44,13 +57,7 @@ public class TourService {
         return tourDAO.getTopSellingToursByCategory(categoriesID, limit);
     }
 }
-//    public Tour getTourById(int id) {
-//        // Gọi DAO để lấy Tour đã có sẵn Promotion và ImageURL
-//        return tourDAO.getTourById(id);
-//    }
-}
 
-//
 //    // Fen có thể thêm logic kiểm tra sức chứa ở đây nếu muốn nâng cao
 //    public boolean checkCapacity(int tourID, int requestedQty) {
 //        Tour tour = tourDAO.getTourById(tourID);

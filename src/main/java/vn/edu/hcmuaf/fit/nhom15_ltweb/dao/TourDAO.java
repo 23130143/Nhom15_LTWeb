@@ -1,6 +1,8 @@
 package vn.edu.hcmuaf.fit.nhom15_ltweb.dao;
 
 import vn.edu.hcmuaf.fit.nhom15_ltweb.model.Tour;
+import vn.edu.hcmuaf.fit.nhom15_ltweb.model.TourWithImage;
+import vn.edu.hcmuaf.fit.nhom15_ltweb.model.Tourimages;
 import vn.edu.hcmuaf.fit.nhom15_ltweb.ultils.DBConnect;
 
 import java.sql.*;
@@ -8,12 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 import vn.edu.hcmuaf.fit.nhom15_ltweb.model.TourExperience;
 
-
-
 public class TourDAO {
 
     // Lấy tất cả Tour
-    public List<Tour> getAllTours() {
+    public static List<Tour> getAllTours() {
         List<Tour> list = new ArrayList<>();
         String sql = "SELECT * FROM tours";
 
@@ -27,6 +27,82 @@ public class TourDAO {
             e.printStackTrace();
         }
         return list;
+    }
+
+    public static List<TourWithImage> getToursWithImageByCategory(int categoryId) {
+        List<TourWithImage> tours = new ArrayList<>();
+        String sql = "SELECT t.*, ti.imageID, ti.tourID as imageTourID, ti.imageURL " +
+                "FROM tours t " +
+                "LEFT JOIN (SELECT tourID, MIN(imageID) as minImageID FROM tourimages GROUP BY tourID) minimg ON t.tourID = minimg.tourID " +
+                "LEFT JOIN tourimages ti ON minimg.minImageID = ti.imageID " +
+                "WHERE t.categoriesID = ?";
+        try (Connection conn = DBConnect.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, categoryId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Tour tour = mapTour(rs);
+                Tourimages img = null;
+                if (rs.getString("imageURL") != null) {
+                    img = new Tourimages(rs.getInt("imageID"),
+                            rs.getInt("imageTourID"),
+                            rs.getString("imageURL"));
+                }
+                tours.add(new TourWithImage(tour, img));
+            }
+        } catch (Exception e) { e.printStackTrace(); }
+        return tours;
+    }
+
+    public static List<TourWithImage> getToursWithImageByCountry(String country) {
+        List<TourWithImage> tours = new ArrayList<>();
+        String sql = "SELECT t.*, ti.imageID, ti.tourID as imageTourID, ti.imageURL " +
+                "FROM tours t " +
+                "LEFT JOIN (SELECT tourID, MIN(imageID) as minImageID FROM tourimages GROUP BY tourID) minimg ON t.tourID = minimg.tourID " +
+                "LEFT JOIN tourimages ti ON minimg.minImageID = ti.imageID " +
+                "WHERE t.location = ?";
+
+        try (Connection conn = DBConnect.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, country);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Tour tour = mapTour(rs);
+                Tourimages img = null;
+                if (rs.getString("imageURL") != null) {
+                    img = new Tourimages(rs.getInt("imageID"),
+                            rs.getInt("imageTourID"),
+                            rs.getString("imageURL"));
+                }
+                tours.add(new TourWithImage(tour, img));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return tours;
+    }
+
+    public static List<TourWithImage> getAllToursWithImage() {
+        List<TourWithImage> tours = new ArrayList<>();
+        String sql = "SELECT t.*, ti.imageID, ti.tourID as imageTourID, ti.imageURL " +
+                "FROM tours t " +
+                "LEFT JOIN (SELECT tourID, MIN(imageID) as minImageID FROM tourimages GROUP BY tourID) minimg ON t.tourID = minimg.tourID " +
+                "LEFT JOIN tourimages ti ON minimg.minImageID = ti.imageID";
+        try (Connection conn = DBConnect.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Tour tour = mapTour(rs);
+                Tourimages img = null;
+                if (rs.getString("imageURL") != null) {
+                    img = new Tourimages(rs.getInt("imageID"),
+                            rs.getInt("imageTourID"),
+                            rs.getString("imageURL"));
+                }
+                tours.add(new TourWithImage(tour, img));
+            }
+        } catch (Exception e) { e.printStackTrace(); }
+        return tours;
     }
 
     // Tìm kiếm theo tên tour
@@ -108,7 +184,7 @@ public class TourDAO {
 
     // Lấy tour theo ID
     public Tour getTourById(int tourID) {
-        String sql = "SELECT * FROM Tours WHERE tourID = ?";
+        String sql = "SELECT * FROM tours WHERE tourID = ?";
         try (Connection conn = DBConnect.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setInt(1, tourID);
@@ -123,7 +199,7 @@ public class TourDAO {
     }
 
     // Map ResultSet sang Tour object
-    private Tour mapTour(ResultSet rs) throws SQLException {
+    private static Tour mapTour(ResultSet rs) throws SQLException {
         Tour tour = new Tour();
         tour.setTourID(rs.getInt("tourID"));
         tour.setTitle(rs.getString("title"));
@@ -139,7 +215,6 @@ public class TourDAO {
         tour.setSlTour(rs.getInt("SlTour"));
         return tour;
     }
-
 //    public Tour getTourById_p(int id) {
 //        // 1. Lấy thông tin Tour và Khuyến mãi (PERCENT)
 //        String sql = "SELECT t.*, p.promoType, p.discountValue " +

@@ -22,7 +22,7 @@ public class Tour implements Serializable {
 
     public Tour(int tourID, String title, double adultPrice, double childPrice, int categoriesID,
                 int availableCapacity, String departure, String description, String schedule,
-                String location, String duration, int slTour) {
+                String location, String duration, int slTour, int soldQuantity) {
         this.tourID = tourID;
         this.title = title;
         this.adultPrice = adultPrice;
@@ -35,6 +35,7 @@ public class Tour implements Serializable {
         this.location = location;
         this.duration = duration;
         this.slTour = slTour;
+        this.soldQuantity = soldQuantity;
     }
 
     // Getters và Setters
@@ -141,4 +142,5 @@ public class Tour implements Serializable {
     public void setSlTour(int slTour) {
         this.slTour = slTour;
     }
+
 }
