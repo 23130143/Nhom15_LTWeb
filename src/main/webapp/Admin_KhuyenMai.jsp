@@ -43,8 +43,18 @@
 
         <div class="search-box">
             <input class="search" type="text" placeholder="Tìm tên khuyến mãi...">
-            <a href="<%= request.getContextPath() %>/add_tour.jsp" class="btn-add">+ Thêm khuyến mãi</a>
+
+            <div class="btn-group">
+                <a href="<%= request.getContextPath() %>/add_tour.jsp" class="btn-add">
+                    + Thêm khuyến mãi
+                </a>
+
+                <button class="btn-link" onclick="openLinkModal()">
+                    🔗 Gắn tour
+                </button>
+            </div>
         </div>
+
 
         <!-- Danh sách Tour -->
         <div class="panel">
@@ -126,5 +136,39 @@
         </div>
     </section>
 </div>
+<!-- Modal liên kết tour -->
+<div id="linkModal" class="modal">
+    <div class="modal-content">
+        <h3>Liên kết khuyến mãi với tour</h3>
+
+        <label>Chọn khuyến mãi</label>
+        <select>
+            <option>Tour Singapore - Malaysia</option>
+            <option>Tour Hàn Quốc</option>
+            <option>Tour Nhật Bản</option>
+        </select>
+
+        <label>Chọn tour áp dụng</label>
+        <div class="tour-list">
+            <label><input type="checkbox"> Tour Singapore 5N4Đ</label>
+            <label><input type="checkbox"> Tour Malaysia 4N3Đ</label>
+            <label><input type="checkbox"> Tour Tokyo - Fuji 6N5Đ</label>
+        </div>
+
+        <div class="modal-actions">
+            <button class="btn-save">Lưu</button>
+            <button class="btn-cancel" onclick="closeLinkModal()">Hủy</button>
+        </div>
+    </div>
+</div>
+<script>
+    function openLinkModal() {
+        document.getElementById("linkModal").style.display = "flex";
+    }
+
+    function closeLinkModal() {
+        document.getElementById("linkModal").style.display = "none";
+    }
+</script>
 </body>
 </html>

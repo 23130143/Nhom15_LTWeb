@@ -1,5 +1,6 @@
 package vn.edu.hcmuaf.fit.nhom15_ltweb.service;
 
+import jakarta.servlet.http.HttpSession;
 import vn.edu.hcmuaf.fit.nhom15_ltweb.model.cart.Cart;
 import vn.edu.hcmuaf.fit.nhom15_ltweb.model.cart.CartItem;
 
@@ -61,5 +62,20 @@ public class CartService {
             total += finalPrice;
         }
         return total;
+    }
+
+    public void removeTour(HttpSession session, int tourID) {
+        Cart cart = (Cart) session.getAttribute("cart");
+
+        if (cart == null) return;
+
+        cart.removeTour(tourID);
+
+        // nếu giỏ trống thì xóa session
+        if (cart.getItems().isEmpty()) {
+            session.removeAttribute("cart");
+        } else {
+            session.setAttribute("cart", cart);
+        }
     }
 }

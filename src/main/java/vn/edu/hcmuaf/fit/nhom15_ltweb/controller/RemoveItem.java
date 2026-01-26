@@ -19,7 +19,7 @@ public class RemoveItem extends HttpServlet {
             int tourID = Integer.parseInt(request.getParameter("tourID"));
 
             // Gọi Service để xóa item và dọn dẹp session nếu giỏ trống
-//            cartService.removeTour(request.getSession(), tourID);
+            cartService.removeTour(request.getSession(), tourID);
 
             response.sendRedirect("my-cart");
         } catch (Exception e) {

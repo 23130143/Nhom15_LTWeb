@@ -27,8 +27,18 @@ public class AddCart extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String tourIdRaw = request.getParameter("tourID");
-        int adultQty = Integer.parseInt(request.getParameter("adultQty"));
-        int childQty = Integer.parseInt(request.getParameter("childQty"));
+        int adultQty = 0;
+        int childQty = 0;
+
+        try {
+            adultQty = Integer.parseInt(request.getParameter("adultQty"));
+            childQty = Integer.parseInt(request.getParameter("childQty"));
+        } catch (NumberFormatException e) {
+            response.sendRedirect("index.jsp");
+            return;
+        }
+//        int adultQty = Integer.parseInt(request.getParameter("adultQty"));
+//        int childQty = Integer.parseInt(request.getParameter("childQty"));
 
         if (tourIdRaw == null) {
             response.sendRedirect("index.jsp"); // hoặc trang lỗi
@@ -51,11 +61,21 @@ public class AddCart extends HttpServlet {
         }
 
         // lấy tour từ DB
+//        Tour tour = tourService.getTourById(tourID);
         Tour tour = tourService.getTourById(tourID);
+        if (tour == null) {
+            response.sendRedirect("index.jsp");
+            return;
+        }
+
         Tourimages img = tourimagesService.getMainIMG(tourID);
         CartItem item = new CartItem();
         item.setTour(tour);
         item.setImageURL(String.valueOf(img));
+        if (adultQty < 0 || childQty < 0 || (adultQty + childQty) == 0) {
+            response.sendRedirect("index.jsp");
+            return;
+        }
         item.setAdultQty(adultQty);
         item.setChildQty(childQty);
 
@@ -82,6 +102,6 @@ public class AddCart extends HttpServlet {
         cart.addTour(tour, adult, child);
         session.setAttribute("cart", cart);
 
-        resp.sendRedirect("cart.jsp");
+        resp.sendRedirect("my-cart");
     }
 }
