@@ -1,4 +1,5 @@
-<%--
+<%@ page import="vn.edu.hcmuaf.fit.nhom15_ltweb.model.Booking" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: QUANG MINH
   Date: 1/27/2026
@@ -12,7 +13,7 @@
     <link rel="stylesheet" href="<%=request.getContextPath()%>/Css/Admin_Booking.css">
 </head>
 <body>
-<!-- ===== Sidebar ===== -->
+<!-- Sidebar -->
 <aside class="sidebar">
     <div class="brand">
         <div class="logo">✈️</div>
@@ -23,15 +24,45 @@
     </div>
 
     <nav class="menu">
-        <a class="menu-item" href="#">Dashboard</a>
-        <a class="menu-item active" href="#">Booking</a>
-        <a class="menu-item" href="#">Tour</a>
-        <a class="menu-item" href="#">Người dùng</a>
-        <a class="menu-item logout" href="#">Đăng xuất</a>
+        <a class="menu-item"
+           href="<%= request.getContextPath() %>/admin/dashboard">
+            DashBoard
+        </a>
+
+        <a class="menu-item"
+           href="<%= request.getContextPath() %>/admin/tours">
+            Tour
+        </a>
+
+        <a class="menu-item"
+           href="<%= request.getContextPath() %>/admin/users">
+            Người dùng
+        </a>
+
+        <a class="menu-item"
+           href="<%= request.getContextPath() %>/admin/promotions">
+            Khuyến mãi
+        </a>
+
+        <a class="menu-item"
+           href="<%= request.getContextPath() %>/admin/banners">
+            Banner
+        </a>
+
+        <a class="menu-item active"
+           href="<%= request.getContextPath() %>/admin/bookings">
+            Booking
+        </a>
+
+        <a class="menu-item logout"
+           href="<%= request.getContextPath() %>/logout">
+            Đăng xuất
+        </a>
     </nav>
+
 </aside>
 
-<!-- ===== Main ===== -->
+<!-- Main -->
 <div class="main">
     <header class="topbar">
         <div class="welcome">
@@ -40,17 +71,19 @@
     </header>
 
     <section class="content">
-        <h2 class="section-title">Quản lý Booking</h2>
+        <h2 class="section-title">Danh sách Booking</h2>
 
         <!-- Search -->
         <div class="search-box">
             <form class="search-form"
-                  action="<%=request.getContextPath()%>/admin/bookings"
+                  action="<%= request.getContextPath() %>/admin/bookings"
                   method="get">
                 <input class="search"
                        type="text"
                        name="keyword"
-                       placeholder="Tìm theo mã booking hoặc tên khách...">
+                       placeholder="Tìm theo mã booking / khách hàng / tour"
+                       value="<%= request.getParameter("keyword") != null
+                               ? request.getParameter("keyword") : "" %>">
                 <button class="btn-search">🔍</button>
             </form>
         </div>
@@ -62,52 +95,60 @@
                 <tr>
                     <th>ID</th>
                     <th>Khách hàng</th>
-                    <th>Email</th>
                     <th>Tour</th>
-                    <th>Ngày đặt</th>
+                    <th>Ngày đi</th>
+                    <th>Người lớn</th>
+                    <th>Trẻ em</th>
+                    <th>Tổng tiền</th>
                     <th>Trạng thái</th>
                     <th>Hành động</th>
                 </tr>
                 </thead>
 
                 <tbody>
-                <%--                <%--%>
-                <%--                    List<Booking> bookings =--%>
-                <%--                            (List<Booking>) request.getAttribute("bookings");--%>
+                <%
+                    List<Booking> bookings =
+                            (List<Booking>) request.getAttribute("bookings");
 
-                <%--                    if (bookings != null && !bookings.isEmpty()) {--%>
-                <%--                        for (Booking b : bookings) {--%>
-                <%--                %>--%>
-                <%--                <tr>--%>
-                <%--                    <td><%= b.getBookingID() %>--%>
-                <%--                    </td>--%>
-                <%--                    <td><%= b.getCustomerName() %>--%>
-                <%--                    </td>--%>
-                <%--                    <td><%= b.getEmail() %>--%>
-                <%--                    </td>--%>
-                <%--                    <td><%= b.getTourName() %>--%>
-                <%--                    </td>--%>
-                <%--                    <td><%= b.getCreatedDate() %>--%>
-                <%--                    </td>--%>
-                <td>
-                    <span style="color:#00ff99;">Đã thanh toán</span>
-                </td>
-                <td>
-                    <a class="btn-edit"
-                       href="<%=request.getContextPath()%>/admin/booking/detail?id=<%= b.getBookingID() %>">
-                        Xem chi tiết
-                    </a>
-                </td>
+                    if (bookings != null && !bookings.isEmpty()) {
+                        for (Booking b : bookings) {
+                %>
+                <tr>
+                    <td><%= b.getBookingID() %>
+                    </td>
+                    <td><%= b.getUserName() %>
+                    </td>
+                    <td><%= b.getTourName() %>
+                    </td>
+                    <td><%= b.getStartDate() %>
+                    </td>
+                    <td><%= b.getAdultCount() %>
+                    </td>
+                    <td><%= b.getChildCount() %>
+                    </td>
+                    <td><%= String.format("%,.0f VND", b.getTotalPrice()) %>
+                    </td>
+
+                    <td>
+                        <span class="status <%= b.getStatus().toLowerCase() %>">
+                            <%= b.getStatus() %>
+                        </span>
+                    </td>
+
+                    <td>
+                        <a class="btn-edit"
+                           href="<%= request.getContextPath() %>/admin/booking-detail?id=<%= b.getBookingID() %>">
+                            Xem
+                        </a>
+                    </td>
                 </tr>
                 <%
                     }
-                    }
-                    else
-                    {
+                } else {
                 %>
                 <tr>
-                    <td colspan="7" style="text-align:center;padding:20px">
-                        Chưa có booking
+                    <td colspan="9" style="text-align:center; padding:20px">
+                        Không có booking
                     </td>
                 </tr>
                 <% } %>
