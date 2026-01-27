@@ -190,7 +190,7 @@
                         Tiếp tục chọn tour
                     </button>
 
-                    <button class="btn-checkout" onclick="location.href='checkout'">
+                    <button class="btn-checkout" onclick="location.href='<%= request.getContextPath() %>/checkout'">
                         Thanh toán ngay
                     </button>
                 </div>

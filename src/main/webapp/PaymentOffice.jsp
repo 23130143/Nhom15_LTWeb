@@ -1,9 +1,15 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%
+    // Lấy mã đơn hàng từ Controller gửi sang
+    String orderCode = (String) request.getAttribute("orderCode");
+    // Nếu không có mã (vd: chạy trực tiếp file jsp mà ko qua checkout), gán mã mặc định
+    if (orderCode == null) orderCode = "DLxxxxxx";
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Thanh Toán Tại Văn Phòng - TravelNow</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/Css/PaymentOffice.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -84,7 +90,7 @@
         </div>
         <div class="order-info">
             <p class="order-label">Mã đơn hàng:</p>
-            <h4 class="order-code">DL0086313</h4>
+            <h4 class="order-code"><%= orderCode %></h4>
         </div>
     </div>
 
@@ -100,7 +106,7 @@
                 <div class="list_col">
                     <h4>Về TravelNow</h4>
                     <a href="${pageContext.request.contextPath}/GioiThieu.jsp">Giới thiệu</a>
-                    <a href="${pageContext.request.contextPath}/DieuKienDieuKhoan.jsp">Điều kiện \&amp; điều khoản</a>
+                    <a href="${pageContext.request.contextPath}/DieuKienDieuKhoan.jsp">Điều kiện & điều khoản</a>
                     <a href="${pageContext.request.contextPath}/QuyCheHoatDong.jsp">Quy chế hoạt động</a>
                 </div>
 
