@@ -2,9 +2,16 @@ package vn.edu.hcmuaf.fit.nhom15_ltweb.dao;
 
 import vn.edu.hcmuaf.fit.nhom15_ltweb.ultils.DBConnect;
 import vn.edu.hcmuaf.fit.nhom15_ltweb.model.Booking;
+import vn.edu.hcmuaf.fit.nhom15_ltweb.model.BookingDetailDTO;
 import vn.edu.hcmuaf.fit.nhom15_ltweb.model.Payments;
+import vn.edu.hcmuaf.fit.nhom15_ltweb.ultils.DBConnect;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class OrderDAO {
 
@@ -102,5 +109,30 @@ public class OrderDAO {
             e.printStackTrace();
         }
         return list;
+    }
+
+    public BookingDetailDTO getBookingDetail(int id) {
+        String sql = "SELECT b.bookingID, u.fullName, u.email, t.title AS tourName, b.startDate, b.totalPrice FROM Bookings b JOIN User u ON b.userID = u.userID JOIN Tours t ON b.tourID = t.tourID WHERE b.bookingID = ?";
+
+        try (Connection con = DBConnect.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                BookingDetailDTO dto = new BookingDetailDTO();
+                dto.setBookingID(rs.getInt("bookingID"));
+                dto.setCustomerName(rs.getString("fullName"));
+                dto.setEmail(rs.getString("email"));
+                dto.setTourName(rs.getString("tourName"));
+                dto.setDepartDate(rs.getDate("startDate"));
+                dto.setTotalPrice(rs.getDouble("totalPrice"));
+                return dto;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
