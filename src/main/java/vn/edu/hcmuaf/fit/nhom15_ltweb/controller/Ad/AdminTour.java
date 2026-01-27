@@ -23,12 +23,6 @@ public class AdminTour extends HttpServlet {
 
         request.setCharacterEncoding("UTF-8");
 
-        User user = (User) request.getSession().getAttribute("user");
-        if (user == null || !"ADMIN".equals(user.getRole())) {
-            response.sendRedirect(request.getContextPath() + "/login.jsp");
-            return;
-        }
-
         String keyword = request.getParameter("keyword");
 
         List<Tour> tours;

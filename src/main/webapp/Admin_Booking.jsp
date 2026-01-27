@@ -137,7 +137,7 @@
 
                     <td>
                         <a class="btn-edit"
-                           href="<%= request.getContextPath() %>/admin/booking-detail?id=<%= b.getBookingID() %>">
+                           href="<%= request.getContextPath() %>/admin/bookingdetail?id=<%= b.getBookingID() %>">
                             Xem
                         </a>
                     </td>

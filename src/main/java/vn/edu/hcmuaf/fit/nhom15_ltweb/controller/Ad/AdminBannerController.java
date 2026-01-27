@@ -11,7 +11,7 @@ import vn.edu.hcmuaf.fit.nhom15_ltweb.service.BannerService;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "AdminBannerController", value = "/admin/banner")
+@WebServlet(name = "AdminBannerController", value = "/admin/banners")
 public class AdminBannerController extends HttpServlet {
     private BannerService bannerService = new BannerService();
 

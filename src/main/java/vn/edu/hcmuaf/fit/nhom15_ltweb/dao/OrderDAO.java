@@ -112,7 +112,7 @@ public class OrderDAO {
     }
 
     public BookingDetailDTO getBookingDetail(int id) {
-        String sql = "SELECT b.bookingID, u.fullName, u.email, t.title AS tourName, b.startDate, b.totalPrice FROM Bookings b JOIN User u ON b.userID = u.userID JOIN Tours t ON b.tourID = t.tourID WHERE b.bookingID = ?";
+        String sql = "SELECT b.bookingID, u.fullName, u.email, t.title AS tourName, b.startDate, b.totalPrice FROM bookings b JOIN User u ON b.userID = u.userID JOIN Tours t ON b.tourID = t.tourID WHERE b.bookingID = ?";
 
         try (Connection con = DBConnect.getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
@@ -135,4 +135,79 @@ public class OrderDAO {
         }
         return null;
     }
+    public List<Booking> getAllBookingForAdmin() {
+        List<Booking> list = new ArrayList<>();
+
+        String sql = "SELECT b.*, u.fullName AS userName, t.title AS tourName FROM bookings b LEFT JOIN users u ON b.userID = u.userID LEFT JOIN tours t ON b.tourID = t.tourID ORDER BY b.bookingID DESC";
+
+        try (Connection con = DBConnect.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+
+            while (rs.next()) {
+                Booking b = new Booking();
+                b.setBookingID(rs.getInt("bookingID"));
+                b.setUserID(rs.getInt("userID"));
+                b.setTourID(rs.getInt("tourID"));
+                b.setBookingDate(rs.getDate("bookingDate"));
+                b.setStartDate(rs.getDate("startDate"));
+                b.setAdultCount(rs.getInt("adultCount"));
+                b.setChildCount(rs.getInt("childCount"));
+                b.setTotalPrice(rs.getDouble("totalPrice"));
+                b.setStatus(rs.getString("status"));
+
+                // từ JOIN
+                b.setUserName(rs.getString("userName"));
+                b.setTourName(rs.getString("tourName"));
+
+                list.add(b);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    public List<Booking> searchBooking(String keyword) {
+        List<Booking> list = new ArrayList<>();
+        String sql = "SELECT b.*, u.fullName AS userName, t.title AS tourName " +
+                "FROM bookings b " +
+                "LEFT JOIN users u ON b.userID = u.userID " +
+                "LEFT JOIN tours t ON b.tourID = t.tourID " +
+                "WHERE u.fullName LIKE ? OR t.title LIKE ? OR b.bookingID LIKE ? " +
+                "ORDER BY b.bookingID DESC";
+        try (Connection con = DBConnect.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            String key = "%" + keyword + "%";
+            ps.setString(1, key);
+            ps.setString(2, key);
+            ps.setString(3, key);
+
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Booking b = new Booking();
+                b.setBookingID(rs.getInt("bookingID"));
+                b.setUserID(rs.getInt("userID"));
+                b.setTourID(rs.getInt("tourID"));
+                b.setBookingDate(rs.getDate("bookingDate"));
+                b.setStartDate(rs.getDate("startDate"));
+                b.setAdultCount(rs.getInt("adultCount"));
+                b.setChildCount(rs.getInt("childCount"));
+                b.setTotalPrice(rs.getDouble("totalPrice"));
+                b.setStatus(rs.getString("status"));
+
+                // từ JOIN
+                b.setUserName(rs.getString("userName"));
+                b.setTourName(rs.getString("tourName"));
+
+                list.add(b);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+}
+
 }

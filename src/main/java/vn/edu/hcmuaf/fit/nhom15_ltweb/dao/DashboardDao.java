@@ -43,7 +43,7 @@ public class DashboardDao {
     }
 
     public int countBookingToday() {
-        String sql = "SELECT COUNT(*) FROM Bookings WHERE bookingDate = CAST(GETDATE() AS DATE)";
+        String sql = "SELECT COUNT(*) FROM Bookings WHERE bookingDate >= CURDATE() AND bookingDate < CURDATE() + INTERVAL 1 DAY";
         try (
                 Connection con = DBConnect.getConnection();
                 PreparedStatement ps = con.prepareStatement(sql);
@@ -57,11 +57,7 @@ public class DashboardDao {
     }
 
     public double revenueThisMonth() {
-        String sql = "SELECT SUM(totalPrice)\n" +
-                "        FROM Bookings\n" +
-                "        WHERE MONTH(createdAt) = MONTH(GETDATE())\n" +
-                "        AND YEAR(createdAt) = YEAR(GETDATE())\n" +
-                "        AND status = 'SUCCESS'";
+        String sql = " SELECT IFNULL(SUM(totalPrice), 0) FROM Bookings WHERE bookingDate >= DATE_FORMAT(CURDATE(), '%Y-%m-01') AND bookingDate <  DATE_FORMAT(CURDATE(), '%Y-%m-01') + INTERVAL 1 MONTH AND status = 'SUCCESS' ";
         try (
                 Connection con = DBConnect.getConnection();
                 PreparedStatement ps = con.prepareStatement(sql);
@@ -74,27 +70,27 @@ public class DashboardDao {
         return 0;
     }
 
-    public List<ActivityLog> recentActivities() {
-        List<ActivityLog> list = new ArrayList<>();
-        String sql = " SELECT TOP 10 * FROM ActivityLog ORDER BY createdAt DESC";
-        try (
-                Connection con = DBConnect.getConnection();
-                PreparedStatement ps = con.prepareStatement(sql);
-                ResultSet rs = ps.executeQuery();
-        ) {
-            while (rs.next()) {
-                ActivityLog log = new ActivityLog();
-                log.setCreatedAt(
-                        rs.getTimestamp("createdAt").toLocalDateTime()
-                );
-                log.setUsername(rs.getString("username"));
-                log.setAction(rs.getString("action"));
-                log.setDetail(rs.getString("detail"));
-                list.add(log);
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        return list;
-    }
+//    public List<ActivityLog> recentActivities() {
+//        List<ActivityLog> list = new ArrayList<>();
+//        String sql = " SELECT TOP 10 * FROM ActivityLog ORDER BY createdAt DESC";
+//        try (
+//                Connection con = DBConnect.getConnection();
+//                PreparedStatement ps = con.prepareStatement(sql);
+//                ResultSet rs = ps.executeQuery();
+//        ) {
+//            while (rs.next()) {
+//                ActivityLog log = new ActivityLog();
+//                log.setCreatedAt(
+//                        rs.getTimestamp("createdAt").toLocalDateTime()
+//                );
+//                log.setUsername(rs.getString("username"));
+//                log.setAction(rs.getString("action"));
+//                log.setDetail(rs.getString("detail"));
+//                list.add(log);
+//            }
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
+//        return list;
+//    }
 }
