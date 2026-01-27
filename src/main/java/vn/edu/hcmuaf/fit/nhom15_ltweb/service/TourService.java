@@ -62,6 +62,19 @@ public class TourService {
         List<Tour> tours = tourDAO.getAllTours();
         return tours;
     }
+
+    public int insertTour(Tour tour) {
+        return tourDAO.insertTour(tour);
+    }
+
+    public void insertTourImage(int tourID, String s) {
+        tourDAO.insertTourImage(tourID, s);
+    }
+
+    public List<Tour> searchTourByName(String keyword) {
+        List<Tour> list = tourDAO.searchByName(keyword);
+        return list;
+    }
 }
 
 //    // Fen có thể thêm logic kiểm tra sức chứa ở đây nếu muốn nâng cao

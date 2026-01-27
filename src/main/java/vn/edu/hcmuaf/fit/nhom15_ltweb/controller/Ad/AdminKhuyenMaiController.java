@@ -20,13 +20,28 @@ public class AdminKhuyenMaiController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Tour> tours = tourService.getAllTours_l();
-        List<Promotion> promotions = promotionService.getAllPromotion();
+        request.setCharacterEncoding("UTF-8");
 
-        request.setAttribute("tours", tours);
+        String keyword = request.getParameter("keyword");
+
+        List<Promotion> promotions;
+
+        if (keyword != null && !keyword.trim().isEmpty()) {
+            promotions = promotionService.searchPromotionByName(keyword);
+        } else {
+            promotions = promotionService.getAllPromotion();
+        }
+
+        // ⚠️ LUÔN cần cho modal "Gắn tour"
+        List<Tour> tours = tourService.getAllTours_l();
+
         request.setAttribute("promotions", promotions);
-        
-        request.getRequestDispatcher("/AdminKhuyenMai.jsp").forward(request, response);
+        request.setAttribute("tours", tours);
+        request.setAttribute("keyword", keyword);
+
+        request.getRequestDispatcher("/Admin_KhuyenMai.jsp")
+                .forward(request, response);
+
     }
 
     @Override

@@ -5,34 +5,29 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import vn.edu.hcmuaf.fit.nhom15_ltweb.model.User;
-import vn.edu.hcmuaf.fit.nhom15_ltweb.service.UserService;
+import vn.edu.hcmuaf.fit.nhom15_ltweb.model.Banner;
+import vn.edu.hcmuaf.fit.nhom15_ltweb.service.BannerService;
 
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "AdminNguoiDungController", value = "/admin/users")
-public class AdminNguoiDungController extends HttpServlet {
-    UserService userService = new UserService();
+@WebServlet(name = "AdminBannerController", value = "/admin/banner")
+public class AdminBannerController extends HttpServlet {
+    private BannerService bannerService = new BannerService();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
-
         String keyword = request.getParameter("keyword");
-
-        List<User> users;
+        List<Banner> banners;
 
         if (keyword != null && !keyword.trim().isEmpty()) {
-            users = userService.searchUser(keyword);
+            banners = bannerService.searchBanner(keyword);
         } else {
-            users = userService.getAllUsers();
+            banners = bannerService.getAllBanners();
         }
 
-        request.setAttribute("users", users);
-        request.setAttribute("keyword", keyword);
-
-        request.getRequestDispatcher("/Admin_NguoiDung.jsp")
+        request.setAttribute("banners", banners);
+        request.getRequestDispatcher("/Admin_Banner.jsp")
                 .forward(request, response);
     }
 

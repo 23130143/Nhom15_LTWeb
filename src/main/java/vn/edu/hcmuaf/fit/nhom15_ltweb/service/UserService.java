@@ -42,4 +42,9 @@ public class UserService {
     public void updatePSW(String email, String hashPSW) {
         userDAO.updatePSW(email, hashPSW);
     }
+
+    public List<User> searchUser(String keyword) {
+        List<User> list = userDAO.searchUser(keyword);
+        return list;
+    }
 }

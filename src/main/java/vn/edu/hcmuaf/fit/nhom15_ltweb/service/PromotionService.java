@@ -2,6 +2,7 @@ package vn.edu.hcmuaf.fit.nhom15_ltweb.service;
 
 import vn.edu.hcmuaf.fit.nhom15_ltweb.dao.PromotionDAO;
 import vn.edu.hcmuaf.fit.nhom15_ltweb.model.Promotion;
+import vn.edu.hcmuaf.fit.nhom15_ltweb.model.Tour;
 
 import java.util.List;
 
@@ -24,6 +25,20 @@ public class PromotionService {
 
     public List<Promotion> getAllPromotion() {
         List<Promotion> list = dao.getAllPromotion();
+        return list;
+    }
+
+    public void insertPromotion(Promotion promotion) {
+        dao.insertPromotion(promotion);
+    }
+
+    public List<Promotion> searchPromotionByName(String keyword) {
+        List<Promotion> list = dao.searchByName(keyword);
+        return list;
+    }
+
+    public List<Tour> getAllToursForLink() {
+        List<Tour> list = dao.getAllToursForLink();
         return list;
     }
 }

@@ -44,20 +44,31 @@
     <section class="content">
         <h2 class="section-title">Khuyến mãi</h2>
 
-        <div class="search-box">
-            <input class="search" type="text" placeholder="Tìm tên khuyến mãi...">
+        <form action="<%= request.getContextPath() %>/admin/promotions"
+              method="get"
+              class="search-box">
+
+            <input class="search"
+                   type="text"
+                   name="keyword"
+                   placeholder="Tìm tên khuyến mãi..."
+                   value="<%= request.getAttribute("keyword") != null
+                ? request.getAttribute("keyword")
+                : "" %>">
 
             <div class="btn-group">
-                <a href="<%= request.getContextPath() %>/add_tour.jsp" class="btn-add">
+                <a href="<%= request.getContextPath() %>/admin/addpromotion"
+                   class="btn-add">
                     + Thêm khuyến mãi
                 </a>
 
-                <button class="btn-link" onclick="openLinkModal()">
+                <button type="button"
+                        class="btn-link"
+                        onclick="openLinkModal()">
                     🔗 Gắn tour
                 </button>
             </div>
-        </div>
-
+        </form>
 
         <!-- Danh sách Tour -->
         <div class="panel">

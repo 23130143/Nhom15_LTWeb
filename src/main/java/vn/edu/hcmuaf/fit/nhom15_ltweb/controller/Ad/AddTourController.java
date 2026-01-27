@@ -6,8 +6,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Part;
-import vn.edu.hcmuaf.fit.nhom15_ltweb.dao.TourDAO;
 import vn.edu.hcmuaf.fit.nhom15_ltweb.model.Tour;
+import vn.edu.hcmuaf.fit.nhom15_ltweb.service.TourService;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,6 +15,8 @@ import java.nio.file.Paths;
 
 @WebServlet(name = "AddTourController", value = "/admin/addtour")
 public class AddTourController extends HttpServlet {
+    TourService tourService = new TourService();
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/addTour.jsp").forward(request, response);
@@ -38,10 +40,8 @@ public class AddTourController extends HttpServlet {
         tour.setDuration(request.getParameter("duration"));
         tour.setSlTour(Integer.parseInt(request.getParameter("SlTour")));
 
-        TourDAO dao = new TourDAO();
-
         // 2. Insert tour → lấy tourID
-        int tourID = dao.insertTour(tour);
+        int tourID = tourService.insertTour(tour);
 
         // 3. Upload ảnh
         String uploadPath = getServletContext().getRealPath("/uploads");
@@ -53,7 +53,7 @@ public class AddTourController extends HttpServlet {
                 String fileName = Paths.get(part.getSubmittedFileName()).getFileName().toString();
                 part.write(uploadPath + File.separator + fileName);
 
-                dao.insertTourImage(tourID, "uploads/" + fileName);
+                tourService.insertTourImage(tourID, "uploads/" + fileName);
             }
         }
         response.sendRedirect(request.getContextPath() + "/admin/tours");

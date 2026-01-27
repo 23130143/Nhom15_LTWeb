@@ -45,8 +45,28 @@
         <h2 class="section-title">Quản lý tour</h2>
 
         <div class="search-box">
-            <input class="search" type="text" placeholder="Tìm tour...">
-            <a href="<%= request.getContextPath() %>/add_tour.jsp" class="btn-add">+ Thêm Tour</a>
+
+            <form action="<%= request.getContextPath() %>/admin/tours"
+                  method="get"
+                  class="search-form">
+
+                <input class="search"
+                       type="text"
+                       name="keyword"
+                       placeholder="Tìm tour theo tên..."
+                       value="<%= request.getParameter("keyword") != null
+                    ? request.getParameter("keyword") : "" %>">
+
+                <button type="submit" class="btn-search">
+                    🔍 Tìm
+                </button>
+            </form>
+
+            <a href="<%= request.getContextPath() %>/add_tour.jsp"
+               class="btn-add">
+                + Thêm Tour
+            </a>
+
         </div>
 
         <!-- Danh sách Tour -->

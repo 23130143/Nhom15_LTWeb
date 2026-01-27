@@ -6,7 +6,7 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/* ===== Body & Layout ===== */
+/* ===== Body ===== */
 body {
     display: flex;
     min-height: 100vh;
@@ -40,7 +40,6 @@ body {
 
 .brand h1 {
     font-size: 18px;
-    margin-bottom: 2px;
     color: #fff;
 }
 
@@ -74,7 +73,7 @@ body {
     color: #ff6666;
 }
 
-/* ===== Main Content ===== */
+/* ===== Main ===== */
 .main {
     margin-left: 250px;
     padding: 20px 40px;
@@ -95,55 +94,114 @@ body {
     color: #00aaff;
 }
 
-/* ===== Section Title ===== */
+/* ===== Section ===== */
 .section-title {
     font-size: 22px;
     margin-bottom: 15px;
-    color: #fff;
-}
-/* ===== Search Box ===== */
-.search-box {
-    padding: 10px 15px;
-    width: 100%;
-    border-radius: 10px;
-    display: flex;
-    justify-content: space-between;
-    outline: none;
-    background-color: #1b2a47;
-    color: #fff;
-    border: 1px solid #2f4875;
-    transition: 0.3s;
 }
 
-.search-box:focus {
+/* ===== Search + Add ===== */
+.search-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1b2a47;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    gap: 20px;
+}
+
+/* Form search */
+.search-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+}
+
+/* Input search */
+.search {
+    flex: 1;
+    height: 42px;
+    padding: 0 14px;
+    border-radius: 10px;
+    border: 1px solid #2f4875;
+    background-color: #0e1a2b;
+    color: #fff;
+    outline: none;
+}
+
+.search::placeholder {
+    color: #9aa7bd;
+}
+
+.search:focus {
     border-color: #00aaff;
 }
-/*==== Search ====*/
-.search{
-    display: flex;
-    width: 600px;
-    border-radius: 10px;
-    padding: 10px;
-}
-/* ===== Add Button ===== */
-.btn-add {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #00aaff;
-    color: #fff;
-    font-weight: bold;
-    border-radius: 10px;
-    text-decoration: none;
-    transition: 0.3s;
 
-    margin-right: 10px;
+/* Nút search */
+.btn-search {
+    height: 42px;
+    width: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    border: none;
+    background-color: #1e90ff;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn-search:hover {
+    background-color: #187bcd;
+}
+
+
+/* Nút thêm */
+.btn-add {
+    height: 42px;
+    padding: 0 22px;
+    border-radius: 10px;
+    background-color: #00b0ff;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
 }
 
 .btn-add:hover {
-    background-color: #008ecc;
+    background-color: #0094d9;
 }
 
-/* ===== Edit & Delete Buttons ===== */
+/* ===== Table ===== */
+.activity-table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #e0e0e0;
+    font-size: 14px;
+}
+
+.activity-table th,
+.activity-table td {
+    padding: 12px 10px;
+    text-align: center;
+    border-bottom: 1px solid #2a3d5c;
+}
+
+.activity-table th {
+    background-color: #243b64;
+    color: #fff;
+}
+
+.activity-table tr:hover {
+    background-color: #22385f;
+}
+
+/* ===== Action Buttons ===== */
 .btn-edit,
 .btn-delete {
     padding: 6px 12px;
@@ -170,28 +228,4 @@ body {
 
 .btn-delete:hover {
     background-color: #c0392b;
-}
-
-/* ===== Table ===== */
-.activity-table {
-    width: 100%;
-    border-collapse: collapse;
-    color: #e0e0e0;
-    font-size: 14px;
-}
-
-.activity-table th,
-.activity-table td {
-    padding: 12px 10px;
-    text-align: center;
-    border-bottom: 1px solid #2a3d5c;
-}
-
-.activity-table th {
-    background-color: #243b64;
-    color: #fff;
-}
-
-.activity-table tr:hover {
-    background-color: #22385f;
 }
