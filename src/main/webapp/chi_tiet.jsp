@@ -8,8 +8,11 @@
 <%@ page import="vn.edu.hcmuaf.fit.nhom15_ltweb.model.Promotion" %>
 <%@ page import="java.text.NumberFormat" %>
 <%@ page import="java.util.Locale" %>
+<%-- 1. THÊM IMPORT CART Ở ĐÂY --%>
+<%@ page import="vn.edu.hcmuaf.fit.nhom15_ltweb.model.cart.Cart" %>
 
 <%
+    // Lấy các dữ liệu tour từ request
     Tour tour = (Tour) request.getAttribute("tour");
     Category category = (Category) request.getAttribute("category");
     List<Tourimages> images = (List<Tourimages>) request.getAttribute("images");
@@ -20,12 +23,15 @@
 
     NumberFormat formatter = NumberFormat.getInstance(new Locale("vi", "VN"));
 
-    // Tính giá
+    // Tính giá hiển thị
     double adultPrice = tour.getAdultPrice();
     double childPrice = tour.getChildPrice();
     double discountedAdultPrice = (promo != null) ? promo.calculateNewPrice(adultPrice) : adultPrice;
     double discountedChildPrice = (promo != null) ? promo.calculateNewPrice(childPrice) : childPrice;
     String promoLabel = (promo != null) ? promo.getLabel() : "";
+
+    // 2. THÊM ĐOẠN LẤY GIỎ HÀNG TỪ SESSION RA
+    Cart cart = (Cart) session.getAttribute("cart");
 %>
 
 <!DOCTYPE html>
@@ -38,7 +44,6 @@
 </head>
 <body>
 
-<!-- HEADER -->
 <section id="header">
     <div class="header-content">
         <header class="header-wrapper">
@@ -78,7 +83,9 @@
                         <div class="cart">
                             <a href="${pageContext.request.contextPath}/my-cart">
                                 <i class="fa-solid fa-cart-shopping"></i>
-                                <span class="cart-count">0</span>
+                                <span class="cart-count">
+                                    <%= (cart != null) ? cart.getItems().size() : 0 %>
+                                </span>
                             </a>
                         </div>
                         <div class="account">
@@ -103,14 +110,12 @@
 </section>
 
 <main class="content">
-    <!-- TIÊU ĐỀ TOUR -->
     <section class="hearder-page">
         <h1 class="page-title"><%= tour.getTitle() %></h1>
     </section>
 
     <section class="container-tour">
         <div class="tour-section">
-            <!-- ẢNH TOUR -->
             <div class="tour-img">
                 <% if (mainImage != null && mainImage.getImageURL() != null) { %>
                 <img id="main-img" src="${pageContext.request.contextPath}/<%= mainImage.getImageURL() %>" alt="<%= tour.getTitle() %>">
@@ -121,7 +126,6 @@
                 <i id="right-img" class="fa-solid fa-arrow-right"></i>
             </div>
 
-            <!-- THUMBNAIL LIST -->
             <div class="thumb-list">
                 <% if (images != null && !images.isEmpty()) {
                     for (Tourimages img : images) { %>
@@ -130,7 +134,6 @@
                 <% } } %>
             </div>
 
-            <!-- CHI TIẾT CHUYẾN DU LỊCH -->
             <div class="tourDetails">
                 <h4>Chi Tiết Chuyến Du Lịch</h4>
                 <div class="departure">
@@ -145,7 +148,6 @@
                     <span><%= tour.getDuration() %></span>
                 </div>
 
-                <!-- DỊCH VỤ BAO GỒM -->
                 <div class="details-row">
                     <% if (includedList != null && !includedList.isEmpty()) {
                         for (TourIncluded item : includedList) { %>
@@ -164,7 +166,6 @@
                 </div>
             </div>
 
-            <!-- TRẢI NGHIỆM THÚ VỊ -->
             <div class="experience-section">
                 <h2>Trải Nghiệm Thú Vị</h2>
                 <div class="experience-row">
@@ -179,20 +180,17 @@
                 </div>
             </div>
 
-            <!-- MÔ TẢ TOUR -->
             <div class="tour-description">
                 <h2>Mô tả Tour</h2>
                 <p><%= tour.getDescription() %></p>
             </div>
 
-            <!-- LỊCH TRÌNH -->
             <div class="tour-schedule">
                 <h2>Lịch Trình</h2>
                 <p><%= tour.getSchedule() %></p>
             </div>
         </div>
 
-        <!-- THÔNG TIN GIÁ -->
         <div class="tour-info">
             <h2>Lịch Trình và Giá Tour</h2>
 
@@ -202,45 +200,40 @@
             </div>
             <% } %>
 
-            <div class="tour-date">
-                <label>Chọn Lịch Trình:</label>
-                <input type="date" id="date" name="date">
-            </div>
-
-            <div class="tour-pricing">
-                <div class="row">
-                    <span>Người lớn > 9 tuổi</span>
-                    <span id="price" class="price">x <%= formatter.format(discountedAdultPrice) %></span>
-                    <input id="number-a" type="number" value="2" min="1" max="<%= tour.getAvailableCapacity() %>">
-                </div>
-                <div class="row">
-                    <span>Trẻ em (< 9 tuổi)</span>
-                    <span id="child-price" class="child-price">x <%= formatter.format(discountedChildPrice) %></span>
-                    <input id="number-c" type="number" value="0" min="0">
-                </div>
-            </div>
-
-            <div class="total">
-                <% if (promo != null) { %>
-                <div class="row">
-                    <span class="basic-price">Giá gốc:</span>
-                    <span id="basic-price"><%= formatter.format(adultPrice * 2) %></span>
-                </div>
-                <div class="row">
-                    <span class="dis-price">Giảm giá:</span>
-                    <span id="dis-price"><%= formatter.format((adultPrice - discountedAdultPrice) * 2) %></span>
-                </div>
-                <% } %>
-                <div class="row">
-                    <span class="total-price">Tổng giá:</span>
-                    <span id="total-price"><%= formatter.format(discountedAdultPrice * 2) %></span>
-                </div>
-            </div>
-
-            <form action="${pageContext.request.contextPath}/add-cart" method="post">
+            <form action="${pageContext.request.contextPath}/cart-handler" method="post">
+                <input type="hidden" name="action" value="add">
                 <input type="hidden" name="tourID" value="<%= tour.getTourID() %>">
-                <input type="hidden" id="adultPrice" value="<%= discountedAdultPrice %>">
-                <input type="hidden" id="childPrice" value="<%= discountedChildPrice %>">
+
+                <div class="tour-date">
+                    <label>Chọn Lịch Trình:</label>
+                    <input type="date" id="date" name="date">
+                </div>
+
+                <div class="tour-pricing">
+                    <div class="row">
+                        <span>Người lớn > 9 tuổi</span>
+                        <span id="price" class="price">x <%= formatter.format(discountedAdultPrice) %></span>
+                        <input id="number-a" name="adultQty" type="number" value="1" min="1" max="<%= tour.getAvailableCapacity() %>">
+                    </div>
+                    <div class="row">
+                        <span>Trẻ em (< 9 tuổi)</span>
+                        <span id="child-price" class="child-price">x <%= formatter.format(discountedChildPrice) %></span>
+                        <input id="number-c" name="childQty" type="number" value="0" min="0">
+                    </div>
+                </div>
+
+                <div class="total">
+                    <% if (promo != null) { %>
+                    <div class="row">
+                        <span class="basic-price">Giá gốc:</span>
+                        <span id="basic-price"><%= formatter.format(adultPrice * 2) %></span>
+                    </div>
+                    <% } %>
+                    <div class="row">
+                        <span class="total-price">Tổng giá tạm tính:</span>
+                        <span id="total-price"><%= formatter.format(discountedAdultPrice) %></span>
+                    </div>
+                </div>
 
                 <div class="tour-button">
                     <button type="submit" class="tour-btn">Thêm vào giỏ hàng</button>
@@ -250,7 +243,6 @@
     </section>
 </main>
 
-<!-- FOOTER -->
 <footer class="footer">
     <div class="footer-top">
         <div class="ft_container">
@@ -293,6 +285,11 @@
         </div>
     </div>
 </footer>
+
+<script>
+    var serverPriceAdult = <%= (long)discountedAdultPrice %>;
+    var serverPriceChild = <%= (long)discountedChildPrice %>;
+</script>
 
 <script src="${pageContext.request.contextPath}/Javascript/CT_script.js"></script>
 </body>

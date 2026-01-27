@@ -1,6 +1,5 @@
 package vn.edu.hcmuaf.fit.nhom15_ltweb.dao;
 
-import vn.edu.hcmuaf.fit.nhom15_ltweb.model.MD5;
 import vn.edu.hcmuaf.fit.nhom15_ltweb.model.User;
 import vn.edu.hcmuaf.fit.nhom15_ltweb.ultils.DBConnect;
 

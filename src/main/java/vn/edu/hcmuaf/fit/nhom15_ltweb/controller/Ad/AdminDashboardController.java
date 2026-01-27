@@ -10,7 +10,7 @@ import vn.edu.hcmuaf.fit.nhom15_ltweb.service.DashboardService;
 
 import java.io.IOException;
 
-@WebServlet(name = "AdminDashboardController", value = "/dashboard")
+@WebServlet(name = "AdminDashboardController", value = "/admin/dashboard")
 public class AdminDashboardController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

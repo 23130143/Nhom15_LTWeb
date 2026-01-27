@@ -1,87 +1,91 @@
 package vn.edu.hcmuaf.fit.nhom15_ltweb.controller;
 
-
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import vn.edu.hcmuaf.fit.nhom15_ltweb.dao.TourDAO;
-import vn.edu.hcmuaf.fit.nhom15_ltweb.model.Tour;
-import vn.edu.hcmuaf.fit.nhom15_ltweb.model.Tourimages;
-import vn.edu.hcmuaf.fit.nhom15_ltweb.model.cart.Cart;
-import vn.edu.hcmuaf.fit.nhom15_ltweb.model.cart.CartItem;
 import vn.edu.hcmuaf.fit.nhom15_ltweb.service.CartService;
-import vn.edu.hcmuaf.fit.nhom15_ltweb.service.TourService;
-import vn.edu.hcmuaf.fit.nhom15_ltweb.service.TourimagesService;
-
 import java.io.IOException;
 
-@WebServlet(name = "AddCart", value = "/cart")
+// QUAN TRỌNG: Đổi đường dẫn thành /cart-handler để dùng chung cho mọi nút
+@WebServlet(name = "AddCart", value = "/cart-handler")
 public class AddCart extends HttpServlet {
+
     private CartService cartService = new CartService();
-    private TourService tourService = new TourService();
-    private TourimagesService tourimagesService = new TourimagesService();
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Lấy hành động (add, update, remove) từ form gửi lên
+        String action = request.getParameter("action");
+        if (action == null) action = "";
+
+        HttpSession session = request.getSession();
+
+        try {
+            switch (action) {
+                // ==================== TRƯỜNG HỢP 1: THÊM VÀO GIỎ ====================
+                case "add":
+                    int tourID = Integer.parseInt(request.getParameter("tourID"));
+
+                    // Lấy số lượng (Xử lý fallback phòng khi form dùng tên cũ)
+                    String aRaw = request.getParameter("adultQty");
+                    String cRaw = request.getParameter("childQty");
+                    if (aRaw == null) aRaw = request.getParameter("adult");
+                    if (cRaw == null) cRaw = request.getParameter("child");
+
+                    int adultQty = (aRaw != null && !aRaw.isEmpty()) ? Integer.parseInt(aRaw) : 1;
+                    int childQty = (cRaw != null && !cRaw.isEmpty()) ? Integer.parseInt(cRaw) : 0;
+
+                    // Gọi Service thêm
+                    boolean isAdded = cartService.addTour(session, tourID, adultQty, childQty);
+
+                    if (isAdded) {
+                        response.sendRedirect("my-cart"); // Thành công -> Về giỏ hàng
+                    } else {
+                        response.sendRedirect("tour-detail?id=" + tourID + "&error=full"); // Lỗi -> Về chi tiết
+                    }
+                    break;
+
+                // ==================== TRƯỜNG HỢP 2: CẬP NHẬT SỐ LƯỢNG (+ / -) ====================
+                case "update":
+                    int uTourID = Integer.parseInt(request.getParameter("tourID"));
+                    int uAdult = Integer.parseInt(request.getParameter("adultQty"));
+                    int uChild = Integer.parseInt(request.getParameter("childQty"));
+
+                    // Gọi Service cập nhật
+                    cartService.updateTour(session, uTourID, uAdult, uChild);
+
+                    // Quay lại trang giỏ hàng ngay lập tức
+                    response.sendRedirect("my-cart");
+                    break;
+
+                // ==================== TRƯỜNG HỢP 3: XÓA KHỎI GIỎ ====================
+                case "remove":
+                    int rTourID = Integer.parseInt(request.getParameter("tourID"));
+
+                    // Gọi Service xóa
+                    cartService.removeTour(session, rTourID);
+
+                    // Quay lại trang giỏ hàng
+                    response.sendRedirect("my-cart");
+                    break;
+
+                // ==================== MẶC ĐỊNH ====================
+                default:
+                    response.sendRedirect("my-cart");
+                    break;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            // Nếu có lỗi hệ thống, quay về trang chủ hoặc giỏ hàng
+            response.sendRedirect("my-cart");
+        }
+    }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String tourIdRaw = request.getParameter("tourID");
-        int adultQty = Integer.parseInt(request.getParameter("adultQty"));
-        int childQty = Integer.parseInt(request.getParameter("childQty"));
-
-        if (tourIdRaw == null) {
-            response.sendRedirect("index.jsp"); // hoặc trang lỗi
-            return;
-        }
-
-        int tourID;
-        try {
-            tourID = Integer.parseInt(tourIdRaw);
-        } catch (NumberFormatException e) {
-            response.sendRedirect("index.jsp");
-            return;
-        }
-
-        HttpSession session = request.getSession();
-        Cart cart = (Cart) session.getAttribute("cart");
-        if (cart == null) {
-            cart = new Cart();
-            session.setAttribute("cart", cart);
-        }
-
-        // lấy tour từ DB
-        Tour tour = tourService.getTourById(tourID);
-        Tourimages img = tourimagesService.getMainIMG(tourID);
-        CartItem item = new CartItem();
-        item.setTour(tour);
-        item.setImageURL(String.valueOf(img));
-        item.setAdultQty(adultQty);
-        item.setChildQty(childQty);
-
-        cart.add(item); // ví dụ
-
-        response.sendRedirect("my-cart");
-    }
-
-
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-            throws IOException {
-
-        int tourID = Integer.parseInt(req.getParameter("tourID"));
-        int adult = Integer.parseInt(req.getParameter("adult"));
-        int child = Integer.parseInt(req.getParameter("child"));
-
-        Tour tour = new TourDAO().getTourById(tourID);
-
-        HttpSession session = req.getSession();
-        Cart cart = (Cart) session.getAttribute("cart");
-
-        if (cart == null) cart = new Cart();
-
-        cart.addTour(tour, adult, child);
-        session.setAttribute("cart", cart);
-
-        resp.sendRedirect("cart.jsp");
+        doPost(request, response);
     }
 }

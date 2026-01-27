@@ -40,9 +40,20 @@
     <section class="content">
         <h2 class="section-title">Quản lý người dùng</h2>
 
-        <div class="search-box">
-            <input class="search" type="text" placeholder="Tìm người dùng...">
-        </div>
+        <form action="<%= request.getContextPath() %>/admin/users"
+              method="get"
+              class="search-box">
+
+            <input class="search"
+                   type="text"
+                   name="keyword"
+                   placeholder="Tìm người dùng..."
+                   value="<%= request.getAttribute("keyword") != null
+                ? request.getAttribute("keyword")
+                : "" %>">
+
+        </form>
+
 
         <!-- Danh sách User -->
         <div class="panel">

@@ -13,13 +13,13 @@ public class TourService {
     private CategoryDAO categoryDAO = new CategoryDAO();
 
     // Lấy tất cả tour
-    public List<Tour> getAllTours() {
-        return tourDAO.getAllTours();
+    public List<TourWithImage> getAllTours() {
+        return TourDAO.getAllToursWithImage();
     }
 
     // Tìm theo danh mục
-    public List<Tour> searchByCategory(int categoriesID) {
-        return tourDAO.searchByCategory(categoriesID);
+    public List<TourWithImage> searchByCategory(int categoryId) {
+        return TourDAO.getToursWithImageByCategory(categoryId);
     }
 
     // Lấy tour theo ID
@@ -48,6 +48,7 @@ public class TourService {
     public Category getCategoryById(int categoryId) {
         return categoryDAO.getCategoryById(categoryId);
     }
+
     public List<Tour> getTopSellingTours(int limit) {
         return tourDAO.getTopSellingTours(limit);
     }
@@ -55,6 +56,24 @@ public class TourService {
     // Lấy tour bán chạy nhất theo danh mục
     public List<Tour> getTopSellingToursByCategory(int categoriesID, int limit) {
         return tourDAO.getTopSellingToursByCategory(categoriesID, limit);
+    }
+
+    public List<Tour> getAllTours_l() {
+        List<Tour> tours = tourDAO.getAllTours();
+        return tours;
+    }
+
+    public int insertTour(Tour tour) {
+        return tourDAO.insertTour(tour);
+    }
+
+    public void insertTourImage(int tourID, String s) {
+        tourDAO.insertTourImage(tourID, s);
+    }
+
+    public List<Tour> searchTourByName(String keyword) {
+        List<Tour> list = tourDAO.searchByName(keyword);
+        return list;
     }
 }
 
