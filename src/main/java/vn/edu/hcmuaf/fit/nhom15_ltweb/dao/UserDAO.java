@@ -192,35 +192,30 @@ public class UserDAO {
         }
     }
 
-    public List<User> searchUser(String keyword) {
-        List<User> list = new ArrayList<>();
+    // cập nhật người dùng bao gồm cả mật khẩu
+    public boolean updateUser(User user) {
+        String query = "UPDATE users SET fullName=?, email=?, password=?, updatedAt=?, passport=?, phone=?, address=?, birthDate=?, gender=? WHERE userID=?";
+        try (Connection connection = DBConnect.getConnection();
+             PreparedStatement pstmt = connection.prepareStatement(query)) {
 
-        String sql = "SELECT * FROM users WHERE fullName LIKE ? OR email LIKE ? OR phone LIKE ?";
-
-        try (Connection con = DBConnect.getConnection();
-             PreparedStatement ps = con.prepareStatement(sql)) {
-
-            String key = "%" + keyword + "%";
-            ps.setString(1, key);
-            ps.setString(2, key);
-            ps.setString(3, key);
-
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                User u = new User();
-                u.setUserID(rs.getInt("userID"));
-                u.setFullName(rs.getString("fullName"));
-                u.setEmail(rs.getString("email"));
-                u.setPhone(rs.getString("phone"));
-                u.setCreatedAt(rs.getDate("createdAt"));
-
-                list.add(u);
+            pstmt.setString(1, user.getFullName());
+            pstmt.setString(2, user.getEmail());
+            pstmt.setString(3, user.getPassword());
+            pstmt.setTimestamp(4, new Timestamp(System.currentTimeMillis()));
+            pstmt.setString(5, user.getPassport());
+            pstmt.setString(6, user.getPhone());
+            pstmt.setString(7, user.getAddress());
+            if (user.getBirthDate() != null) {
+                pstmt.setDate(8, new java.sql.Date(user.getBirthDate().getTime()));
+            } else {
+                pstmt.setNull(8, Types.DATE);
             }
-
-        } catch (Exception e) {
+            pstmt.setString(9, user.getGender());
+            pstmt.setInt(10, user.getUserID());
+            return pstmt.executeUpdate() == 1;
+        } catch (SQLException e) {
             e.printStackTrace();
         }
-
-        return list;
+        return false;
     }
 }

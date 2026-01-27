@@ -27,11 +27,15 @@ public class UserService {
     }
 
     // Cập nhật người dùng
-    public boolean updateUser(User user) {
+    public boolean updateUserProfile(User user) {
         if (user == null || user.getUserID() <= 0) {
             return false;
         }
         return userDAO.updateUserProfile(user);
+    }
+    // UserService.java
+    public boolean updateUser(User user) {
+        return userDAO.updateUser(user);
     }
 
     // Xóa người dùng theo ID

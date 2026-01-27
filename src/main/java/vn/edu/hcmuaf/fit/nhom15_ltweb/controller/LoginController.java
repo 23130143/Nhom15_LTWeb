@@ -41,6 +41,7 @@ public class LoginController extends HttpServlet {
         if (user != null) {
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
+            session.setAttribute("userID", user.getUserID());
             if ("ADMIN".equalsIgnoreCase(user.getRole())) {
                 response.sendRedirect("/admin/dashboard");
             } else {
