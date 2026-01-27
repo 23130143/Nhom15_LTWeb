@@ -117,42 +117,42 @@
                 </thead>
                 <%
                     int i = 1;
-                    List<TourWithImage> tours = (List<TourWithImage>) request.getAttribute("tours");
+                    List<Tour> tours = (List<Tour>) request.getAttribute("tours");
 
                     if (tours != null) {
-                        for (TourWithImage t : tours) {
+                        for (Tour t : tours) {
                 %>
                 <tr>
                     <td><%= i++ %>
                     </td>
-                    <td><%= t.getTour().getTourID() %>
+                    <td><%= t.getTourID() %>
                     </td>
                     <td class="price-cell">
                         <div class="price-adult">
                             👤 NL:
-                            <strong><%= String.format("%,.0f", t.getTour().getAdultPrice()) %>
+                            <strong><%= String.format("%,.0f", t.getAdultPrice()) %>
                             </strong> VND
                         </div>
                         <div class="price-child">
                             🧒 TE:
-                            <%= String.format("%,.0f", t.getTour().getChildPrice()) %> VND
+                            <%= String.format("%,.0f", t.getChildPrice()) %> VND
                         </div>
                     </td>
-                    <td><%= t.getTour().getDeparture() %>
+                    <td><%= t.getDeparture() %>
                     </td>
-                    <td><%= t.getTour().getDeparture() %>
+                    <td><%= t.getDeparture() %>
                     </td>
-                    <td><%= t.getTour().getDuration() %>
+                    <td><%= t.getDuration() %>
                     </td>
-                    <td><%= t.getTour().getAvailableCapacity() %>
+                    <td><%= t.getAvailableCapacity() %>
                     </td>
-                    <td><%= t.getTour().getSlTour() %>
+                    <td><%= t.getSlTour() %>
                     </td>
-                    <td><%= t.getTour().getSoldQuantity() %>
+                    <td><%= t.getSoldQuantity() %>
                     </td>
                     <td>
-                        <a href="edit-tour?id=<%= t.getTour().getTourID() %>" class="btn btn-warning">Sửa</a>
-                        <a href="delete-tour?id=<%= t.getTour().getTourID() %>"
+                        <a href="edit-tour?id=<%= t.getTourID() %>" class="btn btn-warning">Sửa</a>
+                        <a href="delete-tour?id=<%= t.getTourID() %>"
                            onclick="return confirm('Xóa tour này?')"
                            class="btn btn-danger">Xóa</a>
                     </td>

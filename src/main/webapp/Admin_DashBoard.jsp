@@ -20,7 +20,7 @@
     Integer todayBookings = (Integer) request.getAttribute("todayBookings");
     Double monthlyRevenue = (Double) request.getAttribute("monthlyRevenue");
 
-    List<vn.edu.hcmuaf.fit.nhom15_ltweb.model.ActivityLog> activities = (List<ActivityLog>) request.getAttribute("activities");
+//    List<vn.edu.hcmuaf.fit.nhom15_ltweb.model.ActivityLog> activities = (List<ActivityLog>) request.getAttribute("activities");
 %>
 
 <!-- Sidebar -->
@@ -125,32 +125,32 @@
                 </tr>
                 </thead>
                 <tbody>
-                <%
-                    if (activities != null && !activities.isEmpty()) {
-                        for (vn.edu.hcmuaf.fit.nhom15_ltweb.model.ActivityLog log : activities) {
-                %>
-                <tr>
-                    <td><%= log.getCreatedAt() %>
-                    </td>
-                    <td><%= log.getUsername() %>
-                    </td>
-                    <td><%= log.getAction() %>
-                    </td>
-                    <td><%= log.getDetail() %>
-                    </td>
-                </tr>
-                <%
-                    }
-                } else {
-                %>
+<%--                <%--%>
+<%--                    if (activities != null && !activities.isEmpty()) {--%>
+<%--                        for (vn.edu.hcmuaf.fit.nhom15_ltweb.model.ActivityLog log : activities) {--%>
+<%--                %>--%>
+<%--                <tr>--%>
+<%--                    <td><%= log.getCreatedAt() %>--%>
+<%--                    </td>--%>
+<%--                    <td><%= log.getUsername() %>--%>
+<%--                    </td>--%>
+<%--                    <td><%= log.getAction() %>--%>
+<%--                    </td>--%>
+<%--                    <td><%= log.getDetail() %>--%>
+<%--                    </td>--%>
+<%--                </tr>--%>
+<%--                <%--%>
+<%--                    }--%>
+<%--                } else {--%>
+<%--                %>--%>
                 <tr>
                     <td colspan="4" style="text-align:center;">
                         Chưa có hoạt động nào
                     </td>
                 </tr>
-                <%
-                    }
-                %>
+<%--                <%--%>
+<%--                    }--%>
+<%--                %>--%>
                 </tbody>
             </table>
         </div>

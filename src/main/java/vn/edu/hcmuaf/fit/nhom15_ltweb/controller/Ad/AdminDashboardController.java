@@ -14,15 +14,11 @@ import java.io.IOException;
 public class AdminDashboardController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        User user = (User) request.getSession().getAttribute("user");
-        if (user == null || !user.getRole().equals("ADMIN")) {
-            response.sendRedirect(request.getContextPath() + "/login.jsp");
-            return;
-        }
+//        User user = (User) request.getSession().getAttribute("user");
         DashboardService dashboardService = new DashboardService();
 
         request.setAttribute("summary", dashboardService.getSummary());
-        request.setAttribute("activities", dashboardService.getRecentActivities());
+//        request.setAttribute("activities", dashboardService.getRecentActivities());
 
         request.getRequestDispatcher("/Admin_DashBoard.jsp").forward(request, response);
     }

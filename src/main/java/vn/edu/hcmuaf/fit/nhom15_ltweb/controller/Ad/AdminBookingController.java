@@ -20,13 +20,6 @@ public class AdminBookingController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        // ====== CHECK ADMIN ======
-        User user = (User) request.getSession().getAttribute("user");
-        if (user == null || !"ADMIN".equals(user.getRole())) {
-            response.sendRedirect(request.getContextPath() + "/login.jsp");
-            return;
-        }
-
         String keyword = request.getParameter("keyword");
 
         List<Booking> bookings;
