@@ -192,4 +192,31 @@ public class UserDAO {
             throw new RuntimeException(e);
         }
     }
+
+    // cập nhật người dùng bao gồm cả mật khẩu
+    public boolean updateUser(User user) {
+        String query = "UPDATE users SET fullName=?, email=?, password=?, updatedAt=?, passport=?, phone=?, address=?, birthDate=?, gender=? WHERE userID=?";
+        try (Connection connection = DBConnect.getConnection();
+             PreparedStatement pstmt = connection.prepareStatement(query)) {
+
+            pstmt.setString(1, user.getFullName());
+            pstmt.setString(2, user.getEmail());
+            pstmt.setString(3, user.getPassword());
+            pstmt.setTimestamp(4, new Timestamp(System.currentTimeMillis()));
+            pstmt.setString(5, user.getPassport());
+            pstmt.setString(6, user.getPhone());
+            pstmt.setString(7, user.getAddress());
+            if (user.getBirthDate() != null) {
+                pstmt.setDate(8, new java.sql.Date(user.getBirthDate().getTime()));
+            } else {
+                pstmt.setNull(8, Types.DATE);
+            }
+            pstmt.setString(9, user.getGender());
+            pstmt.setInt(10, user.getUserID());
+            return pstmt.executeUpdate() == 1;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }

@@ -299,3 +299,25 @@ main {
 .change-btn:hover {
     background-color: #1877F2;
 }
+
+.psw-item {
+    margin-bottom: 18px;
+}
+.psw-item .input {
+    width: 60%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.change-psw-header {
+    margin-bottom: 24px;
+}
+.change-psw-btn {
+    margin-top: 24px;
+    text-align: center;
+}
+.error-message {
+    color: red;
+    margin-top: 12px;
+    font-size: 15px;
+}

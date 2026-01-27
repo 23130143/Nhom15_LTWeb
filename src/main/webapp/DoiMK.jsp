@@ -72,32 +72,27 @@
 <main id="main">
     <section class="change-psw">
         <h1 class="change-psw-header">Đổi mật khẩu</h1>
-
-        <div class="psw-item">
-            <label for="opsw" class="label">Nhập mật khẩu cũ:</label>
-            <input id="opsw" class="input" type="password">
-            <i class="fa-solid fa-eye-slash toggle-eye"></i>
-        </div>
-
-        <div class="psw-item">
-            <label for="npsw" class="label">Nhập mật khẩu mới:</label>
-            <input id="npsw" class="input" type="password">
-            <i class="fa-solid fa-eye-slash toggle-eye"></i>
-        </div>
-
-        <div class="psw-item">
-            <label for="cnpsw" class="label">Nhập lại mật khẩu:</label>
-            <input id="cnpsw" class="input" type="password">
-            <i class="fa-solid fa-eye-slash toggle-eye"></i>
-        </div>
-    </section>
-
-    <section class="change-psw-btn">
-        <div class="change">
-            <a href="<%= request.getContextPath() %>/HoSo.jsp" class="change-btn">
-                Đổi mật khẩu
-            </a>
-        </div>
+        <form action="<%=request.getContextPath()%>/change-password" method="post">
+            <div class="psw-item">
+                <label for="opsw" class="label">Nhập mật khẩu cũ:</label>
+                <input id="opsw" class="input" type="password" name="oldPassword" required>
+                <i class="fa-solid fa-eye-slash toggle-eye"></i>
+            </div>
+            <div class="psw-item">
+                <label for="npsw" class="label">Nhập mật khẩu mới:</label>
+                <input id="npsw" class="input" type="password" name="newPassword" required>
+                <i class="fa-solid fa-eye-slash toggle-eye"></i>
+            </div>
+            <div class="psw-item">
+                <label for="cnpsw" class="label">Nhập lại mật khẩu:</label>
+                <input id="cnpsw" class="input" type="password" name="confirmPassword" required>
+                <i class="fa-solid fa-eye-slash toggle-eye"></i>
+            </div>
+            <div class="change">
+                <button class="change-btn" type="submit">Đổi mật khẩu</button>
+            </div>
+            <div style="color:red;"><%= request.getAttribute("error") != null ? request.getAttribute("error") : "" %></div>
+        </form>
     </section>
 </main>
 

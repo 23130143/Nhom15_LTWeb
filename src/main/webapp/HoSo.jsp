@@ -1,4 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page import="vn.edu.hcmuaf.fit.nhom15_ltweb.model.User" %>
+<%
+    User user = (User) request.getAttribute("user");
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -71,35 +75,33 @@
 <main id="main">
     <section class="profile">
         <h1 class="profile-header">Thông tin cá nhân</h1>
-
         <div class="profile-item">
             <span class="label">Họ tên</span>
-            <span class="value">Huỳnh Thị Thu Diễm</span>
+            <span class="value"><%= user != null ? user.getFullName() : "Chưa có" %></span>
         </div>
-
         <div class="profile-item">
             <span class="label">Địa chỉ email</span>
-            <span class="value">abcxyz@gmail.com</span>
+            <span class="value"><%= user != null ? user.getEmail() : "Chưa có" %></span>
         </div>
-
         <div class="profile-item">
             <span class="label">Số điện thoại</span>
-            <span class="value">Thêm số điện thoại của bạn</span>
+            <span class="value"><%= user != null && user.getPhone() != null ? user.getPhone() : "Chưa có" %></span>
         </div>
-
         <div class="profile-item">
             <span class="label">Ngày sinh</span>
-            <span class="value">Nhập ngày sinh của bạn</span>
+            <span class="value"><%= user != null && user.getBirthDate() != null ? new java.text.SimpleDateFormat("dd/MM/yyyy").format(user.getBirthDate()) : "Chưa có" %></span>
         </div>
-
         <div class="profile-item">
             <span class="label">Giới tính</span>
-            <span class="value">Chọn giới tính của bạn</span>
+            <span class="value"><%= user != null && user.getGender() != null ? user.getGender() : "Chưa có" %></span>
         </div>
-
         <div class="profile-item">
             <span class="label">Địa chỉ</span>
-            <span class="value">Nhập địa chỉ</span>
+            <span class="value"><%= user != null && user.getAddress() != null ? user.getAddress() : "Chưa có" %></span>
+        </div>
+        <div class="profile-item">
+            <span class="label">Passport</span>
+            <span class="value"><%= user != null && user.getPassport() != null ? user.getPassport() : "Chưa có" %></span>
         </div>
     </section>
 
@@ -109,7 +111,6 @@
                 Chỉnh sửa thông tin
             </a>
         </div>
-
         <div class="change-password">
             <a href="<%= request.getContextPath() %>/DoiMK.jsp" class="change-btn">
                 Đổi mật khẩu
