@@ -3,6 +3,8 @@ package vn.edu.hcmuaf.fit.nhom15_ltweb.service;
 import vn.edu.hcmuaf.fit.nhom15_ltweb.dao.PromotionDAO;
 import vn.edu.hcmuaf.fit.nhom15_ltweb.model.Promotion;
 
+import java.util.List;
+
 public class PromotionService {
     private PromotionDAO dao = new PromotionDAO();
 
@@ -19,5 +21,9 @@ public class PromotionService {
                 return rawPrice;
         }
     }
-   
+
+    public List<Promotion> getAllPromotion() {
+        List<Promotion> list = dao.getAllPromotion();
+        return list;
+    }
 }

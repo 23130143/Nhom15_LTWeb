@@ -1,5 +1,6 @@
 <%@ page import="vn.edu.hcmuaf.fit.nhom15_ltweb.model.Tour" %>
 <%@ page import="java.util.List" %>
+<%@ page import="vn.edu.hcmuaf.fit.nhom15_ltweb.model.TourWithImage" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -61,53 +62,61 @@
                     <th>Thời gian</th>
                     <th>Số lượng khách</th>
                     <th>Số lượng tour</th>
-                    <th>Số lợng đã bán</th>
+                    <th>Số lượng đã bán</th>
                     <th>Hành động</th>
                 </tr>
                 </thead>
                 <%
-                    List<Tour> tours = (List<Tour>) request.getAttribute("tourList");
-                %>
-
-                <tbody>
-                <%
                     int i = 1;
-                    for (Tour t : tours) {
+                    List<TourWithImage> tours = (List<TourWithImage>) request.getAttribute("tours");
+
+                    if (tours != null) {
+                        for (TourWithImage t : tours) {
                 %>
                 <tr>
                     <td><%= i++ %>
                     </td>
-                    <td><%= t.getTitle() %>
+                    <td><%= t.getTour().getTourID() %>
                     </td>
                     <td class="price-cell">
                         <div class="price-adult">
                             👤 NL:
-                            <strong><%= String.format("%,.0f", t.getAdultPrice()) %>
+                            <strong><%= String.format("%,.0f", t.getTour().getAdultPrice()) %>
                             </strong> VND
                         </div>
                         <div class="price-child">
                             🧒 TE:
-                            <%= String.format("%,.0f", t.getChildPrice()) %> VND
+                            <%= String.format("%,.0f", t.getTour().getChildPrice()) %> VND
                         </div>
                     </td>
-                    <td><%= t.getDeparture() %>
+                    <td><%= t.getTour().getDeparture() %>
                     </td>
-                    <td><%= t.getDeparture() %>
+                    <td><%= t.getTour().getDeparture() %>
                     </td>
-                    <td><%= t.getDuration() %>
+                    <td><%= t.getTour().getDuration() %>
                     </td>
-                    <td><%= t.getAvailableCapacity() %>
+                    <td><%= t.getTour().getAvailableCapacity() %>
                     </td>
-                    <td><%= t.getSlTour() %>
+                    <td><%= t.getTour().getSlTour() %>
                     </td>
-                    <td><%= t.getSoldQuantity() %>
+                    <td><%= t.getTour().getSoldQuantity() %>
                     </td>
                     <td>
-                        <a href="edit-tour?id=<%= t.getTourID() %>" class="btn btn-warning">Sửa</a>
-                        <a href="delete-tour?id=<%= t.getTourID() %>"
+                        <a href="edit-tour?id=<%= t.getTour().getTourID() %>" class="btn btn-warning">Sửa</a>
+                        <a href="delete-tour?id=<%= t.getTour().getTourID() %>"
                            onclick="return confirm('Xóa tour này?')"
                            class="btn btn-danger">Xóa</a>
                     </td>
+                </tr>
+                <%
+                    }
+                } else {
+                %>
+                <tr>
+                    <td colspan="10" style="text-align:center; padding:20px;">
+                        Không có dữ liệu tour
+                    </td>
+
                 </tr>
                 <%
                     }

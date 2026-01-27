@@ -57,6 +57,11 @@ public class TourService {
     public List<Tour> getTopSellingToursByCategory(int categoriesID, int limit) {
         return tourDAO.getTopSellingToursByCategory(categoriesID, limit);
     }
+
+    public List<Tour> getAllTours_l() {
+        List<Tour> tours = tourDAO.getAllTours();
+        return tours;
+    }
 }
 
 //    // Fen có thể thêm logic kiểm tra sức chứa ở đây nếu muốn nâng cao
