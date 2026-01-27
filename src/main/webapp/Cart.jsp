@@ -5,11 +5,6 @@
 
 <%
     Cart cart = (Cart) session.getAttribute("cart");
-    if (cart == null) {
-        cart = new Cart();
-        session.setAttribute("cart", cart);
-    }
-
     List<CartItem> items = cart.getItems();
 %>
 <!DOCTYPE html>
@@ -63,7 +58,7 @@
                             <a href="<%= request.getContextPath() %>/Cart.jsp">
                                 <i class="fa-solid fa-cart-shopping"></i>
                                 <span class="cart-count">
-                                    <%= cart != null ? cart.getTotalQuantity() : 0 %>
+                                    <%= (cart != null) ? cart.getTotalQuantity() : 0 %>
                                 </span>
                             </a>
                         </div>

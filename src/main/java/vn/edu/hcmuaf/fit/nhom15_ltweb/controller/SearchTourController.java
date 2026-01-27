@@ -5,9 +5,9 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import vn. edu.hcmuaf.fit.nhom15_ltweb.model.Tour;
-import vn.edu. hcmuaf.fit.nhom15_ltweb.model.Category;
-import vn.edu. hcmuaf.fit.nhom15_ltweb.service.TourService;
+import vn.edu.hcmuaf.fit.nhom15_ltweb.model.Category;
+import vn.edu.hcmuaf.fit.nhom15_ltweb.model.TourWithImage;
+import vn.edu.hcmuaf.fit.nhom15_ltweb.service.TourService;
 
 import java.io.IOException;
 import java.util.List;
@@ -25,7 +25,7 @@ public class SearchTourController extends HttpServlet {
         String categoryIdStr = request.getParameter("categoryId");
 
         Integer categoryId = null;
-        if (categoryIdStr != null && ! categoryIdStr.isEmpty()) {
+        if (categoryIdStr != null && !categoryIdStr.isEmpty()) {
             try {
                 categoryId = Integer.parseInt(categoryIdStr);
             } catch (NumberFormatException e) {
@@ -34,7 +34,7 @@ public class SearchTourController extends HttpServlet {
         }
 
         // Tìm kiếm theo danh mục
-        List<Tour> tourList;
+        List<TourWithImage> tourList;
         String categoryName = null;
 
         if (categoryId != null && categoryId > 0) {
@@ -48,7 +48,7 @@ public class SearchTourController extends HttpServlet {
             }
         } else {
             // Lấy tất cả tour
-            tourList = tourService. getAllTours();
+            tourList = tourService.getAllTours();
         }
 
         // Lấy danh sách danh mục cho sidebar

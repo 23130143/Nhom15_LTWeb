@@ -22,6 +22,20 @@ public class Cart implements Serializable {
     }
 
     public void add(CartItem item) {
+        int tourID = item.getTour().getTourID();
+
+        if (items.containsKey(tourID)) {
+            CartItem existingItem = items.get(tourID);
+            existingItem.setAdultQty(
+                    existingItem.getAdultQty() + item.getAdultQty()
+            );
+            existingItem.setChildQty(
+                    existingItem.getChildQty() + item.getChildQty()
+            );
+        } else {
+            items.put(tourID, item);
+        }
+
 
     }
 
