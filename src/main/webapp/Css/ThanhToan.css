@@ -26,10 +26,10 @@ p {
 }
 
 #header {
-    position: sticky; /* hoặc fixed nếu muốn luôn hiển thị */
+    position: sticky;
     top: 0;
-    z-index: 1000; /* đảm bảo cao hơn các section bên dưới */
-    background-color: white; /* tránh trong suốt */
+    z-index: 1000;
+    background-color: white;
 }
 
 
@@ -93,7 +93,7 @@ nav .menu .item .sub-item {
     background-color: hsl(208, 100%, 22%);
     border-radius: 6px;
     padding: 15px 20px;
-    z-index: 2000; /* quan trọng */
+    z-index: 2000;
 }
 
 nav .menu .item:hover .sub-item {
@@ -118,7 +118,6 @@ nav .menu .item .sub-item a:hover {
     display: flex;
     align-items: center;
     gap: 30px;
-
 }
 
 /* Account Dropdown */
@@ -273,7 +272,6 @@ footer .footer-top {
     color: hsl(188, 79%, 47%);
 }
 
-/* Icon mạng xã hội */
 .icon_social {
     display: flex;
     justify-content: center;
@@ -296,7 +294,6 @@ footer .footer-top {
     transform: scale(1.1);
 }
 
-/* Footer bottom */
 .footer-bottom {
     border-top: 1px solid #ccc;
     padding: 15px 0;
@@ -309,27 +306,24 @@ footer .footer-top {
     font-size: 14px;
 }
 
-/* Đảm bảo footer sát mép dưới */
 html, body {
     height: 100%;
     margin: 0;
     padding: 0;
 }
 
-/* Nếu vẫn có khoảng trắng do layout flex */
 .footer {
     margin: 0;
     padding: 0;
 }
 
-/* Loại bỏ khoảng trống do các phần tử block mặc định */
 .footer-bottom {
     margin: 0;
     padding: 10px 0;
 }
 
 
-/* PHƯƠNG THỨC THANH TOÁN */
+/* ================= PHƯƠNG THỨC THANH TOÁN (LAYOUT) ================= */
 .main-container {
     display: flex;
     align-items: flex-start;
@@ -431,22 +425,91 @@ html, body {
 }
 
 
-/* THÔNG TIN TOUR VÀ GIÁ */
+/* ================= THÔNG TIN TOUR (HIỆU ỨNG XẾP CHỒNG) ================= */
+
+/* 1. Hộp chứa bên phải */
 .summary-section {
     flex: 0 0 32%;
+
+    /* Thiết lập Flex dọc và đẩy nội dung xuống dưới (cho hộp Tổng tiền) */
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    justify-content: flex-end;
+
+    /* Quan trọng cho hiệu ứng xếp chồng */
+    position: relative;
+    min-height: 500px; /* Tăng chiều cao để chứa đủ các thẻ khi chồng lên */
+
+    margin-bottom: 20px;
 }
 
+/* 2. Style thẻ Tour Card - Có hiệu ứng xếp chồng */
 .tour-card {
+    /* Absolute để các thẻ đè lên nhau */
+    position: absolute;
+    top: 0;
+    left: 2.5%; /* Canh giữa (vì width 95%) */
+    width: 95%;
+
     background: white;
     border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     padding: 23px;
+    border: 1px solid #eee;
+
+    /* Hiệu ứng chuyển động */
+    transition: all 0.4s ease-in-out;
 }
 
-.tour-header, .tour-payment-header {
+/* --- LOGIC XẾP CHỒNG --- */
+
+/* Thẻ thứ 1 (Sau cùng, nhỏ nhất) */
+.tour-card:nth-child(1) {
+    z-index: 1;
+    top: 0px;
+    transform: scale(0.92);
+    opacity: 0.7;
+}
+
+/* Thẻ thứ 2 (Ở giữa) */
+.tour-card:nth-child(2) {
+    z-index: 2;
+    top: 25px;
+    transform: scale(0.96);
+    opacity: 0.9;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+/* Thẻ thứ 3 (Trước nhất, to nhất) */
+.tour-card:nth-child(3) {
+    z-index: 3;
+    top: 50px;
+    transform: scale(1);
+    opacity: 1;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+/* Ẩn các thẻ từ thứ 4 trở đi */
+.tour-card:nth-child(n+4) {
+    display: none;
+}
+
+/* Hiệu ứng Hover: Tách thẻ ra để xem */
+.summary-section:hover .tour-card:nth-child(1) {
+    top: -40px;
+    opacity: 1;
+}
+.summary-section:hover .tour-card:nth-child(2) {
+    top: -20px;
+    opacity: 1;
+}
+.summary-section:hover .tour-card:nth-child(3) {
+    top: 60px;
+}
+
+
+/* 3. Style nội dung bên trong Tour Card */
+.tour-header {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -481,10 +544,6 @@ html, body {
     color: hsl(220, 10%, 45%);
 }
 
-.tour-dates h3 {
-    font-size: 15px;
-}
-
 .tour-summary {
     width: 100%;
     display: flex;
@@ -494,53 +553,6 @@ html, body {
     padding-top: 10px;
     font-size: 14px;
     color: hsl(220, 10%, 40%);
-}
-
-.tour-section-title h4 {
-    font-size: 15px;
-    margin-bottom: 15px;
-}
-
-.tag-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-.tag {
-    background: hsl(200, 70%, 95%);
-    color: hsl(200, 60%, 30%);
-    padding: 4px 10px;
-    border-radius: 6px;
-    font-size: 13px;
-}
-
-/* CHI TIẾT GIÁ */
-.tour-payment {
-    background: hsl(0, 0%, 100%);
-    border-radius: 12px;
-    box-shadow: 0 2px 8px hsl(0, 0%, 0%, 0.05);
-    padding: 24px;
-    margin-bottom: 60px;
-}
-
-.tour-payment-header {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 12px;
-    color: hsl(200, 70%, 45%);
-}
-
-.tour-payment-header i {
-    font-size: 16px;
-    color: hsl(200, 70%, 45%);
-}
-
-.tour-payment-header h4 {
-    font-size: 16px;
-    font-weight: 600;
-    color: hsl(220, 15%, 20%);
 }
 
 .tour-payment-price {
@@ -570,6 +582,41 @@ html, body {
     min-width: 150px;
 }
 
+
+/* 4. Hộp Tổng Tiền (Nằm dưới cùng) */
+/* Selector này target trực tiếp thẻ con trực tiếp .tour-payment của .summary-section */
+.summary-section > .tour-payment {
+    background: hsl(0, 0%, 100%);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px hsl(0, 0%, 0%, 0.05);
+    padding: 24px;
+    margin-top: auto; /* Đẩy xuống đáy container */
+
+    position: relative;
+    z-index: 10; /* Luôn nổi lên trên */
+    width: 100%; /* Đảm bảo full width trong flex container */
+    box-sizing: border-box; /* Tính padding vào width */
+}
+
+.tour-payment-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    color: hsl(200, 70%, 45%);
+}
+
+.tour-payment-header i {
+    font-size: 16px;
+    color: hsl(200, 70%, 45%);
+}
+
+.tour-payment-header h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: hsl(220, 15%, 20%);
+}
+
 .total-line {
     display: flex;
     justify-content: space-between;
@@ -577,6 +624,7 @@ html, body {
     padding-top: 10px;
     font-weight: 700;
     margin-top: 10px;
+    border-top: 1px solid hsl(0, 0%, 88%);
 }
 
 .total-line .label {
