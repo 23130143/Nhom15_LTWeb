@@ -42,7 +42,7 @@ public class LoginController extends HttpServlet {
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
             if ("ADMIN".equalsIgnoreCase(user.getRole())) {
-                response.sendRedirect("/Admin_DashBoard.jsp");
+                response.sendRedirect("/admin/dashboard");
             } else {
                 session.setMaxInactiveInterval(30 * 60);
                 response.sendRedirect(request.getContextPath() + "/home");

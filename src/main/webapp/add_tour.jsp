@@ -40,21 +40,22 @@
 
     <div class="form-container">
         <h2>Thêm Tour Mới</h2>
-        <div class="content">
-            <div class="form-group">
-                <label for="id_tour">ID Tour</label>
-                <input type="text" id="id_tour" name="ID_Tour" maxlength="5">
-            </div>
+        <form action="<%= request.getContextPath() %>/admin/add-tour" method="post" enctype="multipart/form-data"
+              class="content">
+            <%--            <div class="form-group">--%>
+            <%--                <label for="id_tour">ID Tour</label>--%>
+            <%--                <input type="text" id="id_tour" name="ID_Tour" maxlength="5">--%>
+            <%--            </div>--%>
 
             <div class="form-group">
                 <label for="id_category">ID Category</label>
                 <input type="text" id="id_category" name="ID_Category">
             </div>
 
-            <div class="form-group">
-                <label for="id_km">ID Khuyến Mãi</label>
-                <input type="text" id="id_km" name="ID_KhuyenMai" maxlength="5">
-            </div>
+            <%--            <div class="form-group">--%>
+            <%--                <label for="id_km">ID Khuyến Mãi</label>--%>
+            <%--                <input type="text" id="id_km" name="ID_KhuyenMai" maxlength="5">--%>
+            <%--            </div>--%>
 
             <div class="form-group">
                 <label for="title">Tên Tour</label>
@@ -117,10 +118,11 @@
             </div>
 
             <div class="form-actions">
-                <a href="<%= request.getContextPath() %>/AdSanPham.jsp" class="btn-submit">Lưu Tour</a>
+                <%--                <a href="<%= request.getContextPath() %>/AdSanPham.jsp" class="btn-submit">Lưu Tour</a>--%>
+                <button type="submit" class="btn-submit">Lưu Tour</button>
                 <a href="<%= request.getContextPath() %>/AdSanPham.jsp" class="btn-cancel">Hủy</a>
             </div>
-        </div>
+        </form>
     </div>
 </div>
 </body>

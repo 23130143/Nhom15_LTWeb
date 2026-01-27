@@ -1,3 +1,5 @@
+<%@ page import="vn.edu.hcmuaf.fit.nhom15_ltweb.model.Banner" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,8 +42,20 @@
 
         <!-- Search + Add -->
         <div class="search-box">
-            <input class="search" type="text" placeholder="Tìm Banner...">
-            <a href="<%= request.getContextPath() %>/Them_Banner.jsp" class="btn-add">+ Thêm Banner</a>
+            <form class="search-form"
+                  action="<%= request.getContextPath() %>/admin/banner"
+                  method="get">
+                <input class="search"
+                       type="text"
+                       name="keyword"
+                       placeholder="Tìm Banner...">
+                <button type="submit" class="btn-search">🔍</button>
+            </form>
+
+            <a href="<%= request.getContextPath() %>/Them_Banner.jsp"
+               class="btn-add">
+                + Thêm Banner
+            </a>
         </div>
 
         <!-- Danh sách Banner -->
@@ -58,38 +72,35 @@
                 </thead>
 
                 <tbody>
+                <%
+                    List<Banner> banners = (List<Banner>) request.getAttribute("banners");
+                    if (banners != null) {
+                        for (Banner b : banners) {
+                %>
                 <tr>
-                    <td>1</td>
-                    <td>Summer Sale 2025</td>
-                    <td><img src="<%= request.getContextPath() %>/IMAGE/asset/images/search.gif" width="120" class="banner-img" alt="Banner Summer Sale"></td>
-                    <td>10/11/2025</td>
+                    <td><%= b.getBannerID() %>
+                    </td>
+                    <td><%= b.getTitle() %>
+                    </td>
+                    <td>
+                        <img src="<%= request.getContextPath() + b.getImgBanner() %>"
+                             width="120" class="banner-img">
+                    </td>
+                    <td><%= b.getCreatedDate() %>
+                    </td>
                     <td>
                         <a href="#" class="btn-edit">Sửa</a>
                         <a href="#" class="btn-delete">Xóa</a>
                     </td>
                 </tr>
-
+                <%
+                    }
+                } else {
+                %>
                 <tr>
-                    <td>2</td>
-                    <td>Khuyến mãi Tết</td>
-                    <td><img src="<%= request.getContextPath() %>/IMAGE/asset/images/search.gif" width="120" class="banner-img" alt="Banner Tết"></td>
-                    <td>25/10/2025</td>
-                    <td>
-                        <a href="#" class="btn-edit">Sửa</a>
-                        <a href="#" class="btn-delete">Xóa</a>
-                    </td>
+                    <td colspan="7" style="text-align:center">Chưa có banner</td>
                 </tr>
-
-                <tr>
-                    <td>3</td>
-                    <td>Tour Cao Cấp</td>
-                    <td><img src="<%= request.getContextPath() %>/IMAGE/asset/images/search.gif" width="120" class="banner-img" alt="Banner Tour Cao Cấp"></td>
-                    <td>01/08/2025</td>
-                    <td>
-                        <a href="#" class="btn-edit">Sửa</a>
-                        <a href="#" class="btn-delete">Xóa</a>
-                    </td>
-                </tr>
+                <%}%>
                 </tbody>
 
             </table>

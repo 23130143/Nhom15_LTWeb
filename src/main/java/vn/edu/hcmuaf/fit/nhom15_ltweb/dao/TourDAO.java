@@ -1,6 +1,7 @@
 package vn.edu.hcmuaf.fit.nhom15_ltweb.dao;
 
 import vn.edu.hcmuaf.fit.nhom15_ltweb.model.Tour;
+import vn.edu.hcmuaf.fit.nhom15_ltweb.model.TourExperience;
 import vn.edu.hcmuaf.fit.nhom15_ltweb.model.TourWithImage;
 import vn.edu.hcmuaf.fit.nhom15_ltweb.model.Tourimages;
 import vn.edu.hcmuaf.fit.nhom15_ltweb.ultils.DBConnect;
@@ -8,7 +9,6 @@ import vn.edu.hcmuaf.fit.nhom15_ltweb.ultils.DBConnect;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import vn.edu.hcmuaf.fit.nhom15_ltweb.model.TourExperience;
 
 public class TourDAO {
 
@@ -50,7 +50,9 @@ public class TourDAO {
                 }
                 tours.add(new TourWithImage(tour, img));
             }
-        } catch (Exception e) { e.printStackTrace(); }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return tours;
     }
 
@@ -101,7 +103,9 @@ public class TourDAO {
                 }
                 tours.add(new TourWithImage(tour, img));
             }
-        } catch (Exception e) { e.printStackTrace(); }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return tours;
     }
 
@@ -215,7 +219,8 @@ public class TourDAO {
         tour.setSlTour(rs.getInt("SlTour"));
         return tour;
     }
-//    public Tour getTourById_p(int id) {
+
+    //    public Tour getTourById_p(int id) {
 //        // 1. Lấy thông tin Tour và Khuyến mãi (PERCENT)
 //        String sql = "SELECT t.*, p.promoType, p.discountValue " +
 //                "FROM Tours t " +
@@ -287,6 +292,7 @@ public class TourDAO {
         }
         return list;
     }
+
     // Lấy danh sách điểm tham quan theo tourID (giới hạn số lượng)
     public List<TourExperience> getExperiencesByTourId(int tourID, int limit) {
         List<TourExperience> list = new ArrayList<>();
@@ -316,5 +322,48 @@ public class TourDAO {
     // Lấy tất cả điểm tham quan của tour
     public List<TourExperience> getAllExperiencesByTourId(int tourID) {
         return getExperiencesByTourId(tourID, 100);
+    }
+
+    public int insertTour(Tour tour) {
+        String sql = "INSERT INTO Tours (title, adultPrice, Childprice, categoriesID,availableCapacity, Departure, description, location, duration, SlTour) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
+
+        try (Connection conn = DBConnect.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+
+            ps.setString(1, tour.getTitle());
+            ps.setDouble(2, tour.getAdultPrice());
+            ps.setDouble(3, tour.getChildPrice());
+            ps.setInt(4, tour.getCategoriesID());
+            ps.setInt(5, tour.getAvailableCapacity());
+            ps.setString(6, tour.getDeparture());
+            ps.setString(7, tour.getDescription());
+            ps.setString(8, tour.getLocation());
+            ps.setString(9, tour.getDuration());
+            ps.setInt(10, tour.getSlTour());
+
+            ps.executeUpdate();
+
+            ResultSet rs = ps.getGeneratedKeys();
+            if (rs.next()) return rs.getInt(1);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
+
+    public void insertTourImage(int tourID, String imageURL) {
+        String sql = "INSERT INTO TourImages (tourID, imageURL) VALUES (?, ?)";
+
+        try (Connection conn = DBConnect.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setInt(1, tourID);
+            ps.setString(2, imageURL);
+            ps.executeUpdate();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

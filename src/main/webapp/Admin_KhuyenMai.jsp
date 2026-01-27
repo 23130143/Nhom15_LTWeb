@@ -1,3 +1,6 @@
+<%@ page import="vn.edu.hcmuaf.fit.nhom15_ltweb.model.Promotion" %>
+<%@ page import="java.util.List" %>
+<%@ page import="vn.edu.hcmuaf.fit.nhom15_ltweb.model.Tour" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,20 +44,31 @@
     <section class="content">
         <h2 class="section-title">Khuyến mãi</h2>
 
-        <div class="search-box">
-            <input class="search" type="text" placeholder="Tìm tên khuyến mãi...">
+        <form action="<%= request.getContextPath() %>/admin/promotions"
+              method="get"
+              class="search-box">
+
+            <input class="search"
+                   type="text"
+                   name="keyword"
+                   placeholder="Tìm tên khuyến mãi..."
+                   value="<%= request.getAttribute("keyword") != null
+                ? request.getAttribute("keyword")
+                : "" %>">
 
             <div class="btn-group">
-                <a href="<%= request.getContextPath() %>/add_tour.jsp" class="btn-add">
+                <a href="<%= request.getContextPath() %>/admin/addpromotion"
+                   class="btn-add">
                     + Thêm khuyến mãi
                 </a>
 
-                <button class="btn-link" onclick="openLinkModal()">
+                <button type="button"
+                        class="btn-link"
+                        onclick="openLinkModal()">
                     🔗 Gắn tour
                 </button>
             </div>
-        </div>
-
+        </form>
 
         <!-- Danh sách Tour -->
         <div class="panel">
@@ -74,63 +88,75 @@
                 </thead>
 
                 <tbody>
+                <%
+                    List<Promotion> promotions = (List<Promotion>) request.getAttribute("promotions");
 
+                    if (promotions != null) {
+                        for (Promotion p : promotions) {
+                %>
                 <tr>
-                    <td>1</td>
-                    <td>Tour Singapore - Malaysia</td>
-                    <td>Giảm giá sản phẩm</td>
-                    <td>2.000.000 VND</td>
-                    <td>Sắp tới</td>
-                    <td>01/12/2025</td>
-                    <td>31/12/2025</td>
-                    <td>
-                        Tour Malaysia 4N3D <br>
-                        Tour Singapore 5N4D <br>
-                        Tour Malaysia - Singapore 6N5Đ
+                    <td><%= p.getPromoID() %>
                     </td>
+                    <td><%= p.getPromoName() %>
+                    </td>
+
+                    <td>
+                        <%= "percent".equals(p.getPromoType())
+                                ? "Giảm theo %"
+                                : "Giảm trực tiếp" %>
+                    </td>
+
+                    <td>
+                        <%= "percent".equals(p.getPromoType())
+                                ? p.getDiscountValue() + " %"
+                                : String.format("%,.0f VND", p.getDiscountValue()) %>
+                    </td>
+
+                    <td>
+                        <%
+                            java.util.Date now = new java.util.Date();
+                            String status;
+                            if (now.before(p.getStartDate())) {
+                                status = "Sắp tới";
+                            } else if (now.after(p.getEndDate())) {
+                                status = "Kết thúc";
+                            } else {
+                                status = "Đang khuyến mãi";
+                            }
+                        %>
+                        <%= status %>
+                    </td>
+
+                    <td><%= p.getStartDate() %>
+                    </td>
+                    <td><%= p.getEndDate() %>
+                    </td>
+
+                    <td>—</td>
+
                     <td class="action-cell">
-                        <a href="#" class="btn-edit">Sửa</a>
-                        <a href="#" class="btn-delete">Xóa</a>
+                        <a href="edit-promotion?id=<%= p.getPromoID() %>" class="btn-edit">
+                            Sửa
+                        </a>
+                        <a href="delete-promotion?id=<%= p.getPromoID() %>"
+                           onclick="return confirm('Xóa khuyến mãi này?')"
+                           class="btn-delete">
+                            Xóa
+                        </a>
                     </td>
                 </tr>
-
+                <%
+                    }
+                } else {
+                %>
                 <tr>
-                    <td>2</td>
-                    <td>Tour Hàn Quốc</td>
-                    <td>Giảm giá sản phẩm</td>
-                    <td>3.000.000 VND</td>
-                    <td>Đang khuyến mãi</td>
-                    <td>16/11/2025</td>
-                    <td>30/11/2025</td>
-                    <td>
-                        Tour Seoul - Nami - Everland 5N4Đ <br>
-                        Tour Busan - Jeju 6N5Đ <br>
-                        Tour Hàn Quốc ngắm tuyết 4N3Đ
-                    </td>
-                    <td class="action-cell">
-                        <a href="#" class="btn-edit">Sửa</a>
-                        <a href="#" class="btn-delete">Xóa</a>
+                    <td colspan="10" style="text-align:center; padding:20px;">
+                        Không có dữ liệu khuyến mãi
                     </td>
                 </tr>
-
-                <tr>
-                    <td>3</td>
-                    <td>Tour Nhật Bản</td>
-                    <td>Giảm giá sản phẩm</td>
-                    <td>3.500.000 VND</td>
-                    <td>Kết thúc</td>
-                    <td>01/11/2025</td>
-                    <td>15/11/2025</td>
-                    <td>
-                        Tour Tokyo - Fuji - Disneyland 6N5Đ <br>
-                        Tour Kyoto - Osaka 5N4Đ <br>
-                        Tour Nhật Bản mùa hoa anh đào 7N6Đ
-                    </td>
-                    <td class="action-cell">
-                        <a href="#" class="btn-edit">Sửa</a>
-                        <a href="#" class="btn-delete">Xóa</a>
-                    </td>
-                </tr>
+                <%
+                    }
+                %>
                 </tbody>
             </table>
         </div>
@@ -138,28 +164,60 @@
 </div>
 <!-- Modal liên kết tour -->
 <div id="linkModal" class="modal">
-    <div class="modal-content">
+    <form class="modal-content"
+          method="post"
+          action="<%= request.getContextPath() %>/admin/link-tour">
+
         <h3>Liên kết khuyến mãi với tour</h3>
 
+        <!-- Promotion -->
         <label>Chọn khuyến mãi</label>
-        <select>
-            <option>Tour Singapore - Malaysia</option>
-            <option>Tour Hàn Quốc</option>
-            <option>Tour Nhật Bản</option>
+        <select name="promoID" required>
+            <%
+                List<Promotion> promotionsModal = (List<Promotion>) request.getAttribute("promotions");
+
+                if (promotionsModal != null) {
+                    for (Promotion p : promotionsModal) {
+            %>
+            <option value="<%= p.getPromoID() %>">
+                <%= p.getPromoName() %>
+            </option>
+            <%
+                    }
+                }
+            %>
         </select>
 
+        <!-- Tours -->
         <label>Chọn tour áp dụng</label>
         <div class="tour-list">
-            <label><input type="checkbox"> Tour Singapore 5N4Đ</label>
-            <label><input type="checkbox"> Tour Malaysia 4N3Đ</label>
-            <label><input type="checkbox"> Tour Tokyo - Fuji 6N5Đ</label>
+            <%
+                List<Tour> tours =
+                        (List<Tour>) request.getAttribute("tours");
+
+                if (tours != null) {
+                    for (Tour t : tours) {
+            %>
+            <label>
+                <input type="checkbox"
+                       name="tourIDs"
+                       value="<%= t.getTourID() %>">
+                <%= t.getTitle() %>
+            </label>
+            <%
+                    }
+                }
+            %>
         </div>
 
         <div class="modal-actions">
-            <button class="btn-save">Lưu</button>
-            <button class="btn-cancel" onclick="closeLinkModal()">Hủy</button>
+            <button type="submit" class="btn-save">Lưu</button>
+            <button type="button"
+                    class="btn-cancel"
+                    onclick="closeLinkModal()">Hủy
+            </button>
         </div>
-    </div>
+    </form>
 </div>
 <script>
     function openLinkModal() {

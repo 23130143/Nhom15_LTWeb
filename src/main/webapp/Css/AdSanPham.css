@@ -215,3 +215,36 @@ body {
     font-size: 13px;
     color: #a0aec0;
 }
+
+.search-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 12px;
+}
+
+.search-form {
+    display: flex;
+    gap: 10px;
+    flex: 1;
+}
+
+.search-form .search {
+    flex: 1;
+}
+
+.btn-search {
+    background-color: #1e90ff;
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-search:hover {
+    background-color: #187bcd;
+}
+
