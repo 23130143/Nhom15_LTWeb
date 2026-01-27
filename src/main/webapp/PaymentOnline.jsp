@@ -1,14 +1,25 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="vn.edu.hcmuaf.fit.nhom15_ltweb.model.cart.Cart" %>
 <%@ page import="vn.edu.hcmuaf.fit.nhom15_ltweb.model.User" %>
+<%@ page import="java.text.DecimalFormat" %>
 
 <%
-    // Lấy Giỏ hàng từ Session để đếm số lượng
+    // 1. Lấy Giỏ hàng và User (để hiển thị Header)
     Cart cartHeader = (Cart) session.getAttribute("cart");
-
-    // Lấy thông tin người dùng (để hiển thị tên/đăng nhập)
     User userHeader = (User) session.getAttribute("user");
     boolean isUserLoggedIn = (userHeader != null);
+
+    // 2. NHẬN DỮ LIỆU TỪ CONTROLLER GỬI SANG (Sửa lỗi ở đây)
+    // Lấy mã đơn hàng và số tiền
+    String orderCode = (String) request.getAttribute("orderCode");
+    Double totalAmount = (Double) request.getAttribute("totalAmount");
+
+    // Kiểm tra null (để tránh lỗi nếu chạy trực tiếp file này mà không qua Checkout)
+    if(orderCode == null) orderCode = "Chưa có mã";
+    if(totalAmount == null) totalAmount = 0.0;
+
+    // 3. Khởi tạo formatter để định dạng tiền tệ (ví dụ: 1.000.000 đ)
+    DecimalFormat formatter = new DecimalFormat("###,###,###");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -114,8 +125,7 @@
     </div>
 
     <div class="main-button">
-        <button class="btn-confirm" onclick="window.location.href='${pageContext.request.contextPath}/Tour.jsp'">Quay về trang chủ</button>
-    </div>
+        <button class="btn-confirm" onclick="window.location.href='${pageContext.request.contextPath}/home'">Quay về trang chủ</button>    </div>
 </section>
 
 <footer class="footer">
