@@ -11,7 +11,17 @@
 <%@ page import="vn.edu.hcmuaf.fit.nhom15_ltweb.dao.TourExperienceDAO" %>
 <%@ page import="vn.edu.hcmuaf.fit.nhom15_ltweb.dao.PromotionDAO" %>
 <%@ page import="java.text.NumberFormat" %>
+<%@ page import="vn.edu.hcmuaf.fit.nhom15_ltweb.model.cart.Cart" %>
+<%@ page import="vn.edu.hcmuaf.fit.nhom15_ltweb.model.User" %>
 <%@ page import="java.util.Locale" %>
+<%
+    // Lấy Giỏ hàng từ Session để đếm số lượng
+    Cart cartHeader = (Cart) session.getAttribute("cart");
+
+    // Lấy thông tin người dùng (để hiển thị tên/đăng nhập)
+    User userHeader = (User) session.getAttribute("user");
+    boolean isUserLoggedIn = (userHeader != null);
+%>
 
 <%
     List<Tour> topTours = (List<Tour>) request.getAttribute("topTours");
@@ -55,6 +65,7 @@
                             </a>
                         </div>
                     </div>
+
                     <div class="header-center">
                         <nav>
                             <div class="menu">
@@ -76,20 +87,20 @@
                         </nav>
                     </div>
 
-                    <!-- PHẦN KHÁC BIỆT DUY NHẤT -->
                     <div class="header-right">
                         <div class="cart">
                             <a href="${pageContext.request.contextPath}/my-cart">
                                 <i class="fa-solid fa-cart-shopping"></i>
-                                <span class="cart-count">0</span>
+                                <span class="cart-count">
+                                    <%= (cartHeader != null) ? cartHeader.getItems().size() : 0 %>
+                                </span>
                             </a>
                         </div>
 
-                        <% if (isLoggedIn) { %>
-                        <!-- ĐÃ ĐĂNG NHẬP -->
+                        <% if (isUserLoggedIn) { %>
                         <div class="account">
                             <i class="fa-solid fa-circle-user"></i>
-                            <span><%= loggedUser.getFullName() %> ▾</span>
+                            <span><%= userHeader.getFullName() %> ▾</span>
                             <div class="dropdown">
                                 <a href="${pageContext.request.contextPath}/LichSuChuyenDi.jsp" class="dropdown-item">Kỳ nghỉ của tôi</a>
                                 <a href="${pageContext.request.contextPath}/HoSo.jsp" class="dropdown-item">Hồ sơ của tôi</a>
@@ -97,7 +108,6 @@
                             </div>
                         </div>
                         <% } else { %>
-                        <!-- CHƯA ĐĂNG NHẬP -->
                         <div class="account">
                             <i class="fa-solid fa-circle-user"></i>
                             <span>Tài khoản ▾</span>

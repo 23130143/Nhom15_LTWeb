@@ -4,17 +4,25 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 
 <%
+    // Lấy giỏ hàng từ Session
     Cart cart = (Cart) session.getAttribute("cart");
+    // Phòng hờ trường hợp chưa có giỏ hàng
+    if (cart == null) {
+        cart = new Cart();
+        session.setAttribute("cart", cart);
+    }
     List<CartItem> items = cart.getItems();
 %>
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
-    <title>Giỏ hàng</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <title>Giỏ hàng - TravelNow</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="<%= request.getContextPath() %>/Css/Cart.css">
 </head>
 <body>
+
 <section id="header">
     <div class="header-content">
         <header class="header-wrapper">
@@ -22,43 +30,37 @@
                 <div class="header-box">
                     <div class="logo">
                         <div class="header-logo">
-                            <a href="<%= request.getContextPath() %>/index.jsp" aria-label="TravelNow"
-                               class="Travel-logo">
+                            <a href="<%= request.getContextPath() %>/index.jsp" aria-label="TravelNow" class="Travel-logo">
                                 <img src="<%= request.getContextPath() %>/IMAGE/asset/images/LOGO.png" alt="Travel">
                             </a>
                         </div>
                     </div>
                     <div class="header-center">
                         <nav>
-                            <div class=" menu">
-                                <a href="<%= request.getContextPath() %>/index.jsp" class="item active">Tour trong
-                                    nước</a>
-                                <a href="<%= request.getContextPath() %>/index.jsp" class="item">Tour nước ngoài</a>
+                            <div class="menu">
+                                <a href="<%= request.getContextPath() %>/home" class="item active">Tour trong nước</a>
+                                <a href="<%= request.getContextPath() %>/home" class="item">Tour nước ngoài</a>
                                 <a href="<%= request.getContextPath() %>/Khuyen_Mai.jsp" class="item">Khuyến mãi</a>
                                 <a href="<%= request.getContextPath() %>/GioiThieu.jsp" class="item">Giới thiệu</a>
-
-                                <div class="item ">
+                                <div class="item">
                                     <div class="sub">
                                         <span></span><span></span><span></span>
                                     </div>
                                     <div class="sub-item">
                                         <a href="<%= request.getContextPath() %>/Tin%20t%E1%BB%A9c.jsp">Tin Tức</a>
-                                        <a href="<%= request.getContextPath() %>/Cau_hoi_thuong_gap.jsp">Câu hỏi thường
-                                            gặp</a>
-                                        <a href="<%= request.getContextPath() %>/NhatKyDuLich.jsp">Nhật ký khách
-                                            hàng</a>
+                                        <a href="<%= request.getContextPath() %>/Cau_hoi_thuong_gap.jsp">Câu hỏi thường gặp</a>
+                                        <a href="<%= request.getContextPath() %>/NhatKyDuLich.jsp">Nhật ký khách hàng</a>
                                     </div>
                                 </div>
-
                             </div>
                         </nav>
                     </div>
                     <div class="header-right">
                         <div class="cart">
-                            <a href="<%= request.getContextPath() %>/Cart.jsp">
+                            <a href="<%= request.getContextPath() %>/my-cart">
                                 <i class="fa-solid fa-cart-shopping"></i>
                                 <span class="cart-count">
-                                    <%= (cart != null) ? cart.getTotalQuantity() : 0 %>
+                                    <%= cart.getItems().size()  %>
                                 </span>
                             </a>
                         </div>
@@ -66,9 +68,7 @@
                             <i class="fa-solid fa-circle-user"></i>
                             <span>Tài khoản ▾</span>
                             <div class="dropdown">
-                                <button onclick="location.href='<%= request.getContextPath() %>/Sign-in.jsp'"
-                                        class="register-btn">Đăng ký
-                                </button>
+                                <button onclick="location.href='<%= request.getContextPath() %>/Sign-in.jsp'" class="register-btn">Đăng ký</button>
                                 <p>Quý khách đã có tài khoản?<br>
                                     <a href="<%= request.getContextPath() %>/Log-in.jsp">Đăng nhập ngay</a>
                                 </p>
@@ -84,6 +84,7 @@
         </header>
     </div>
 </section>
+
 <section class="cart-container">
     <div class="container">
         <h2 class="cart-title">Giỏ hàng của bạn</h2>
@@ -98,14 +99,15 @@
                 <th>Thao Tác</th>
             </tr>
             </thead>
-
             <tbody>
             <%
                 if (items == null || items.isEmpty()) {
             %>
             <tr>
-                <td colspan="5" style="text-align:center; padding:30px;">
-                    Giỏ hàng của bạn đang trống.
+                <td colspan="5" style="text-align:center; padding:50px;">
+                    <i class="fa-solid fa-basket-shopping" style="font-size: 40px; color: #ddd; margin-bottom: 10px;"></i>
+                    <p>Giỏ hàng của bạn đang trống.</p>
+                    <a href="<%= request.getContextPath() %>/home" style="color: #ff8000; font-weight: bold;">Quay lại tìm tour ngay!</a>
                 </td>
             </tr>
             <%
@@ -114,32 +116,39 @@
                 for (CartItem item : items) {
             %>
             <tr>
-                <td><%= index++ %>
-                </td>
+                <td><%= index++ %></td>
 
                 <td class="product-info">
-                    <img src="<%= item.getImageURL() %>" alt="Tour Thumbnail">
-                    <div><strong><%= item.getTour().getTitle() %>
-                    </strong></div>
+                    <% if(item.getImageURL() != null && !item.getImageURL().isEmpty()) { %>
+                    <img src="<%= request.getContextPath() %>/<%= item.getImageURL() %>" alt="Tour Img">
+                    <% } else { %>
+                    <img src="<%= request.getContextPath() %>/IMAGE/asset/images/no-image.jpg" alt="No Image">
+                    <% } %>
+                    <div><strong><%= item.getTour().getTitle() %></strong></div>
                 </td>
 
                 <td>
-                    <form action="update-item" method="post">
+                    <form action="${pageContext.request.contextPath}/cart-handler" method="post" class="update-form">
+                        <input type="hidden" name="action" value="update">
                         <input type="hidden" name="tourID" value="<%= item.getTour().getTourID() %>">
 
-                        <div class="quantity-group">
-                            <div class="q-item">
-                                <span>Người lớn:</span>
-                                <input type="number" name="adultQty"
-                                       value="<%= item.getAdultQty() %>"
-                                       min="1" onchange="this.form.submit()">
+                        <div class="quantity-wrapper">
+                            <div class="qty-row">
+                                <span class="qty-label">Người lớn:</span>
+                                <div class="qty-control">
+                                    <button type="button" class="qty-btn minus" onclick="updateQuantity(this, -1, 1)">-</button>
+                                    <input type="number" name="adultQty" value="<%= item.getAdultQty() %>" readonly>
+                                    <button type="button" class="qty-btn plus" onclick="updateQuantity(this, 1, 1)">+</button>
+                                </div>
                             </div>
 
-                            <div class="q-item">
-                                <span>Trẻ em:</span>
-                                <input type="number" name="childQty"
-                                       value="<%= item.getChildQty() %>"
-                                       min="0" onchange="this.form.submit()">
+                            <div class="qty-row">
+                                <span class="qty-label">Trẻ em:</span>
+                                <div class="qty-control">
+                                    <button type="button" class="qty-btn minus" onclick="updateQuantity(this, -1, 0)">-</button>
+                                    <input type="number" name="childQty" value="<%= item.getChildQty() %>" readonly>
+                                    <button type="button" class="qty-btn plus" onclick="updateQuantity(this, 1, 0)">+</button>
+                                </div>
                             </div>
                         </div>
                     </form>
@@ -148,15 +157,15 @@
                 <td class="price-cell">
                     <span class="price-amount">
                         <%= item.format(item.getOriginalPrice()) %>
-                    </span> đ
+                    </span> <small>đ</small>
                 </td>
 
                 <td>
-                    <form action="del-item" method="post">
-                        <input type="hidden" name="tourID"
-                               value="<%= item.getTour().getTourID() %>">
-                        <button type="submit" class="btn-delete"
-                                onclick="return confirm('Bạn có chắc muốn xóa tour này?')">
+                    <form action="${pageContext.request.contextPath}/cart-handler" method="post">
+                        <input type="hidden" name="action" value="remove">
+                        <input type="hidden" name="tourID" value="<%= item.getTour().getTourID() %>">
+
+                        <button type="submit" class="btn-delete" onclick="return confirm('Bạn có chắc muốn xóa tour này?')">
                             <i class="fa-solid fa-trash-can"></i> Xóa
                         </button>
                     </form>
@@ -173,17 +182,15 @@
             <div class="total-box">
                 <p>
                     Tổng tiền:
-                    <strong><%= cart.format(cart.getTotal()) %> đ</strong>
+                    <strong><%= cart.format(cart.getTotal()) %> <small>đ</small></strong>
                 </p>
 
                 <div class="action-btns">
-                    <button class="btn-continue"
-                            onclick="location.href='index.jsp'">
+                    <button class="btn-continue" onclick="location.href='<%= request.getContextPath() %>/home'">
                         Tiếp tục chọn tour
                     </button>
 
-                    <button class="btn-checkout"
-                            onclick="location.href='checkout'">
+                    <button class="btn-checkout" onclick="location.href='checkout'">
                         Thanh toán ngay
                     </button>
                 </div>
@@ -191,5 +198,28 @@
         </div>
     </div>
 </section>
+
+<footer class="footer">
+</footer>
+
+<script>
+    function updateQuantity(btn, change, minVal) {
+        // 1. Tìm ô input nằm cùng trong div .qty-control
+        var input = btn.parentElement.querySelector('input');
+        var currentVal = parseInt(input.value);
+        var newVal = currentVal + change;
+
+        // 2. Chặn không cho giảm dưới mức tối thiểu
+        if (newVal < minVal) return;
+
+        // 3. Cập nhật giá trị hiển thị trên ô input
+        input.value = newVal;
+
+        // 4. Tìm form bao ngoài và gửi submit ngay lập tức
+        var form = btn.closest('form');
+        form.submit();
+    }
+</script>
+
 </body>
 </html>
