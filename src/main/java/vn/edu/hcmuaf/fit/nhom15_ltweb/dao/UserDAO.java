@@ -218,4 +218,36 @@ public class UserDAO {
         }
         return false;
     }
+    public List<User> searchUser(String keyword) {
+        List<User> list = new ArrayList<>();
+
+        String sql = "SELECT * FROM users WHERE fullName LIKE ? OR email LIKE ? OR phone LIKE ?";
+
+        try (Connection con = DBConnect.getConnection();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            String key = "%" + keyword + "%";
+            ps.setString(1, key);
+            ps.setString(2, key);
+            ps.setString(3, key);
+
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                User u = new User();
+                u.setUserID(rs.getInt("userID"));
+                u.setFullName(rs.getString("fullName"));
+                u.setEmail(rs.getString("email"));
+                u.setPhone(rs.getString("phone"));
+                u.setCreatedAt(rs.getDate("createdAt"));
+
+                list.add(u);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return list;
+    }
+
 }

@@ -1,14 +1,30 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ page import="vn.edu.hcmuaf.fit.nhom15_ltweb.model.cart.Cart" %>
+<%@ page import="java.util.*" %>
+<%@ page import="java.text.DecimalFormat" %>
+<%@ page import="vn.edu.hcmuaf.fit.nhom15_ltweb.model.cart.CartItem" %>
 <%@ page import="vn.edu.hcmuaf.fit.nhom15_ltweb.model.User" %>
 
 <%
-    // Lấy Giỏ hàng từ Session để đếm số lượng
-    Cart cartHeader = (Cart) session.getAttribute("cart");
-
-    // Lấy thông tin người dùng (để hiển thị tên/đăng nhập)
+    // 1. Lấy thông tin người dùng
     User userHeader = (User) session.getAttribute("user");
     boolean isUserLoggedIn = (userHeader != null);
+
+    // 2. Lấy giỏ hàng từ Session
+    Cart cart = (Cart) session.getAttribute("cart");
+
+    // Nếu giỏ hàng null thì tạo mới
+    if (cart == null) {
+        cart = new Cart();
+    }
+
+    // --- DÒNG QUAN TRỌNG ĐỂ SỬA LỖI ---
+    // Gán biến cart vào cartHeader để dòng 73 và các phần Header cũ hiểu được
+    Cart cartHeader = cart;
+    // ----------------------------------
+
+    // 3. Khởi tạo formatter
+    DecimalFormat formatter = new DecimalFormat("###,###,###");
 %>
 <!DOCTYPE html>
 <html lang="vi">
