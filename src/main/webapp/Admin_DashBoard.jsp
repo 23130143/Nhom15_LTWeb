@@ -20,7 +20,7 @@
     Integer todayBookings = (Integer) request.getAttribute("todayBookings");
     Double monthlyRevenue = (Double) request.getAttribute("monthlyRevenue");
 
-    List<vn.edu.hcmuaf.fit.nhom15_ltweb.model.ActivityLog> activities = (List<ActivityLog>) request.getAttribute("activities");
+//    List<vn.edu.hcmuaf.fit.nhom15_ltweb.model.ActivityLog> activities = (List<ActivityLog>) request.getAttribute("activities");
 %>
 
 <!-- Sidebar -->
@@ -34,13 +34,42 @@
     </div>
 
     <nav class="menu">
-        <a class="menu-item active" href="<%= request.getContextPath() %>/Admin_DashBoard.jsp">DashBoard</a>
-        <a class="menu-item" href="<%= request.getContextPath() %>/AdSanPham.jsp">Tour</a>
-        <a class="menu-item" href="<%= request.getContextPath() %>/Admin_NguoiDung.jsp">Người dùng</a>
-        <a class="menu-item" href="<%= request.getContextPath() %>/Admin_KhuyenMai.jsp">Khuyến mãi</a>
-        <a class="menu-item" href="<%= request.getContextPath() %>/Admin_Banner.jsp">Banner</a>
-        <a class="menu-item logout" href="<%= request.getContextPath() %>/index.jsp">Đăng xuất</a>
+        <a class="menu-item active"
+           href="<%= request.getContextPath() %>/admin/dashboard">
+            DashBoard
+        </a>
+
+        <a class="menu-item"
+           href="<%= request.getContextPath() %>/admin/tours">
+            Tour
+        </a>
+
+        <a class="menu-item"
+           href="<%= request.getContextPath() %>/admin/users">
+            Người dùng
+        </a>
+
+        <a class="menu-item"
+           href="<%= request.getContextPath() %>/admin/promotions">
+            Khuyến mãi
+        </a>
+
+        <a class="menu-item"
+           href="<%= request.getContextPath() %>/admin/banners">
+            Banner
+        </a>
+
+        <a class="menu-item"
+           href="<%= request.getContextPath() %>/admin/bookings">
+            Booking
+        </a>
+
+        <a class="menu-item logout"
+           href="<%= request.getContextPath() %>/logout">
+            Đăng xuất
+        </a>
     </nav>
+
 </aside>
 
 <!-- Main content -->
@@ -96,32 +125,32 @@
                 </tr>
                 </thead>
                 <tbody>
-                <%
-                    if (activities != null && !activities.isEmpty()) {
-                        for (vn.edu.hcmuaf.fit.nhom15_ltweb.model.ActivityLog log : activities) {
-                %>
-                <tr>
-                    <td><%= log.getCreatedAt() %>
-                    </td>
-                    <td><%= log.getUsername() %>
-                    </td>
-                    <td><%= log.getAction() %>
-                    </td>
-                    <td><%= log.getDetail() %>
-                    </td>
-                </tr>
-                <%
-                    }
-                } else {
-                %>
+<%--                <%--%>
+<%--                    if (activities != null && !activities.isEmpty()) {--%>
+<%--                        for (vn.edu.hcmuaf.fit.nhom15_ltweb.model.ActivityLog log : activities) {--%>
+<%--                %>--%>
+<%--                <tr>--%>
+<%--                    <td><%= log.getCreatedAt() %>--%>
+<%--                    </td>--%>
+<%--                    <td><%= log.getUsername() %>--%>
+<%--                    </td>--%>
+<%--                    <td><%= log.getAction() %>--%>
+<%--                    </td>--%>
+<%--                    <td><%= log.getDetail() %>--%>
+<%--                    </td>--%>
+<%--                </tr>--%>
+<%--                <%--%>
+<%--                    }--%>
+<%--                } else {--%>
+<%--                %>--%>
                 <tr>
                     <td colspan="4" style="text-align:center;">
                         Chưa có hoạt động nào
                     </td>
                 </tr>
-                <%
-                    }
-                %>
+<%--                <%--%>
+<%--                    }--%>
+<%--                %>--%>
                 </tbody>
             </table>
         </div>

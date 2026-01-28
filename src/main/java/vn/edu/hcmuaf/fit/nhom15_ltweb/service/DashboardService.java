@@ -19,8 +19,8 @@ public class DashboardService {
         return s;
     }
 
-    public List<ActivityLog> getRecentActivities() {
-        return dao.recentActivities();
-    }
+//    public List<ActivityLog> getRecentActivities() {
+//        return dao.recentActivities();
+//    }
 }
 

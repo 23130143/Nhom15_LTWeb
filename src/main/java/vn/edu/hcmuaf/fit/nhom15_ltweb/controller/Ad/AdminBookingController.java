@@ -5,44 +5,40 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import vn.edu.hcmuaf.fit.nhom15_ltweb.model.Tour;
+import vn.edu.hcmuaf.fit.nhom15_ltweb.model.Booking;
 import vn.edu.hcmuaf.fit.nhom15_ltweb.model.User;
-import vn.edu.hcmuaf.fit.nhom15_ltweb.service.TourService;
+import vn.edu.hcmuaf.fit.nhom15_ltweb.service.CheckoutService;
 
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "AdminTour", value = "/admin/tours")
-public class AdminTour extends HttpServlet {
-
-    private TourService service = new TourService();
+@WebServlet(name = "AdminBookingController", value = "/admin/bookings")
+public class AdminBookingController extends HttpServlet {
+    private CheckoutService bookingService = new CheckoutService();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        request.setCharacterEncoding("UTF-8");
-
         String keyword = request.getParameter("keyword");
 
-        List<Tour> tours;
+        List<Booking> bookings;
 
         if (keyword != null && !keyword.trim().isEmpty()) {
-            tours = service.searchTourByName(keyword);
+            bookings = bookingService.searchBooking(keyword);
         } else {
-            tours = service.getAllTours_l();
+            bookings = bookingService.getAllBookingForAdmin();
         }
 
-        request.setAttribute("tours", tours);
+        request.setAttribute("bookings", bookings);
         request.setAttribute("keyword", keyword);
 
-        request.getRequestDispatcher("/AdSanPham.jsp")
+        request.getRequestDispatcher("/Admin_Booking.jsp")
                 .forward(request, response);
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
 }

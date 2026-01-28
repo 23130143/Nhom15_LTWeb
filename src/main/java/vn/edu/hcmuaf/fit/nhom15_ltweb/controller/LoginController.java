@@ -42,8 +42,8 @@ public class LoginController extends HttpServlet {
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
             session.setAttribute("userID", user.getUserID());
-            if ("ADMIN".equalsIgnoreCase(user.getRole())) {
-                response.sendRedirect("/admin/dashboard");
+            if ("admin".equalsIgnoreCase(user.getRole())) {
+                response.sendRedirect(request.getContextPath() + "/admin/dashboard");
             } else {
                 session.setMaxInactiveInterval(30 * 60);
                 response.sendRedirect(request.getContextPath() + "/home");

@@ -1,17 +1,22 @@
 package vn.edu.hcmuaf.fit.nhom15_ltweb.service;
 
+import vn.edu.hcmuaf.fit.nhom15_ltweb.dao.BookingCoachDAO;
+import vn.edu.hcmuaf.fit.nhom15_ltweb.dao.BookingFlightDAO;
+import vn.edu.hcmuaf.fit.nhom15_ltweb.dao.BookingHotelDAO;
 import vn.edu.hcmuaf.fit.nhom15_ltweb.dao.OrderDAO;
-import vn.edu.hcmuaf.fit.nhom15_ltweb.model.Booking;
-import vn.edu.hcmuaf.fit.nhom15_ltweb.model.Payments;
-import vn.edu.hcmuaf.fit.nhom15_ltweb.model.User;
+import vn.edu.hcmuaf.fit.nhom15_ltweb.model.*;
 import vn.edu.hcmuaf.fit.nhom15_ltweb.model.cart.Cart;
 import vn.edu.hcmuaf.fit.nhom15_ltweb.model.cart.CartItem;
 
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.List;
 
 public class CheckoutService {
     private OrderDAO orderDAO = new OrderDAO();
+    private BookingFlightDAO flightDAO = new BookingFlightDAO();
+    private BookingHotelDAO hotelDAO = new BookingHotelDAO();
+    private BookingCoachDAO coachDAO = new BookingCoachDAO();
 
     public boolean processCheckout(User user, Cart cart, String paymentMethod) {
         if (cart == null || cart.getItems().isEmpty()) return false;
@@ -70,5 +75,29 @@ public class CheckoutService {
             e.printStackTrace(); // In lỗi ra console nếu có Exception
             return false;
         }
+    }
+
+    public List<Booking> getAllBookingForAdmin() {
+        return orderDAO.getAllBookingForAdmin();
+    }
+
+    public List<Booking> searchBooking(String keyword) {
+        return orderDAO.searchBooking(keyword);
+    }
+
+    public BookingDetailDTO getBookingDetail(int id) {
+        return orderDAO.getBookingDetail(id);
+    }
+
+    public void addFlight(BookingFlight f) {
+        flightDAO.insertFlight(f);
+    }
+
+    public void addHotel(BookingHotel h) {
+        hotelDAO.insertHotel(h);
+    }
+
+    public void addCoach(BookingCoach c) {
+        coachDAO.insertCoach(c);
     }
 }

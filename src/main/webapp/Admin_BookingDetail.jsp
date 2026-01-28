@@ -23,12 +23,42 @@
     </div>
 
     <nav class="menu">
-        <a class="menu-item" href="#">Dashboard</a>
-        <a class="menu-item active" href="#">Booking</a>
-        <a class="menu-item" href="#">Tour</a>
-        <a class="menu-item" href="#">Người dùng</a>
-        <a class="menu-item logout" href="#">Đăng xuất</a>
+        <a class="menu-item"
+           href="<%= request.getContextPath() %>/admin/dashboard">
+            DashBoard
+        </a>
+
+        <a class="menu-item"
+           href="<%= request.getContextPath() %>/admin/tours">
+            Tour
+        </a>
+
+        <a class="menu-item"
+           href="<%= request.getContextPath() %>/admin/users">
+            Người dùng
+        </a>
+
+        <a class="menu-item"
+           href="<%= request.getContextPath() %>/admin/promotions">
+            Khuyến mãi
+        </a>
+
+        <a class="menu-item"
+           href="<%= request.getContextPath() %>/admin/banners">
+            Banner
+        </a>
+
+        <a class="menu-item active"
+           href="<%= request.getContextPath() %>/admin/bookings">
+            Booking
+        </a>
+
+        <a class="menu-item logout"
+           href="<%= request.getContextPath() %>/logout">
+            Đăng xuất
+        </a>
     </nav>
+
 </aside>
 
 <!-- ===== Main ===== -->

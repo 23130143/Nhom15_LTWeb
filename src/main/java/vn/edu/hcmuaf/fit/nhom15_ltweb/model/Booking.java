@@ -1,5 +1,7 @@
 package vn.edu.hcmuaf.fit.nhom15_ltweb.model;
+
 import java.sql.Date;
+
 public class Booking {
     private int bookingID;
     private int userID;
@@ -11,8 +13,14 @@ public class Booking {
     private int childCount;
     private Date startDate;
     private String note;
+
+    // ==== CHỈ PHỤC VỤ ADMIN ====
+    private String userName;
+    private String tourName;
+
     public Booking() {
     }
+
     public Booking(int bookingID, int userID, int tourID, Date bookingDate, double totalPrice, String status, int adultCount, int childCount, Date startDate, String note) {
         this.bookingID = bookingID;
         this.userID = userID;
@@ -104,5 +112,21 @@ public class Booking {
 
     public void setNote(String note) {
         this.note = note;
+    }
+
+    public String getTourName() {
+        return tourName;
+    }
+
+    public void setTourName(String tourName) {
+        this.tourName = tourName;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 }

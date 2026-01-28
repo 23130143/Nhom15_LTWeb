@@ -6,7 +6,7 @@ import vn.edu.hcmuaf.fit.nhom15_ltweb.model.Banner;
 import java.util.List;
 
 public class BannerService {
-    private BannerDAO bannerDAO;
+    private BannerDAO bannerDAO = new BannerDAO();
 
     public BannerService() {
     }
