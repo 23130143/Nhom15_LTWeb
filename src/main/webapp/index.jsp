@@ -242,8 +242,8 @@
 <!-- SECTION 2: TOUR CHÂU ÂU -->
 <section class="tour-section" id="2">
     <div class="container">
-        <h2>Tour Châu Âu</h2>
-        <span class="title-group">Khám phá vẻ đẹp Châu Âu</span>
+        <h2>Tour Miền Bắc</h2>
+        <span class="title-group">Khám phá vẻ đẹp Miền Bắc</span>
 
         <div class="tour-grid">
             <%
@@ -255,7 +255,8 @@
 
                         double oldPrice = tour.getAdultPrice();
                         double newPrice = (promo != null) ? promo.calculateNewPrice(oldPrice) : oldPrice;
-                        String promoLabel = (promo != null) ? promo.getLabel() : "Châu Âu";
+                        // Sửa nhãn mặc định nếu không có khuyến mãi
+                        String promoLabel = (promo != null) ? promo.getLabel() : "Miền Bắc";
             %>
             <div class="tour-card" onclick="location.href='${pageContext.request.contextPath}/tour-detail?id=<%= tour.getTourID() %>'">
                 <div class="label red"><%= promoLabel %></div>
@@ -280,10 +281,10 @@
                                 for (TourExperience exp : experiences) { %>
                             <li><%= exp.getTourExperienceTitle() %></li>
                             <% } } else { %>
-                            <li>Tham quan thành phố</li>
-                            <li>Khám phá văn hóa Châu Âu</li>
-                            <li>Thưởng thức ẩm thực</li>
-                            <li>Mua sắm</li>
+                            <li>Tham quan thủ đô</li>
+                            <li>Khám phá Tây Bắc</li>
+                            <li>Thưởng thức phở</li>
+                            <li>Ngắm cảnh Vịnh</li>
                             <% } %>
                         </ul>
                     </div>
@@ -296,7 +297,7 @@
                 </div>
             </div>
             <% } } else { %>
-            <p>Không có tour Châu Âu nào.</p>
+            <p>Không có tour Miền Bắc nào.</p>
             <% } %>
         </div>
 
@@ -309,8 +310,8 @@
 <!-- SECTION 3: TOUR CHÂU Á -->
 <section class="tour-section" id="3">
     <div class="container">
-        <h2>Tour Châu Á</h2>
-        <span class="title-group">Khám phá vẻ đẹp Châu Á</span>
+        <h2>Tour Miền Nam</h2>
+        <span class="title-group">Khám phá vẻ đẹp Miền Nam</span>
 
         <div class="tour-grid">
             <%
@@ -322,7 +323,8 @@
 
                         double oldPrice = tour.getAdultPrice();
                         double newPrice = (promo != null) ? promo.calculateNewPrice(oldPrice) : oldPrice;
-                        String promoLabel = (promo != null) ? promo.getLabel() : "Châu Á";
+                        // Sửa nhãn mặc định
+                        String promoLabel = (promo != null) ? promo.getLabel() : "Miền Nam";
             %>
             <div class="tour-card" onclick="location.href='${pageContext.request.contextPath}/tour-detail?id=<%= tour.getTourID() %>'">
                 <div class="label red"><%= promoLabel %></div>
@@ -347,10 +349,10 @@
                                 for (TourExperience exp : experiences) { %>
                             <li><%= exp.getTourExperienceTitle() %></li>
                             <% } } else { %>
-                            <li>Tham quan thành phố</li>
-                            <li>Khám phá văn hóa Châu Á</li>
-                            <li>Thưởng thức ẩm thực</li>
-                            <li>Mua sắm</li>
+                            <li>Chợ nổi miền Tây</li>
+                            <li>Biển đảo Phú Quốc</li>
+                            <li>Văn hóa Nam Bộ</li>
+                            <li>Trái cây miệt vườn</li>
                             <% } %>
                         </ul>
                     </div>
@@ -363,7 +365,7 @@
                 </div>
             </div>
             <% } } else { %>
-            <p>Không có tour Châu Á nào.</p>
+            <p>Không có tour Miền Nam nào.</p>
             <% } %>
         </div>
 
@@ -372,7 +374,6 @@
         </div>
     </div>
 </section>
-
 <!-- FOOTER -->
 <footer class="footer">
     <div class="footer-top">
